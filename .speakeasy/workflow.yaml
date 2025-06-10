@@ -10,6 +10,9 @@ targets:
     zendesk:
         target: python
         source: Support API
+        publish:
+            pypi:
+                token: $pypi_token
         codeSamples:
             registry:
                 location: registry.speakeasyapi.dev/botbrains/zendesksdk/support-api-python-code-samples
