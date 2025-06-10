@@ -1,0 +1,9 @@
+# SLAPolicyFilterDefinitionResponseDefinitions
+
+
+## Fields
+
+| Field                                                                                                  | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `all`                                                                                                  | List[[models.SLAPolicyFilterDefinitionResponseAll](../models/slapolicyfilterdefinitionresponseall.md)] | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |
+| `any`                                                                                                  | List[[models.SLAPolicyFilterDefinitionResponseAny](../models/slapolicyfilterdefinitionresponseany.md)] | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |

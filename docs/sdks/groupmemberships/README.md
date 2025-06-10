@@ -1,0 +1,397 @@
+# GroupMemberships
+(*group_memberships*)
+
+## Overview
+
+### Available Operations
+
+* [list_group_memberships](#list_group_memberships) - List Memberships
+* [create_group_membership](#create_group_membership) - Create Membership
+* [show_group_membership_by_id](#show_group_membership_by_id) - Show Membership
+* [delete_group_membership](#delete_group_membership) - Delete Membership
+* [list_assignable_group_memberships](#list_assignable_group_memberships) - List Assignable Memberships
+* [group_membership_bulk_create](#group_membership_bulk_create) - Bulk Create Memberships
+* [group_membership_bulk_delete](#group_membership_bulk_delete) - Bulk Delete Memberships
+* [group_membership_set_default](#group_membership_set_default) - Set Membership as Default
+
+## list_group_memberships
+
+#### Pagination
+
+* Cursor pagination (recommended)
+* Offset pagination
+
+See [Pagination](/api-reference/introduction/pagination/).
+
+Returns a maximum of 100 records per page.
+
+#### Allowed For:
+
+* Agents
+
+
+### Example Usage
+
+```python
+from zendesk import Zendesk, models
+
+
+with Zendesk(
+    security=models.Security(
+        username="",
+        password="",
+    ),
+) as z_client:
+
+    res = z_client.group_memberships.list_group_memberships()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.GroupMembershipsResponse](../../models/groupmembershipsresponse.md)**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## create_group_membership
+
+Assigns an agent to a given group.
+
+#### Allowed For
+
+* Admins
+* Agents assigned to a custom role with permissions to manage group memberships (Enterprise only)
+
+
+### Example Usage
+
+```python
+from zendesk import Zendesk, models
+
+
+with Zendesk(
+    security=models.Security(
+        username="",
+        password="",
+    ),
+) as z_client:
+
+    res = z_client.group_memberships.create_group_membership()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.GroupMembershipResponse](../../models/groupmembershipresponse.md)**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## show_group_membership_by_id
+
+The 'id' is the group membership id, not a group id.
+
+#### Allowed For
+
+* Agents
+
+
+### Example Usage
+
+```python
+from zendesk import Zendesk, models
+
+
+with Zendesk(
+    security=models.Security(
+        username="",
+        password="",
+    ),
+) as z_client:
+
+    res = z_client.group_memberships.show_group_membership_by_id(group_membership_id=4)
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `group_membership_id`                                               | *int*                                                               | :heavy_check_mark:                                                  | The ID of the group membership                                      | 4                                                                   |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
+
+### Response
+
+**[models.GroupMembershipResponse](../../models/groupmembershipresponse.md)**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## delete_group_membership
+
+Immediately removes a user from a group and schedules a job to unassign all working tickets that are assigned to the given user and group combination.
+
+#### Allowed For
+
+* Admins
+* Agents assigned to a custom role with permissions to manage group memberships (Enterprise only)
+
+
+### Example Usage
+
+```python
+from zendesk import Zendesk, models
+
+
+with Zendesk(
+    security=models.Security(
+        username="",
+        password="",
+    ),
+) as z_client:
+
+    z_client.group_memberships.delete_group_membership(group_membership_id=4)
+
+    # Use the SDK ...
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `group_membership_id`                                               | *int*                                                               | :heavy_check_mark:                                                  | The ID of the group membership                                      | 4                                                                   |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## list_assignable_group_memberships
+
+Returns a maximum of 100 group memberships per page.
+
+#### Pagination
+
+* Cursor pagination (recommended)
+* Offset pagination
+
+See [Pagination](/api-reference/introduction/pagination/).
+
+Returns a maximum of 100 records per page.
+
+#### Allowed For:
+
+* Agents
+
+
+### Example Usage
+
+```python
+from zendesk import Zendesk, models
+
+
+with Zendesk(
+    security=models.Security(
+        username="",
+        password="",
+    ),
+) as z_client:
+
+    res = z_client.group_memberships.list_assignable_group_memberships()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.GroupMembershipsResponse](../../models/groupmembershipsresponse.md)**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## group_membership_bulk_create
+
+Assigns up to 100 agents to given groups.
+
+#### Allowed For
+
+* Admins
+* Agents assigned to a custom role with permissions to manage group memberships (Enterprise only)
+
+#### Response
+
+This endpoint returns a `job_status` [JSON object](/api-reference/ticketing/ticket-management/job_statuses/#json-format) and queues a background job to do the work. Use the [Show Job Status](/api-reference/ticketing/ticket-management/job_statuses/#show-job-status) endpoint to check for the job's completion.
+
+
+### Example Usage
+
+```python
+from zendesk import Zendesk, models
+
+
+with Zendesk(
+    security=models.Security(
+        username="",
+        password="",
+    ),
+) as z_client:
+
+    res = z_client.group_memberships.group_membership_bulk_create()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.JobStatusResponse](../../models/jobstatusresponse.md)**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## group_membership_bulk_delete
+
+Immediately removes users from groups and schedules a job to unassign all working tickets that are assigned to the given user and group combinations.
+
+#### Allowed For
+
+* Admins
+* Agents assigned to a custom role with permissions to manage group memberships (Enterprise only)
+
+
+### Example Usage
+
+```python
+from zendesk import Zendesk, models
+
+
+with Zendesk(
+    security=models.Security(
+        username="",
+        password="",
+    ),
+) as z_client:
+
+    res = z_client.group_memberships.group_membership_bulk_delete(ids="1,2,3")
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `ids`                                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | Id of the group memberships to delete. Comma separated              | 1,2,3                                                               |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
+
+### Response
+
+**[models.JobStatusResponse](../../models/jobstatusresponse.md)**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## group_membership_set_default
+
+#### Allowed For:
+
+* Agents
+
+
+### Example Usage
+
+```python
+from zendesk import Zendesk, models
+
+
+with Zendesk(
+    security=models.Security(
+        username="",
+        password="",
+    ),
+) as z_client:
+
+    res = z_client.group_memberships.group_membership_set_default(user_id=35436, group_membership_id=4)
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `user_id`                                                           | *int*                                                               | :heavy_check_mark:                                                  | The id of the user                                                  | 35436                                                               |
+| `group_membership_id`                                               | *int*                                                               | :heavy_check_mark:                                                  | The ID of the group membership                                      | 4                                                                   |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
+
+### Response
+
+**[models.GroupMembershipsResponse](../../models/groupmembershipsresponse.md)**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |

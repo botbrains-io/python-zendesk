@@ -1,0 +1,15 @@
+# DefinitionsResponseConditionsAll
+
+
+## Fields
+
+| Field                                                                    | Type                                                                     | Required                                                                 | Description                                                              |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| `group`                                                                  | *Optional[str]*                                                          | :heavy_minus_sign:                                                       | N/A                                                                      |
+| `nullable`                                                               | *Optional[bool]*                                                         | :heavy_minus_sign:                                                       | N/A                                                                      |
+| `operators`                                                              | List[[models.ConditionsAllOperator](../models/conditionsalloperator.md)] | :heavy_minus_sign:                                                       | N/A                                                                      |
+| `repeatable`                                                             | *Optional[bool]*                                                         | :heavy_minus_sign:                                                       | N/A                                                                      |
+| `subject`                                                                | *Optional[str]*                                                          | :heavy_minus_sign:                                                       | N/A                                                                      |
+| `title`                                                                  | *Optional[str]*                                                          | :heavy_minus_sign:                                                       | N/A                                                                      |
+| `type`                                                                   | *Optional[str]*                                                          | :heavy_minus_sign:                                                       | N/A                                                                      |
+| `values`                                                                 | List[[models.ConditionsAllValue](../models/conditionsallvalue.md)]       | :heavy_minus_sign:                                                       | N/A                                                                      |

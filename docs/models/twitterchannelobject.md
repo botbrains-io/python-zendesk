@@ -1,0 +1,17 @@
+# TwitterChannelObject
+
+
+## Fields
+
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `allow_reply`                                                        | *Optional[bool]*                                                     | :heavy_minus_sign:                                                   | If replies are allowed for this handle                               |
+| `avatar_url`                                                         | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | The profile image url of the handle                                  |
+| `brand_id`                                                           | *Optional[int]*                                                      | :heavy_minus_sign:                                                   | What brand the handle is associated with                             |
+| `can_reply`                                                          | *Optional[bool]*                                                     | :heavy_minus_sign:                                                   | If replies are allowed for this handle                               |
+| `created_at`                                                         | [date](https://docs.python.org/3/library/datetime.html#date-objects) | :heavy_minus_sign:                                                   | The time the handle was created                                      |
+| `id`                                                                 | *int*                                                                | :heavy_check_mark:                                                   | Automatically assigned upon creation                                 |
+| `name`                                                               | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | The profile name of the handle                                       |
+| `screen_name`                                                        | *str*                                                                | :heavy_check_mark:                                                   | The X handle                                                         |
+| `twitter_user_id`                                                    | *int*                                                                | :heavy_check_mark:                                                   | The country's code                                                   |
+| `updated_at`                                                         | [date](https://docs.python.org/3/library/datetime.html#date-objects) | :heavy_minus_sign:                                                   | The time of the last update of the handle                            |

@@ -1,0 +1,12 @@
+# MacroInput
+
+
+## Fields
+
+| Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `actions`                                                                          | List[[models.ActionObject](../models/actionobject.md)]                             | :heavy_check_mark:                                                                 | Each action describes what the macro will do                                       |
+| `active`                                                                           | *Optional[bool]*                                                                   | :heavy_minus_sign:                                                                 | Useful for determining if the macro should be displayed                            |
+| `description`                                                                      | *OptionalNullable[str]*                                                            | :heavy_minus_sign:                                                                 | The description of the macro                                                       |
+| `restriction`                                                                      | [Optional[models.Restriction]](../models/restriction.md)                           | :heavy_minus_sign:                                                                 | Who may access this macro. Will be null when everyone in the account can access it |
+| `title`                                                                            | *str*                                                                              | :heavy_check_mark:                                                                 | The title of the macro                                                             |

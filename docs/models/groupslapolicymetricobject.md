@@ -1,0 +1,11 @@
+# GroupSLAPolicyMetricObject
+
+
+## Fields
+
+| Field                                                                             | Type                                                                              | Required                                                                          | Description                                                                       |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `business_hours`                                                                  | *Optional[bool]*                                                                  | :heavy_minus_sign:                                                                | Whether the metric targets are being measured in business hours or calendar hours |
+| `metric`                                                                          | *Optional[str]*                                                                   | :heavy_minus_sign:                                                                | The definition of the time that is being measured                                 |
+| `priority`                                                                        | *Optional[str]*                                                                   | :heavy_minus_sign:                                                                | Priority that a ticket must match                                                 |
+| `target`                                                                          | *Optional[int]*                                                                   | :heavy_minus_sign:                                                                | The time within which the end-state for a metric should be met                    |

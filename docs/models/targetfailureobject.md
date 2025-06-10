@@ -1,0 +1,15 @@
+# TargetFailureObject
+
+
+## Fields
+
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `consecutive_failure_count`                                          | *Optional[int]*                                                      | :heavy_minus_sign:                                                   | Number of times the target failed consecutively                      |
+| `created_at`                                                         | [date](https://docs.python.org/3/library/datetime.html#date-objects) | :heavy_minus_sign:                                                   | Time of the failure                                                  |
+| `id`                                                                 | *Optional[int]*                                                      | :heavy_minus_sign:                                                   | The ID of the target failure                                         |
+| `raw_request`                                                        | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | The raw message of the target request                                |
+| `raw_response`                                                       | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | The raw response of the failure                                      |
+| `status_code`                                                        | *Optional[int]*                                                      | :heavy_minus_sign:                                                   | HTTP status code of the target failure                               |
+| `target_name`                                                        | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | Name of the target failure                                           |
+| `url`                                                                | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | The API url of the failure record                                    |

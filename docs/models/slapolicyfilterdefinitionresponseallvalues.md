@@ -1,0 +1,9 @@
+# SLAPolicyFilterDefinitionResponseAllValues
+
+
+## Fields
+
+| Field                                                                                                          | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `list`                                                                                                         | List[[models.SLAPolicyFilterDefinitionResponseAllList](../models/slapolicyfilterdefinitionresponsealllist.md)] | :heavy_minus_sign:                                                                                             | N/A                                                                                                            |
+| `type`                                                                                                         | *Optional[str]*                                                                                                | :heavy_minus_sign:                                                                                             | N/A                                                                                                            |

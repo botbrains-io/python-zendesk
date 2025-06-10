@@ -1,0 +1,12 @@
+# SessionObject
+
+
+## Fields
+
+| Field                                                                                   | Type                                                                                    | Required                                                                                | Description                                                                             |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `authenticated_at`                                                                      | *OptionalNullable[str]*                                                                 | :heavy_minus_sign:                                                                      | When the session was created                                                            |
+| `id`                                                                                    | *int*                                                                                   | :heavy_check_mark:                                                                      | Automatically assigned when the session is created                                      |
+| `last_seen_at`                                                                          | *OptionalNullable[str]*                                                                 | :heavy_minus_sign:                                                                      | The last approximate time this session was seen. This does not update on every request. |
+| `url`                                                                                   | *OptionalNullable[str]*                                                                 | :heavy_minus_sign:                                                                      | The API URL of this session                                                             |
+| `user_id`                                                                               | *OptionalNullable[int]*                                                                 | :heavy_minus_sign:                                                                      | The id of the user                                                                      |

@@ -1,0 +1,15 @@
+# ManySkillBasedRoutingAttributeValues
+
+
+## Fields
+
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `agent_id`                                                           | *Optional[int]*                                                      | :heavy_minus_sign:                                                   | Id of the associated agent                                           |
+| `attribute_id`                                                       | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | Id of the associated attribute                                       |
+| `attribute_value_id`                                                 | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | Id of the associated attribute value                                 |
+| `created_at`                                                         | [date](https://docs.python.org/3/library/datetime.html#date-objects) | :heavy_minus_sign:                                                   | The time of creation of the instance value                           |
+| `id`                                                                 | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | Automatically assigned when an instance value is created             |
+| `name`                                                               | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | Name of the associated attribute value                               |
+| `updated_at`                                                         | [date](https://docs.python.org/3/library/datetime.html#date-objects) | :heavy_minus_sign:                                                   | The time of the last update of the instance value                    |
+| `url`                                                                | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | The URL of the associated attribute value                            |

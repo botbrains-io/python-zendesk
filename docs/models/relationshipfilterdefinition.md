@@ -1,0 +1,9 @@
+# RelationshipFilterDefinition
+
+
+## Fields
+
+| Field                                                                                                | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `conditions_all`                                                                                     | List[[models.TriggerConditionDefinitionObjectAll](../models/triggerconditiondefinitionobjectall.md)] | :heavy_minus_sign:                                                                                   | N/A                                                                                                  |
+| `conditions_any`                                                                                     | List[[models.TriggerConditionDefinitionObjectAny](../models/triggerconditiondefinitionobjectany.md)] | :heavy_minus_sign:                                                                                   | N/A                                                                                                  |

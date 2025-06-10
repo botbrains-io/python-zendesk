@@ -1,0 +1,9 @@
+# GroupSLAPolicyFilterDefinitionResponseValues
+
+
+## Fields
+
+| Field                                                                                                              | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| `list`                                                                                                             | List[[models.GroupSLAPolicyFilterDefinitionResponseList](../models/groupslapolicyfilterdefinitionresponselist.md)] | :heavy_minus_sign:                                                                                                 | N/A                                                                                                                |
+| `type`                                                                                                             | *Optional[str]*                                                                                                    | :heavy_minus_sign:                                                                                                 | N/A                                                                                                                |

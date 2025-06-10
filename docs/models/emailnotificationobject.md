@@ -1,0 +1,16 @@
+# EmailNotificationObject
+
+
+## Fields
+
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `comment_id`                                                         | *Optional[int]*                                                      | :heavy_minus_sign:                                                   | The comment ID associated to this email notification                 |
+| `created_at`                                                         | [date](https://docs.python.org/3/library/datetime.html#date-objects) | :heavy_minus_sign:                                                   | When this email notification was created                             |
+| `email_id`                                                           | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | The email ID of this email notification                              |
+| `message_id`                                                         | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | The value of the Message-Id header of the email                      |
+| `notification_id`                                                    | *Optional[int]*                                                      | :heavy_minus_sign:                                                   | The notification id of this email notification                       |
+| `recipients`                                                         | List[[models.RecipientObject](../models/recipientobject.md)]         | :heavy_minus_sign:                                                   | The list of recipients associated to this email notification         |
+| `ticket_id`                                                          | *Optional[int]*                                                      | :heavy_minus_sign:                                                   | The ticket ID associated to this email notification                  |
+| `updated_at`                                                         | [date](https://docs.python.org/3/library/datetime.html#date-objects) | :heavy_minus_sign:                                                   | When this email notification was last updated                        |
+| `url`                                                                | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | The API url of this email notification                               |

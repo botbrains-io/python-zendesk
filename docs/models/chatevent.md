@@ -1,0 +1,12 @@
+# ChatEvent
+
+Chat event object
+
+
+## Fields
+
+| Field                                                                                                            | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `id`                                                                                                             | *Optional[int]*                                                                                                  | :heavy_minus_sign:                                                                                               | Id assigned to the chat event object                                                                             |
+| `type`                                                                                                           | *Optional[str]*                                                                                                  | :heavy_minus_sign:                                                                                               | Type of chat event                                                                                               |
+| `value`                                                                                                          | [Optional[models.TicketChatCommentRedactionResponseValue]](../models/ticketchatcommentredactionresponsevalue.md) | :heavy_minus_sign:                                                                                               | The value of the chat event object                                                                               |

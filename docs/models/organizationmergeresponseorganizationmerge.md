@@ -1,0 +1,12 @@
+# OrganizationMergeResponseOrganizationMerge
+
+
+## Fields
+
+| Field                                                                                  | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `id`                                                                                   | *str*                                                                                  | :heavy_check_mark:                                                                     | N/A                                                                                    |
+| `loser_id`                                                                             | *int*                                                                                  | :heavy_check_mark:                                                                     | N/A                                                                                    |
+| `status`                                                                               | [models.OrganizationMergeResponseStatus](../models/organizationmergeresponsestatus.md) | :heavy_check_mark:                                                                     | N/A                                                                                    |
+| `url`                                                                                  | *str*                                                                                  | :heavy_check_mark:                                                                     | N/A                                                                                    |
+| `winner_id`                                                                            | *int*                                                                                  | :heavy_check_mark:                                                                     | N/A                                                                                    |

@@ -1,0 +1,18 @@
+# QueueObject
+
+
+## Fields
+
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `created_at`                                                         | [date](https://docs.python.org/3/library/datetime.html#date-objects) | :heavy_minus_sign:                                                   | The time the queue was created                                       |
+| `definition`                                                         | [Optional[models.Definition]](../models/definition.md)               | :heavy_minus_sign:                                                   | Conditions when queue could be applied                               |
+| `description`                                                        | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | The description of the queue                                         |
+| `id`                                                                 | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | Automatically assigned when creating queue                           |
+| `name`                                                               | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | The name of the queue                                                |
+| `order`                                                              | *Optional[int]*                                                      | :heavy_minus_sign:                                                   | The queue-applied order                                              |
+| `primary_groups`                                                     | [Optional[models.PrimaryGroups]](../models/primarygroups.md)         | :heavy_minus_sign:                                                   | Primary group ids linked to the queue                                |
+| `priority`                                                           | *Optional[int]*                                                      | :heavy_minus_sign:                                                   | The queue-applied priority                                           |
+| `secondary_groups`                                                   | [Optional[models.SecondaryGroups]](../models/secondarygroups.md)     | :heavy_minus_sign:                                                   | Secondary group ids linked to the queue                              |
+| `updated_at`                                                         | [date](https://docs.python.org/3/library/datetime.html#date-objects) | :heavy_minus_sign:                                                   | The time of the queue's last update                                  |
+| `url`                                                                | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | The API URL of the queue                                             |

@@ -1,0 +1,9 @@
+# UpdateDecisionApprovalRequestRequestBody
+
+
+## Fields
+
+| Field                                                                                                    | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `notes`                                                                                                  | *Optional[str]*                                                                                          | :heavy_minus_sign:                                                                                       | Notes for the decision                                                                                   |
+| `status`                                                                                                 | [Optional[models.UpdateDecisionApprovalRequestStatus]](../models/updatedecisionapprovalrequeststatus.md) | :heavy_minus_sign:                                                                                       | The status of the approval request                                                                       |

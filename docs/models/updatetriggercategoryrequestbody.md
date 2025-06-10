@@ -1,0 +1,8 @@
+# UpdateTriggerCategoryRequestBody
+
+
+## Fields
+
+| Field                                                                          | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `trigger_category`                                                             | [Optional[models.TriggerCategoryRequest]](../models/triggercategoryrequest.md) | :heavy_minus_sign:                                                             | N/A                                                                            |

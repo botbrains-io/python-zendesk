@@ -1,0 +1,11 @@
+# TicketMetricEventsResponse
+
+
+## Fields
+
+| Field                                                                                | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `ticket_metric_events`                                                               | List[[models.TicketMetricEventBaseObject](../models/ticketmetriceventbaseobject.md)] | :heavy_minus_sign:                                                                   | N/A                                                                                  |
+| `count`                                                                              | *Optional[int]*                                                                      | :heavy_minus_sign:                                                                   | N/A                                                                                  |
+| `end_time`                                                                           | *Optional[int]*                                                                      | :heavy_minus_sign:                                                                   | N/A                                                                                  |
+| `next_page`                                                                          | *Optional[str]*                                                                      | :heavy_minus_sign:                                                                   | N/A                                                                                  |

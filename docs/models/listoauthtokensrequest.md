@@ -1,0 +1,10 @@
+# ListOAuthTokensRequest
+
+
+## Fields
+
+| Field                                                                       | Type                                                                        | Required                                                                    | Description                                                                 | Example                                                                     |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `client_id`                                                                 | *Optional[int]*                                                             | :heavy_minus_sign:                                                          | The id of the OAuth client                                                  | 223443                                                                      |
+| `global_client_id`                                                          | *Optional[int]*                                                             | :heavy_minus_sign:                                                          | The id of the global OAuth client                                           | 334556                                                                      |
+| `all`                                                                       | *Optional[bool]*                                                            | :heavy_minus_sign:                                                          | A boolean that returns all OAuth tokens in the account. Requires admin role | true                                                                        |

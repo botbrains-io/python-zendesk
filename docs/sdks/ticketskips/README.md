@@ -1,0 +1,113 @@
+# TicketSkips
+(*ticket_skips*)
+
+## Overview
+
+### Available Operations
+
+* [record_new_skip](#record_new_skip) - Record a New Skip for the Current User
+* [list_ticket_skips](#list_ticket_skips) - List Ticket Skips
+
+## record_new_skip
+
+Record a new ticket skip for the current user.
+
+#### Allowed For
+
+* Agents
+
+
+### Example Usage
+
+```python
+from zendesk import Zendesk, models
+
+
+with Zendesk(
+    security=models.Security(
+        username="",
+        password="",
+    ),
+) as z_client:
+
+    res = z_client.ticket_skips.record_new_skip()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.TicketSkipCreation](../../models/ticketskipcreation.md)**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## list_ticket_skips
+
+Archived tickets are not included in the response. See
+[About archived tickets](https://support.zendesk.com/hc/en-us/articles/203657756) in
+the Support Help Center.
+
+#### Pagination
+
+- Cursor pagination (recommended)
+- Offset pagination
+
+See [Pagination](/api-reference/introduction/pagination/).
+
+Returns a maximum of 100 records per page.
+
+#### Allowed For
+* Agents with "View only" or higher reports permissions in Support.
+  These permissions are distinct from Explore permissions.
+* Agents retrieving their own skips
+
+
+### Example Usage
+
+```python
+from zendesk import Zendesk, models
+
+
+with Zendesk(
+    security=models.Security(
+        username="",
+        password="",
+    ),
+) as z_client:
+
+    res = z_client.ticket_skips.list_ticket_skips(user_id=35436)
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `user_id`                                                           | *int*                                                               | :heavy_check_mark:                                                  | User ID of an agent                                                 | 35436                                                               |
+| `sort_order`                                                        | [Optional[models.TicketSortOrder]](../../models/ticketsortorder.md) | :heavy_minus_sign:                                                  | Sort order. Defaults to "asc"                                       |                                                                     |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
+
+### Response
+
+**[models.TicketSkipsResponse](../../models/ticketskipsresponse.md)**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |

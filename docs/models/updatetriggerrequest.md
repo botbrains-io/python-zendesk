@@ -1,0 +1,9 @@
+# UpdateTriggerRequest
+
+
+## Fields
+
+| Field                                                                        | Type                                                                         | Required                                                                     | Description                                                                  | Example                                                                      |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `trigger_id`                                                                 | *int*                                                                        | :heavy_check_mark:                                                           | The ID of the trigger                                                        | 198                                                                          |
+| `trigger_with_category_request`                                              | [models.TriggerWithCategoryRequest](../models/triggerwithcategoryrequest.md) | :heavy_check_mark:                                                           | N/A                                                                          |                                                                              |

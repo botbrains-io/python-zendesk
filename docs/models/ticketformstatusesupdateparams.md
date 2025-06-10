@@ -1,0 +1,10 @@
+# TicketFormStatusesUpdateParams
+
+
+## Fields
+
+| Field                                                                                   | Type                                                                                    | Required                                                                                | Description                                                                             |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `destroy`                                                                               | *Optional[str]*                                                                         | :heavy_minus_sign:                                                                      | If set to a value of \"1\" and an id value is passed, the server will delete the record |
+| `custom_status_id`                                                                      | *Optional[int]*                                                                         | :heavy_minus_sign:                                                                      | N/A                                                                                     |
+| `id`                                                                                    | *Optional[str]*                                                                         | :heavy_minus_sign:                                                                      | N/A                                                                                     |

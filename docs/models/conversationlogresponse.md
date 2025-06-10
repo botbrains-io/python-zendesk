@@ -1,0 +1,10 @@
+# ConversationLogResponse
+
+
+## Fields
+
+| Field                                                                                      | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `events`                                                                                   | List[[models.ConversationLogObject](../models/conversationlogobject.md)]                   | :heavy_minus_sign:                                                                         | N/A                                                                                        |
+| `links`                                                                                    | [Optional[models.ConversationLogResponseLinks]](../models/conversationlogresponselinks.md) | :heavy_minus_sign:                                                                         | N/A                                                                                        |
+| `meta`                                                                                     | [Optional[models.ConversationLogResponseMeta]](../models/conversationlogresponsemeta.md)   | :heavy_minus_sign:                                                                         | N/A                                                                                        |

@@ -1,0 +1,9 @@
+# ListUserIdentitiesRequest
+
+
+## Fields
+
+| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `user_id`                                                                                     | *int*                                                                                         | :heavy_check_mark:                                                                            | The id of the user                                                                            | 35436                                                                                         |
+| `type`                                                                                        | [Optional[models.ListUserIdentitiesType]](../models/listuseridentitiestype.md)                | :heavy_minus_sign:                                                                            | Filters results by one or more identity types using the format `?type[]={type}&type[]={type}` |                                                                                               |

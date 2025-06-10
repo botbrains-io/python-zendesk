@@ -1,0 +1,16 @@
+# DynamicContentVariantObject
+
+
+## Fields
+
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `active`                                                             | *Optional[bool]*                                                     | :heavy_minus_sign:                                                   | If the variant is active and useable                                 |
+| `content`                                                            | *str*                                                                | :heavy_check_mark:                                                   | The content of the variant                                           |
+| `created_at`                                                         | [date](https://docs.python.org/3/library/datetime.html#date-objects) | :heavy_minus_sign:                                                   | When the variant was created                                         |
+| `default`                                                            | *Optional[bool]*                                                     | :heavy_minus_sign:                                                   | If the variant is the default for the item it belongs to             |
+| `id`                                                                 | *Optional[int]*                                                      | :heavy_minus_sign:                                                   | Automatically assigned when the variant is created                   |
+| `locale_id`                                                          | *int*                                                                | :heavy_check_mark:                                                   | An active locale                                                     |
+| `outdated`                                                           | *Optional[bool]*                                                     | :heavy_minus_sign:                                                   | If the variant is outdated                                           |
+| `updated_at`                                                         | [date](https://docs.python.org/3/library/datetime.html#date-objects) | :heavy_minus_sign:                                                   | When the variant was last updated                                    |
+| `url`                                                                | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | The API url of the variant                                           |

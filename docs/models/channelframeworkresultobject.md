@@ -1,0 +1,9 @@
+# ChannelFrameworkResultObject
+
+
+## Fields
+
+| Field                                                                                                  | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `external_resource_id`                                                                                 | *Optional[str]*                                                                                        | :heavy_minus_sign:                                                                                     | The external ID of the resource, as passed in                                                          |
+| `status`                                                                                               | [Optional[models.ChannelFrameworkResultStatusObject]](../models/channelframeworkresultstatusobject.md) | :heavy_minus_sign:                                                                                     | The status of the import for the indicated resource                                                    |

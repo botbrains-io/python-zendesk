@@ -1,0 +1,9 @@
+# Filter
+
+
+## Fields
+
+| Field                                                                                                            | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `dollar_and`                                                                                                     | List[[models.CustomObjectRecordFilteredSearchCondition](../models/customobjectrecordfilteredsearchcondition.md)] | :heavy_minus_sign:                                                                                               | N/A                                                                                                              |
+| `dollar_or`                                                                                                      | List[[models.CustomObjectRecordFilteredSearchCondition](../models/customobjectrecordfilteredsearchcondition.md)] | :heavy_minus_sign:                                                                                               | N/A                                                                                                              |

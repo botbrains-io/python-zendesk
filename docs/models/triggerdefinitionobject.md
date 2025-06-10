@@ -1,0 +1,10 @@
+# TriggerDefinitionObject
+
+
+## Fields
+
+| Field                                                                                                | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `actions`                                                                                            | List[[models.TriggerActionDefinitionObject](../models/triggeractiondefinitionobject.md)]             | :heavy_minus_sign:                                                                                   | N/A                                                                                                  |
+| `conditions_all`                                                                                     | List[[models.TriggerConditionDefinitionObjectAll](../models/triggerconditiondefinitionobjectall.md)] | :heavy_minus_sign:                                                                                   | N/A                                                                                                  |
+| `conditions_any`                                                                                     | List[[models.TriggerConditionDefinitionObjectAny](../models/triggerconditiondefinitionobjectany.md)] | :heavy_minus_sign:                                                                                   | N/A                                                                                                  |

@@ -1,0 +1,9 @@
+# GettingTwicketStatusRequest
+
+
+## Fields
+
+| Field                                                                           | Type                                                                            | Required                                                                        | Description                                                                     | Example                                                                         |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `comment_id`                                                                    | *int*                                                                           | :heavy_check_mark:                                                              | The ID of the comment                                                           | 654321                                                                          |
+| `ids`                                                                           | *Optional[str]*                                                                 | :heavy_minus_sign:                                                              | Optional comment ids to retrieve tweet information for only particular comments | 1,3,5                                                                           |

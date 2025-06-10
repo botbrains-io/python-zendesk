@@ -1,0 +1,9 @@
+# TicketCreateVoicemailTicketRequest
+
+
+## Fields
+
+| Field                                                                                                              | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| `display_to_agent`                                                                                                 | *Optional[int]*                                                                                                    | :heavy_minus_sign:                                                                                                 | Optional value such as the ID of the agent that will see the newly created ticket.                                 |
+| `ticket`                                                                                                           | [Optional[models.TicketCreateVoicemailTicketRequestTicket]](../models/ticketcreatevoicemailticketrequestticket.md) | :heavy_minus_sign:                                                                                                 | Ticket object that lists the values to set when the ticket is created                                              |

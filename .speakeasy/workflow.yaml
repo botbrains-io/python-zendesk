@@ -1,0 +1,18 @@
+workflowVersion: 1.0.0
+speakeasyVersion: latest
+sources:
+    Support API:
+        inputs:
+            - location: openapi.yaml
+        registry:
+            location: registry.speakeasyapi.dev/botbrains/zendesksdk/support-api
+targets:
+    zendesk:
+        target: python
+        source: Support API
+        codeSamples:
+            registry:
+                location: registry.speakeasyapi.dev/botbrains/zendesksdk/support-api-python-code-samples
+            labelOverride:
+                fixedValue: Python (SDK)
+            blocking: false

@@ -1,0 +1,10 @@
+# TriggerConditionObject
+
+
+## Fields
+
+| Field                                                                                      | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `field`                                                                                    | *Optional[str]*                                                                            | :heavy_minus_sign:                                                                         | N/A                                                                                        |
+| `operator`                                                                                 | *Optional[str]*                                                                            | :heavy_minus_sign:                                                                         | N/A                                                                                        |
+| `value`                                                                                    | [Optional[models.TriggerConditionObjectValue2]](../models/triggerconditionobjectvalue2.md) | :heavy_minus_sign:                                                                         | N/A                                                                                        |
