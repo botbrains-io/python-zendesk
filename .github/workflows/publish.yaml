@@ -22,7 +22,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          pip install build twine
+          pip install build twine tomllib
 
       - name: Verify version matches tag
         run: |
