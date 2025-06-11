@@ -22,11 +22,11 @@ jobs:
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          pip install build twine tomllib
+          pip install build twine tomli
 
       - name: Verify version matches tag
         run: |
-          VERSION=$(python -c "import tomllib; print(tomllib.load(open('pyproject.toml', 'rb'))['project']['version'])")
+          VERSION=$(python -c "import tomli; print(tomli.load(open('pyproject.toml', 'rb'))['project']['version'])")
           TAG_VERSION=${GITHUB_REF#refs/tags/v}
           if [ "$VERSION" != "$TAG_VERSION" ]; then
             echo "Version mismatch: pyproject.toml has $VERSION but tag is $TAG_VERSION"
