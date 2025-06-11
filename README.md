@@ -1,5 +1,7 @@
 # python-zendesk
 
+Provided by botBrains. This SDK is generated for the [Zendesk Support API](https://developer.zendesk.com/api-reference/ticketing/introduction/)openapi spec. We slightly modified it to comply with the OpenAPI spec and to work with the speakeasy codegen tool, as well as adding partial pagination support.
+
 <!-- Start Summary [summary] -->
 ## Summary
 

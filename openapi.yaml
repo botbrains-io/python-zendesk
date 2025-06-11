@@ -35128,8 +35128,23 @@ components:
             restriction: {}
             title: Tickets updated less than 12 Hours
   securitySchemes:
-    basicAuth:
+    # 1. API Token Authentication (using HTTP Basic)
+    apiTokenAuth:
       type: http
       scheme: basic
+      description: |
+        HTTP Basic Authentication using your Zendesk email and an API token.
+        - Username: `{your_email}/token`
+        - Password: `{your_api_token}`
+
+    # 2. OAuth 2.0 Bearer Token Authentication
+    # oAuthBearerAuth:
+    #   type: http
+    #   scheme: bearer
+    #   bearerFormat: JWT # Or omit if not specifically JWT, but 'bearer' scheme implies a token.
+    #   description: |
+    #     OAuth 2.0 Bearer Token. Provide Sthe pre-obtained access token.
+    #     The token should be included in the Authorization header as 'Bearer {access_token}'.
 security:
-  - basicAuth: []
+  - apiTokenAuth: []
+  # - oAuthBearerAuth: []
