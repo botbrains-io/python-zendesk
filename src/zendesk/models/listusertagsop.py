@@ -6,13 +6,13 @@ from zendesk.types import BaseModel
 from zendesk.utils import FieldMetadata, PathParamMetadata
 
 
-class SetTagsTicketRequestTypedDict(TypedDict):
-    ticket_id: int
-    r"""The ID of the ticket"""
+class ListUserTagsRequestTypedDict(TypedDict):
+    user_id: int
+    r"""The id of the user"""
 
 
-class SetTagsTicketRequest(BaseModel):
-    ticket_id: Annotated[
+class ListUserTagsRequest(BaseModel):
+    user_id: Annotated[
         int, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
-    r"""The ID of the ticket"""
+    r"""The id of the user"""

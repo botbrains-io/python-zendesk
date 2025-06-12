@@ -60,7 +60,7 @@ class Webhooks(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/webhooks",
+            path="/api/v2/webhooks",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -193,7 +193,7 @@ class Webhooks(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/webhooks",
+            path="/api/v2/webhooks",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -324,7 +324,7 @@ class Webhooks(BaseSDK):
 
         req = self._build_request(
             method="POST",
-            path="/webhooks",
+            path="/api/v2/webhooks",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -444,7 +444,7 @@ class Webhooks(BaseSDK):
 
         req = self._build_request_async(
             method="POST",
-            path="/webhooks",
+            path="/api/v2/webhooks",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -565,7 +565,7 @@ class Webhooks(BaseSDK):
 
         req = self._build_request(
             method="POST",
-            path="/webhooks/test",
+            path="/api/v2/webhooks/test",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -686,7 +686,7 @@ class Webhooks(BaseSDK):
 
         req = self._build_request_async(
             method="POST",
-            path="/webhooks/test",
+            path="/api/v2/webhooks/test",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -793,7 +793,7 @@ class Webhooks(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/webhooks/{webhook_id}",
+            path="/api/v2/webhooks/{webhook_id}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -893,7 +893,7 @@ class Webhooks(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/webhooks/{webhook_id}",
+            path="/api/v2/webhooks/{webhook_id}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1006,7 +1006,7 @@ class Webhooks(BaseSDK):
 
         req = self._build_request(
             method="PUT",
-            path="/webhooks/{webhook_id}",
+            path="/api/v2/webhooks/{webhook_id}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1126,7 +1126,7 @@ class Webhooks(BaseSDK):
 
         req = self._build_request_async(
             method="PUT",
-            path="/webhooks/{webhook_id}",
+            path="/api/v2/webhooks/{webhook_id}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1248,7 +1248,7 @@ class Webhooks(BaseSDK):
 
         req = self._build_request(
             method="PATCH",
-            path="/webhooks/{webhook_id}",
+            path="/api/v2/webhooks/{webhook_id}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1370,7 +1370,7 @@ class Webhooks(BaseSDK):
 
         req = self._build_request_async(
             method="PATCH",
-            path="/webhooks/{webhook_id}",
+            path="/api/v2/webhooks/{webhook_id}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1477,7 +1477,7 @@ class Webhooks(BaseSDK):
 
         req = self._build_request(
             method="DELETE",
-            path="/webhooks/{webhook_id}",
+            path="/api/v2/webhooks/{webhook_id}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1577,7 +1577,7 @@ class Webhooks(BaseSDK):
 
         req = self._build_request_async(
             method="DELETE",
-            path="/webhooks/{webhook_id}",
+            path="/api/v2/webhooks/{webhook_id}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1678,7 +1678,7 @@ class Webhooks(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/webhooks/{webhook_id}/signing_secret",
+            path="/api/v2/webhooks/{webhook_id}/signing_secret",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1781,7 +1781,7 @@ class Webhooks(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/webhooks/{webhook_id}/signing_secret",
+            path="/api/v2/webhooks/{webhook_id}/signing_secret",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1884,7 +1884,7 @@ class Webhooks(BaseSDK):
 
         req = self._build_request(
             method="POST",
-            path="/webhooks/{webhook_id}/signing_secret",
+            path="/api/v2/webhooks/{webhook_id}/signing_secret",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1987,7 +1987,7 @@ class Webhooks(BaseSDK):
 
         req = self._build_request_async(
             method="POST",
-            path="/webhooks/{webhook_id}/signing_secret",
+            path="/api/v2/webhooks/{webhook_id}/signing_secret",
             base_url=base_url,
             url_variables=url_variables,
             request=request,

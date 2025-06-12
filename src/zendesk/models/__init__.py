@@ -148,6 +148,12 @@ if TYPE_CHECKING:
         ActorUsersTypedDict,
     )
     from .activityresponse import ActivityResponse, ActivityResponseTypedDict
+    from .addorganizationtagsop import (
+        AddOrganizationTagsRequest,
+        AddOrganizationTagsRequestTypedDict,
+    )
+    from .addtickettagsop import AddTicketTagsRequest, AddTicketTagsRequestTypedDict
+    from .addusertagsop import AddUserTagsRequest, AddUserTagsRequestTypedDict
     from .apikeyauthentication import (
         APIKeyAuthentication,
         APIKeyAuthenticationData,
@@ -929,10 +935,6 @@ if TYPE_CHECKING:
         DeleteSuspendedTicketsRequest,
         DeleteSuspendedTicketsRequestTypedDict,
     )
-    from .deletetagsticketop import (
-        DeleteTagsTicketRequest,
-        DeleteTagsTicketRequestTypedDict,
-    )
     from .deletetargetop import DeleteTargetRequest, DeleteTargetRequestTypedDict
     from .deleteticketfieldop import (
         DeleteTicketFieldRequest,
@@ -1531,15 +1533,15 @@ if TYPE_CHECKING:
         ListOrganizationSubscriptionsResponse,
         ListOrganizationSubscriptionsResponseTypedDict,
     )
+    from .listorganizationtagsop import (
+        ListOrganizationTagsRequest,
+        ListOrganizationTagsRequestTypedDict,
+    )
     from .listrequestsop import (
         ListRequestsRequest,
         ListRequestsRequestTypedDict,
         ListRequestsResponse,
         ListRequestsResponseTypedDict,
-    )
-    from .listresourcetagsop import (
-        ListResourceTagsRequest,
-        ListResourceTagsRequestTypedDict,
     )
     from .listsatisfactionratingsop import (
         ListSatisfactionRatingsRequest,
@@ -1672,6 +1674,7 @@ if TYPE_CHECKING:
         ListTicketsResponseTypedDict,
         ListTicketsSort,
     )
+    from .listtickettagsop import ListTicketTagsRequest, ListTicketTagsRequestTypedDict
     from .listtriggercategoriesop import (
         Include,
         ListTriggerCategoriesLinks,
@@ -1721,6 +1724,7 @@ if TYPE_CHECKING:
         ListUsersResponse,
         ListUsersResponseTypedDict,
     )
+    from .listusertagsop import ListUserTagsRequest, ListUserTagsRequestTypedDict
     from .listviewsbyidop import ListViewsByIDRequest, ListViewsByIDRequestTypedDict
     from .listviewsop import (
         ListViewsRequest,
@@ -2018,7 +2022,6 @@ if TYPE_CHECKING:
         PushNotificationDevicesRequest,
         PushNotificationDevicesRequestTypedDict,
     )
-    from .puttagsticketop import PutTagsTicketRequest, PutTagsTicketRequestTypedDict
     from .queueobject import (
         Definition,
         DefinitionTypedDict,
@@ -2089,6 +2092,15 @@ if TYPE_CHECKING:
         RelationshipFilterDefinitionResponse,
         RelationshipFilterDefinitionResponseTypedDict,
     )
+    from .removeorganizationtagsop import (
+        RemoveOrganizationTagsRequest,
+        RemoveOrganizationTagsRequestTypedDict,
+    )
+    from .removetickettagsop import (
+        RemoveTicketTagsRequest,
+        RemoveTicketTagsRequestTypedDict,
+    )
+    from .removeusertagsop import RemoveUserTagsRequest, RemoveUserTagsRequestTypedDict
     from .renewsessionresponse import (
         RenewSessionResponse,
         RenewSessionResponseTypedDict,
@@ -2155,6 +2167,7 @@ if TYPE_CHECKING:
         RevokeOAuthTokenRequest,
         RevokeOAuthTokenRequestTypedDict,
     )
+    from .safetagsrequest import SafeTagsRequest, SafeTagsRequestTypedDict, SafeUpdate
     from .satisfactionratingobject import (
         SatisfactionRatingObject,
         SatisfactionRatingObjectTypedDict,
@@ -2239,15 +2252,20 @@ if TYPE_CHECKING:
         SetOrganizationMembershipAsDefaultRequest,
         SetOrganizationMembershipAsDefaultRequestTypedDict,
     )
-    from .settagsticketop import SetTagsTicketRequest, SetTagsTicketRequestTypedDict
+    from .setorganizationtagsop import (
+        SetOrganizationTagsRequest,
+        SetOrganizationTagsRequestTypedDict,
+    )
     from .setticketattributevaluesop import (
         SetTicketAttributeValuesRequest,
         SetTicketAttributeValuesRequestTypedDict,
     )
+    from .settickettagsop import SetTicketTagsRequest, SetTicketTagsRequestTypedDict
     from .setuserpasswordop import (
         SetUserPasswordRequest,
         SetUserPasswordRequestTypedDict,
     )
+    from .setusertagsop import SetUserTagsRequest, SetUserTagsRequestTypedDict
     from .sharingagreementobject import (
         SharingAgreementObject,
         SharingAgreementObjectTypedDict,
@@ -2608,11 +2626,11 @@ if TYPE_CHECKING:
     )
     from .tagcountobject import TagCountObject, TagCountObjectTypedDict
     from .tagcountresponse import TagCountResponse, TagCountResponseTypedDict
-    from .taglisttagobject import TagListTagObject, TagListTagObjectTypedDict
     from .tagsbyobjectidresponse import (
         TagsByObjectIDResponse,
         TagsByObjectIDResponseTypedDict,
     )
+    from .tagsrequest import TagsRequest, TagsRequestTypedDict
     from .tagsresponse import TagsResponse, TagsResponseTypedDict
     from .targetfailureobject import TargetFailureObject, TargetFailureObjectTypedDict
     from .targetfailureresponse import (
@@ -3507,7 +3525,13 @@ __all__ = [
     "ActorUserForEndUserTypedDict",
     "ActorUsers",
     "ActorUsersTypedDict",
+    "AddOrganizationTagsRequest",
+    "AddOrganizationTagsRequestTypedDict",
     "AddPosition",
+    "AddTicketTagsRequest",
+    "AddTicketTagsRequestTypedDict",
+    "AddUserTagsRequest",
+    "AddUserTagsRequestTypedDict",
     "AgentWaitTimeInMinutes",
     "AgentWaitTimeInMinutesTypedDict",
     "AnyList",
@@ -4011,8 +4035,6 @@ __all__ = [
     "DeleteSuspendedTicketRequestTypedDict",
     "DeleteSuspendedTicketsRequest",
     "DeleteSuspendedTicketsRequestTypedDict",
-    "DeleteTagsTicketRequest",
-    "DeleteTagsTicketRequestTypedDict",
     "DeleteTargetRequest",
     "DeleteTargetRequestTypedDict",
     "DeleteTicketFieldOptionRequest",
@@ -4431,6 +4453,8 @@ __all__ = [
     "ListOrganizationSubscriptionsRequestTypedDict",
     "ListOrganizationSubscriptionsResponse",
     "ListOrganizationSubscriptionsResponseTypedDict",
+    "ListOrganizationTagsRequest",
+    "ListOrganizationTagsRequestTypedDict",
     "ListOrganizationsRequest",
     "ListOrganizationsRequestTypedDict",
     "ListOrganizationsResponse",
@@ -4439,8 +4463,6 @@ __all__ = [
     "ListRequestsRequestTypedDict",
     "ListRequestsResponse",
     "ListRequestsResponseTypedDict",
-    "ListResourceTagsRequest",
-    "ListResourceTagsRequestTypedDict",
     "ListSatisfactionRatingsRequest",
     "ListSatisfactionRatingsRequestTypedDict",
     "ListSatisfactionRatingsResponse",
@@ -4512,6 +4534,8 @@ __all__ = [
     "ListTicketSkipsRequestTypedDict",
     "ListTicketSkipsResponse",
     "ListTicketSkipsResponseTypedDict",
+    "ListTicketTagsRequest",
+    "ListTicketTagsRequestTypedDict",
     "ListTicketsFromViewRequest",
     "ListTicketsFromViewRequestTypedDict",
     "ListTicketsFromViewResponse",
@@ -4551,6 +4575,8 @@ __all__ = [
     "ListUserIdentitiesResponse",
     "ListUserIdentitiesResponseTypedDict",
     "ListUserIdentitiesType",
+    "ListUserTagsRequest",
+    "ListUserTagsRequestTypedDict",
     "ListUsersRequest",
     "ListUsersRequestTypedDict",
     "ListUsersResponse",
@@ -4760,8 +4786,6 @@ __all__ = [
     "PrimaryGroupsTypedDict",
     "PushNotificationDevicesRequest",
     "PushNotificationDevicesRequestTypedDict",
-    "PutTagsTicketRequest",
-    "PutTagsTicketRequestTypedDict",
     "QueueObject",
     "QueueObjectAll",
     "QueueObjectAllTypedDict",
@@ -4796,6 +4820,12 @@ __all__ = [
     "RelationshipFilterDefinitionResponse",
     "RelationshipFilterDefinitionResponseTypedDict",
     "RelationshipFilterDefinitionTypedDict",
+    "RemoveOrganizationTagsRequest",
+    "RemoveOrganizationTagsRequestTypedDict",
+    "RemoveTicketTagsRequest",
+    "RemoveTicketTagsRequestTypedDict",
+    "RemoveUserTagsRequest",
+    "RemoveUserTagsRequestTypedDict",
     "RenewSessionResponse",
     "RenewSessionResponseTypedDict",
     "ReorderCustomObjectFieldsRequest",
@@ -4876,6 +4906,9 @@ __all__ = [
     "SLAPolicyObjectTypedDict",
     "SLAPolicyResponse",
     "SLAPolicyResponseTypedDict",
+    "SafeTagsRequest",
+    "SafeTagsRequestTypedDict",
+    "SafeUpdate",
     "SatisfactionRatingObject",
     "SatisfactionRatingObjectTypedDict",
     "SatisfactionRatingResponse",
@@ -4945,12 +4978,16 @@ __all__ = [
     "SetOrganizationAsDefaultRequestTypedDict",
     "SetOrganizationMembershipAsDefaultRequest",
     "SetOrganizationMembershipAsDefaultRequestTypedDict",
-    "SetTagsTicketRequest",
-    "SetTagsTicketRequestTypedDict",
+    "SetOrganizationTagsRequest",
+    "SetOrganizationTagsRequestTypedDict",
     "SetTicketAttributeValuesRequest",
     "SetTicketAttributeValuesRequestTypedDict",
+    "SetTicketTagsRequest",
+    "SetTicketTagsRequestTypedDict",
     "SetUserPasswordRequest",
     "SetUserPasswordRequestTypedDict",
+    "SetUserTagsRequest",
+    "SetUserTagsRequestTypedDict",
     "SharingAgreementObject",
     "SharingAgreementObjectTypedDict",
     "SharingAgreementResponse",
@@ -5160,10 +5197,10 @@ __all__ = [
     "TagCountObjectTypedDict",
     "TagCountResponse",
     "TagCountResponseTypedDict",
-    "TagListTagObject",
-    "TagListTagObjectTypedDict",
     "TagsByObjectIDResponse",
     "TagsByObjectIDResponseTypedDict",
+    "TagsRequest",
+    "TagsRequestTypedDict",
     "TagsResponse",
     "TagsResponseTypedDict",
     "TargetBasecamp",
@@ -5826,6 +5863,12 @@ _dynamic_imports: dict[str, str] = {
     "ActorUsersTypedDict": ".activityobject",
     "ActivityResponse": ".activityresponse",
     "ActivityResponseTypedDict": ".activityresponse",
+    "AddOrganizationTagsRequest": ".addorganizationtagsop",
+    "AddOrganizationTagsRequestTypedDict": ".addorganizationtagsop",
+    "AddTicketTagsRequest": ".addtickettagsop",
+    "AddTicketTagsRequestTypedDict": ".addtickettagsop",
+    "AddUserTagsRequest": ".addusertagsop",
+    "AddUserTagsRequestTypedDict": ".addusertagsop",
     "APIKeyAuthentication": ".apikeyauthentication",
     "APIKeyAuthenticationData": ".apikeyauthentication",
     "APIKeyAuthenticationDataTypedDict": ".apikeyauthentication",
@@ -6338,8 +6381,6 @@ _dynamic_imports: dict[str, str] = {
     "DeleteSuspendedTicketRequestTypedDict": ".deletesuspendedticketop",
     "DeleteSuspendedTicketsRequest": ".deletesuspendedticketsop",
     "DeleteSuspendedTicketsRequestTypedDict": ".deletesuspendedticketsop",
-    "DeleteTagsTicketRequest": ".deletetagsticketop",
-    "DeleteTagsTicketRequestTypedDict": ".deletetagsticketop",
     "DeleteTargetRequest": ".deletetargetop",
     "DeleteTargetRequestTypedDict": ".deletetargetop",
     "DeleteTicketFieldRequest": ".deleteticketfieldop",
@@ -6727,12 +6768,12 @@ _dynamic_imports: dict[str, str] = {
     "ListOrganizationSubscriptionsRequestTypedDict": ".listorganizationsubscriptionsop",
     "ListOrganizationSubscriptionsResponse": ".listorganizationsubscriptionsop",
     "ListOrganizationSubscriptionsResponseTypedDict": ".listorganizationsubscriptionsop",
+    "ListOrganizationTagsRequest": ".listorganizationtagsop",
+    "ListOrganizationTagsRequestTypedDict": ".listorganizationtagsop",
     "ListRequestsRequest": ".listrequestsop",
     "ListRequestsRequestTypedDict": ".listrequestsop",
     "ListRequestsResponse": ".listrequestsop",
     "ListRequestsResponseTypedDict": ".listrequestsop",
-    "ListResourceTagsRequest": ".listresourcetagsop",
-    "ListResourceTagsRequestTypedDict": ".listresourcetagsop",
     "ListSatisfactionRatingsRequest": ".listsatisfactionratingsop",
     "ListSatisfactionRatingsRequestTypedDict": ".listsatisfactionratingsop",
     "ListSatisfactionRatingsResponse": ".listsatisfactionratingsop",
@@ -6818,6 +6859,8 @@ _dynamic_imports: dict[str, str] = {
     "ListTicketsResponse": ".listticketsop",
     "ListTicketsResponseTypedDict": ".listticketsop",
     "ListTicketsSort": ".listticketsop",
+    "ListTicketTagsRequest": ".listtickettagsop",
+    "ListTicketTagsRequestTypedDict": ".listtickettagsop",
     "Include": ".listtriggercategoriesop",
     "ListTriggerCategoriesLinks": ".listtriggercategoriesop",
     "ListTriggerCategoriesLinksTypedDict": ".listtriggercategoriesop",
@@ -6855,6 +6898,8 @@ _dynamic_imports: dict[str, str] = {
     "ListUsersRequestTypedDict": ".listusersop",
     "ListUsersResponse": ".listusersop",
     "ListUsersResponseTypedDict": ".listusersop",
+    "ListUserTagsRequest": ".listusertagsop",
+    "ListUserTagsRequestTypedDict": ".listusertagsop",
     "ListViewsByIDRequest": ".listviewsbyidop",
     "ListViewsByIDRequestTypedDict": ".listviewsbyidop",
     "ListViewsRequest": ".listviewsop",
@@ -7053,8 +7098,6 @@ _dynamic_imports: dict[str, str] = {
     "PreviewViewsResponseTypedDict": ".previewviewsop",
     "PushNotificationDevicesRequest": ".pushnotificationdevicesrequest",
     "PushNotificationDevicesRequestTypedDict": ".pushnotificationdevicesrequest",
-    "PutTagsTicketRequest": ".puttagsticketop",
-    "PutTagsTicketRequestTypedDict": ".puttagsticketop",
     "Definition": ".queueobject",
     "DefinitionTypedDict": ".queueobject",
     "PrimaryGroups": ".queueobject",
@@ -7101,6 +7144,12 @@ _dynamic_imports: dict[str, str] = {
     "RelationshipFilterDefinitionTypedDict": ".relationshipfilterdefinition",
     "RelationshipFilterDefinitionResponse": ".relationshipfilterdefinitionresponse",
     "RelationshipFilterDefinitionResponseTypedDict": ".relationshipfilterdefinitionresponse",
+    "RemoveOrganizationTagsRequest": ".removeorganizationtagsop",
+    "RemoveOrganizationTagsRequestTypedDict": ".removeorganizationtagsop",
+    "RemoveTicketTagsRequest": ".removetickettagsop",
+    "RemoveTicketTagsRequestTypedDict": ".removetickettagsop",
+    "RemoveUserTagsRequest": ".removeusertagsop",
+    "RemoveUserTagsRequestTypedDict": ".removeusertagsop",
     "RenewSessionResponse": ".renewsessionresponse",
     "RenewSessionResponseTypedDict": ".renewsessionresponse",
     "ReorderCustomObjectFieldsRequest": ".reordercustomobjectfieldsop",
@@ -7139,6 +7188,9 @@ _dynamic_imports: dict[str, str] = {
     "ReverseLookupResponseTypedDict": ".reverselookupresponse",
     "RevokeOAuthTokenRequest": ".revokeoauthtokenop",
     "RevokeOAuthTokenRequestTypedDict": ".revokeoauthtokenop",
+    "SafeTagsRequest": ".safetagsrequest",
+    "SafeTagsRequestTypedDict": ".safetagsrequest",
+    "SafeUpdate": ".safetagsrequest",
     "SatisfactionRatingObject": ".satisfactionratingobject",
     "SatisfactionRatingObjectTypedDict": ".satisfactionratingobject",
     "SatisfactionRatingResponse": ".satisfactionratingresponse",
@@ -7203,12 +7255,16 @@ _dynamic_imports: dict[str, str] = {
     "SetOrganizationAsDefaultRequestTypedDict": ".setorganizationasdefaultop",
     "SetOrganizationMembershipAsDefaultRequest": ".setorganizationmembershipasdefaultop",
     "SetOrganizationMembershipAsDefaultRequestTypedDict": ".setorganizationmembershipasdefaultop",
-    "SetTagsTicketRequest": ".settagsticketop",
-    "SetTagsTicketRequestTypedDict": ".settagsticketop",
+    "SetOrganizationTagsRequest": ".setorganizationtagsop",
+    "SetOrganizationTagsRequestTypedDict": ".setorganizationtagsop",
     "SetTicketAttributeValuesRequest": ".setticketattributevaluesop",
     "SetTicketAttributeValuesRequestTypedDict": ".setticketattributevaluesop",
+    "SetTicketTagsRequest": ".settickettagsop",
+    "SetTicketTagsRequestTypedDict": ".settickettagsop",
     "SetUserPasswordRequest": ".setuserpasswordop",
     "SetUserPasswordRequestTypedDict": ".setuserpasswordop",
+    "SetUserTagsRequest": ".setusertagsop",
+    "SetUserTagsRequestTypedDict": ".setusertagsop",
     "SharingAgreementObject": ".sharingagreementobject",
     "SharingAgreementObjectTypedDict": ".sharingagreementobject",
     "SharingAgreementResponse": ".sharingagreementresponse",
@@ -7456,10 +7512,10 @@ _dynamic_imports: dict[str, str] = {
     "TagCountObjectTypedDict": ".tagcountobject",
     "TagCountResponse": ".tagcountresponse",
     "TagCountResponseTypedDict": ".tagcountresponse",
-    "TagListTagObject": ".taglisttagobject",
-    "TagListTagObjectTypedDict": ".taglisttagobject",
     "TagsByObjectIDResponse": ".tagsbyobjectidresponse",
     "TagsByObjectIDResponseTypedDict": ".tagsbyobjectidresponse",
+    "TagsRequest": ".tagsrequest",
+    "TagsRequestTypedDict": ".tagsrequest",
     "TagsResponse": ".tagsresponse",
     "TagsResponseTypedDict": ".tagsresponse",
     "TargetFailureObject": ".targetfailureobject",

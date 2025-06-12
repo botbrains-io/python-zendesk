@@ -6,6 +6,7 @@ from importlib import import_module
 if TYPE_CHECKING:
     from .apierror import APIError
     from .batchjobresponse_error import BatchJobResponseError, BatchJobResponseErrorData
+    from .error import Error, ErrorData
     from .errorresponse import ErrorResponse, ErrorResponseData
     from .errors import Errors, ErrorsData
     from .recoversuspendedticketunprocessablecontentresponse_error import (
@@ -21,6 +22,8 @@ __all__ = [
     "APIError",
     "BatchJobResponseError",
     "BatchJobResponseErrorData",
+    "Error",
+    "ErrorData",
     "ErrorResponse",
     "ErrorResponseData",
     "Errors",
@@ -35,6 +38,8 @@ _dynamic_imports: dict[str, str] = {
     "APIError": ".apierror",
     "BatchJobResponseError": ".batchjobresponse_error",
     "BatchJobResponseErrorData": ".batchjobresponse_error",
+    "Error": ".error",
+    "ErrorData": ".error",
     "ErrorResponse": ".errorresponse",
     "ErrorResponseData": ".errorresponse",
     "Errors": ".errors",

@@ -6,13 +6,13 @@ from zendesk.types import BaseModel
 from zendesk.utils import FieldMetadata, PathParamMetadata
 
 
-class ListResourceTagsRequestTypedDict(TypedDict):
-    ticket_id: int
-    r"""The ID of the ticket"""
+class ListOrganizationTagsRequestTypedDict(TypedDict):
+    organization_id: int
+    r"""The ID of an organization"""
 
 
-class ListResourceTagsRequest(BaseModel):
-    ticket_id: Annotated[
+class ListOrganizationTagsRequest(BaseModel):
+    organization_id: Annotated[
         int, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
-    r"""The ID of the ticket"""
+    r"""The ID of an organization"""

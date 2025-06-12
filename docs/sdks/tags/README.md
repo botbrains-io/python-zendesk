@@ -8,10 +8,18 @@
 * [autocomplete_tags](#autocomplete_tags) - Search Tags
 * [list_tags](#list_tags) - List Tags
 * [count_tags](#count_tags) - Count Tags
-* [list_resource_tags](#list_resource_tags) - List Resource Tags
-* [set_tags_ticket](#set_tags_ticket) - Set Tags
-* [put_tags_ticket](#put_tags_ticket) - Add Tags
-* [delete_tags_ticket](#delete_tags_ticket) - Remove Tags
+* [list_ticket_tags](#list_ticket_tags) - List Ticket Tags
+* [set_ticket_tags](#set_ticket_tags) - Set Ticket Tags
+* [add_ticket_tags](#add_ticket_tags) - Add Tags
+* [remove_ticket_tags](#remove_ticket_tags) - Remove Ticket Tags
+* [list_organization_tags](#list_organization_tags) - List Organization Tags
+* [set_organization_tags](#set_organization_tags) - Set Organization Tags
+* [add_organization_tags](#add_organization_tags) - Add Organization Tags
+* [remove_organization_tags](#remove_organization_tags) - Remove Organization Tags
+* [list_user_tags](#list_user_tags) - List User Tags
+* [set_user_tags](#set_user_tags) - Set User Tags
+* [add_user_tags](#add_user_tags) - Add User Tags
+* [remove_user_tags](#remove_user_tags) - Remove User Tags
 
 ## autocomplete_tags
 
@@ -179,10 +187,11 @@ with Zendesk(
 | --------------- | --------------- | --------------- |
 | errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## list_resource_tags
+## list_ticket_tags
+
+Lists all tags associated with a specific ticket.
 
 #### Allowed For
-
 * Agents
 
 
@@ -199,7 +208,7 @@ with Zendesk(
     ),
 ) as z_client:
 
-    res = z_client.tags.list_resource_tags(ticket_id=123456)
+    res = z_client.tags.list_ticket_tags(ticket_id=123456)
 
     # Handle response
     print(res)
@@ -215,18 +224,20 @@ with Zendesk(
 
 ### Response
 
-**[models.TagsByObjectIDResponse](../../models/tagsbyobjectidresponse.md)**
+**[models.TagsResponse](../../models/tagsresponse.md)**
 
 ### Errors
 
-| Error Type      | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.APIError | 4XX, 5XX        | \*/\*           |
+| Error Type       | Status Code      | Content Type     |
+| ---------------- | ---------------- | ---------------- |
+| errors.Error     | 404              | application/json |
+| errors.APIError  | 4XX, 5XX         | \*/\*            |
 
-## set_tags_ticket
+## set_ticket_tags
+
+Replaces all existing tags on a ticket with the provided tags.
 
 #### Allowed For
-
 * Agents
 
 
@@ -243,7 +254,10 @@ with Zendesk(
     ),
 ) as z_client:
 
-    res = z_client.tags.set_tags_ticket(ticket_id=123456)
+    res = z_client.tags.set_ticket_tags(ticket_id=123456, tags=[
+        "customer",
+        "vip",
+    ])
 
     # Handle response
     print(res)
@@ -255,19 +269,21 @@ with Zendesk(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `ticket_id`                                                         | *int*                                                               | :heavy_check_mark:                                                  | The ID of the ticket                                                | 123456                                                              |
+| `tags`                                                              | List[*str*]                                                         | :heavy_check_mark:                                                  | An array of tag strings to add or set                               | [<br/>"customer",<br/>"vip"<br/>]                                   |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 
 ### Response
 
-**[models.TagsByObjectIDResponse](../../models/tagsbyobjectidresponse.md)**
+**[models.TagsResponse](../../models/tagsresponse.md)**
 
 ### Errors
 
-| Error Type      | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.APIError | 4XX, 5XX        | \*/\*           |
+| Error Type       | Status Code      | Content Type     |
+| ---------------- | ---------------- | ---------------- |
+| errors.Error     | 404              | application/json |
+| errors.APIError  | 4XX, 5XX         | \*/\*            |
 
-## put_tags_ticket
+## add_ticket_tags
 
 You can also add tags to multiple tickets with the [Update Many
 Tickets](/api-reference/ticketing/tickets/tickets/#update-many-tickets) endpoint.
@@ -301,7 +317,110 @@ last `updated_at` timestamp), the request returns a
 For details, see [Protecting against ticket update collisions](/api-reference/ticketing/tickets/tickets/#protecting-against-ticket-update-collisions).
 
 #### Allowed For
+* Agents
 
+
+### Example Usage
+
+```python
+from zendesk import Zendesk, models
+from zendesk.utils import parse_datetime
+
+
+with Zendesk(
+    security=models.Security(
+        username="",
+        password="",
+    ),
+) as z_client:
+
+    res = z_client.tags.add_ticket_tags(ticket_id=123456, tags=[
+        "customer",
+        "vip",
+    ], updated_stamp=parse_datetime("2019-09-12T21:45:16Z"), safe_update=models.SafeUpdate.TRUE)
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                                          | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        | Example                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| `ticket_id`                                                                                                        | *int*                                                                                                              | :heavy_check_mark:                                                                                                 | The ID of the ticket                                                                                               | 123456                                                                                                             |
+| `tags`                                                                                                             | List[*str*]                                                                                                        | :heavy_check_mark:                                                                                                 | An array of tag strings to add or set                                                                              | [<br/>"customer",<br/>"vip"<br/>]                                                                                  |
+| `updated_stamp`                                                                                                    | [date](https://docs.python.org/3/library/datetime.html#date-objects)                                               | :heavy_minus_sign:                                                                                                 | The ticket's latest updated_at timestamp for safe updates.<br/>Must match the current timestamp to prevent collision.<br/> | 2019-09-12T21:45:16Z                                                                                               |
+| `safe_update`                                                                                                      | [Optional[models.SafeUpdate]](../../models/safeupdate.md)                                                          | :heavy_minus_sign:                                                                                                 | Enable safe update mode to prevent collisions                                                                      | true                                                                                                               |
+| `retries`                                                                                                          | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                   | :heavy_minus_sign:                                                                                                 | Configuration to override the default retry behavior of the client.                                                |                                                                                                                    |
+
+### Response
+
+**[models.TagsResponse](../../models/tagsresponse.md)**
+
+### Errors
+
+| Error Type       | Status Code      | Content Type     |
+| ---------------- | ---------------- | ---------------- |
+| errors.Error     | 404, 409         | application/json |
+| errors.APIError  | 4XX, 5XX         | \*/\*            |
+
+## remove_ticket_tags
+
+Removes specified tags from a ticket. You can also delete tags from multiple tickets 
+with the Update Many Tickets endpoint.
+
+This endpoint supports safe updates. See the PUT endpoint documentation for details.
+
+#### Allowed For
+* Agents
+
+
+### Example Usage
+
+```python
+from zendesk import Zendesk, models
+from zendesk.utils import parse_datetime
+
+
+with Zendesk(
+    security=models.Security(
+        username="",
+        password="",
+    ),
+) as z_client:
+
+    z_client.tags.remove_ticket_tags(ticket_id=123456, tags=[
+        "customer",
+        "vip",
+    ], updated_stamp=parse_datetime("2019-09-12T21:45:16Z"), safe_update=models.SafeUpdate.TRUE)
+
+    # Use the SDK ...
+
+```
+
+### Parameters
+
+| Parameter                                                                                                          | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        | Example                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| `ticket_id`                                                                                                        | *int*                                                                                                              | :heavy_check_mark:                                                                                                 | The ID of the ticket                                                                                               | 123456                                                                                                             |
+| `tags`                                                                                                             | List[*str*]                                                                                                        | :heavy_check_mark:                                                                                                 | An array of tag strings to add or set                                                                              | [<br/>"customer",<br/>"vip"<br/>]                                                                                  |
+| `updated_stamp`                                                                                                    | [date](https://docs.python.org/3/library/datetime.html#date-objects)                                               | :heavy_minus_sign:                                                                                                 | The ticket's latest updated_at timestamp for safe updates.<br/>Must match the current timestamp to prevent collision.<br/> | 2019-09-12T21:45:16Z                                                                                               |
+| `safe_update`                                                                                                      | [Optional[models.SafeUpdate]](../../models/safeupdate.md)                                                          | :heavy_minus_sign:                                                                                                 | Enable safe update mode to prevent collisions                                                                      | true                                                                                                               |
+| `retries`                                                                                                          | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                   | :heavy_minus_sign:                                                                                                 | Configuration to override the default retry behavior of the client.                                                |                                                                                                                    |
+
+### Errors
+
+| Error Type       | Status Code      | Content Type     |
+| ---------------- | ---------------- | ---------------- |
+| errors.Error     | 404, 409         | application/json |
+| errors.APIError  | 4XX, 5XX         | \*/\*            |
+
+## list_organization_tags
+
+Lists all tags associated with a specific organization.
+
+#### Allowed For
 * Agents
 
 
@@ -318,7 +437,7 @@ with Zendesk(
     ),
 ) as z_client:
 
-    res = z_client.tags.put_tags_ticket(ticket_id=123456)
+    res = z_client.tags.list_organization_tags(organization_id=16)
 
     # Handle response
     print(res)
@@ -329,28 +448,25 @@ with Zendesk(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `ticket_id`                                                         | *int*                                                               | :heavy_check_mark:                                                  | The ID of the ticket                                                | 123456                                                              |
+| `organization_id`                                                   | *int*                                                               | :heavy_check_mark:                                                  | The ID of an organization                                           | 16                                                                  |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 
 ### Response
 
-**[models.TagsByObjectIDResponse](../../models/tagsbyobjectidresponse.md)**
+**[models.TagsResponse](../../models/tagsresponse.md)**
 
 ### Errors
 
-| Error Type      | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.APIError | 4XX, 5XX        | \*/\*           |
+| Error Type       | Status Code      | Content Type     |
+| ---------------- | ---------------- | ---------------- |
+| errors.Error     | 404              | application/json |
+| errors.APIError  | 4XX, 5XX         | \*/\*            |
 
-## delete_tags_ticket
+## set_organization_tags
 
-You can also delete tags from multiple tickets with the
-[Update Many Tickets](/api-reference/ticketing/tickets/tickets/#update-many-tickets) endpoint.
-
-This endpoint supports safe updates. See [Safe Update](/api-reference/ticketing/ticket-management/tags/#safe-update).
+Replaces all existing tags on an organization with the provided tags.
 
 #### Allowed For
-
 * Agents
 
 
@@ -367,7 +483,110 @@ with Zendesk(
     ),
 ) as z_client:
 
-    z_client.tags.delete_tags_ticket(ticket_id=123456)
+    res = z_client.tags.set_organization_tags(organization_id=16, tags=[
+        "customer",
+        "vip",
+    ])
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `organization_id`                                                   | *int*                                                               | :heavy_check_mark:                                                  | The ID of an organization                                           | 16                                                                  |
+| `tags`                                                              | List[*str*]                                                         | :heavy_check_mark:                                                  | An array of tag strings to add or set                               | [<br/>"customer",<br/>"vip"<br/>]                                   |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
+
+### Response
+
+**[models.TagsResponse](../../models/tagsresponse.md)**
+
+### Errors
+
+| Error Type       | Status Code      | Content Type     |
+| ---------------- | ---------------- | ---------------- |
+| errors.Error     | 404              | application/json |
+| errors.APIError  | 4XX, 5XX         | \*/\*            |
+
+## add_organization_tags
+
+Adds tags to an organization.
+
+#### Allowed For
+* Agents
+
+
+### Example Usage
+
+```python
+from zendesk import Zendesk, models
+
+
+with Zendesk(
+    security=models.Security(
+        username="",
+        password="",
+    ),
+) as z_client:
+
+    res = z_client.tags.add_organization_tags(organization_id=16, tags=[
+        "customer",
+        "vip",
+    ])
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `organization_id`                                                   | *int*                                                               | :heavy_check_mark:                                                  | The ID of an organization                                           | 16                                                                  |
+| `tags`                                                              | List[*str*]                                                         | :heavy_check_mark:                                                  | An array of tag strings to add or set                               | [<br/>"customer",<br/>"vip"<br/>]                                   |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
+
+### Response
+
+**[models.TagsResponse](../../models/tagsresponse.md)**
+
+### Errors
+
+| Error Type       | Status Code      | Content Type     |
+| ---------------- | ---------------- | ---------------- |
+| errors.Error     | 404              | application/json |
+| errors.APIError  | 4XX, 5XX         | \*/\*            |
+
+## remove_organization_tags
+
+Removes specified tags from an organization.
+
+#### Allowed For
+* Agents
+
+
+### Example Usage
+
+```python
+from zendesk import Zendesk, models
+
+
+with Zendesk(
+    security=models.Security(
+        username="",
+        password="",
+    ),
+) as z_client:
+
+    z_client.tags.remove_organization_tags(organization_id=16, tags=[
+        "customer",
+        "vip",
+    ])
 
     # Use the SDK ...
 
@@ -377,11 +596,204 @@ with Zendesk(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `ticket_id`                                                         | *int*                                                               | :heavy_check_mark:                                                  | The ID of the ticket                                                | 123456                                                              |
+| `organization_id`                                                   | *int*                                                               | :heavy_check_mark:                                                  | The ID of an organization                                           | 16                                                                  |
+| `tags`                                                              | List[*str*]                                                         | :heavy_check_mark:                                                  | An array of tag strings to add or set                               | [<br/>"customer",<br/>"vip"<br/>]                                   |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 
 ### Errors
 
-| Error Type      | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.APIError | 4XX, 5XX        | \*/\*           |
+| Error Type       | Status Code      | Content Type     |
+| ---------------- | ---------------- | ---------------- |
+| errors.Error     | 404              | application/json |
+| errors.APIError  | 4XX, 5XX         | \*/\*            |
+
+## list_user_tags
+
+Lists all tags associated with a specific user.
+
+#### Allowed For
+* Agents
+
+
+### Example Usage
+
+```python
+from zendesk import Zendesk, models
+
+
+with Zendesk(
+    security=models.Security(
+        username="",
+        password="",
+    ),
+) as z_client:
+
+    res = z_client.tags.list_user_tags(user_id=35436)
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `user_id`                                                           | *int*                                                               | :heavy_check_mark:                                                  | The id of the user                                                  | 35436                                                               |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
+
+### Response
+
+**[models.TagsResponse](../../models/tagsresponse.md)**
+
+### Errors
+
+| Error Type       | Status Code      | Content Type     |
+| ---------------- | ---------------- | ---------------- |
+| errors.Error     | 404              | application/json |
+| errors.APIError  | 4XX, 5XX         | \*/\*            |
+
+## set_user_tags
+
+Replaces all existing tags on a user with the provided tags.
+
+#### Allowed For
+* Agents
+
+
+### Example Usage
+
+```python
+from zendesk import Zendesk, models
+
+
+with Zendesk(
+    security=models.Security(
+        username="",
+        password="",
+    ),
+) as z_client:
+
+    res = z_client.tags.set_user_tags(user_id=35436, tags=[
+        "customer",
+        "vip",
+    ])
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `user_id`                                                           | *int*                                                               | :heavy_check_mark:                                                  | The id of the user                                                  | 35436                                                               |
+| `tags`                                                              | List[*str*]                                                         | :heavy_check_mark:                                                  | An array of tag strings to add or set                               | [<br/>"customer",<br/>"vip"<br/>]                                   |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
+
+### Response
+
+**[models.TagsResponse](../../models/tagsresponse.md)**
+
+### Errors
+
+| Error Type       | Status Code      | Content Type     |
+| ---------------- | ---------------- | ---------------- |
+| errors.Error     | 404              | application/json |
+| errors.APIError  | 4XX, 5XX         | \*/\*            |
+
+## add_user_tags
+
+Adds tags to a user.
+
+#### Allowed For
+* Agents
+
+
+### Example Usage
+
+```python
+from zendesk import Zendesk, models
+
+
+with Zendesk(
+    security=models.Security(
+        username="",
+        password="",
+    ),
+) as z_client:
+
+    res = z_client.tags.add_user_tags(user_id=35436, tags=[
+        "customer",
+        "vip",
+    ])
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `user_id`                                                           | *int*                                                               | :heavy_check_mark:                                                  | The id of the user                                                  | 35436                                                               |
+| `tags`                                                              | List[*str*]                                                         | :heavy_check_mark:                                                  | An array of tag strings to add or set                               | [<br/>"customer",<br/>"vip"<br/>]                                   |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
+
+### Response
+
+**[models.TagsResponse](../../models/tagsresponse.md)**
+
+### Errors
+
+| Error Type       | Status Code      | Content Type     |
+| ---------------- | ---------------- | ---------------- |
+| errors.Error     | 404              | application/json |
+| errors.APIError  | 4XX, 5XX         | \*/\*            |
+
+## remove_user_tags
+
+Removes specified tags from a user.
+
+#### Allowed For
+* Agents
+
+
+### Example Usage
+
+```python
+from zendesk import Zendesk, models
+
+
+with Zendesk(
+    security=models.Security(
+        username="",
+        password="",
+    ),
+) as z_client:
+
+    z_client.tags.remove_user_tags(user_id=35436, tags=[
+        "customer",
+        "vip",
+    ])
+
+    # Use the SDK ...
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `user_id`                                                           | *int*                                                               | :heavy_check_mark:                                                  | The id of the user                                                  | 35436                                                               |
+| `tags`                                                              | List[*str*]                                                         | :heavy_check_mark:                                                  | An array of tag strings to add or set                               | [<br/>"customer",<br/>"vip"<br/>]                                   |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
+
+### Errors
+
+| Error Type       | Status Code      | Content Type     |
+| ---------------- | ---------------- | ---------------- |
+| errors.Error     | 404              | application/json |
+| errors.APIError  | 4XX, 5XX         | \*/\*            |

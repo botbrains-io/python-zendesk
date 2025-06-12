@@ -67,7 +67,7 @@ class WebhookInvocations(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/webhooks/{webhook_id}/invocations",
+            path="/api/v2/webhooks/{webhook_id}/invocations",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -210,7 +210,7 @@ class WebhookInvocations(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/webhooks/{webhook_id}/invocations",
+            path="/api/v2/webhooks/{webhook_id}/invocations",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -335,7 +335,7 @@ class WebhookInvocations(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/webhooks/{webhook_id}/invocations/{invocation_id}/attempts",
+            path="/api/v2/webhooks/{webhook_id}/invocations/{invocation_id}/attempts",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -434,7 +434,7 @@ class WebhookInvocations(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/webhooks/{webhook_id}/invocations/{invocation_id}/attempts",
+            path="/api/v2/webhooks/{webhook_id}/invocations/{invocation_id}/attempts",
             base_url=base_url,
             url_variables=url_variables,
             request=request,

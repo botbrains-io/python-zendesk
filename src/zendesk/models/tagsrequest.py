@@ -6,11 +6,11 @@ from typing_extensions import TypedDict
 from zendesk.types import BaseModel
 
 
-class TagsResponseTypedDict(TypedDict):
+class TagsRequestTypedDict(TypedDict):
     tags: List[str]
-    r"""An array of tag strings"""
+    r"""An array of tag strings to add or set"""
 
 
-class TagsResponse(BaseModel):
+class TagsRequest(BaseModel):
     tags: List[str]
-    r"""An array of tag strings"""
+    r"""An array of tag strings to add or set"""

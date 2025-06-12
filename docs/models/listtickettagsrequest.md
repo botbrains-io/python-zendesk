@@ -1,4 +1,4 @@
-# PutTagsTicketRequest
+# ListTicketTagsRequest
 
 
 ## Fields

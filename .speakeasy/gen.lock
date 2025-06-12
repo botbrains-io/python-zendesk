@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 37ac03f7-3b34-47b7-8334-e362604f87cd
 management:
-  docChecksum: 7bb0053c4a2ab622823a792a48a377ff
+  docChecksum: 68afac0d3eaa73678635900cdd5905ee
   docVersion: 2.0.0
   speakeasyVersion: 1.561.0
   generationVersion: 2.628.0
-  releaseVersion: 0.1.5
-  configChecksum: 80d4cefa69686533a3ac443c456c5a39
+  releaseVersion: 0.1.6
+  configChecksum: 8d9ee937252689d7ca35cd480527377b
   published: true
 features:
   python:
@@ -43,6 +43,7 @@ generatedFiles:
   - .vscode/settings.json
   - USAGE.md
   - docs/errors/batchjobresponseerror.md
+  - docs/errors/error.md
   - docs/errors/errorresponse.md
   - docs/errors/errors.md
   - docs/errors/recoversuspendedticketunprocessablecontentresponseerror.md
@@ -88,7 +89,10 @@ generatedFiles:
   - docs/models/actor.md
   - docs/models/actoruserforenduser.md
   - docs/models/actorusers.md
+  - docs/models/addorganizationtagsrequest.md
   - docs/models/addposition.md
+  - docs/models/addtickettagsrequest.md
+  - docs/models/addusertagsrequest.md
   - docs/models/agentwaittimeinminutes.md
   - docs/models/anylist.md
   - docs/models/anyoperator.md
@@ -354,7 +358,6 @@ generatedFiles:
   - docs/models/deleteslapolicyrequest.md
   - docs/models/deletesuspendedticketrequest.md
   - docs/models/deletesuspendedticketsrequest.md
-  - docs/models/deletetagsticketrequest.md
   - docs/models/deletetargetrequest.md
   - docs/models/deleteticketfieldoptionrequest.md
   - docs/models/deleteticketfieldrequest.md
@@ -567,9 +570,9 @@ generatedFiles:
   - docs/models/listorganizationsresponse.md
   - docs/models/listorganizationsubscriptionsrequest.md
   - docs/models/listorganizationsubscriptionsresponse.md
+  - docs/models/listorganizationtagsrequest.md
   - docs/models/listrequestsrequest.md
   - docs/models/listrequestsresponse.md
-  - docs/models/listresourcetagsrequest.md
   - docs/models/listsatisfactionratingsrequest.md
   - docs/models/listsatisfactionratingsresponse.md
   - docs/models/listsearchresultsrequest.md
@@ -612,6 +615,7 @@ generatedFiles:
   - docs/models/listticketsrequest.md
   - docs/models/listticketsresponse.md
   - docs/models/listticketssort.md
+  - docs/models/listtickettagsrequest.md
   - docs/models/listtriggercategorieslinks.md
   - docs/models/listtriggercategoriesmeta.md
   - docs/models/listtriggercategoriesrequest.md
@@ -629,6 +633,7 @@ generatedFiles:
   - docs/models/listuseridentitiestype.md
   - docs/models/listusersrequest.md
   - docs/models/listusersresponse.md
+  - docs/models/listusertagsrequest.md
   - docs/models/listviewsbyidrequest.md
   - docs/models/listviewsrequest.md
   - docs/models/listviewsresponse.md
@@ -735,7 +740,6 @@ generatedFiles:
   - docs/models/primarygroups.md
   - docs/models/primarygroupsgroup.md
   - docs/models/pushnotificationdevicesrequest.md
-  - docs/models/puttagsticketrequest.md
   - docs/models/queueobject.md
   - docs/models/queueobjectall.md
   - docs/models/queueobjectany.md
@@ -753,6 +757,9 @@ generatedFiles:
   - docs/models/redactticketcommentinagentworkspacerequest.md
   - docs/models/relationshipfilterdefinition.md
   - docs/models/relationshipfilterdefinitionresponse.md
+  - docs/models/removeorganizationtagsrequest.md
+  - docs/models/removetickettagsrequest.md
+  - docs/models/removeusertagsrequest.md
   - docs/models/renewsessionresponse.md
   - docs/models/reordercustomobjectfieldsrequest.md
   - docs/models/reordergroupslapoliciesrequest.md
@@ -778,6 +785,8 @@ generatedFiles:
   - docs/models/retrieveresourcecollectionrequest.md
   - docs/models/reverselookupresponse.md
   - docs/models/revokeoauthtokenrequest.md
+  - docs/models/safetagsrequest.md
+  - docs/models/safeupdate.md
   - docs/models/satisfactionratingobject.md
   - docs/models/satisfactionratingresponse.md
   - docs/models/satisfactionratingscountresponse.md
@@ -813,9 +822,11 @@ generatedFiles:
   - docs/models/setagentattributevaluesrequest.md
   - docs/models/setorganizationasdefaultrequest.md
   - docs/models/setorganizationmembershipasdefaultrequest.md
-  - docs/models/settagsticketrequest.md
+  - docs/models/setorganizationtagsrequest.md
   - docs/models/setticketattributevaluesrequest.md
+  - docs/models/settickettagsrequest.md
   - docs/models/setuserpasswordrequest.md
+  - docs/models/setusertagsrequest.md
   - docs/models/sharingagreementobject.md
   - docs/models/sharingagreementresponse.md
   - docs/models/sharingagreementsresponse.md
@@ -937,8 +948,8 @@ generatedFiles:
   - docs/models/systemfieldoptionobject.md
   - docs/models/tagcountobject.md
   - docs/models/tagcountresponse.md
-  - docs/models/taglisttagobject.md
   - docs/models/tagsbyobjectidresponse.md
+  - docs/models/tagsrequest.md
   - docs/models/tagsresponse.md
   - docs/models/targetbasecamp.md
   - docs/models/targetcampfire.md
@@ -1366,6 +1377,7 @@ generatedFiles:
   - src/zendesk/errors/__init__.py
   - src/zendesk/errors/apierror.py
   - src/zendesk/errors/batchjobresponse_error.py
+  - src/zendesk/errors/error.py
   - src/zendesk/errors/errorresponse.py
   - src/zendesk/errors/errors.py
   - src/zendesk/errors/recoversuspendedticketunprocessablecontentresponse_error.py
@@ -1418,6 +1430,9 @@ generatedFiles:
   - src/zendesk/models/activitiesresponse.py
   - src/zendesk/models/activityobject.py
   - src/zendesk/models/activityresponse.py
+  - src/zendesk/models/addorganizationtagsop.py
+  - src/zendesk/models/addtickettagsop.py
+  - src/zendesk/models/addusertagsop.py
   - src/zendesk/models/apikeyauthentication.py
   - src/zendesk/models/approvalrequestcreaterequest.py
   - src/zendesk/models/approvalrequestdecision.py
@@ -1610,7 +1625,6 @@ generatedFiles:
   - src/zendesk/models/deleteslapolicyop.py
   - src/zendesk/models/deletesuspendedticketop.py
   - src/zendesk/models/deletesuspendedticketsop.py
-  - src/zendesk/models/deletetagsticketop.py
   - src/zendesk/models/deletetargetop.py
   - src/zendesk/models/deleteticketfieldop.py
   - src/zendesk/models/deleteticketfieldoptionop.py
@@ -1746,8 +1760,8 @@ generatedFiles:
   - src/zendesk/models/listorganizationmergesop.py
   - src/zendesk/models/listorganizationsop.py
   - src/zendesk/models/listorganizationsubscriptionsop.py
+  - src/zendesk/models/listorganizationtagsop.py
   - src/zendesk/models/listrequestsop.py
-  - src/zendesk/models/listresourcetagsop.py
   - src/zendesk/models/listsatisfactionratingsop.py
   - src/zendesk/models/listsearchresultsop.py
   - src/zendesk/models/listsessionsop.py
@@ -1771,12 +1785,14 @@ generatedFiles:
   - src/zendesk/models/listticketsfullfilledbyuserop.py
   - src/zendesk/models/listticketskipsop.py
   - src/zendesk/models/listticketsop.py
+  - src/zendesk/models/listtickettagsop.py
   - src/zendesk/models/listtriggercategoriesop.py
   - src/zendesk/models/listtriggerrevisionsop.py
   - src/zendesk/models/listtriggersop.py
   - src/zendesk/models/listuserfieldsop.py
   - src/zendesk/models/listuseridentitiesop.py
   - src/zendesk/models/listusersop.py
+  - src/zendesk/models/listusertagsop.py
   - src/zendesk/models/listviewsbyidop.py
   - src/zendesk/models/listviewsop.py
   - src/zendesk/models/listwebhookinvocationattemptsop.py
@@ -1852,7 +1868,6 @@ generatedFiles:
   - src/zendesk/models/permanentlydeleteuserop.py
   - src/zendesk/models/previewviewsop.py
   - src/zendesk/models/pushnotificationdevicesrequest.py
-  - src/zendesk/models/puttagsticketop.py
   - src/zendesk/models/queueobject.py
   - src/zendesk/models/queueresponse.py
   - src/zendesk/models/queuesresponse.py
@@ -1868,6 +1883,9 @@ generatedFiles:
   - src/zendesk/models/redactticketcommentinagentworkspaceop.py
   - src/zendesk/models/relationshipfilterdefinition.py
   - src/zendesk/models/relationshipfilterdefinitionresponse.py
+  - src/zendesk/models/removeorganizationtagsop.py
+  - src/zendesk/models/removetickettagsop.py
+  - src/zendesk/models/removeusertagsop.py
   - src/zendesk/models/renewsessionresponse.py
   - src/zendesk/models/reordercustomobjectfieldsop.py
   - src/zendesk/models/reordergroupslapoliciesop.py
@@ -1885,6 +1903,7 @@ generatedFiles:
   - src/zendesk/models/retrieveresourcecollectionop.py
   - src/zendesk/models/reverselookupresponse.py
   - src/zendesk/models/revokeoauthtokenop.py
+  - src/zendesk/models/safetagsrequest.py
   - src/zendesk/models/satisfactionratingobject.py
   - src/zendesk/models/satisfactionratingresponse.py
   - src/zendesk/models/satisfactionratingscountresponse.py
@@ -1913,9 +1932,11 @@ generatedFiles:
   - src/zendesk/models/setagentattributevaluesop.py
   - src/zendesk/models/setorganizationasdefaultop.py
   - src/zendesk/models/setorganizationmembershipasdefaultop.py
-  - src/zendesk/models/settagsticketop.py
+  - src/zendesk/models/setorganizationtagsop.py
   - src/zendesk/models/setticketattributevaluesop.py
+  - src/zendesk/models/settickettagsop.py
   - src/zendesk/models/setuserpasswordop.py
+  - src/zendesk/models/setusertagsop.py
   - src/zendesk/models/sharingagreementobject.py
   - src/zendesk/models/sharingagreementresponse.py
   - src/zendesk/models/sharingagreementsresponse.py
@@ -2016,8 +2037,8 @@ generatedFiles:
   - src/zendesk/models/systemfieldoptionobject.py
   - src/zendesk/models/tagcountobject.py
   - src/zendesk/models/tagcountresponse.py
-  - src/zendesk/models/taglisttagobject.py
   - src/zendesk/models/tagsbyobjectidresponse.py
+  - src/zendesk/models/tagsrequest.py
   - src/zendesk/models/tagsresponse.py
   - src/zendesk/models/targetfailureobject.py
   - src/zendesk/models/targetfailureresponse.py
@@ -2761,7 +2782,7 @@ examples:
           page[size]: 100
       responses:
         "200":
-          application/json: {"count": 1, "next_page": null, "previous_page": null, "tags": [{"count": 10, "name": "Triage"}]}
+          application/json: {"tags": ["{\"count\":10,\"name\":\"Triage\"}"]}
   CountTags:
     default:
       responses:
@@ -10444,5 +10465,137 @@ examples:
           application/json: {}
         "403":
           application/json: {}
+  listTicketTags:
+    speakeasy-default-list-ticket-tags:
+      parameters:
+        path:
+          ticket_id: 123456
+      responses:
+        "200":
+          application/json: {"tags": ["customer", "vip", "urgent"]}
+        "404":
+          application/json: {"code": "<value>", "title": "<value>"}
+  setTicketTags:
+    speakeasy-default-set-ticket-tags:
+      parameters:
+        path:
+          ticket_id: 123456
+      requestBody:
+        application/json: {"tags": ["customer", "vip"]}
+      responses:
+        "201":
+          application/json: {"tags": ["customer", "vip", "urgent"]}
+        "404":
+          application/json: {"code": "<value>", "title": "<value>"}
+  addTicketTags:
+    speakeasy-default-add-ticket-tags:
+      parameters:
+        path:
+          ticket_id: 123456
+      requestBody:
+        application/json: {"tags": ["customer", "vip"], "updated_stamp": "2019-09-12T21:45:16Z", "safe_update": "true"}
+      responses:
+        "200":
+          application/json: {"tags": ["customer", "vip", "urgent"]}
+        "404":
+          application/json: {"code": "<value>", "title": "<value>"}
+  removeTicketTags:
+    speakeasy-default-remove-ticket-tags:
+      parameters:
+        path:
+          ticket_id: 123456
+      requestBody:
+        application/json: {"tags": ["customer", "vip"], "updated_stamp": "2019-09-12T21:45:16Z", "safe_update": "true"}
+      responses:
+        "404":
+          application/json: {"code": "<value>", "title": "<value>"}
+  listOrganizationTags:
+    speakeasy-default-list-organization-tags:
+      parameters:
+        path:
+          organization_id: 16
+      responses:
+        "200":
+          application/json: {"tags": ["customer", "vip", "urgent"]}
+        "404":
+          application/json: {"code": "<value>", "title": "<value>"}
+  setOrganizationTags:
+    speakeasy-default-set-organization-tags:
+      parameters:
+        path:
+          organization_id: 16
+      requestBody:
+        application/json: {"tags": ["customer", "vip"]}
+      responses:
+        "201":
+          application/json: {"tags": ["customer", "vip", "urgent"]}
+        "404":
+          application/json: {"code": "<value>", "title": "<value>"}
+  addOrganizationTags:
+    speakeasy-default-add-organization-tags:
+      parameters:
+        path:
+          organization_id: 16
+      requestBody:
+        application/json: {"tags": ["customer", "vip"]}
+      responses:
+        "200":
+          application/json: {"tags": ["customer", "vip", "urgent"]}
+        "404":
+          application/json: {"code": "<value>", "title": "<value>"}
+  removeOrganizationTags:
+    speakeasy-default-remove-organization-tags:
+      parameters:
+        path:
+          organization_id: 16
+      requestBody:
+        application/json: {"tags": ["customer", "vip"]}
+      responses:
+        "404":
+          application/json: {"code": "<value>", "title": "<value>"}
+  listUserTags:
+    speakeasy-default-list-user-tags:
+      parameters:
+        path:
+          user_id: 35436
+      responses:
+        "200":
+          application/json: {"tags": ["customer", "vip", "urgent"]}
+        "404":
+          application/json: {"code": "<value>", "title": "<value>"}
+  setUserTags:
+    speakeasy-default-set-user-tags:
+      parameters:
+        path:
+          user_id: 35436
+      requestBody:
+        application/json: {"tags": ["customer", "vip"]}
+      responses:
+        "201":
+          application/json: {"tags": ["customer", "vip", "urgent"]}
+        "404":
+          application/json: {"code": "<value>", "title": "<value>"}
+  addUserTags:
+    speakeasy-default-add-user-tags:
+      parameters:
+        path:
+          user_id: 35436
+      requestBody:
+        application/json: {"tags": ["customer", "vip"]}
+      responses:
+        "200":
+          application/json: {"tags": ["customer", "vip", "urgent"]}
+        "404":
+          application/json: {"code": "<value>", "title": "<value>"}
+  removeUserTags:
+    speakeasy-default-remove-user-tags:
+      parameters:
+        path:
+          user_id: 35436
+      requestBody:
+        application/json: {"tags": ["customer", "vip"]}
+      responses:
+        "404":
+          application/json: {"code": "<value>", "title": "<value>"}
 examplesVersion: 1.0.2
 generatedTests: {}
