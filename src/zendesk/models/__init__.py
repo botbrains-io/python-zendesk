@@ -518,6 +518,10 @@ if TYPE_CHECKING:
         CreateObjectTriggerRequest,
         CreateObjectTriggerRequestTypedDict,
     )
+    from .createorclonewebhookop import (
+        CreateOrCloneWebhookRequest,
+        CreateOrCloneWebhookRequestTypedDict,
+    )
     from .createorganizationmergeop import (
         CreateOrganizationMergeRequest,
         CreateOrganizationMergeRequestTypedDict,
@@ -945,6 +949,7 @@ if TYPE_CHECKING:
     )
     from .deleteuserop import DeleteUserRequest, DeleteUserRequestTypedDict
     from .deleteviewop import DeleteViewRequest, DeleteViewRequestTypedDict
+    from .deletewebhookop import DeleteWebhookRequest, DeleteWebhookRequestTypedDict
     from .deleteworkspaceop import (
         DeleteWorkspaceRequest,
         DeleteWorkspaceRequestTypedDict,
@@ -1018,6 +1023,7 @@ if TYPE_CHECKING:
         ErrorSourceTypedDict,
         ErrorTypedDict,
     )
+    from .errorresponse import ErrorResponseError, ErrorResponseErrorTypedDict
     from .essentialscardobject import (
         EssentialsCardObject,
         EssentialsCardObjectTypedDict,
@@ -1683,6 +1689,22 @@ if TYPE_CHECKING:
         ListViewsResponse,
         ListViewsResponseTypedDict,
     )
+    from .listwebhookinvocationattemptsop import (
+        ListWebhookInvocationAttemptsRequest,
+        ListWebhookInvocationAttemptsRequestTypedDict,
+    )
+    from .listwebhookinvocationsop import (
+        ListWebhookInvocationsFilterStatus,
+        ListWebhookInvocationsRequest,
+        ListWebhookInvocationsRequestTypedDict,
+        ListWebhookInvocationsSort,
+    )
+    from .listwebhooksop import (
+        ListWebhooksFilterStatus,
+        ListWebhooksRequest,
+        ListWebhooksRequestTypedDict,
+        ListWebhooksSort,
+    )
     from .localeobject import LocaleObject, LocaleObjectTypedDict
     from .localeresponse import LocaleResponse, LocaleResponseTypedDict
     from .localesresponse import LocalesResponse, LocalesResponseTypedDict
@@ -1936,6 +1958,9 @@ if TYPE_CHECKING:
         OrganizationSubscriptionsResponse,
         OrganizationSubscriptionsResponseTypedDict,
     )
+    from .paginationlinks import PaginationLinks, PaginationLinksTypedDict
+    from .paginationmeta import PaginationMeta, PaginationMetaTypedDict
+    from .patchwebhookop import PatchWebhookRequest, PatchWebhookRequestTypedDict
     from .permanentlydeleteuserop import (
         PermanentlyDeleteUserRequest,
         PermanentlyDeleteUserRequestTypedDict,
@@ -2052,6 +2077,10 @@ if TYPE_CHECKING:
     from .requestuserverficationop import (
         RequestUserVerficationRequest,
         RequestUserVerficationRequestTypedDict,
+    )
+    from .resetwebhooksigningsecretop import (
+        ResetWebhookSigningSecretRequest,
+        ResetWebhookSigningSecretRequestTypedDict,
     )
     from .resourcecollectionobject import (
         Resource,
@@ -2391,6 +2420,11 @@ if TYPE_CHECKING:
         ShowUserRelatedRequestTypedDict,
     )
     from .showviewop import ShowViewRequest, ShowViewRequestTypedDict
+    from .showwebhookop import ShowWebhookRequest, ShowWebhookRequestTypedDict
+    from .showwebhooksigningsecretop import (
+        ShowWebhookSigningSecretRequest,
+        ShowWebhookSigningSecretRequestTypedDict,
+    )
     from .showworkspaceop import (
         ShowWorkspaceRequest,
         ShowWorkspaceRequestTypedDict,
@@ -2576,6 +2610,7 @@ if TYPE_CHECKING:
     )
     from .targetresponse import TargetResponse, TargetResponseTypedDict
     from .targetsresponse import TargetsResponse, TargetsResponseTypedDict
+    from .testwebhookop import TestWebhookRequest, TestWebhookRequestTypedDict
     from .ticketauditobject import TicketAuditObject, TicketAuditObjectTypedDict
     from .ticketauditresponse import TicketAuditResponse, TicketAuditResponseTypedDict
     from .ticketauditscountresponse import (
@@ -3135,6 +3170,7 @@ if TYPE_CHECKING:
     )
     from .updateuserop import UpdateUserRequest, UpdateUserRequestTypedDict
     from .updateviewop import UpdateViewRequest, UpdateViewRequestTypedDict
+    from .updatewebhookop import UpdateWebhookRequest, UpdateWebhookRequestTypedDict
     from .updateworkspaceop import (
         UpdateWorkspaceRequest,
         UpdateWorkspaceRequestBody,
@@ -3244,6 +3280,78 @@ if TYPE_CHECKING:
         ViewsCountResponseTypedDict,
     )
     from .viewsresponse import ViewsResponse, ViewsResponseTypedDict
+    from .webhook import (
+        ExternalSource,
+        ExternalSourceTypedDict,
+        HTTPMethod,
+        RequestFormat,
+        Webhook,
+        WebhookInput,
+        WebhookInputTypedDict,
+        WebhookStatus,
+        WebhookTypedDict,
+    )
+    from .webhookauthentication import (
+        AddPosition,
+        Data,
+        DataTypedDict,
+        WebhookAuthentication,
+        WebhookAuthenticationType,
+        WebhookAuthenticationTypedDict,
+    )
+    from .webhookcreaterequest import (
+        WebhookCreateRequest,
+        WebhookCreateRequestTypedDict,
+    )
+    from .webhookinvocation import (
+        WebhookInvocation,
+        WebhookInvocationStatus,
+        WebhookInvocationTypedDict,
+    )
+    from .webhookinvocationattempt import (
+        WebhookInvocationAttempt,
+        WebhookInvocationAttemptTypedDict,
+    )
+    from .webhookinvocationattemptlistresponse import (
+        WebhookInvocationAttemptListResponse,
+        WebhookInvocationAttemptListResponseTypedDict,
+    )
+    from .webhookinvocationlistresponse import (
+        WebhookInvocationListResponse,
+        WebhookInvocationListResponseTypedDict,
+    )
+    from .webhooklistresponse import WebhookListResponse, WebhookListResponseTypedDict
+    from .webhookpatchrequest import (
+        WebhookPatchRequest,
+        WebhookPatchRequestTypedDict,
+        WebhookPatchRequestWebhook,
+        WebhookPatchRequestWebhookTypedDict,
+    )
+    from .webhookresponse import WebhookResponse, WebhookResponseTypedDict
+    from .webhooksigningsecret import (
+        WebhookSigningSecret,
+        WebhookSigningSecretTypedDict,
+    )
+    from .webhooksigningsecretresponse import (
+        WebhookSigningSecretResponse,
+        WebhookSigningSecretResponseTypedDict,
+    )
+    from .webhooktestrequest import (
+        WebhookTestRequest,
+        WebhookTestRequestTypedDict,
+        WebhookTestRequestWebhook,
+        WebhookTestRequestWebhookTypedDict,
+    )
+    from .webhooktestresponse import (
+        Test,
+        TestTypedDict,
+        WebhookTestResponse,
+        WebhookTestResponseTypedDict,
+    )
+    from .webhookupdaterequest import (
+        WebhookUpdateRequest,
+        WebhookUpdateRequestTypedDict,
+    )
     from .workspaceinput import WorkspaceInput, WorkspaceInputTypedDict
     from .workspaceobject import WorkspaceObject, WorkspaceObjectTypedDict
     from .workspaceresponse import WorkspaceResponse, WorkspaceResponseTypedDict
@@ -3331,6 +3439,7 @@ __all__ = [
     "ActorUserForEndUserTypedDict",
     "ActorUsers",
     "ActorUsersTypedDict",
+    "AddPosition",
     "AgentWaitTimeInMinutes",
     "AgentWaitTimeInMinutesTypedDict",
     "AnyList",
@@ -3600,6 +3709,8 @@ __all__ = [
     "CreateOAuthTokenRequestTypedDict",
     "CreateObjectTriggerRequest",
     "CreateObjectTriggerRequestTypedDict",
+    "CreateOrCloneWebhookRequest",
+    "CreateOrCloneWebhookRequestTypedDict",
     "CreateOrUpdateTicketFieldOptionRequest",
     "CreateOrUpdateTicketFieldOptionRequestTypedDict",
     "CreateOrganizationMergeRequest",
@@ -3740,6 +3851,8 @@ __all__ = [
     "CustomStatusesResponse",
     "CustomStatusesResponseTypedDict",
     "DNSResults",
+    "Data",
+    "DataTypedDict",
     "Definition",
     "DefinitionTypedDict",
     "DefinitionsResponse",
@@ -3852,6 +3965,8 @@ __all__ = [
     "DeleteUserRequestTypedDict",
     "DeleteViewRequest",
     "DeleteViewRequestTypedDict",
+    "DeleteWebhookRequest",
+    "DeleteWebhookRequestTypedDict",
     "DeleteWorkspaceRequest",
     "DeleteWorkspaceRequestTypedDict",
     "DeletedTicket",
@@ -3909,6 +4024,8 @@ __all__ = [
     "ErrorLinksTypedDict",
     "ErrorMessage",
     "ErrorMessageTypedDict",
+    "ErrorResponseError",
+    "ErrorResponseErrorTypedDict",
     "ErrorSource",
     "ErrorSourceTypedDict",
     "ErrorTypedDict",
@@ -3936,6 +4053,8 @@ __all__ = [
     "ExportSearchResultsResponseTypedDict",
     "ExportViewRequest",
     "ExportViewRequestTypedDict",
+    "ExternalSource",
+    "ExternalSourceTypedDict",
     "FailedResult",
     "FailedResultTypedDict",
     "FieldKey",
@@ -4033,6 +4152,7 @@ __all__ = [
     "GroupsCountObjectTypedDict",
     "GroupsResponse",
     "GroupsResponseTypedDict",
+    "HTTPMethod",
     "HelpCenterState",
     "Host",
     "HostMappingObject",
@@ -4358,6 +4478,16 @@ __all__ = [
     "ListViewsRequestTypedDict",
     "ListViewsResponse",
     "ListViewsResponseTypedDict",
+    "ListWebhookInvocationAttemptsRequest",
+    "ListWebhookInvocationAttemptsRequestTypedDict",
+    "ListWebhookInvocationsFilterStatus",
+    "ListWebhookInvocationsRequest",
+    "ListWebhookInvocationsRequestTypedDict",
+    "ListWebhookInvocationsSort",
+    "ListWebhooksFilterStatus",
+    "ListWebhooksRequest",
+    "ListWebhooksRequestTypedDict",
+    "ListWebhooksSort",
     "LocaleObject",
     "LocaleObjectTypedDict",
     "LocaleResponse",
@@ -4525,6 +4655,12 @@ __all__ = [
     "OrganizationsResponseTypedDict",
     "Page",
     "PageTypedDict",
+    "PaginationLinks",
+    "PaginationLinksTypedDict",
+    "PaginationMeta",
+    "PaginationMetaTypedDict",
+    "PatchWebhookRequest",
+    "PatchWebhookRequestTypedDict",
     "PermanentlyDeleteUserRequest",
     "PermanentlyDeleteUserRequestTypedDict",
     "PreviewViewsRequest",
@@ -4587,6 +4723,7 @@ __all__ = [
     "ReplyTimeInMinutesTypedDict",
     "ReplyTimeInSeconds",
     "ReplyTimeInSecondsTypedDict",
+    "RequestFormat",
     "RequestObject",
     "RequestObjectCustomField",
     "RequestObjectCustomFieldTypedDict",
@@ -4599,6 +4736,8 @@ __all__ = [
     "RequesterWaitTimeInMinutesTypedDict",
     "RequestsResponse",
     "RequestsResponseTypedDict",
+    "ResetWebhookSigningSecretRequest",
+    "ResetWebhookSigningSecretRequestTypedDict",
     "Resource",
     "ResourceCollectionObject",
     "ResourceCollectionObjectTypedDict",
@@ -4870,6 +5009,10 @@ __all__ = [
     "ShowUserRequestTypedDict",
     "ShowViewRequest",
     "ShowViewRequestTypedDict",
+    "ShowWebhookRequest",
+    "ShowWebhookRequestTypedDict",
+    "ShowWebhookSigningSecretRequest",
+    "ShowWebhookSigningSecretRequestTypedDict",
     "ShowWorkspaceRequest",
     "ShowWorkspaceRequestTypedDict",
     "ShowWorkspaceResponse",
@@ -4973,6 +5116,10 @@ __all__ = [
     "TargetYammerTypedDict",
     "TargetsResponse",
     "TargetsResponseTypedDict",
+    "Test",
+    "TestTypedDict",
+    "TestWebhookRequest",
+    "TestWebhookRequestTypedDict",
     "TicketAuditObject",
     "TicketAuditObjectTypedDict",
     "TicketAuditResponse",
@@ -5341,6 +5488,8 @@ __all__ = [
     "UpdateUserRequestTypedDict",
     "UpdateViewRequest",
     "UpdateViewRequestTypedDict",
+    "UpdateWebhookRequest",
+    "UpdateWebhookRequestTypedDict",
     "UpdateWorkspaceRequest",
     "UpdateWorkspaceRequestBody",
     "UpdateWorkspaceRequestBodyTypedDict",
@@ -5429,6 +5578,45 @@ __all__ = [
     "ViewsResponseTypedDict",
     "VoiceComment",
     "VoiceCommentTypedDict",
+    "Webhook",
+    "WebhookAuthentication",
+    "WebhookAuthenticationType",
+    "WebhookAuthenticationTypedDict",
+    "WebhookCreateRequest",
+    "WebhookCreateRequestTypedDict",
+    "WebhookInput",
+    "WebhookInputTypedDict",
+    "WebhookInvocation",
+    "WebhookInvocationAttempt",
+    "WebhookInvocationAttemptListResponse",
+    "WebhookInvocationAttemptListResponseTypedDict",
+    "WebhookInvocationAttemptTypedDict",
+    "WebhookInvocationListResponse",
+    "WebhookInvocationListResponseTypedDict",
+    "WebhookInvocationStatus",
+    "WebhookInvocationTypedDict",
+    "WebhookListResponse",
+    "WebhookListResponseTypedDict",
+    "WebhookPatchRequest",
+    "WebhookPatchRequestTypedDict",
+    "WebhookPatchRequestWebhook",
+    "WebhookPatchRequestWebhookTypedDict",
+    "WebhookResponse",
+    "WebhookResponseTypedDict",
+    "WebhookSigningSecret",
+    "WebhookSigningSecretResponse",
+    "WebhookSigningSecretResponseTypedDict",
+    "WebhookSigningSecretTypedDict",
+    "WebhookStatus",
+    "WebhookTestRequest",
+    "WebhookTestRequestTypedDict",
+    "WebhookTestRequestWebhook",
+    "WebhookTestRequestWebhookTypedDict",
+    "WebhookTestResponse",
+    "WebhookTestResponseTypedDict",
+    "WebhookTypedDict",
+    "WebhookUpdateRequest",
+    "WebhookUpdateRequestTypedDict",
     "WorkspaceInput",
     "WorkspaceInputTypedDict",
     "WorkspaceObject",
@@ -5776,6 +5964,8 @@ _dynamic_imports: dict[str, str] = {
     "CreateOAuthTokenRequestTypedDict": ".createoauthtokenop",
     "CreateObjectTriggerRequest": ".createobjecttriggerop",
     "CreateObjectTriggerRequestTypedDict": ".createobjecttriggerop",
+    "CreateOrCloneWebhookRequest": ".createorclonewebhookop",
+    "CreateOrCloneWebhookRequestTypedDict": ".createorclonewebhookop",
     "CreateOrganizationMergeRequest": ".createorganizationmergeop",
     "CreateOrganizationMergeRequestTypedDict": ".createorganizationmergeop",
     "CreateOrganizationRequest": ".createorganizationrequest",
@@ -6047,6 +6237,8 @@ _dynamic_imports: dict[str, str] = {
     "DeleteUserRequestTypedDict": ".deleteuserop",
     "DeleteViewRequest": ".deleteviewop",
     "DeleteViewRequestTypedDict": ".deleteviewop",
+    "DeleteWebhookRequest": ".deletewebhookop",
+    "DeleteWebhookRequestTypedDict": ".deletewebhookop",
     "DeleteWorkspaceRequest": ".deleteworkspaceop",
     "DeleteWorkspaceRequestTypedDict": ".deleteworkspaceop",
     "DeletionSchedule": ".deletionschedule",
@@ -6089,6 +6281,8 @@ _dynamic_imports: dict[str, str] = {
     "ErrorSource": ".error",
     "ErrorSourceTypedDict": ".error",
     "ErrorTypedDict": ".error",
+    "ErrorResponseError": ".errorresponse",
+    "ErrorResponseErrorTypedDict": ".errorresponse",
     "EssentialsCardObject": ".essentialscardobject",
     "EssentialsCardObjectTypedDict": ".essentialscardobject",
     "EssentialsCardResponse": ".essentialscardresponse",
@@ -6526,6 +6720,16 @@ _dynamic_imports: dict[str, str] = {
     "ListViewsRequestTypedDict": ".listviewsop",
     "ListViewsResponse": ".listviewsop",
     "ListViewsResponseTypedDict": ".listviewsop",
+    "ListWebhookInvocationAttemptsRequest": ".listwebhookinvocationattemptsop",
+    "ListWebhookInvocationAttemptsRequestTypedDict": ".listwebhookinvocationattemptsop",
+    "ListWebhookInvocationsFilterStatus": ".listwebhookinvocationsop",
+    "ListWebhookInvocationsRequest": ".listwebhookinvocationsop",
+    "ListWebhookInvocationsRequestTypedDict": ".listwebhookinvocationsop",
+    "ListWebhookInvocationsSort": ".listwebhookinvocationsop",
+    "ListWebhooksFilterStatus": ".listwebhooksop",
+    "ListWebhooksRequest": ".listwebhooksop",
+    "ListWebhooksRequestTypedDict": ".listwebhooksop",
+    "ListWebhooksSort": ".listwebhooksop",
     "LocaleObject": ".localeobject",
     "LocaleObjectTypedDict": ".localeobject",
     "LocaleResponse": ".localeresponse",
@@ -6690,6 +6894,12 @@ _dynamic_imports: dict[str, str] = {
     "OrganizationSubscriptionResponseTypedDict": ".organizationsubscriptionresponse",
     "OrganizationSubscriptionsResponse": ".organizationsubscriptionsresponse",
     "OrganizationSubscriptionsResponseTypedDict": ".organizationsubscriptionsresponse",
+    "PaginationLinks": ".paginationlinks",
+    "PaginationLinksTypedDict": ".paginationlinks",
+    "PaginationMeta": ".paginationmeta",
+    "PaginationMetaTypedDict": ".paginationmeta",
+    "PatchWebhookRequest": ".patchwebhookop",
+    "PatchWebhookRequestTypedDict": ".patchwebhookop",
     "PermanentlyDeleteUserRequest": ".permanentlydeleteuserop",
     "PermanentlyDeleteUserRequestTypedDict": ".permanentlydeleteuserop",
     "PreviewViewsRequest": ".previewviewsop",
@@ -6766,6 +6976,8 @@ _dynamic_imports: dict[str, str] = {
     "RequestsResponseTypedDict": ".requestsresponse",
     "RequestUserVerficationRequest": ".requestuserverficationop",
     "RequestUserVerficationRequestTypedDict": ".requestuserverficationop",
+    "ResetWebhookSigningSecretRequest": ".resetwebhooksigningsecretop",
+    "ResetWebhookSigningSecretRequestTypedDict": ".resetwebhooksigningsecretop",
     "Resource": ".resourcecollectionobject",
     "ResourceCollectionObject": ".resourcecollectionobject",
     "ResourceCollectionObjectTypedDict": ".resourcecollectionobject",
@@ -6996,6 +7208,10 @@ _dynamic_imports: dict[str, str] = {
     "ShowUserRelatedRequestTypedDict": ".showuserrelatedop",
     "ShowViewRequest": ".showviewop",
     "ShowViewRequestTypedDict": ".showviewop",
+    "ShowWebhookRequest": ".showwebhookop",
+    "ShowWebhookRequestTypedDict": ".showwebhookop",
+    "ShowWebhookSigningSecretRequest": ".showwebhooksigningsecretop",
+    "ShowWebhookSigningSecretRequestTypedDict": ".showwebhooksigningsecretop",
     "ShowWorkspaceRequest": ".showworkspaceop",
     "ShowWorkspaceRequestTypedDict": ".showworkspaceop",
     "ShowWorkspaceResponse": ".showworkspaceop",
@@ -7137,6 +7353,8 @@ _dynamic_imports: dict[str, str] = {
     "TargetResponseTypedDict": ".targetresponse",
     "TargetsResponse": ".targetsresponse",
     "TargetsResponseTypedDict": ".targetsresponse",
+    "TestWebhookRequest": ".testwebhookop",
+    "TestWebhookRequestTypedDict": ".testwebhookop",
     "TicketAuditObject": ".ticketauditobject",
     "TicketAuditObjectTypedDict": ".ticketauditobject",
     "TicketAuditResponse": ".ticketauditresponse",
@@ -7525,6 +7743,8 @@ _dynamic_imports: dict[str, str] = {
     "UpdateUserRequestTypedDict": ".updateuserop",
     "UpdateViewRequest": ".updateviewop",
     "UpdateViewRequestTypedDict": ".updateviewop",
+    "UpdateWebhookRequest": ".updatewebhookop",
+    "UpdateWebhookRequestTypedDict": ".updatewebhookop",
     "UpdateWorkspaceRequest": ".updateworkspaceop",
     "UpdateWorkspaceRequestBody": ".updateworkspaceop",
     "UpdateWorkspaceRequestBodyTypedDict": ".updateworkspaceop",
@@ -7618,6 +7838,54 @@ _dynamic_imports: dict[str, str] = {
     "ViewsCountResponseTypedDict": ".viewscountresponse",
     "ViewsResponse": ".viewsresponse",
     "ViewsResponseTypedDict": ".viewsresponse",
+    "ExternalSource": ".webhook",
+    "ExternalSourceTypedDict": ".webhook",
+    "HTTPMethod": ".webhook",
+    "RequestFormat": ".webhook",
+    "Webhook": ".webhook",
+    "WebhookInput": ".webhook",
+    "WebhookInputTypedDict": ".webhook",
+    "WebhookStatus": ".webhook",
+    "WebhookTypedDict": ".webhook",
+    "AddPosition": ".webhookauthentication",
+    "Data": ".webhookauthentication",
+    "DataTypedDict": ".webhookauthentication",
+    "WebhookAuthentication": ".webhookauthentication",
+    "WebhookAuthenticationType": ".webhookauthentication",
+    "WebhookAuthenticationTypedDict": ".webhookauthentication",
+    "WebhookCreateRequest": ".webhookcreaterequest",
+    "WebhookCreateRequestTypedDict": ".webhookcreaterequest",
+    "WebhookInvocation": ".webhookinvocation",
+    "WebhookInvocationStatus": ".webhookinvocation",
+    "WebhookInvocationTypedDict": ".webhookinvocation",
+    "WebhookInvocationAttempt": ".webhookinvocationattempt",
+    "WebhookInvocationAttemptTypedDict": ".webhookinvocationattempt",
+    "WebhookInvocationAttemptListResponse": ".webhookinvocationattemptlistresponse",
+    "WebhookInvocationAttemptListResponseTypedDict": ".webhookinvocationattemptlistresponse",
+    "WebhookInvocationListResponse": ".webhookinvocationlistresponse",
+    "WebhookInvocationListResponseTypedDict": ".webhookinvocationlistresponse",
+    "WebhookListResponse": ".webhooklistresponse",
+    "WebhookListResponseTypedDict": ".webhooklistresponse",
+    "WebhookPatchRequest": ".webhookpatchrequest",
+    "WebhookPatchRequestTypedDict": ".webhookpatchrequest",
+    "WebhookPatchRequestWebhook": ".webhookpatchrequest",
+    "WebhookPatchRequestWebhookTypedDict": ".webhookpatchrequest",
+    "WebhookResponse": ".webhookresponse",
+    "WebhookResponseTypedDict": ".webhookresponse",
+    "WebhookSigningSecret": ".webhooksigningsecret",
+    "WebhookSigningSecretTypedDict": ".webhooksigningsecret",
+    "WebhookSigningSecretResponse": ".webhooksigningsecretresponse",
+    "WebhookSigningSecretResponseTypedDict": ".webhooksigningsecretresponse",
+    "WebhookTestRequest": ".webhooktestrequest",
+    "WebhookTestRequestTypedDict": ".webhooktestrequest",
+    "WebhookTestRequestWebhook": ".webhooktestrequest",
+    "WebhookTestRequestWebhookTypedDict": ".webhooktestrequest",
+    "Test": ".webhooktestresponse",
+    "TestTypedDict": ".webhooktestresponse",
+    "WebhookTestResponse": ".webhooktestresponse",
+    "WebhookTestResponseTypedDict": ".webhooktestresponse",
+    "WebhookUpdateRequest": ".webhookupdaterequest",
+    "WebhookUpdateRequestTypedDict": ".webhookupdaterequest",
     "WorkspaceInput": ".workspaceinput",
     "WorkspaceInputTypedDict": ".workspaceinput",
     "WorkspaceObject": ".workspaceobject",

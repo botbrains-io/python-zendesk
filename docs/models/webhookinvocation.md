@@ -1,0 +1,12 @@
+# WebhookInvocation
+
+
+## Fields
+
+| Field                                                                            | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `id`                                                                             | *Optional[str]*                                                                  | :heavy_minus_sign:                                                               | N/A                                                                              |
+| `webhook_id`                                                                     | *Optional[str]*                                                                  | :heavy_minus_sign:                                                               | N/A                                                                              |
+| `status`                                                                         | [Optional[models.WebhookInvocationStatus]](../models/webhookinvocationstatus.md) | :heavy_minus_sign:                                                               | N/A                                                                              |
+| `created_at`                                                                     | [date](https://docs.python.org/3/library/datetime.html#date-objects)             | :heavy_minus_sign:                                                               | N/A                                                                              |
+| `latest_completed_at`                                                            | [date](https://docs.python.org/3/library/datetime.html#date-objects)             | :heavy_minus_sign:                                                               | N/A                                                                              |

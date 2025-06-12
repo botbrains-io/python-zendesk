@@ -24,6 +24,7 @@ Support API: Zendesk Support API endpoints
 <!-- $toc-max-depth=2 -->
 
 - [python-zendesk](#python-zendesk)
+  - [How to regenerate the SDK](#how-to-regenerate-the-sdk)
   - [SDK Installation](#sdk-installation)
   - [IDE Support](#ide-support)
   - [SDK Example Usage](#sdk-example-usage)
@@ -910,6 +911,26 @@ with Zendesk(
 - [search_views](docs/sdks/views/README.md#search_views) - Search Views
 - [list_views_by_id](docs/sdks/views/README.md#list_views_by_id) - List Views By ID
 - [update_many_views](docs/sdks/views/README.md#update_many_views) - Update Many Views
+
+### [webhook_invocations](docs/sdks/webhookinvocations/README.md)
+
+- [list_webhook_invocations](docs/sdks/webhookinvocations/README.md#list_webhook_invocations) - List Webhook Invocations
+- [list_webhook_invocation_attempts](docs/sdks/webhookinvocations/README.md#list_webhook_invocation_attempts) - List Webhook Invocation Attempts
+
+### [webhook_security](docs/sdks/webhooksecurity/README.md)
+
+- [show_webhook_signing_secret](docs/sdks/webhooksecurity/README.md#show_webhook_signing_secret) - Show Webhook Signing Secret
+- [reset_webhook_signing_secret](docs/sdks/webhooksecurity/README.md#reset_webhook_signing_secret) - Reset Webhook Signing Secret
+
+### [webhooks](docs/sdks/webhooks/README.md)
+
+- [list_webhooks](docs/sdks/webhooks/README.md#list_webhooks) - List Webhooks
+- [create_or_clone_webhook](docs/sdks/webhooks/README.md#create_or_clone_webhook) - Create or Clone Webhook
+- [test_webhook](docs/sdks/webhooks/README.md#test_webhook) - Test Webhook
+- [show_webhook](docs/sdks/webhooks/README.md#show_webhook) - Show Webhook
+- [update_webhook](docs/sdks/webhooks/README.md#update_webhook) - Update Webhook
+- [patch_webhook](docs/sdks/webhooks/README.md#patch_webhook) - Patch Webhook
+- [delete_webhook](docs/sdks/webhooks/README.md#delete_webhook) - Delete Webhook
 
 ### [workspaces](docs/sdks/workspaces/README.md)
 

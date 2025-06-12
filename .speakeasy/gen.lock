@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 37ac03f7-3b34-47b7-8334-e362604f87cd
 management:
-  docChecksum: d945d420311b56a4cadd319de156b78c
+  docChecksum: 41e0ed189991b4e1a437ab5c68f89fae
   docVersion: 2.0.0
   speakeasyVersion: 1.561.0
   generationVersion: 2.628.0
-  releaseVersion: 0.1.0
-  configChecksum: 24197a0431f91af02d752494299a7caf
+  releaseVersion: 0.1.1
+  configChecksum: 7b505eeceaa67017522e0ef8538ee50b
   published: true
 features:
   python:
@@ -43,6 +43,7 @@ generatedFiles:
   - .vscode/settings.json
   - USAGE.md
   - docs/errors/batchjobresponseerror.md
+  - docs/errors/errorresponse.md
   - docs/errors/errors.md
   - docs/errors/recoversuspendedticketunprocessablecontentresponseerror.md
   - docs/errors/skillbasedroutingattributevalueserror.md
@@ -87,6 +88,7 @@ generatedFiles:
   - docs/models/actor.md
   - docs/models/actoruserforenduser.md
   - docs/models/actorusers.md
+  - docs/models/addposition.md
   - docs/models/agentwaittimeinminutes.md
   - docs/models/anylist.md
   - docs/models/anyoperator.md
@@ -225,6 +227,7 @@ generatedFiles:
   - docs/models/createmanydynamiccontentvariantsrequest.md
   - docs/models/createoauthtokenrequest.md
   - docs/models/createobjecttriggerrequest.md
+  - docs/models/createorclonewebhookrequest.md
   - docs/models/createorganizationmergerequest.md
   - docs/models/createorganizationrequest.md
   - docs/models/createorupdateticketfieldoptionrequest.md
@@ -296,6 +299,7 @@ generatedFiles:
   - docs/models/customstatusresponse.md
   - docs/models/customstatusupdateinput.md
   - docs/models/customstatusupdaterequest.md
+  - docs/models/data.md
   - docs/models/definition.md
   - docs/models/definitionsresponse.md
   - docs/models/definitionsresponseconditionsall.md
@@ -357,6 +361,7 @@ generatedFiles:
   - docs/models/deleteuseridentityrequest.md
   - docs/models/deleteuserrequest.md
   - docs/models/deleteviewrequest.md
+  - docs/models/deletewebhookrequest.md
   - docs/models/deleteworkspacerequest.md
   - docs/models/deletionschedule.md
   - docs/models/deletionscheduleinput.md
@@ -384,6 +389,7 @@ generatedFiles:
   - docs/models/error.md
   - docs/models/errorlinks.md
   - docs/models/errormessage.md
+  - docs/models/errorresponseerror.md
   - docs/models/errorsource.md
   - docs/models/essentialscardobject.md
   - docs/models/essentialscardresponse.md
@@ -397,6 +403,7 @@ generatedFiles:
   - docs/models/exportsearchresultsrequest.md
   - docs/models/exportsearchresultsresponse.md
   - docs/models/exportviewrequest.md
+  - docs/models/externalsource.md
   - docs/models/failedresult.md
   - docs/models/fieldkey.md
   - docs/models/fields.md
@@ -450,6 +457,7 @@ generatedFiles:
   - docs/models/helpcenterstate.md
   - docs/models/host.md
   - docs/models/hostmappingobject.md
+  - docs/models/httpmethod.md
   - docs/models/identity.md
   - docs/models/include.md
   - docs/models/incrementalorganizationexportrequest.md
@@ -613,6 +621,13 @@ generatedFiles:
   - docs/models/listviewsbyidrequest.md
   - docs/models/listviewsrequest.md
   - docs/models/listviewsresponse.md
+  - docs/models/listwebhookinvocationattemptsrequest.md
+  - docs/models/listwebhookinvocationsfilterstatus.md
+  - docs/models/listwebhookinvocationsrequest.md
+  - docs/models/listwebhookinvocationssort.md
+  - docs/models/listwebhooksfilterstatus.md
+  - docs/models/listwebhooksrequest.md
+  - docs/models/listwebhookssort.md
   - docs/models/localeobject.md
   - docs/models/localeresponse.md
   - docs/models/localesresponse.md
@@ -698,6 +713,9 @@ generatedFiles:
   - docs/models/organizationsubscriptionresponse.md
   - docs/models/organizationsubscriptionsresponse.md
   - docs/models/page.md
+  - docs/models/paginationlinks.md
+  - docs/models/paginationmeta.md
+  - docs/models/patchwebhookrequest.md
   - docs/models/permanentlydeleteuserrequest.md
   - docs/models/previewviewsrequest.md
   - docs/models/previewviewsresponse.md
@@ -730,11 +748,13 @@ generatedFiles:
   - docs/models/replytimeinminutes.md
   - docs/models/replytimeinseconds.md
   - docs/models/requesterwaittimeinminutes.md
+  - docs/models/requestformat.md
   - docs/models/requestobject.md
   - docs/models/requestobjectcustomfield.md
   - docs/models/requestresponse.md
   - docs/models/requestsresponse.md
   - docs/models/requestuserverficationrequest.md
+  - docs/models/resetwebhooksigningsecretrequest.md
   - docs/models/resource.md
   - docs/models/resourcecollectionobject.md
   - docs/models/resourcecollectionresponse.md
@@ -856,6 +876,8 @@ generatedFiles:
   - docs/models/showuserrelatedrequest.md
   - docs/models/showuserrequest.md
   - docs/models/showviewrequest.md
+  - docs/models/showwebhookrequest.md
+  - docs/models/showwebhooksigningsecretrequest.md
   - docs/models/showworkspacerequest.md
   - docs/models/showworkspaceresponse.md
   - docs/models/skillbasedroutingattributedefinitions.md
@@ -924,6 +946,8 @@ generatedFiles:
   - docs/models/targettwitter.md
   - docs/models/targeturl.md
   - docs/models/targetyammer.md
+  - docs/models/test.md
+  - docs/models/testwebhookrequest.md
   - docs/models/ticketauditobject.md
   - docs/models/ticketauditresponse.md
   - docs/models/ticketauditscountresponse.md
@@ -1117,6 +1141,7 @@ generatedFiles:
   - docs/models/updateuseridentityrequest.md
   - docs/models/updateuserrequest.md
   - docs/models/updateviewrequest.md
+  - docs/models/updatewebhookrequest.md
   - docs/models/updateworkspacerequest.md
   - docs/models/updateworkspacerequestbody.md
   - docs/models/updateworkspaceresponse.md
@@ -1164,6 +1189,27 @@ generatedFiles:
   - docs/models/viewscountresponsecount.md
   - docs/models/viewsresponse.md
   - docs/models/voicecomment.md
+  - docs/models/webhook.md
+  - docs/models/webhookauthentication.md
+  - docs/models/webhookauthenticationtype.md
+  - docs/models/webhookcreaterequest.md
+  - docs/models/webhookinput.md
+  - docs/models/webhookinvocation.md
+  - docs/models/webhookinvocationattempt.md
+  - docs/models/webhookinvocationattemptlistresponse.md
+  - docs/models/webhookinvocationlistresponse.md
+  - docs/models/webhookinvocationstatus.md
+  - docs/models/webhooklistresponse.md
+  - docs/models/webhookpatchrequest.md
+  - docs/models/webhookpatchrequestwebhook.md
+  - docs/models/webhookresponse.md
+  - docs/models/webhooksigningsecret.md
+  - docs/models/webhooksigningsecretresponse.md
+  - docs/models/webhookstatus.md
+  - docs/models/webhooktestrequest.md
+  - docs/models/webhooktestrequestwebhook.md
+  - docs/models/webhooktestresponse.md
+  - docs/models/webhookupdaterequest.md
   - docs/models/workspaceinput.md
   - docs/models/workspaceobject.md
   - docs/models/workspaceresponse.md
@@ -1244,6 +1290,9 @@ generatedFiles:
   - docs/sdks/userpasswords/README.md
   - docs/sdks/userssdk/README.md
   - docs/sdks/views/README.md
+  - docs/sdks/webhookinvocations/README.md
+  - docs/sdks/webhooks/README.md
+  - docs/sdks/webhooksecurity/README.md
   - docs/sdks/workspaces/README.md
   - docs/sdks/xchannel/README.md
   - docs/sdks/zendesk/README.md
@@ -1285,6 +1334,7 @@ generatedFiles:
   - src/zendesk/errors/__init__.py
   - src/zendesk/errors/apierror.py
   - src/zendesk/errors/batchjobresponse_error.py
+  - src/zendesk/errors/errorresponse.py
   - src/zendesk/errors/errors.py
   - src/zendesk/errors/recoversuspendedticketunprocessablecontentresponse_error.py
   - src/zendesk/errors/skillbasedroutingattributevalueserror.py
@@ -1431,6 +1481,7 @@ generatedFiles:
   - src/zendesk/models/createmanydynamiccontentvariantsop.py
   - src/zendesk/models/createoauthtokenop.py
   - src/zendesk/models/createobjecttriggerop.py
+  - src/zendesk/models/createorclonewebhookop.py
   - src/zendesk/models/createorganizationmergeop.py
   - src/zendesk/models/createorganizationrequest.py
   - src/zendesk/models/createorupdateticketfieldoptionop.py
@@ -1539,6 +1590,7 @@ generatedFiles:
   - src/zendesk/models/deleteuseridentityop.py
   - src/zendesk/models/deleteuserop.py
   - src/zendesk/models/deleteviewop.py
+  - src/zendesk/models/deletewebhookop.py
   - src/zendesk/models/deleteworkspaceop.py
   - src/zendesk/models/deletionschedule.py
   - src/zendesk/models/deletionschedule_input.py
@@ -1557,6 +1609,7 @@ generatedFiles:
   - src/zendesk/models/emailnotificationsfilter.py
   - src/zendesk/models/emailnotificationsresponse.py
   - src/zendesk/models/error.py
+  - src/zendesk/models/errorresponse.py
   - src/zendesk/models/essentialscardobject.py
   - src/zendesk/models/essentialscardresponse.py
   - src/zendesk/models/essentialscardsresponse.py
@@ -1689,6 +1742,9 @@ generatedFiles:
   - src/zendesk/models/listusersop.py
   - src/zendesk/models/listviewsbyidop.py
   - src/zendesk/models/listviewsop.py
+  - src/zendesk/models/listwebhookinvocationattemptsop.py
+  - src/zendesk/models/listwebhookinvocationsop.py
+  - src/zendesk/models/listwebhooksop.py
   - src/zendesk/models/localeobject.py
   - src/zendesk/models/localeresponse.py
   - src/zendesk/models/localesresponse.py
@@ -1753,6 +1809,9 @@ generatedFiles:
   - src/zendesk/models/organizationsubscriptionobject.py
   - src/zendesk/models/organizationsubscriptionresponse.py
   - src/zendesk/models/organizationsubscriptionsresponse.py
+  - src/zendesk/models/paginationlinks.py
+  - src/zendesk/models/paginationmeta.py
+  - src/zendesk/models/patchwebhookop.py
   - src/zendesk/models/permanentlydeleteuserop.py
   - src/zendesk/models/previewviewsop.py
   - src/zendesk/models/pushnotificationdevicesrequest.py
@@ -1781,6 +1840,7 @@ generatedFiles:
   - src/zendesk/models/requestresponse.py
   - src/zendesk/models/requestsresponse.py
   - src/zendesk/models/requestuserverficationop.py
+  - src/zendesk/models/resetwebhooksigningsecretop.py
   - src/zendesk/models/resourcecollectionobject.py
   - src/zendesk/models/resourcecollectionresponse.py
   - src/zendesk/models/resourcecollectionsresponse.py
@@ -1889,6 +1949,8 @@ generatedFiles:
   - src/zendesk/models/showuserop.py
   - src/zendesk/models/showuserrelatedop.py
   - src/zendesk/models/showviewop.py
+  - src/zendesk/models/showwebhookop.py
+  - src/zendesk/models/showwebhooksigningsecretop.py
   - src/zendesk/models/showworkspaceop.py
   - src/zendesk/models/skillbasedroutingattributedefinitions.py
   - src/zendesk/models/skillbasedroutingattributeobject.py
@@ -1926,6 +1988,7 @@ generatedFiles:
   - src/zendesk/models/targetobject.py
   - src/zendesk/models/targetresponse.py
   - src/zendesk/models/targetsresponse.py
+  - src/zendesk/models/testwebhookop.py
   - src/zendesk/models/ticketauditobject.py
   - src/zendesk/models/ticketauditresponse.py
   - src/zendesk/models/ticketauditscountresponse.py
@@ -2063,6 +2126,7 @@ generatedFiles:
   - src/zendesk/models/updateuseridentityop.py
   - src/zendesk/models/updateuserop.py
   - src/zendesk/models/updateviewop.py
+  - src/zendesk/models/updatewebhookop.py
   - src/zendesk/models/updateworkspaceop.py
   - src/zendesk/models/upsertcustomobjectrecordbyexternalidornameop.py
   - src/zendesk/models/userfieldobject.py
@@ -2093,6 +2157,21 @@ generatedFiles:
   - src/zendesk/models/viewresponse.py
   - src/zendesk/models/viewscountresponse.py
   - src/zendesk/models/viewsresponse.py
+  - src/zendesk/models/webhook.py
+  - src/zendesk/models/webhookauthentication.py
+  - src/zendesk/models/webhookcreaterequest.py
+  - src/zendesk/models/webhookinvocation.py
+  - src/zendesk/models/webhookinvocationattempt.py
+  - src/zendesk/models/webhookinvocationattemptlistresponse.py
+  - src/zendesk/models/webhookinvocationlistresponse.py
+  - src/zendesk/models/webhooklistresponse.py
+  - src/zendesk/models/webhookpatchrequest.py
+  - src/zendesk/models/webhookresponse.py
+  - src/zendesk/models/webhooksigningsecret.py
+  - src/zendesk/models/webhooksigningsecretresponse.py
+  - src/zendesk/models/webhooktestrequest.py
+  - src/zendesk/models/webhooktestresponse.py
+  - src/zendesk/models/webhookupdaterequest.py
   - src/zendesk/models/workspaceinput.py
   - src/zendesk/models/workspaceobject.py
   - src/zendesk/models/workspaceresponse.py
@@ -2158,6 +2237,9 @@ generatedFiles:
   - src/zendesk/utils/url.py
   - src/zendesk/utils/values.py
   - src/zendesk/views.py
+  - src/zendesk/webhook_invocations.py
+  - src/zendesk/webhook_security.py
+  - src/zendesk/webhooks.py
   - src/zendesk/workspaces.py
   - src/zendesk/x_channel.py
 examples:
@@ -10225,5 +10307,101 @@ examples:
       responses:
         "201":
           application/json: {"access_token": "gErypPlm4dOVgGRvA1ZzMH5MQ3nLo8bo", "scope": "organizations:write read", "token_type": "bearer"}
+  listWebhooks:
+    speakeasy-default-list-webhooks:
+      responses:
+        "200":
+          application/json: {}
+  createOrCloneWebhook:
+    speakeasy-default-create-or-clone-webhook:
+      responses:
+        "201":
+          application/json: {}
+        "400":
+          application/json: {}
+  testWebhook:
+    speakeasy-default-test-webhook:
+      requestBody:
+        application/json: {}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+  showWebhook:
+    speakeasy-default-show-webhook:
+      parameters:
+        path:
+          webhook_id: "<id>"
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+  updateWebhook:
+    speakeasy-default-update-webhook:
+      parameters:
+        path:
+          webhook_id: "<id>"
+      requestBody:
+        application/json: {"webhook": {"name": "<value>", "endpoint": "<value>", "http_method": "DELETE", "request_format": "xml", "status": "active"}}
+      responses:
+        "400":
+          application/json: {}
+  patchWebhook:
+    speakeasy-default-patch-webhook:
+      parameters:
+        path:
+          webhook_id: "<id>"
+      requestBody:
+        application/json: {}
+      responses:
+        "400":
+          application/json: {}
+  deleteWebhook:
+    speakeasy-default-delete-webhook:
+      parameters:
+        path:
+          webhook_id: "<id>"
+      responses:
+        "400":
+          application/json: {}
+  listWebhookInvocations:
+    speakeasy-default-list-webhook-invocations:
+      parameters:
+        path:
+          webhook_id: "<id>"
+      responses:
+        "200":
+          application/json: {}
+  listWebhookInvocationAttempts:
+    speakeasy-default-list-webhook-invocation-attempts:
+      parameters:
+        path:
+          webhook_id: "<id>"
+          invocation_id: "<id>"
+      responses:
+        "200":
+          application/json: {}
+  showWebhookSigningSecret:
+    speakeasy-default-show-webhook-signing-secret:
+      parameters:
+        path:
+          webhook_id: "<id>"
+      responses:
+        "200":
+          application/json: {}
+        "403":
+          application/json: {}
+  resetWebhookSigningSecret:
+    speakeasy-default-reset-webhook-signing-secret:
+      parameters:
+        path:
+          webhook_id: "<id>"
+      responses:
+        "201":
+          application/json: {}
+        "403":
+          application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}

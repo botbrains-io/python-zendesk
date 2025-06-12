@@ -93,6 +93,9 @@ if TYPE_CHECKING:
     from zendesk.user_passwords import UserPasswords
     from zendesk.users_sdk import UsersSDK
     from zendesk.views import Views
+    from zendesk.webhook_invocations import WebhookInvocations
+    from zendesk.webhook_security import WebhookSecurity
+    from zendesk.webhooks import Webhooks
     from zendesk.workspaces import Workspaces
     from zendesk.x_channel import XChannel
 
@@ -179,6 +182,9 @@ class Zendesk(BaseSDK):
     views: "Views"
     workspaces: "Workspaces"
     grant_type_tokens: "GrantTypeTokens"
+    webhooks: "Webhooks"
+    webhook_invocations: "WebhookInvocations"
+    webhook_security: "WebhookSecurity"
     _sub_sdk_map = {
         "assignee_field_assignable_groups": (
             "zendesk.assigneefieldassignablegroups",
@@ -295,6 +301,9 @@ class Zendesk(BaseSDK):
         "views": ("zendesk.views", "Views"),
         "workspaces": ("zendesk.workspaces", "Workspaces"),
         "grant_type_tokens": ("zendesk.grant_type_tokens", "GrantTypeTokens"),
+        "webhooks": ("zendesk.webhooks", "Webhooks"),
+        "webhook_invocations": ("zendesk.webhook_invocations", "WebhookInvocations"),
+        "webhook_security": ("zendesk.webhook_security", "WebhookSecurity"),
     }
 
     def __init__(
