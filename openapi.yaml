@@ -4679,6 +4679,28 @@ paths:
         * By creation time (newest first): `api/v2/email_notifications.json?sort=-created_at`
         * By modification time (recently updated first): `api/v2/email_notifications.json?sort=updated_at`
         * By modification time (recently updated last): `api/v2/email_notifications.json?sort=-updated_at`
+      parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
       responses:
         "200":
           description: Success response
@@ -4689,6 +4711,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/EmailNotificationsResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
   /api/v2/email_notifications/{notification_id}:
     parameters:
       - $ref: "#/components/parameters/NotificationId"
