@@ -2,29 +2,67 @@
 
 from __future__ import annotations
 from datetime import datetime
-from typing import Optional
+from enum import Enum
+from typing import Dict, Optional
 from typing_extensions import NotRequired, TypedDict
 from zendesk.types import BaseModel
 
 
+class WebhookInvocationAttemptStatus(str, Enum):
+    r"""Status of the delivery attempt"""
+
+    SUCCESS = "success"
+    FAILED = "failed"
+    TIMEOUT = "timeout"
+    CLIENT_ERROR = "client error"
+    SERVER_ERROR = "server error"
+
+
 class WebhookInvocationAttemptTypedDict(TypedDict):
     id: NotRequired[str]
+    r"""Unique attempt identifier"""
     invocation_id: NotRequired[str]
-    status: NotRequired[str]
+    r"""ID of the parent invocation"""
+    status: NotRequired[WebhookInvocationAttemptStatus]
+    r"""Status of the delivery attempt"""
     response_code: NotRequired[int]
+    r"""HTTP response code received"""
     response_body: NotRequired[str]
+    r"""Response body received (may be truncated)"""
+    response_headers: NotRequired[Dict[str, str]]
+    r"""Response headers received"""
+    error_message: NotRequired[str]
+    r"""Error message if the attempt failed"""
     created_at: NotRequired[datetime]
+    r"""When the attempt was made"""
+    duration_ms: NotRequired[int]
+    r"""Duration of the attempt in milliseconds"""
 
 
 class WebhookInvocationAttempt(BaseModel):
     id: Optional[str] = None
+    r"""Unique attempt identifier"""
 
     invocation_id: Optional[str] = None
+    r"""ID of the parent invocation"""
 
-    status: Optional[str] = None
+    status: Optional[WebhookInvocationAttemptStatus] = None
+    r"""Status of the delivery attempt"""
 
     response_code: Optional[int] = None
+    r"""HTTP response code received"""
 
     response_body: Optional[str] = None
+    r"""Response body received (may be truncated)"""
+
+    response_headers: Optional[Dict[str, str]] = None
+    r"""Response headers received"""
+
+    error_message: Optional[str] = None
+    r"""Error message if the attempt failed"""
 
     created_at: Optional[datetime] = None
+    r"""When the attempt was made"""
+
+    duration_ms: Optional[int] = None
+    r"""Duration of the attempt in milliseconds"""

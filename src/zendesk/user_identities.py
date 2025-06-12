@@ -124,7 +124,7 @@ class UserIdentities(BaseSDK):
 
             return self.list_user_identities(
                 user_id=user_id,
-                type_=type_,
+                type=type,
                 page_before=page_before,
                 page_after=next_cursor,
                 page_size=page_size,
@@ -272,7 +272,7 @@ class UserIdentities(BaseSDK):
 
             return self.list_user_identities(
                 user_id=user_id,
-                type_=type_,
+                type=type,
                 page_before=page_before,
                 page_after=next_cursor,
                 page_size=page_size,

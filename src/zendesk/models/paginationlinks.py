@@ -8,10 +8,14 @@ from zendesk.types import BaseModel
 
 class PaginationLinksTypedDict(TypedDict):
     prev: NotRequired[str]
+    r"""URL for the previous page of results"""
     next: NotRequired[str]
+    r"""URL for the next page of results"""
 
 
 class PaginationLinks(BaseModel):
     prev: Optional[str] = None
+    r"""URL for the previous page of results"""
 
     next: Optional[str] = None
+    r"""URL for the next page of results"""

@@ -9,6 +9,8 @@ from zendesk.types import BaseModel
 
 
 class WebhookInvocationStatus(str, Enum):
+    r"""Status of the webhook invocation"""
+
     UNKNOWN = "unknown"
     ACCEPTED = "accepted"
     SUCCESS = "success"
@@ -22,19 +24,39 @@ class WebhookInvocationStatus(str, Enum):
 
 class WebhookInvocationTypedDict(TypedDict):
     id: NotRequired[str]
+    r"""Unique invocation identifier"""
     webhook_id: NotRequired[str]
+    r"""ID of the webhook that was invoked"""
     status: NotRequired[WebhookInvocationStatus]
+    r"""Status of the webhook invocation"""
     created_at: NotRequired[datetime]
+    r"""When the invocation was created"""
     latest_completed_at: NotRequired[datetime]
+    r"""When the invocation was last completed"""
+    event_type: NotRequired[str]
+    r"""Type of event that triggered the webhook"""
+    attempts_count: NotRequired[int]
+    r"""Number of delivery attempts made"""
 
 
 class WebhookInvocation(BaseModel):
     id: Optional[str] = None
+    r"""Unique invocation identifier"""
 
     webhook_id: Optional[str] = None
+    r"""ID of the webhook that was invoked"""
 
     status: Optional[WebhookInvocationStatus] = None
+    r"""Status of the webhook invocation"""
 
     created_at: Optional[datetime] = None
+    r"""When the invocation was created"""
 
     latest_completed_at: Optional[datetime] = None
+    r"""When the invocation was last completed"""
+
+    event_type: Optional[str] = None
+    r"""Type of event that triggered the webhook"""
+
+    attempts_count: Optional[int] = None
+    r"""Number of delivery attempts made"""

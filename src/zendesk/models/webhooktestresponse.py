@@ -10,15 +10,29 @@ class TestTypedDict(TypedDict):
     __test__ = False  # pyright: ignore[reportGeneralTypeIssues]
 
     status: NotRequired[str]
+    r"""Test status (e.g., \"success\", \"failed\")"""
     message: NotRequired[str]
+    r"""Test result message"""
+    response_code: NotRequired[int]
+    r"""HTTP response code from the test endpoint"""
+    response_body: NotRequired[str]
+    r"""Response body from the test endpoint"""
 
 
 class Test(BaseModel):
     __test__ = False
 
     status: Optional[str] = None
+    r"""Test status (e.g., \"success\", \"failed\")"""
 
     message: Optional[str] = None
+    r"""Test result message"""
+
+    response_code: Optional[int] = None
+    r"""HTTP response code from the test endpoint"""
+
+    response_body: Optional[str] = None
+    r"""Response body from the test endpoint"""
 
 
 class WebhookTestResponseTypedDict(TypedDict):

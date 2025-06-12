@@ -34,8 +34,10 @@ with Zendesk(
 
     res = z_client.webhooks.list_webhooks()
 
-    # Handle response
-    print(res)
+    while res is not None:
+        # Handle items
+
+        res = res.next()
 
 ```
 
@@ -53,7 +55,7 @@ with Zendesk(
 
 ### Response
 
-**[models.WebhookListResponse](../../models/webhooklistresponse.md)**
+**[models.ListWebhooksResponse](../../models/listwebhooksresponse.md)**
 
 ### Errors
 
@@ -67,6 +69,8 @@ Creates or clones a webhook. The clone_webhook_id query parameter is only requir
 A request body is only required when creating a webhook.
 
 Note that admins cannot clone webhooks created by Zendesk apps.
+
+**Webhooks for trial accounts**: Zendesk trial accounts are limited to 10 webhooks.
 
 
 ### Example Usage
@@ -113,6 +117,8 @@ with Zendesk(
 Tests a new or existing webhook.
 
 When testing an existing webhook, the existing webhook data will be attached automatically as part of the outbound test request.
+The data includes the request format, http method, authentication method (only if same type and add_position are attached), and signing secret.
+The request payload data will overwrite existing webhook data in the outbound test request.
 
 
 ### Example Usage
@@ -128,7 +134,9 @@ with Zendesk(
     ),
 ) as z_client:
 
-    res = z_client.webhooks.test_webhook()
+    res = z_client.webhooks.test_webhook(webhook={
+        "endpoint": "<value>",
+    })
 
     # Handle response
     print(res)
@@ -137,11 +145,11 @@ with Zendesk(
 
 ### Parameters
 
-| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
-| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| `webhook_id`                                                                            | *Optional[str]*                                                                         | :heavy_minus_sign:                                                                      | The webhook to be tested. Only required for testing an existing webhook.                |
-| `webhook`                                                                               | [Optional[models.WebhookTestRequestWebhook]](../../models/webhooktestrequestwebhook.md) | :heavy_minus_sign:                                                                      | Webhook configuration for testing                                                       |
-| `retries`                                                                               | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                        | :heavy_minus_sign:                                                                      | Configuration to override the default retry behavior of the client.                     |
+| Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `webhook`                                                                     | [models.WebhookTestRequestWebhook](../../models/webhooktestrequestwebhook.md) | :heavy_check_mark:                                                            | Webhook configuration for testing                                             |
+| `webhook_id`                                                                  | *Optional[str]*                                                               | :heavy_minus_sign:                                                            | The webhook to be tested. Only required for testing an existing webhook.      |
+| `retries`                                                                     | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)              | :heavy_minus_sign:                                                            | Configuration to override the default retry behavior of the client.           |
 
 ### Response
 
@@ -200,6 +208,9 @@ with Zendesk(
 
 Updates the specified webhook.
 
+**Restrictions**: Admins cannot set `external_source` and `signing_secret` when updating a webhook.
+
+
 ### Example Usage
 
 ```python
@@ -216,9 +227,9 @@ with Zendesk(
     z_client.webhooks.update_webhook(webhook_id="<id>", webhook={
         "name": "<value>",
         "endpoint": "<value>",
-        "http_method": models.HTTPMethod.DELETE,
-        "request_format": models.RequestFormat.XML,
-        "status": models.WebhookStatus.ACTIVE,
+        "http_method": models.WebhookUpdateRequestHTTPMethod.DELETE,
+        "request_format": models.WebhookUpdateRequestRequestFormat.XML,
+        "status": models.WebhookUpdateRequestStatus.ACTIVE,
     })
 
     # Use the SDK ...
@@ -227,11 +238,11 @@ with Zendesk(
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `webhook_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | Webhook id                                                          |
-| `webhook`                                                           | [models.WebhookInput](../../models/webhookinput.md)                 | :heavy_check_mark:                                                  | N/A                                                                 |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+| Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `webhook_id`                                                                      | *str*                                                                             | :heavy_check_mark:                                                                | Webhook id                                                                        |
+| `webhook`                                                                         | [models.WebhookUpdateRequestWebhook](../../models/webhookupdaterequestwebhook.md) | :heavy_check_mark:                                                                | N/A                                                                               |
+| `retries`                                                                         | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                  | :heavy_minus_sign:                                                                | Configuration to override the default retry behavior of the client.               |
 
 ### Errors
 
@@ -243,6 +254,9 @@ with Zendesk(
 ## patch_webhook
 
 Use the webhook_id to update a webhook.
+
+**Restrictions**: Admins cannot set `external_source` and `signing_secret` when patching a webhook.
+
 
 ### Example Usage
 

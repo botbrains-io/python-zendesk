@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 37ac03f7-3b34-47b7-8334-e362604f87cd
 management:
-  docChecksum: dd721d1dd39cc96a32629a090a6f025b
+  docChecksum: 7bb0053c4a2ab622823a792a48a377ff
   docVersion: 2.0.0
   speakeasyVersion: 1.561.0
   generationVersion: 2.628.0
-  releaseVersion: 0.1.4
-  configChecksum: a08ba8cde3f68187e2bdab6c0704e5ba
+  releaseVersion: 0.1.5
+  configChecksum: 80d4cefa69686533a3ac443c456c5a39
   published: true
 features:
   python:
@@ -93,6 +93,9 @@ generatedFiles:
   - docs/models/anylist.md
   - docs/models/anyoperator.md
   - docs/models/anyvalues.md
+  - docs/models/apikeyauthentication.md
+  - docs/models/apikeyauthenticationdata.md
+  - docs/models/apikeyauthenticationtype.md
   - docs/models/approvalrequestcreaterequest.md
   - docs/models/approvalrequestdecision.md
   - docs/models/approvalrequestobject.md
@@ -135,6 +138,9 @@ generatedFiles:
   - docs/models/automationobject.md
   - docs/models/automationresponse.md
   - docs/models/automationsresponse.md
+  - docs/models/basicauthauthentication.md
+  - docs/models/basicauthauthenticationdata.md
+  - docs/models/basicauthauthenticationtype.md
   - docs/models/batcherroritem.md
   - docs/models/batcherroritemlinks.md
   - docs/models/batcherroritemsource.md
@@ -144,6 +150,9 @@ generatedFiles:
   - docs/models/batchjobresponse.md
   - docs/models/batchjobresponseresults.md
   - docs/models/batchjobresponsestatus.md
+  - docs/models/bearertokenauthentication.md
+  - docs/models/bearertokenauthenticationdata.md
+  - docs/models/bearertokenauthenticationtype.md
   - docs/models/bookmarkcreaterequest.md
   - docs/models/bookmarkinput.md
   - docs/models/bookmarkobject.md
@@ -299,7 +308,6 @@ generatedFiles:
   - docs/models/customstatusresponse.md
   - docs/models/customstatusupdateinput.md
   - docs/models/customstatusupdaterequest.md
-  - docs/models/data.md
   - docs/models/definition.md
   - docs/models/definitionsresponse.md
   - docs/models/definitionsresponseconditionsall.md
@@ -389,7 +397,8 @@ generatedFiles:
   - docs/models/error.md
   - docs/models/errorlinks.md
   - docs/models/errormessage.md
-  - docs/models/errorresponseerror.md
+  - docs/models/errorresponseerror1.md
+  - docs/models/errorresponseerror2.md
   - docs/models/errorsource.md
   - docs/models/essentialscardobject.md
   - docs/models/essentialscardresponse.md
@@ -403,7 +412,6 @@ generatedFiles:
   - docs/models/exportsearchresultsrequest.md
   - docs/models/exportsearchresultsresponse.md
   - docs/models/exportviewrequest.md
-  - docs/models/externalsource.md
   - docs/models/failedresult.md
   - docs/models/fieldkey.md
   - docs/models/fields.md
@@ -461,7 +469,6 @@ generatedFiles:
   - docs/models/helpcenterstate.md
   - docs/models/host.md
   - docs/models/hostmappingobject.md
-  - docs/models/httpmethod.md
   - docs/models/identity.md
   - docs/models/include.md
   - docs/models/incrementalorganizationexportrequest.md
@@ -628,9 +635,11 @@ generatedFiles:
   - docs/models/listwebhookinvocationattemptsrequest.md
   - docs/models/listwebhookinvocationsfilterstatus.md
   - docs/models/listwebhookinvocationsrequest.md
+  - docs/models/listwebhookinvocationsresponse.md
   - docs/models/listwebhookinvocationssort.md
   - docs/models/listwebhooksfilterstatus.md
   - docs/models/listwebhooksrequest.md
+  - docs/models/listwebhooksresponse.md
   - docs/models/listwebhookssort.md
   - docs/models/localeobject.md
   - docs/models/localeresponse.md
@@ -752,7 +761,6 @@ generatedFiles:
   - docs/models/replytimeinminutes.md
   - docs/models/replytimeinseconds.md
   - docs/models/requesterwaittimeinminutes.md
-  - docs/models/requestformat.md
   - docs/models/requestobject.md
   - docs/models/requestobjectcustomfield.md
   - docs/models/requestresponse.md
@@ -1195,25 +1203,46 @@ generatedFiles:
   - docs/models/voicecomment.md
   - docs/models/webhook.md
   - docs/models/webhookauthentication.md
-  - docs/models/webhookauthenticationtype.md
   - docs/models/webhookcreaterequest.md
-  - docs/models/webhookinput.md
+  - docs/models/webhookcreaterequestauthentication.md
+  - docs/models/webhookcreaterequestexternalsource.md
+  - docs/models/webhookcreaterequesthttpmethod.md
+  - docs/models/webhookcreaterequestrequestformat.md
+  - docs/models/webhookcreaterequeststatus.md
+  - docs/models/webhookcreaterequestwebhook.md
+  - docs/models/webhookexternalsource.md
+  - docs/models/webhookhttpmethod.md
   - docs/models/webhookinvocation.md
   - docs/models/webhookinvocationattempt.md
   - docs/models/webhookinvocationattemptlistresponse.md
+  - docs/models/webhookinvocationattemptstatus.md
   - docs/models/webhookinvocationlistresponse.md
   - docs/models/webhookinvocationstatus.md
   - docs/models/webhooklistresponse.md
   - docs/models/webhookpatchrequest.md
+  - docs/models/webhookpatchrequestauthentication.md
+  - docs/models/webhookpatchrequesthttpmethod.md
+  - docs/models/webhookpatchrequestrequestformat.md
+  - docs/models/webhookpatchrequeststatus.md
   - docs/models/webhookpatchrequestwebhook.md
+  - docs/models/webhookrequestformat.md
   - docs/models/webhookresponse.md
   - docs/models/webhooksigningsecret.md
   - docs/models/webhooksigningsecretresponse.md
   - docs/models/webhookstatus.md
   - docs/models/webhooktestrequest.md
+  - docs/models/webhooktestrequestauthentication.md
+  - docs/models/webhooktestrequesthttpmethod.md
+  - docs/models/webhooktestrequestrequestformat.md
   - docs/models/webhooktestrequestwebhook.md
   - docs/models/webhooktestresponse.md
   - docs/models/webhookupdaterequest.md
+  - docs/models/webhookupdaterequestauthentication.md
+  - docs/models/webhookupdaterequestexternalsource.md
+  - docs/models/webhookupdaterequesthttpmethod.md
+  - docs/models/webhookupdaterequestrequestformat.md
+  - docs/models/webhookupdaterequeststatus.md
+  - docs/models/webhookupdaterequestwebhook.md
   - docs/models/workspaceinput.md
   - docs/models/workspaceobject.md
   - docs/models/workspaceresponse.md
@@ -1389,6 +1418,7 @@ generatedFiles:
   - src/zendesk/models/activitiesresponse.py
   - src/zendesk/models/activityobject.py
   - src/zendesk/models/activityresponse.py
+  - src/zendesk/models/apikeyauthentication.py
   - src/zendesk/models/approvalrequestcreaterequest.py
   - src/zendesk/models/approvalrequestdecision.py
   - src/zendesk/models/approvalrequestobject.py
@@ -1422,9 +1452,11 @@ generatedFiles:
   - src/zendesk/models/automationobject.py
   - src/zendesk/models/automationresponse.py
   - src/zendesk/models/automationsresponse.py
+  - src/zendesk/models/basicauthauthentication.py
   - src/zendesk/models/batcherroritem.py
   - src/zendesk/models/batchjobrequest.py
   - src/zendesk/models/batchjobresponse.py
+  - src/zendesk/models/bearertokenauthentication.py
   - src/zendesk/models/bookmarkcreaterequest.py
   - src/zendesk/models/bookmarkinput.py
   - src/zendesk/models/bookmarkobject.py
@@ -2163,7 +2195,6 @@ generatedFiles:
   - src/zendesk/models/viewscountresponse.py
   - src/zendesk/models/viewsresponse.py
   - src/zendesk/models/webhook.py
-  - src/zendesk/models/webhookauthentication.py
   - src/zendesk/models/webhookcreaterequest.py
   - src/zendesk/models/webhookinvocation.py
   - src/zendesk/models/webhookinvocationattempt.py
@@ -10332,7 +10363,7 @@ examples:
   testWebhook:
     speakeasy-default-test-webhook:
       requestBody:
-        application/json: {}
+        application/json: {"webhook": {"endpoint": "<value>", "http_method": "POST", "request_format": "json"}}
       responses:
         "200":
           application/json: {}

@@ -8,13 +8,24 @@ from zendesk.types import BaseModel
 
 class PaginationMetaTypedDict(TypedDict):
     has_more: NotRequired[bool]
+    r"""Whether there are more results available"""
     after_cursor: NotRequired[str]
+    r"""Cursor for the next page of results"""
     before_cursor: NotRequired[str]
+    r"""Cursor for the previous page of results"""
+    count: NotRequired[int]
+    r"""Total number of items (may not always be present)"""
 
 
 class PaginationMeta(BaseModel):
     has_more: Optional[bool] = None
+    r"""Whether there are more results available"""
 
     after_cursor: Optional[str] = None
+    r"""Cursor for the next page of results"""
 
     before_cursor: Optional[str] = None
+    r"""Cursor for the previous page of results"""
+
+    count: Optional[int] = None
+    r"""Total number of items (may not always be present)"""

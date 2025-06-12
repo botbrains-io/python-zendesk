@@ -27,8 +27,10 @@ with Zendesk(
 
     res = z_client.webhook_invocations.list_webhook_invocations(webhook_id="<id>")
 
-    # Handle response
-    print(res)
+    while res is not None:
+        # Handle items
+
+        res = res.next()
 
 ```
 
@@ -48,7 +50,7 @@ with Zendesk(
 
 ### Response
 
-**[models.WebhookInvocationListResponse](../../models/webhookinvocationlistresponse.md)**
+**[models.ListWebhookInvocationsResponse](../../models/listwebhookinvocationsresponse.md)**
 
 ### Errors
 

@@ -1,6 +1,6 @@
 # AddPosition
 
-Where to add the authentication (for API key type)
+Where to add the API key (header or query string)
 
 
 ## Values

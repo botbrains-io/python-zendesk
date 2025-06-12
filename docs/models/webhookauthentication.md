@@ -1,12 +1,25 @@
 # WebhookAuthentication
 
-Adds authentication to the webhook's HTTP requests
+Adds authentication to the webhook's HTTP requests, if not specified, the webhook will be unauthenticated
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `type`                                                                               | [Optional[models.WebhookAuthenticationType]](../models/webhookauthenticationtype.md) | :heavy_minus_sign:                                                                   | N/A                                                                                  |
-| `data`                                                                               | [Optional[models.Data]](../models/data.md)                                           | :heavy_minus_sign:                                                                   | Authentication data specific to the type                                             |
-| `add_position`                                                                       | [Optional[models.AddPosition]](../models/addposition.md)                             | :heavy_minus_sign:                                                                   | Where to add the authentication (for API key type)                                   |
+### `models.BasicAuthAuthentication`
+
+```python
+value: models.BasicAuthAuthentication = /* values here */
+```
+
+### `models.BearerTokenAuthentication`
+
+```python
+value: models.BearerTokenAuthentication = /* values here */
+```
+
+### `models.APIKeyAuthentication`
+
+```python
+value: models.APIKeyAuthentication = /* values here */
+```
+

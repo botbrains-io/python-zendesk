@@ -1,4 +1,4 @@
-# RequestFormat
+# WebhookRequestFormat
 
 The format of the data that the webhook will send. To subscribe the webhook to Zendesk events, this must be "json"
 

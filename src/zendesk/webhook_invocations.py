@@ -2,7 +2,8 @@
 
 from .basesdk import BaseSDK
 from datetime import datetime
-from typing import Mapping, Optional
+from jsonpath import JSONPath
+from typing import Any, Dict, List, Mapping, Optional, Union
 from zendesk import errors, models, utils
 from zendesk._hooks import HookContext
 from zendesk.types import OptionalNullable, UNSET
@@ -25,7 +26,7 @@ class WebhookInvocations(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.WebhookInvocationListResponse:
+    ) -> Optional[models.ListWebhookInvocationsResponse]:
         r"""List Webhook Invocations
 
         Returns up to 7 days of invocations for a webhook.
@@ -103,9 +104,35 @@ class WebhookInvocations(BaseSDK):
             retry_config=retry_config,
         )
 
+        def next_func() -> Optional[models.ListWebhookInvocationsResponse]:
+            body = utils.unmarshal_json(http_res.text, Union[Dict[Any, Any], List[Any]])
+            next_cursor = JSONPath("$.meta.after_cursor").parse(body)
+
+            if len(next_cursor) == 0:
+                return None
+
+            next_cursor = next_cursor[0]
+            if next_cursor is None:
+                return None
+
+            return self.list_webhook_invocations(
+                webhook_id=webhook_id,
+                filter_from_ts=filter_from_ts,
+                filter_status=filter_status,
+                filter_to_ts=filter_to_ts,
+                page_after=next_cursor,
+                page_before=page_before,
+                page_size=page_size,
+                sort=sort,
+                retries=retries,
+            )
+
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(
-                http_res.text, models.WebhookInvocationListResponse
+            return models.ListWebhookInvocationsResponse(
+                result=utils.unmarshal_json(
+                    http_res.text, models.WebhookInvocationListResponse
+                ),
+                next=next_func,
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
@@ -142,7 +169,7 @@ class WebhookInvocations(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.WebhookInvocationListResponse:
+    ) -> Optional[models.ListWebhookInvocationsResponse]:
         r"""List Webhook Invocations
 
         Returns up to 7 days of invocations for a webhook.
@@ -220,9 +247,35 @@ class WebhookInvocations(BaseSDK):
             retry_config=retry_config,
         )
 
+        def next_func() -> Optional[models.ListWebhookInvocationsResponse]:
+            body = utils.unmarshal_json(http_res.text, Union[Dict[Any, Any], List[Any]])
+            next_cursor = JSONPath("$.meta.after_cursor").parse(body)
+
+            if len(next_cursor) == 0:
+                return None
+
+            next_cursor = next_cursor[0]
+            if next_cursor is None:
+                return None
+
+            return self.list_webhook_invocations(
+                webhook_id=webhook_id,
+                filter_from_ts=filter_from_ts,
+                filter_status=filter_status,
+                filter_to_ts=filter_to_ts,
+                page_after=next_cursor,
+                page_before=page_before,
+                page_size=page_size,
+                sort=sort,
+                retries=retries,
+            )
+
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(
-                http_res.text, models.WebhookInvocationListResponse
+            return models.ListWebhookInvocationsResponse(
+                result=utils.unmarshal_json(
+                    http_res.text, models.WebhookInvocationListResponse
+                ),
+                next=next_func,
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
