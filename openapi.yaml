@@ -29345,6 +29345,12 @@ components:
             name:
               type: string
               description: The name of the group
+            description:
+              type: string
+              description: The description of the group
+            is_public:
+              type: boolean
+              description: Whether the group is public
           required:
             - name
       required:
@@ -29359,6 +29365,12 @@ components:
             name:
               type: string
               description: The name of the group
+            description:
+              type: string
+              description: The description of the group
+            is_public:
+              type: boolean
+              description: Whether the group is public
           required:
             - name
       required:
