@@ -13,6 +13,7 @@ dependencies = [
     "jsonpath-python >=1.0.6",
     "pydantic >=2.11.2",
 ]
+project_urls = { Homepage = "https://github.com/botbrains-io/python-zendesk", Repository = "https://github.com/botbrains-io/python-zendesk.git", Documentation = "https://github.com/botbrains-io/python-zendesk#readme" }
 
 [tool.poetry]
 name = "python-zendesk"
