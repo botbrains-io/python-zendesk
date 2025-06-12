@@ -185,6 +185,27 @@ paths:
 
         See [Pagination](/api-reference/introduction/pagination/).
       parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
         - name: target_type
           in: path
           description: |
@@ -229,6 +250,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/ReverseLookupUsersResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
   /api/v2/account/settings:
     get:
       operationId: ShowAccountSettings
@@ -346,6 +375,28 @@ paths:
         #### Allowed For
 
         * Agents
+      parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
       responses:
         "200":
           description: Success response
@@ -356,6 +407,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/ActivitiesResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
   /api/v2/activities/{activity_id}:
     parameters:
       - $ref: "#/components/parameters/ActivityId"
@@ -817,6 +876,27 @@ paths:
 
         Returns a maximum of 100 records per page.
       parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
         - name: filter[source_type]
           in: query
           description: Filter audit logs by the source type. For example, user or rule
@@ -847,16 +927,6 @@ paths:
           description: Filter audit logs by the action
           schema:
             type: string
-        - name: sort_by
-          in: query
-          description: Offset pagination only. Sort audit logs. Default is `sort_by=created_at`
-          schema:
-            type: string
-        - name: sort_order
-          in: query
-          description: Offset pagination only. Sort audit logs. Default is `sort_order=desc`
-          schema:
-            type: string
         - name: sort
           in: query
           description: Cursor pagination only. Sort audit logs. Default is `sort=-created_at`
@@ -872,6 +942,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/AuditLogsResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
   /api/v2/audit_logs/{audit_log_id}:
     parameters:
       - $ref: "#/components/parameters/AuditLogId"
@@ -1020,6 +1098,28 @@ paths:
         See [Pagination](/api-reference/introduction/pagination/).
 
         Returns a maximum of 100 records per page.
+      parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
       responses:
         "200":
           description: Success response
@@ -1030,6 +1130,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/AutomationsResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
     post:
       operationId: CreateAutomation
       tags:
@@ -1394,6 +1502,27 @@ paths:
 
         * Admins
       parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
         - name: user_id # Was $ref: '#/components/parameters/UserId'
           in: query # Changed from path (implied by original $ref)
           description: Filter by user ID
@@ -1418,6 +1547,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/BrandAgentsResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
   /api/v2/brand_agents/{brand_agent_id}:
     get:
       operationId: ShowBrandAgentById
@@ -1465,21 +1602,27 @@ paths:
 
         See [Pagination](/api-reference/introduction/pagination/).
       parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
         - name: page[size]
           in: query
-          description: Number of records per page (required for cursor pagination)
-          required: false
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
           schema:
             type: integer
             minimum: 1
             maximum: 100
             default: 100
-        - name: page[after]
-          in: query
-          description: Cursor for pagination (opaque string)
-          required: false
-          schema:
-            type: string
       responses:
         "200":
           description: Successful response
@@ -2158,6 +2301,27 @@ paths:
 
         See [Pagination](/api-reference/introduction/pagination/).
       parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
         - $ref: "#/components/parameters/CustomObjectKey"
         - $ref: "#/components/parameters/IncludeStandardFields"
       responses:
@@ -2170,6 +2334,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/CustomObjectFieldsResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
     post:
       operationId: CreateCustomObjectField
       tags:
@@ -2443,6 +2615,9 @@ paths:
             Specifies how many records should be returned in the response. You can specify up to 100 records per page.
           schema:
             type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
       responses:
         "200":
           description: Success response
@@ -2453,6 +2628,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/CustomObjectRecordsIndexResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
     post:
       operationId: CreateCustomObjectRecord
       tags:
@@ -2674,6 +2857,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/CustomObjectRecordsAutocompleteResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
   /api/v2/custom_objects/{custom_object_key}/records/count:
     get:
       operationId: CountCustomObjectRecords
@@ -2729,6 +2920,27 @@ paths:
         #### Allowed For
         * Agents
       parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
         - $ref: "#/components/parameters/CustomObjectKey"
         - name: query
           in: query
@@ -2750,24 +2962,6 @@ paths:
             One of `name`, `created_at`, `updated_at`, `-name`, `-created_at`, or `-updated_at`. The `-` denotes the sort will be descending. Defaults to sorting by relevance.
           schema:
             type: string
-        - name: page[before]
-          in: query
-          description: |
-            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
-          schema:
-            type: string
-        - name: page[after]
-          in: query
-          description: |
-            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
-          schema:
-            type: string
-        - name: page[size]
-          in: query
-          description: |
-            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
-          schema:
-            type: integer
       responses:
         "200":
           description: Success response
@@ -2778,6 +2972,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/CustomObjectRecordsSearchResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
     post:
       operationId: FilteredSearchCustomObjectRecords
       tags:
@@ -2841,6 +3043,27 @@ paths:
         * Agents
         * End users (when an admin [configures](https://support.zendesk.com/hc/en-us/articles/6034260247066) the custom object to be accessible to end users)
       parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
         - $ref: "#/components/parameters/CustomObjectKey"
         - name: query
           in: query
@@ -2862,24 +3085,6 @@ paths:
             One of `name`, `created_at`, `updated_at`, `-name`, `-created_at`, or `-updated_at`. The `-` denotes the sort will be descending. Defaults to sorting by relevance.
           schema:
             type: string
-        - name: page[before]
-          in: query
-          description: |
-            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
-          schema:
-            type: string
-        - name: page[after]
-          in: query
-          description: |
-            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
-          schema:
-            type: string
-        - name: page[size]
-          in: query
-          description: |
-            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
-          schema:
-            type: integer
       requestBody:
         content:
           application/json:
@@ -2900,6 +3105,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/CustomObjectRecordsSearchResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
   /api/v2/custom_objects/{custom_object_key}/triggers:
     parameters:
       - $ref: "#/components/parameters/CustomObjectKey"
@@ -3054,6 +3267,28 @@ paths:
 
         * Administrators
         * Agents in custom roles with the `manage_triggers` permission (Enterprise only)
+      parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
       responses:
         "200":
           description: Success response
@@ -3064,6 +3299,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/ObjectTriggersActiveResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
   /api/v2/custom_objects/{custom_object_key}/triggers/definitions:
     parameters:
       - $ref: "#/components/parameters/CustomObjectKey"
@@ -3599,6 +3842,27 @@ paths:
       parameters:
         - $ref: "#/components/parameters/TicketSortBy"
         - $ref: "#/components/parameters/TicketSortOrder"
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
       responses:
         "200":
           description: Successful response
@@ -3609,6 +3873,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/ListDeletedTicketsResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
   /api/v2/deleted_tickets/{ticket_id}:
     delete:
       operationId: DeleteTicketPermanently
@@ -3743,6 +4015,28 @@ paths:
         #### Allowed For
 
         * Agents
+      parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
       responses:
         "200":
           description: Success response
@@ -3753,6 +4047,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/DeletedUsersResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
   /api/v2/deleted_users/{deleted_user_id}:
     parameters:
       - $ref: "#/components/parameters/DeletedUserId"
@@ -3999,6 +4301,28 @@ paths:
         * Offset pagination
 
         See [Pagination](/api-reference/introduction/pagination/).
+      parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
       responses:
         "200":
           description: Success response
@@ -4009,6 +4333,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/DynamicContentsResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
     post:
       operationId: CreateDynamicContent
       tags:
@@ -4110,6 +4442,28 @@ paths:
         * Cursor pagination
 
         See [Pagination](/api-reference/introduction/pagination/).
+      parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
       responses:
         "200":
           description: Success response
@@ -4120,6 +4474,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/DynamicContentVariantsResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
     post:
       operationId: CreateDynamicContentVariant
       tags:
@@ -4402,6 +4764,28 @@ paths:
         #### Allowed For:
 
         * Agents
+      parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
       responses:
         "200":
           description: Success response
@@ -4412,6 +4796,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/GroupMembershipsResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
     post:
       operationId: CreateGroupMembership
       tags:
@@ -4494,6 +4886,28 @@ paths:
         #### Allowed For:
 
         * Agents
+      parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
       responses:
         "200":
           description: Success response
@@ -4504,6 +4918,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/GroupMembershipsResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
   /api/v2/group_memberships/create_many:
     post:
       operationId: GroupMembershipBulkCreate
@@ -4724,6 +5146,27 @@ paths:
         * Admins
         * Agents
       parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
         - $ref: "#/components/parameters/ExcludeDeleted"
       responses:
         "200":
@@ -4735,6 +5178,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/GroupsResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
     post:
       operationId: CreateGroup
       tags:
@@ -4830,6 +5281,28 @@ paths:
 
         * Admins
         * Agents
+      parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
       responses:
         "200":
           description: Success response
@@ -4840,6 +5313,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/GroupsResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
   /api/v2/groups/count:
     get:
       operationId: CountGroups
@@ -5160,6 +5641,27 @@ paths:
 
         * Admins
       parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
         - name: start_time
           in: query
           description: "The Unix UTC epoch time of the oldest event you're interested in. Example: 1332034771."
@@ -5182,6 +5684,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/TicketMetricEventsResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
   /api/v2/incremental/tickets:
     parameters:
       - $ref: "#/components/parameters/IncrementalUnixTime"
@@ -5337,6 +5847,28 @@ paths:
         * Cursor pagination
 
         See [Pagination](/api-reference/introduction/pagination/).
+      parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
       responses:
         "200":
           description: Success Response
@@ -5347,6 +5879,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/JobStatusesResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
   /api/v2/job_statuses/{job_status_id}:
     parameters:
       - $ref: "#/components/parameters/JobStatusId"
@@ -5554,6 +6094,27 @@ paths:
         #### Allowed For
         * Agents
       parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
         - $ref: "#/components/parameters/MacroInclude"
         - $ref: "#/components/parameters/MacroAccess"
         - $ref: "#/components/parameters/MacroActive"
@@ -5572,6 +6133,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/MacrosResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
     post:
       operationId: CreateMacro
       tags:
@@ -6055,6 +6624,28 @@ paths:
         #### Allowed For
 
         * Admins
+      parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
       responses:
         "200":
           description: Success response
@@ -6065,6 +6656,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/OAuthClientsResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
     post:
       operationId: CreateOAuthClient
       tags:
@@ -6176,6 +6775,28 @@ paths:
         #### Allowed For
 
         * Admins
+      parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
       responses:
         "200":
           description: Success response
@@ -6186,6 +6807,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/GlobalClientsResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
   /api/v2/oauth/tokens:
     parameters:
       - $ref: "#/components/parameters/OAuthClientIdQuery"
@@ -6211,6 +6840,28 @@ paths:
         #### Allowed For
 
         * Admins
+      parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
       responses:
         "200":
           description: Success response
@@ -6221,6 +6872,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/OAuthTokensResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
     post:
       operationId: CreateOAuthToken
       tags:
@@ -6462,6 +7121,28 @@ paths:
         #### Allowed For
 
         * Agents
+      parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
       responses:
         "200":
           description: Success response
@@ -6472,6 +7153,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/OrganizationFieldsResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
     post:
       operationId: CreateOrganizationField
       tags:
@@ -6621,6 +7310,28 @@ paths:
 
         - Agents
         - End users
+      parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
       responses:
         "200":
           description: Success response
@@ -6631,6 +7342,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/OrganizationMembershipsResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
     post:
       operationId: CreateOrganizationMembership
       tags:
@@ -6796,6 +7515,28 @@ paths:
         * End users
 
         For end users, the response will only list the subscriptions created by the requesting end user.
+      parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
       responses:
         "200":
           description: Successful response
@@ -6806,6 +7547,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/OrganizationSubscriptionsResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
     post:
       operationId: CreateOrganizationSubscription
       tags:
@@ -6898,21 +7647,27 @@ paths:
 
         If the agent has a custom agent role that restricts their access to only users in their own organization, a 403 Forbidden error is returned. See [Creating custom agent roles](https://support.zendesk.com/hc/en-us/articles/203662026-Creating-custom-roles-and-assigning-agents#topic_cxn_hig_bd) in Zendesk help.
       parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
         - name: page[size]
           in: query
-          description: Number of records per page (required for cursor pagination)
-          required: false
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
           schema:
             type: integer
             minimum: 1
             maximum: 100
             default: 100
-        - name: page[after]
-          in: query
-          description: Cursor for pagination (opaque string)
-          required: false
-          schema:
-            type: string
       responses:
         "200":
           description: Success response
@@ -7099,6 +7854,28 @@ paths:
         #### Allowed For
 
         * Admins
+      parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
       responses:
         "200":
           description: Success response
@@ -7109,6 +7886,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/OrganizationMergeListResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
   /api/v2/organizations/{organization_id}/related:
     parameters:
       - $ref: "#/components/parameters/OrganizationId"
@@ -7467,6 +8252,28 @@ paths:
         * Offset pagination
 
         See [Pagination](/api-reference/introduction/pagination/).
+      parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
       responses:
         "200":
           description: Successful response
@@ -7477,6 +8284,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/ListTicketProblemsResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
   /api/v2/problems/autocomplete:
     post:
       operationId: AutocompleteProblems
@@ -7714,6 +8529,28 @@ paths:
 
         * Admins
         * Agents
+      parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
       responses:
         "200":
           description: Success response
@@ -7724,6 +8561,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/SupportAddressesResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
     post:
       operationId: CreateSupportAddress
       tags:
@@ -7911,6 +8756,27 @@ paths:
 
         See [Pagination](/api-reference/introduction/pagination/).
       parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
         - name: sort_by
           in: query
           description: Possible values are "updated_at", "created_at"
@@ -7931,6 +8797,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/RequestsResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
     post:
       operationId: CreateRequest
       tags:
@@ -8064,6 +8938,36 @@ paths:
 
         * End Users
       parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
+        - name: sort
+          in: query
+          description: |
+            Specifies how to sort the comments. Possible values are "created_at" (ascending order) or "-created_at" (descending order)
+          schema:
+            type: string
+            enum:
+              - created_at
+              - -created_at
         - name: since
           in: query
           description: Filters the comments from the given datetime
@@ -8084,6 +8988,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/RequestListCommentsResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
   /api/v2/requests/{request_id}/comments/{ticket_comment_id}:
     parameters:
       - $ref: "#/components/parameters/RequestId"
@@ -8330,6 +9242,27 @@ paths:
         * [Cursor pagination](/api-reference/introduction/pagination/#cursor-pagination) only.
         Note: `page[before]` and `page[after]` can't be used together in the same request.
       parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
         - name: filter[agent_ids]
           in: query
           description: A comma-separated list of agent ids
@@ -8337,26 +9270,6 @@ paths:
           schema:
             type: string
           example: 224,225
-        - name: page[before]
-          in: query
-          description: |
-            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request.
-          schema:
-            type: string
-        - name: page[after]
-          in: query
-          description: |
-            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request.
-          schema:
-            type: string
-        - name: page[size]
-          in: query
-          description: The number of items to return per page
-          schema:
-            type: integer
-            format: int32
-            minimum: 1
-            maximum: 100
       responses:
         "200":
           description: Success response
@@ -8376,6 +9289,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/ManySkillBasedRoutingAttributeValuesErrorExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
   /api/v2/routing/agents/instance_values/job:
     post:
       operationId: BulkSetAgentAttributeValuesJob
@@ -8779,6 +9700,58 @@ paths:
         * `/api/v2/satisfaction_ratings.json?score=bad`
         * `/api/v2/satisfaction_ratings.json?score=bad&start_time=1498151194`
         * `/api/v2/satisfaction_ratings.json?start_time=1340384793&end_time=1371920793`
+      parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
+        - name: score
+          in: query
+          description: |
+            Filters the results by score. Possible values are "offered", "unoffered", "received", "received_with_comment", "received_without_comment", "good", "good_with_comment", "good_without_comment", "bad", "bad_with_comment", "bad_without_comment"
+          schema:
+            type: string
+            enum:
+              - offered
+              - unoffered
+              - received
+              - received_with_comment
+              - received_without_comment
+              - good
+              - good_with_comment
+              - good_without_comment
+              - bad
+              - bad_with_comment
+              - bad_without_comment
+        - name: start_time
+          in: query
+          description: |
+            Time of the oldest satisfaction rating, as a [Unix epoch time](https://www.epochconverter.com/)
+          schema:
+            type: integer
+        - name: end_time
+          in: query
+          description: |
+            Time of the most recent satisfaction rating, as a [Unix epoch time](https://www.epochconverter.com/)
+          schema:
+            type: integer
       responses:
         "200":
           description: Success response
@@ -8789,6 +9762,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/SatisfactionRatingsResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
   /api/v2/satisfaction_ratings/{satisfaction_rating_id}:
     get:
       operationId: ShowSatisfactionRating
@@ -9081,6 +10062,27 @@ paths:
 
         There's no `count` property.
       parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
         - name: query
           in: query
           description: The search query. See [Query basics](#query-basics) above. For details on the query syntax, see the [Zendesk Support search reference](https://support.zendesk.com/hc/en-us/articles/203663226)
@@ -9088,17 +10090,6 @@ paths:
           schema:
             type: string
           example: https://subdomain.zendesk.com/api/v2/search.json?query=type:ticket status:closed&sort_by=status&sort_order=desc
-        - name: page[size]
-          in: query
-          description: The number of results shown in a page.
-          schema:
-            type: integer
-        - name: page[after]
-          in: query
-          description: |
-            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
-          schema:
-            type: string
         - name: filter[type]
           in: query
           description: The object type returned by the export query. Can be `ticket`, `organization`, `user`, or `group`.
@@ -9115,6 +10106,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/SearchExportResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
   /api/v2/sessions:
     get:
       operationId: ListSessions
@@ -9134,6 +10133,28 @@ paths:
         #### Allowed For
 
         * Admins, Agents, End users
+      parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
       responses:
         "200":
           description: Success response
@@ -9144,6 +10165,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/SessionsResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
   /api/v2/sharing_agreements:
     get:
       operationId: ListSharingAgreements
@@ -9458,6 +10487,28 @@ paths:
         * Cursor pagination
 
         See [Pagination](/api-reference/introduction/pagination/).
+      parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
       responses:
         "200":
           description: Success response
@@ -9468,6 +10519,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/SuspendedTicketsResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
   /api/v2/suspended_tickets/{id}:
     get:
       operationId: ShowSuspendedTickets
@@ -9659,6 +10718,28 @@ paths:
         #### Allowed For
 
         * Agents
+      parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
       responses:
         "200":
           description: Success response
@@ -9669,6 +10750,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/TagsResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
   /api/v2/tags/count:
     get:
       operationId: CountTags
@@ -9885,6 +10974,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/TicketAuditsResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
   /api/v2/ticket_fields:
     get:
       operationId: ListTicketFields
@@ -10159,6 +11256,28 @@ paths:
         * Offset pagination
 
         See [Pagination](/api-reference/introduction/pagination/).
+      parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
       responses:
         "200":
           description: Success response
@@ -10169,6 +11288,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/CustomTicketFieldOptionsResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
     post:
       operationId: CreateOrUpdateTicketFieldOption
       tags:
@@ -10771,6 +11898,28 @@ paths:
         #### Allowed For
 
         * Agents
+      parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
       responses:
         "200":
           description: Success response
@@ -10781,6 +11930,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/TicketMetricsResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
   /api/v2/ticket_metrics/{ticket_metric_id}:
     get:
       operationId: ShowTicketMetrics
@@ -10803,6 +11960,27 @@ paths:
 
         * Agents
       parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
         - name: ticket_metric_id
           in: path
           description: The id of the ticket metric to retrieve
@@ -10820,6 +11998,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/TicketMetricResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
   /api/v2/tickets:
     get:
       operationId: ListTickets
@@ -10827,26 +12013,27 @@ paths:
         - Tickets
       summary: List Tickets
       parameters:
-        - name: external_id
+        - name: page[before]
           in: query
-          description: Lists tickets by external id. External ids don't have to be unique for each ticket. As a result, the request may return multiple tickets with the same external id.
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
           schema:
             type: string
         - name: page[size]
           in: query
-          description: Number of records per page (required for cursor pagination)
-          required: false
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
           schema:
             type: integer
             minimum: 1
             maximum: 100
             default: 100
-        - name: page[after]
-          in: query
-          description: Cursor for pagination (opaque string)
-          required: false
-          schema:
-            type: string
         - name: sort
           in: query
           description: Sort tickets by field (for cursor pagination use "field" for ascending or "-field" for descending)
@@ -10855,6 +12042,11 @@ paths:
             type: string
             enum: [updated_at, id, status, -updated_at, -id, -status]
             default: id
+        - name: external_id
+          in: query
+          description: Lists tickets by external id. External ids don't have to be unique for each ticket. As a result, the request may return multiple tickets with the same external id.
+          schema:
+            type: string
       responses:
         "200":
           description: List tickets
@@ -11003,21 +12195,27 @@ paths:
 
         * Agents
       parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
         - name: page[size]
           in: query
-          description: Number of records per page (required for cursor pagination)
-          required: false
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
           schema:
             type: integer
             minimum: 1
             maximum: 100
             default: 100
-        - name: page[after]
-          in: query
-          description: Cursor for pagination (opaque string)
-          required: false
-          schema:
-            type: string
       responses:
         "200":
           description: OK response
@@ -11174,6 +12372,35 @@ paths:
 
         * Agents
       parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
+        - name: sort
+          in: query
+          description: Sort order - "created_at" (ascending) or "-created_at" (descending)
+          required: false
+          schema:
+            type: string
+            enum: [created_at, -created_at]
+            default: created_at
         - name: include_inline_images
           in: query
           description: Default is false. When true, inline images are also listed as attachments in the response
@@ -11184,29 +12411,6 @@ paths:
           description: 'Accepts "users". Use this parameter to list email CCs by side-loading users. Example: `?include=users`. **Note**: If the comment source is email, a deleted user will be represented as the CCd email address. If the comment source is anything else, a deleted user will be represented as the user name.'
           schema:
             type: string
-        - name: page[size]
-          in: query
-          description: Number of records per page (required for cursor pagination)
-          required: false
-          schema:
-            type: integer
-            minimum: 1
-            maximum: 100
-            default: 100
-        - name: page[after]
-          in: query
-          description: Cursor for pagination (opaque string)
-          required: false
-          schema:
-            type: string
-        - name: sort
-          in: query
-          description: Sort order - "created_at" (ascending) or "-created_at" (descending)
-          required: false
-          schema:
-            type: string
-            enum: [created_at, -created_at]
-            default: created_at
       responses:
         "200":
           description: Success response
@@ -11363,6 +12567,27 @@ paths:
 
         * Agents
       parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
         - $ref: "#/components/parameters/TicketId"
       responses:
         "200":
@@ -11374,6 +12599,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/ConversationLogResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
   /api/v2/tickets/{ticket_id}/email_ccs:
     get:
       operationId: ListTicketEmailCCs
@@ -11449,6 +12682,27 @@ paths:
 
         See [Pagination](/api-reference/introduction/pagination/).
       parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
         - $ref: "#/components/parameters/TicketId"
       responses:
         "200":
@@ -11460,6 +12714,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/ListTicketIncidentsResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
   /api/v2/tickets/{ticket_id}/macros/{macro_id}/apply:
     parameters:
       - $ref: "#/components/parameters/MacroId"
@@ -11948,6 +13210,27 @@ paths:
 
         See [Pagination](/api-reference/introduction/pagination/).
       parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
         - name: page
           in: query
           description: Pagination parameters
@@ -12035,6 +13318,14 @@ paths:
                 errors:
                   - code: TriggerCategoriesNotEnabled
                     title: Ticket trigger categories are not enabled for your account
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
     post:
       operationId: CreateTriggerCategory
       tags:
@@ -12353,6 +13644,27 @@ paths:
         | usage_7d         | The number of times each trigger has been used in the past week
         | usage_30d        | The number of times each trigger has been used in the past thirty days
       parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
         - $ref: "#/components/parameters/TriggerActive"
         - $ref: "#/components/parameters/TriggerSort"
         - $ref: "#/components/parameters/TriggerSortBy"
@@ -12368,6 +13680,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/TriggersResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
     post:
       operationId: CreateTrigger
       tags:
@@ -12881,6 +14201,28 @@ paths:
         #### Allowed For
 
         * Agents
+      parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
       responses:
         "200":
           description: Success response
@@ -12891,6 +14233,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/UserFieldsResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
     post:
       operationId: CreateUserField
       tags:
@@ -13020,6 +14370,28 @@ paths:
         #### Allowed For
 
         * Agents
+      parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
       responses:
         "200":
           description: Success response
@@ -13030,6 +14402,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/CustomUserFieldOptionsResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
     post:
       operationId: CreateOrUpdateUserFieldOption
       tags:
@@ -13142,25 +14522,31 @@ paths:
 
         * Admins, Agents and Light Agents
       parameters:
-        - $ref: "#/components/parameters/UserRoleFilter"
-        - $ref: "#/components/parameters/UserRolesFilter"
-        - $ref: "#/components/parameters/UserPermissionSetFilter"
-        - $ref: "#/components/parameters/UserExternalIdFilter"
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
         - name: page[size]
           in: query
-          description: Number of records per page (required for cursor pagination)
-          required: false
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
           schema:
             type: integer
             minimum: 1
             maximum: 100
             default: 100
-        - name: page[after]
-          in: query
-          description: Cursor for pagination (opaque string)
-          required: false
-          schema:
-            type: string
+        - $ref: "#/components/parameters/UserRoleFilter"
+        - $ref: "#/components/parameters/UserRolesFilter"
+        - $ref: "#/components/parameters/UserPermissionSetFilter"
+        - $ref: "#/components/parameters/UserExternalIdFilter"
       responses:
         "200":
           description: Success response
@@ -13309,6 +14695,27 @@ paths:
 
         See [Pagination](/api-reference/introduction/pagination/).
       parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
         - name: application
           in: query
           description: Area of compliance
@@ -13325,6 +14732,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/ComplianceDeletionStatusesResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
   /api/v2/users/{user_id}/group_memberships/{group_membership_id}/make_default:
     parameters:
       - $ref: "#/components/parameters/UserId"
@@ -13388,6 +14803,28 @@ paths:
 
         * Agents
         * Verified end users
+      parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
       responses:
         "200":
           description: Success response
@@ -13398,6 +14835,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/UserIdentitiesResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
     post:
       operationId: CreateUserIdentity
       tags:
@@ -13861,6 +15306,28 @@ paths:
         * Agents with "View only" or higher reports permissions in Support.
           These permissions are distinct from Explore permissions.
         * Agents retrieving their own skips
+      parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
       responses:
         "200":
           description: Success response
@@ -13871,6 +15338,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/TicketSkipResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
   /api/v2/users/autocomplete:
     get:
       operationId: AutocompleteUsers
@@ -14394,6 +15869,27 @@ paths:
 
         * Agents
       parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
         - name: access
           in: query
           description: Only views with given access. May be "personal", "shared", or "account"
@@ -14429,6 +15925,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/ViewsResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
     post:
       operationId: CreateView
       tags:
@@ -14751,6 +16255,27 @@ paths:
 
         See [Pagination](/api-reference/introduction/pagination/).
       parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
         - name: sort_by
           in: query
           description: The ticket field used for sorting. This will either be a title or a custom field id.
@@ -14771,6 +16296,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/ViewExecuteResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
   /api/v2/views/{view_id}/export:
     parameters:
       - $ref: "#/components/parameters/ViewId"
@@ -14814,6 +16347,27 @@ paths:
 
         See [Pagination](/api-reference/introduction/pagination/).
       parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
         - name: sort_by
           in: query
           description: Sort or group the tickets by a column in the [View columns](#view-columns) table. The `subject` and `submitter` columns are not supported
@@ -14834,6 +16388,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/ViewListTicketsResponseEXample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
   /api/v2/views/active:
     get:
       operationId: ListActiveViews
@@ -15027,6 +16589,28 @@ paths:
         #### Allowed For
 
         * Agents
+      parameters:
+        - name: page[before]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[after]
+          in: query
+          description: |
+            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: |
+            Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 100
       responses:
         "200":
           description: Success response
@@ -15037,6 +16621,14 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/ViewPreviewResponseExample"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
   /api/v2/views/preview/count:
     post:
       operationId: PreviewCount
