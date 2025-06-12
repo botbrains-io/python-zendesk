@@ -79,6 +79,14 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/WebhookListResponse"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
 
     post:
       summary: Create or Clone Webhook
@@ -372,6 +380,14 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/WebhookInvocationListResponse"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
 
   /webhooks/{webhook_id}/invocations/{invocation_id}/attempts:
     get:
