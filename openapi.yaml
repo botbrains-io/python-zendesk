@@ -12955,13 +12955,14 @@ paths:
     parameters:
       - $ref: "#/components/parameters/TicketId"
     get:
-      operationId: ListResourceTags
+      operationId: listTicketTags
       tags:
         - Tags
-      summary: List Resource Tags
+      summary: List Ticket Tags
       description: |
-        #### Allowed For
+        Lists all tags associated with a specific ticket.
 
+        #### Allowed For
         * Agents
       responses:
         "200":
@@ -12969,31 +12970,36 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/TagsByObjectIdResponse"
-              examples:
-                default:
-                  $ref: "#/components/examples/TagsByObjectIdResponse"
+                $ref: "#/components/schemas/TagsResponse"
+        "404":
+          $ref: "#/components/responses/NotFound"
     post:
-      operationId: SetTagsTicket
+      operationId: setTicketTags
       tags:
         - Tags
-      summary: Set Tags
+      summary: Set Ticket Tags
       description: |
-        #### Allowed For
+        Replaces all existing tags on a ticket with the provided tags.
 
+        #### Allowed For
         * Agents
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TagsRequest"
       responses:
         "201":
           description: Created response
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/TagsByObjectIdResponse"
-              examples:
-                default:
-                  $ref: "#/components/examples/TagsByObjectIdResponse"
+                $ref: "#/components/schemas/TagsResponse"
+        "404":
+          $ref: "#/components/responses/NotFound"
     put:
-      operationId: PutTagsTicket
+      operationId: addTicketTags
       tags:
         - Tags
       summary: Add Tags
@@ -13030,35 +13036,50 @@ paths:
         For details, see [Protecting against ticket update collisions](/api-reference/ticketing/tickets/tickets/#protecting-against-ticket-update-collisions).
 
         #### Allowed For
-
         * Agents
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SafeTagsRequest"
       responses:
         "200":
           description: Success response
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/TagsByObjectIdResponse"
-              examples:
-                default:
-                  $ref: "#/components/examples/TagsByObjectIdResponse"
+                $ref: "#/components/schemas/TagsResponse"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "409":
+          $ref: "#/components/responses/Conflict"
     delete:
-      operationId: DeleteTagsTicket
+      operationId: removeTicketTags
       tags:
         - Tags
-      summary: Remove Tags
+      summary: Remove Ticket Tags
       description: |
-        You can also delete tags from multiple tickets with the
-        [Update Many Tickets](/api-reference/ticketing/tickets/tickets/#update-many-tickets) endpoint.
+        Removes specified tags from a ticket. You can also delete tags from multiple tickets 
+        with the Update Many Tickets endpoint.
 
-        This endpoint supports safe updates. See [Safe Update](/api-reference/ticketing/ticket-management/tags/#safe-update).
+        This endpoint supports safe updates. See the PUT endpoint documentation for details.
 
         #### Allowed For
-
         * Agents
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SafeTagsRequest"
       responses:
         "204":
-          description: No Content response
+          description: No Content - Tags successfully removed
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "409":
+          $ref: "#/components/responses/Conflict"
   /api/v2/tickets/count:
     get:
       operationId: CountTickets
@@ -17354,7 +17375,7 @@ paths:
                 default:
                   $ref: "#/components/examples/OAuthTokenForGrantTypesResponseExample"
   # Added from openapi-webhooks.yaml generated with Claude
-  /webhooks:
+  /api/v2/webhooks:
     get:
       summary: List Webhooks
       description: List webhooks.
@@ -17462,7 +17483,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/ErrorResponse"
 
-  /webhooks/test:
+  /api/v2/webhooks/test:
     post:
       summary: Test Webhook
       description: |
@@ -17501,7 +17522,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/ErrorResponse"
 
-  /webhooks/{webhook_id}:
+  /api/v2/webhooks/{webhook_id}:
     get:
       summary: Show Webhook
       description: Returns the specified webhook.
@@ -17640,7 +17661,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/ErrorResponse"
 
-  /webhooks/{webhook_id}/invocations:
+  /api/v2/webhooks/{webhook_id}/invocations:
     get:
       summary: List Webhook Invocations
       description: Returns up to 7 days of invocations for a webhook.
@@ -17727,7 +17748,7 @@ paths:
         outputs:
           nextCursor: $.meta.after_cursor
 
-  /webhooks/{webhook_id}/invocations/{invocation_id}/attempts:
+  /api/v2/webhooks/{webhook_id}/invocations/{invocation_id}/attempts:
     get:
       summary: List Webhook Invocation Attempts
       description: Returns the invocation attempts for the specified webhook.
@@ -17755,7 +17776,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/WebhookInvocationAttemptListResponse"
 
-  /webhooks/{webhook_id}/signing_secret:
+  /api/v2/webhooks/{webhook_id}/signing_secret:
     get:
       summary: Show Webhook Signing Secret
       description: |
@@ -17823,7 +17844,194 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorResponse"
+  # Added manually
+  /api/v2/organizations/{organization_id}/tags:
+    parameters:
+      - $ref: "#/components/parameters/OrganizationId"
+    get:
+      operationId: listOrganizationTags
+      tags:
+        - Tags
+      summary: List Organization Tags
+      description: |
+        Lists all tags associated with a specific organization.
 
+        #### Allowed For
+        * Agents
+      responses:
+        "200":
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TagsResponse"
+        "404":
+          $ref: "#/components/responses/NotFound"
+    post:
+      operationId: setOrganizationTags
+      tags:
+        - Tags
+      summary: Set Organization Tags
+      description: |
+        Replaces all existing tags on an organization with the provided tags.
+
+        #### Allowed For
+        * Agents
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TagsRequest"
+      responses:
+        "201":
+          description: Created response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TagsResponse"
+        "404":
+          $ref: "#/components/responses/NotFound"
+    put:
+      operationId: addOrganizationTags
+      tags:
+        - Tags
+      summary: Add Organization Tags
+      description: |
+        Adds tags to an organization.
+
+        #### Allowed For
+        * Agents
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TagsRequest"
+      responses:
+        "200":
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TagsResponse"
+        "404":
+          $ref: "#/components/responses/NotFound"
+    delete:
+      operationId: removeOrganizationTags
+      tags:
+        - Tags
+      summary: Remove Organization Tags
+      description: |
+        Removes specified tags from an organization.
+
+        #### Allowed For
+        * Agents
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TagsRequest"
+      responses:
+        "204":
+          description: No Content - Tags successfully removed
+        "404":
+          $ref: "#/components/responses/NotFound"
+
+  /api/v2/users/{user_id}/tags:
+    parameters:
+      - $ref: "#/components/parameters/UserId"
+    get:
+      operationId: listUserTags
+      tags:
+        - Tags
+      summary: List User Tags
+      description: |
+        Lists all tags associated with a specific user.
+
+        #### Allowed For
+        * Agents
+      responses:
+        "200":
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TagsResponse"
+        "404":
+          $ref: "#/components/responses/NotFound"
+    post:
+      operationId: setUserTags
+      tags:
+        - Tags
+      summary: Set User Tags
+      description: |
+        Replaces all existing tags on a user with the provided tags.
+
+        #### Allowed For
+        * Agents
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TagsRequest"
+      responses:
+        "201":
+          description: Created response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TagsResponse"
+        "404":
+          $ref: "#/components/responses/NotFound"
+    put:
+      operationId: addUserTags
+      tags:
+        - Tags
+      summary: Add User Tags
+      description: |
+        Adds tags to a user.
+
+        #### Allowed For
+        * Agents
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TagsRequest"
+      responses:
+        "200":
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TagsResponse"
+        "404":
+          $ref: "#/components/responses/NotFound"
+    delete:
+      operationId: removeUserTags
+      tags:
+        - Tags
+      summary: Remove User Tags
+      description: |
+        Removes specified tags from a user.
+
+        #### Allowed For
+        * Agents
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TagsRequest"
+      responses:
+        "204":
+          description: No Content - Tags successfully removed
+        "404":
+          $ref: "#/components/responses/NotFound"
 components:
   schemas:
     AccountSettingsActiveFeaturesObject:
@@ -25267,27 +25475,6 @@ components:
             type: string
       required:
         - tags
-    TagsResponse:
-      type: object
-      properties:
-        count:
-          type: integer
-          description: The number of pages
-          readOnly: true
-        next_page:
-          type: string
-          description: The url of the previous page
-          nullable: true
-          readOnly: true
-        previous_page:
-          type: string
-          description: The url of the next page
-          nullable: true
-          readOnly: true
-        tags:
-          type: array
-          items:
-            $ref: "#/components/schemas/TagListTagObject"
     TargetBasecamp:
       type: object
       properties:
@@ -29610,6 +29797,107 @@ components:
             - name
       required:
         - group
+    TagsResponse:
+      type: object
+      required:
+        - tags
+      properties:
+        tags:
+          type: array
+          description: An array of tag strings
+          items:
+            type: string
+          example: ["customer", "vip", "urgent"]
+
+    TagsRequest:
+      type: object
+      required:
+        - tags
+      properties:
+        tags:
+          type: array
+          description: An array of tag strings to add or set
+          items:
+            type: string
+          example: ["customer", "vip"]
+
+    SafeTagsRequest:
+      allOf:
+        - $ref: "#/components/schemas/TagsRequest"
+        - type: object
+          properties:
+            updated_stamp:
+              type: string
+              format: date-time
+              description: |
+                The ticket's latest updated_at timestamp for safe updates.
+                Must match the current timestamp to prevent collision.
+              example: "2019-09-12T21:45:16Z"
+            safe_update:
+              type: string
+              description: Enable safe update mode to prevent collisions
+              enum: ["true", "false"]
+              example: "true"
+
+    TagsCountResponse:
+      type: object
+      required:
+        - count
+      properties:
+        count:
+          type: object
+          required:
+            - value
+          properties:
+            value:
+              type: integer
+              description: The approximate count of tags
+              example: 50000
+            refreshed_at:
+              type: string
+              format: date-time
+              nullable: true
+              description: |
+                Timestamp when the count was last updated. May be null when 
+                count exceeds 100,000 and is being updated in the background.
+              example: "2023-11-15T14:30:00Z"
+  responses:
+    NotFound:
+      description: The specified resource was not found
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+          example:
+            error: "RecordNotFound"
+            description: "Not found"
+
+    TooManyRequests:
+      description: Rate limit exceeded
+      headers:
+        Retry-After:
+          description: Number of seconds to wait before retrying
+          schema:
+            type: integer
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+          example:
+            error: "TooManyRequests"
+            description: "Rate limit exceeded"
+
+    Conflict:
+      description: |
+        Conflict occurred, typically due to a ticket update collision when using safe updates.
+        The updated_stamp timestamp did not match the current ticket timestamp.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+          example:
+            error: "RecordInvalid"
+            description: "Ticket has been updated since you retrieved it"
   parameters:
     ActivityId:
       name: activity_id
