@@ -17341,6 +17341,451 @@ paths:
               examples:
                 default:
                   $ref: "#/components/examples/OAuthTokenForGrantTypesResponseExample"
+  # Added from openapi-webhooks.yaml generated with Claude
+  /webhooks:
+    get:
+      summary: List Webhooks
+      description: List webhooks.
+      operationId: listWebhooks
+      tags:
+        - Webhooks
+      parameters:
+        - name: filter[name_contains]
+          in: query
+          description: Filters the webhooks by a string in the name
+          required: false
+          schema:
+            type: string
+        - name: filter[status]
+          in: query
+          description: Filters the webhooks by webhook status
+          required: false
+          schema:
+            type: string
+            enum: [active, inactive]
+        - name: page[after]
+          in: query
+          description: Includes the next page of results with defined size
+          required: false
+          schema:
+            type: string
+        - name: page[before]
+          in: query
+          description: Includes the previous page of results with defined size
+          required: false
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: Defines a specified number of results per page
+          required: false
+          schema:
+            type: string
+        - name: sort
+          in: query
+          description: Defines the sorting criteria. Only supports name and status
+          required: false
+          schema:
+            type: string
+            enum: [name, status]
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WebhookListResponse"
+
+    post:
+      summary: Create or Clone Webhook
+      description: |
+        Creates or clones a webhook. The clone_webhook_id query parameter is only required when cloning a webhook.
+        A request body is only required when creating a webhook.
+
+        Note that admins cannot clone webhooks created by Zendesk apps.
+      operationId: createOrCloneWebhook
+      tags:
+        - Webhooks
+      parameters:
+        - name: clone_webhook_id
+          in: query
+          description: id of the webhook to clone. Only required if cloning a webhook.
+          required: false
+          schema:
+            type: string
+      requestBody:
+        description: Webhook data (required when creating, not when cloning)
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WebhookCreateRequest"
+      responses:
+        "201":
+          description: Webhook created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WebhookResponse"
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /webhooks/test:
+    post:
+      summary: Test Webhook
+      description: |
+        Tests a new or existing webhook.
+
+        When testing an existing webhook, the existing webhook data will be attached automatically as part of the outbound test request.
+      operationId: testWebhook
+      tags:
+        - Webhooks
+      parameters:
+        - name: webhook_id
+          in: query
+          description: The webhook to be tested. Only required for testing an existing webhook.
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WebhookTestRequest"
+      responses:
+        "200":
+          description: Test completed successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WebhookTestResponse"
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /webhooks/{webhook_id}:
+    get:
+      summary: Show Webhook
+      description: Returns the specified webhook.
+      operationId: showWebhook
+      tags:
+        - Webhooks
+      parameters:
+        - name: webhook_id
+          in: path
+          description: Webhook id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WebhookResponse"
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+    put:
+      summary: Update Webhook
+      description: Updates the specified webhook.
+      operationId: updateWebhook
+      tags:
+        - Webhooks
+      parameters:
+        - name: webhook_id
+          in: path
+          description: Webhook id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WebhookUpdateRequest"
+      responses:
+        "204":
+          description: No Content - Successfully updated
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+    patch:
+      summary: Patch Webhook
+      description: Use the webhook_id to update a webhook.
+      operationId: patchWebhook
+      tags:
+        - Webhooks
+      parameters:
+        - name: webhook_id
+          in: path
+          description: Webhook id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WebhookPatchRequest"
+      responses:
+        "204":
+          description: No Content - Successfully patched
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+    delete:
+      summary: Delete Webhook
+      description: Deletes the specified webhook.
+      operationId: deleteWebhook
+      tags:
+        - Webhooks
+      parameters:
+        - name: webhook_id
+          in: path
+          description: Webhook id
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: No Content - Successfully deleted
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /webhooks/{webhook_id}/invocations:
+    get:
+      summary: List Webhook Invocations
+      description: Returns up to 7 days of invocations for a webhook.
+      operationId: listWebhookInvocations
+      tags:
+        - Webhook Invocations
+      parameters:
+        - name: webhook_id
+          in: path
+          description: Webhook id
+          required: true
+          schema:
+            type: string
+        - name: filter[from_ts]
+          in: query
+          description: Filters invocations by from timestamp. Use ISO 8601 UTC format
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: filter[status]
+          in: query
+          description: Filters invocations by invocation status
+          required: false
+          schema:
+            type: string
+            enum:
+              [
+                unknown,
+                accepted,
+                success,
+                failed,
+                timeout,
+                circuit broken,
+                throttled,
+                client error,
+                server error,
+              ]
+        - name: filter[to_ts]
+          in: query
+          description: Filters invocations by timestamp. Use ISO 8601 UTC format
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: page[after]
+          in: query
+          description: Includes the next page of invocations with defined size
+          required: false
+          schema:
+            type: string
+        - name: page[before]
+          in: query
+          description: Includes the previous page of invocations with defined size
+          required: false
+          schema:
+            type: string
+        - name: page[size]
+          in: query
+          description: Defines a specific number of invocations per page
+          required: false
+          schema:
+            type: string
+        - name: sort
+          in: query
+          description: Defines a invocation attribute to sort invocations
+          required: false
+          schema:
+            type: string
+            enum: [latest_completed_at, -latest_completed_at]
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WebhookInvocationListResponse"
+
+  /webhooks/{webhook_id}/invocations/{invocation_id}/attempts:
+    get:
+      summary: List Webhook Invocation Attempts
+      description: Returns the invocation attempts for the specified webhook.
+      operationId: listWebhookInvocationAttempts
+      tags:
+        - Webhook Invocations
+      parameters:
+        - name: webhook_id
+          in: path
+          description: Webhook id
+          required: true
+          schema:
+            type: string
+        - name: invocation_id
+          in: path
+          description: Webhook invocation id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WebhookInvocationAttemptListResponse"
+
+  /webhooks/{webhook_id}/signing_secret:
+    get:
+      summary: Show Webhook Signing Secret
+      description: |
+        Returns the webhook's signing secret. Note that admins cannot reveal secrets of webhooks created by Zendesk apps.
+      operationId: showWebhookSigningSecret
+      tags:
+        - Webhook Security
+      parameters:
+        - name: webhook_id
+          in: path
+          description: Webhook id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WebhookSigningSecretResponse"
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+    post:
+      summary: Reset Webhook Signing Secret
+      description: |
+        Resets a signing secret for the specified webhook. Note that admins cannot reset secrets of webhooks created by Zendesk apps.
+      operationId: resetWebhookSigningSecret
+      tags:
+        - Webhook Security
+      parameters:
+        - name: webhook_id
+          in: path
+          description: Webhook id
+          required: true
+          schema:
+            type: string
+      responses:
+        "201":
+          description: Signing secret reset successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WebhookSigningSecretResponse"
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
 components:
   schemas:
     AccountSettingsActiveFeaturesObject:
@@ -28608,6 +29053,277 @@ components:
               items:
                 $ref: "#/components/schemas/WorkspaceObject"
         - $ref: "#/components/schemas/OffsetPaginationObject"
+    # Added from openapi-webhooks.yaml generated with Claude
+    Webhook:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+          description: An auto-generated webhook id
+        name:
+          type: string
+          description: Webhook name
+        description:
+          type: string
+          description: Webhook description
+        endpoint:
+          type: string
+          description: The destination URL that the webhook notifies when Zendesk events occur
+        http_method:
+          type: string
+          enum: [GET, POST, PUT, PATCH, DELETE]
+          description: HTTP method used for the webhook's requests. To subscribe the webhook to Zendesk events, this must be "POST"
+        request_format:
+          type: string
+          enum: [json, xml, form_encoded]
+          description: The format of the data that the webhook will send. To subscribe the webhook to Zendesk events, this must be "json"
+        status:
+          type: string
+          enum: [active, inactive]
+          description: Current status of the webhook
+        subscriptions:
+          type: array
+          items:
+            type: string
+          description: Event subscriptions for the webhook. To subscribe the webhook to Zendesk events, specify one or more event types
+        authentication:
+          $ref: "#/components/schemas/WebhookAuthentication"
+        custom_headers:
+          type: object
+          additionalProperties:
+            type: string
+          description: Custom headers to deliver additional non-credential info to destinations
+        signing_secret:
+          $ref: "#/components/schemas/WebhookSigningSecret"
+        external_source:
+          type: object
+          description: External source by which a webhook is created, e.g. Zendesk Marketplace
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          description: When the webhook was created
+        created_by:
+          type: string
+          readOnly: true
+          description: id of the user who created the webhook. "-1" represents the Zendesk system
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          description: When the webhook was last updated
+        updated_by:
+          type: string
+          readOnly: true
+          description: id of the user who last updated the webhook
+      required:
+        - name
+        - endpoint
+        - http_method
+        - request_format
+        - status
+
+    WebhookAuthentication:
+      type: object
+      description: Adds authentication to the webhook's HTTP requests
+      properties:
+        type:
+          type: string
+          enum: [basic_auth, bearer_token, api_key]
+        data:
+          type: object
+          description: Authentication data specific to the type
+        add_position:
+          type: string
+          enum: [header, query_string]
+          description: Where to add the authentication (for API key type)
+
+    WebhookSigningSecret:
+      type: object
+      description: Signing secret used to verify webhook requests
+      properties:
+        algorithm:
+          type: string
+        secret:
+          type: string
+
+    WebhookCreateRequest:
+      type: object
+      properties:
+        webhook:
+          $ref: "#/components/schemas/Webhook"
+      required:
+        - webhook
+
+    WebhookUpdateRequest:
+      type: object
+      properties:
+        webhook:
+          $ref: "#/components/schemas/Webhook"
+      required:
+        - webhook
+
+    WebhookPatchRequest:
+      type: object
+      properties:
+        webhook:
+          type: object
+          description: Partial webhook object with fields to update
+
+    WebhookTestRequest:
+      type: object
+      properties:
+        webhook:
+          type: object
+          description: Webhook configuration for testing
+          properties:
+            endpoint:
+              type: string
+            http_method:
+              type: string
+            request_format:
+              type: string
+            authentication:
+              $ref: "#/components/schemas/WebhookAuthentication"
+            custom_headers:
+              type: object
+              additionalProperties:
+                type: string
+
+    WebhookResponse:
+      type: object
+      properties:
+        webhook:
+          $ref: "#/components/schemas/Webhook"
+
+    WebhookListResponse:
+      type: object
+      properties:
+        webhooks:
+          type: array
+          items:
+            $ref: "#/components/schemas/Webhook"
+        meta:
+          $ref: "#/components/schemas/PaginationMeta"
+        links:
+          $ref: "#/components/schemas/PaginationLinks"
+
+    WebhookTestResponse:
+      type: object
+      properties:
+        test:
+          type: object
+          properties:
+            status:
+              type: string
+            message:
+              type: string
+
+    WebhookInvocation:
+      type: object
+      properties:
+        id:
+          type: string
+        webhook_id:
+          type: string
+        status:
+          type: string
+          enum:
+            [
+              unknown,
+              accepted,
+              success,
+              failed,
+              timeout,
+              circuit broken,
+              throttled,
+              client error,
+              server error,
+            ]
+        created_at:
+          type: string
+          format: date-time
+        latest_completed_at:
+          type: string
+          format: date-time
+
+    WebhookInvocationListResponse:
+      type: object
+      properties:
+        invocations:
+          type: array
+          items:
+            $ref: "#/components/schemas/WebhookInvocation"
+        meta:
+          $ref: "#/components/schemas/PaginationMeta"
+        links:
+          $ref: "#/components/schemas/PaginationLinks"
+
+    WebhookInvocationAttempt:
+      type: object
+      properties:
+        id:
+          type: string
+        invocation_id:
+          type: string
+        status:
+          type: string
+        response_code:
+          type: integer
+        response_body:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+
+    WebhookInvocationAttemptListResponse:
+      type: object
+      properties:
+        attempts:
+          type: array
+          items:
+            $ref: "#/components/schemas/WebhookInvocationAttempt"
+
+    WebhookSigningSecretResponse:
+      type: object
+      properties:
+        signing_secret:
+          $ref: "#/components/schemas/WebhookSigningSecret"
+
+    PaginationMeta:
+      type: object
+      properties:
+        has_more:
+          type: boolean
+        after_cursor:
+          type: string
+        before_cursor:
+          type: string
+
+    PaginationLinks:
+      type: object
+      properties:
+        prev:
+          type: string
+          format: uri
+        next:
+          type: string
+          format: uri
+
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            title:
+              type: string
+            message:
+              type: string
+            code:
+              type: string
+
   parameters:
     ActivityId:
       name: activity_id
