@@ -408,7 +408,7 @@ paths:
         Returns the webhook's signing secret. Note that admins cannot reveal secrets of webhooks created by Zendesk apps.
       operationId: showWebhookSigningSecret
       tags:
-        - Webhook Security
+        - Webhooks
       parameters:
         - name: webhook_id
           in: path
@@ -442,7 +442,7 @@ paths:
         Resets a signing secret for the specified webhook. Note that admins cannot reset secrets of webhooks created by Zendesk apps.
       operationId: resetWebhookSigningSecret
       tags:
-        - Webhook Security
+        - Webhooks
       parameters:
         - name: webhook_id
           in: path
@@ -757,5 +757,5 @@ tags:
     description: Operations for managing webhooks
   - name: Webhook Invocations
     description: Operations for webhook invocation history
-  - name: Webhook Security
-    description: Operations for webhook security and signing secrets
+  - name: Webhooks
+    description: Operations for Webhooks and signing secrets
