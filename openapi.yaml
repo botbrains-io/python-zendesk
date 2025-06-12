@@ -4846,6 +4846,12 @@ paths:
 
         * Admins
         * Agents assigned to a custom role with permissions to manage group memberships (Enterprise only)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GroupMembershipRequest"
       responses:
         "201":
           description: Created response
@@ -29861,6 +29867,29 @@ components:
                 Timestamp when the count was last updated. May be null when 
                 count exceeds 100,000 and is being updated in the background.
               example: "2023-11-15T14:30:00Z"
+
+    GroupMembershipRequest:
+      type: object
+      required:
+        - group_membership
+      properties:
+        group_membership:
+          type: object
+          required:
+            - user_id
+            - group_id
+          properties:
+            user_id:
+              type: integer
+              description: The id of an agent
+            group_id:
+              type: integer
+              description: The id of a group
+            default:
+              type: boolean
+              description: If true, tickets assigned directly to the agent will assume this membership's group
+              default: false
+  
   responses:
     NotFound:
       description: The specified resource was not found
@@ -29898,6 +29927,7 @@ components:
           example:
             error: "RecordInvalid"
             description: "Ticket has been updated since you retrieved it"
+
   parameters:
     ActivityId:
       name: activity_id
