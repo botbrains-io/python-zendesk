@@ -93,7 +93,9 @@ with Zendesk(
     ),
 ) as z_client:
 
-    res = z_client.groups.create_group()
+    res = z_client.groups.create_group(group={
+        "name": "<value>",
+    })
 
     # Handle response
     print(res)
@@ -102,9 +104,10 @@ with Zendesk(
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `group`                                                                   | [models.GroupCreateRequestGroup](../../models/groupcreaterequestgroup.md) | :heavy_check_mark:                                                        | N/A                                                                       |
+| `retries`                                                                 | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)          | :heavy_minus_sign:                                                        | Configuration to override the default retry behavior of the client.       |
 
 ### Response
 
@@ -181,7 +184,9 @@ with Zendesk(
     ),
 ) as z_client:
 
-    res = z_client.groups.update_group(group_id=122)
+    res = z_client.groups.update_group(group_id=122, group={
+        "name": "<value>",
+    })
 
     # Handle response
     print(res)
@@ -190,10 +195,11 @@ with Zendesk(
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `group_id`                                                          | *int*                                                               | :heavy_check_mark:                                                  | The ID of the group                                                 | 122                                                                 |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
+| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               | Example                                                                   |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `group_id`                                                                | *int*                                                                     | :heavy_check_mark:                                                        | The ID of the group                                                       | 122                                                                       |
+| `group`                                                                   | [models.GroupUpdateRequestGroup](../../models/groupupdaterequestgroup.md) | :heavy_check_mark:                                                        | N/A                                                                       |                                                                           |
+| `retries`                                                                 | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)          | :heavy_minus_sign:                                                        | Configuration to override the default retry behavior of the client.       |                                                                           |
 
 ### Response
 

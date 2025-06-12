@@ -289,6 +289,9 @@ class Groups(BaseSDK):
     def create_group(
         self,
         *,
+        group: Union[
+            models.GroupCreateRequestGroup, models.GroupCreateRequestGroupTypedDict
+        ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -302,6 +305,7 @@ class Groups(BaseSDK):
         * Agents assigned to a custom role with permissions to manage groups (Enterprise only)
 
 
+        :param group:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -316,19 +320,27 @@ class Groups(BaseSDK):
             base_url = server_url
         else:
             base_url = self._get_url(base_url, url_variables)
+
+        request = models.GroupCreateRequest(
+            group=utils.get_pydantic_model(group, models.GroupCreateRequestGroup),
+        )
+
         req = self._build_request(
             method="POST",
             path="/api/v2/groups",
             base_url=base_url,
             url_variables=url_variables,
-            request=None,
-            request_body_required=False,
+            request=request,
+            request_body_required=True,
             request_has_path_params=False,
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request, False, False, "json", models.GroupCreateRequest
+            ),
             timeout_ms=timeout_ms,
         )
 
@@ -380,6 +392,9 @@ class Groups(BaseSDK):
     async def create_group_async(
         self,
         *,
+        group: Union[
+            models.GroupCreateRequestGroup, models.GroupCreateRequestGroupTypedDict
+        ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -393,6 +408,7 @@ class Groups(BaseSDK):
         * Agents assigned to a custom role with permissions to manage groups (Enterprise only)
 
 
+        :param group:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -407,19 +423,27 @@ class Groups(BaseSDK):
             base_url = server_url
         else:
             base_url = self._get_url(base_url, url_variables)
+
+        request = models.GroupCreateRequest(
+            group=utils.get_pydantic_model(group, models.GroupCreateRequestGroup),
+        )
+
         req = self._build_request_async(
             method="POST",
             path="/api/v2/groups",
             base_url=base_url,
             url_variables=url_variables,
-            request=None,
-            request_body_required=False,
+            request=request,
+            request_body_required=True,
             request_has_path_params=False,
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request, False, False, "json", models.GroupCreateRequest
+            ),
             timeout_ms=timeout_ms,
         )
 
@@ -668,6 +692,9 @@ class Groups(BaseSDK):
         self,
         *,
         group_id: int,
+        group: Union[
+            models.GroupUpdateRequestGroup, models.GroupUpdateRequestGroupTypedDict
+        ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -681,6 +708,7 @@ class Groups(BaseSDK):
 
 
         :param group_id: The ID of the group
+        :param group:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -698,6 +726,9 @@ class Groups(BaseSDK):
 
         request = models.UpdateGroupRequest(
             group_id=group_id,
+            group_update_request=models.GroupUpdateRequest(
+                group=utils.get_pydantic_model(group, models.GroupUpdateRequestGroup),
+            ),
         )
 
         req = self._build_request(
@@ -706,13 +737,20 @@ class Groups(BaseSDK):
             base_url=base_url,
             url_variables=url_variables,
             request=request,
-            request_body_required=False,
+            request_body_required=True,
             request_has_path_params=True,
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.group_update_request,
+                False,
+                False,
+                "json",
+                models.GroupUpdateRequest,
+            ),
             timeout_ms=timeout_ms,
         )
 
@@ -765,6 +803,9 @@ class Groups(BaseSDK):
         self,
         *,
         group_id: int,
+        group: Union[
+            models.GroupUpdateRequestGroup, models.GroupUpdateRequestGroupTypedDict
+        ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -778,6 +819,7 @@ class Groups(BaseSDK):
 
 
         :param group_id: The ID of the group
+        :param group:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -795,6 +837,9 @@ class Groups(BaseSDK):
 
         request = models.UpdateGroupRequest(
             group_id=group_id,
+            group_update_request=models.GroupUpdateRequest(
+                group=utils.get_pydantic_model(group, models.GroupUpdateRequestGroup),
+            ),
         )
 
         req = self._build_request_async(
@@ -803,13 +848,20 @@ class Groups(BaseSDK):
             base_url=base_url,
             url_variables=url_variables,
             request=request,
-            request_body_required=False,
+            request_body_required=True,
             request_has_path_params=True,
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.group_update_request,
+                False,
+                False,
+                "json",
+                models.GroupUpdateRequest,
+            ),
             timeout_ms=timeout_ms,
         )
 

@@ -1111,6 +1111,12 @@ if TYPE_CHECKING:
         GlobalClientsResponse,
         GlobalClientsResponseTypedDict,
     )
+    from .groupcreaterequest import (
+        GroupCreateRequest,
+        GroupCreateRequestGroup,
+        GroupCreateRequestGroupTypedDict,
+        GroupCreateRequestTypedDict,
+    )
     from .groupmembershipbulkdeleteop import (
         GroupMembershipBulkDeleteRequest,
         GroupMembershipBulkDeleteRequestTypedDict,
@@ -1180,6 +1186,12 @@ if TYPE_CHECKING:
         GroupSLAPolicyResponseTypedDict,
     )
     from .groupsresponse import GroupsResponse, GroupsResponseTypedDict
+    from .groupupdaterequest import (
+        GroupUpdateRequest,
+        GroupUpdateRequestGroup,
+        GroupUpdateRequestGroupTypedDict,
+        GroupUpdateRequestTypedDict,
+    )
     from .hostmappingobject import HostMappingObject, HostMappingObjectTypedDict
     from .incrementalorganizationexportop import (
         IncrementalOrganizationExportRequest,
@@ -4106,6 +4118,10 @@ __all__ = [
     "GlobalClientObjectTypedDict",
     "GlobalClientsResponse",
     "GlobalClientsResponseTypedDict",
+    "GroupCreateRequest",
+    "GroupCreateRequestGroup",
+    "GroupCreateRequestGroupTypedDict",
+    "GroupCreateRequestTypedDict",
     "GroupMembershipBulkDeleteRequest",
     "GroupMembershipBulkDeleteRequestTypedDict",
     "GroupMembershipObject",
@@ -4146,6 +4162,10 @@ __all__ = [
     "GroupSLAPolicyObjectTypedDict",
     "GroupSLAPolicyResponse",
     "GroupSLAPolicyResponseTypedDict",
+    "GroupUpdateRequest",
+    "GroupUpdateRequestGroup",
+    "GroupUpdateRequestGroupTypedDict",
+    "GroupUpdateRequestTypedDict",
     "GroupsCountObject",
     "GroupsCountObjectCount",
     "GroupsCountObjectCountTypedDict",
@@ -6341,6 +6361,10 @@ _dynamic_imports: dict[str, str] = {
     "GlobalClientObjectTypedDict": ".globalclientobject",
     "GlobalClientsResponse": ".globalclientsresponse",
     "GlobalClientsResponseTypedDict": ".globalclientsresponse",
+    "GroupCreateRequest": ".groupcreaterequest",
+    "GroupCreateRequestGroup": ".groupcreaterequest",
+    "GroupCreateRequestGroupTypedDict": ".groupcreaterequest",
+    "GroupCreateRequestTypedDict": ".groupcreaterequest",
     "GroupMembershipBulkDeleteRequest": ".groupmembershipbulkdeleteop",
     "GroupMembershipBulkDeleteRequestTypedDict": ".groupmembershipbulkdeleteop",
     "GroupMembershipObject": ".groupmembershipobject",
@@ -6387,6 +6411,10 @@ _dynamic_imports: dict[str, str] = {
     "GroupSLAPolicyResponseTypedDict": ".groupslapolicyresponse",
     "GroupsResponse": ".groupsresponse",
     "GroupsResponseTypedDict": ".groupsresponse",
+    "GroupUpdateRequest": ".groupupdaterequest",
+    "GroupUpdateRequestGroup": ".groupupdaterequest",
+    "GroupUpdateRequestGroupTypedDict": ".groupupdaterequest",
+    "GroupUpdateRequestTypedDict": ".groupupdaterequest",
     "HostMappingObject": ".hostmappingobject",
     "HostMappingObjectTypedDict": ".hostmappingobject",
     "IncrementalOrganizationExportRequest": ".incrementalorganizationexportop",

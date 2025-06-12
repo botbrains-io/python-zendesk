@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 37ac03f7-3b34-47b7-8334-e362604f87cd
 management:
-  docChecksum: 41e0ed189991b4e1a437ab5c68f89fae
+  docChecksum: 6d2f7a74be61f90cae3e8c9bdc624377
   docVersion: 2.0.0
   speakeasyVersion: 1.561.0
   generationVersion: 2.628.0
-  releaseVersion: 0.1.1
-  configChecksum: 7b505eeceaa67017522e0ef8538ee50b
+  releaseVersion: 0.1.2
+  configChecksum: 5bd5e5b2eaeeea149f28ed31c02924bf
   published: true
 features:
   python:
@@ -431,6 +431,8 @@ generatedFiles:
   - docs/models/getviewcountsrequest.md
   - docs/models/globalclientobject.md
   - docs/models/globalclientsresponse.md
+  - docs/models/groupcreaterequest.md
+  - docs/models/groupcreaterequestgroup.md
   - docs/models/groupmembershipbulkdeleterequest.md
   - docs/models/groupmembershipobject.md
   - docs/models/groupmembershipresponse.md
@@ -454,6 +456,8 @@ generatedFiles:
   - docs/models/groupslapolicyobject.md
   - docs/models/groupslapolicyresponse.md
   - docs/models/groupsresponse.md
+  - docs/models/groupupdaterequest.md
+  - docs/models/groupupdaterequestgroup.md
   - docs/models/helpcenterstate.md
   - docs/models/host.md
   - docs/models/hostmappingobject.md
@@ -1632,6 +1636,7 @@ generatedFiles:
   - src/zendesk/models/getviewcountsop.py
   - src/zendesk/models/globalclientobject.py
   - src/zendesk/models/globalclientsresponse.py
+  - src/zendesk/models/groupcreaterequest.py
   - src/zendesk/models/groupmembershipbulkdeleteop.py
   - src/zendesk/models/groupmembershipobject.py
   - src/zendesk/models/groupmembershipresponse.py
@@ -1648,6 +1653,7 @@ generatedFiles:
   - src/zendesk/models/groupslapolicyobject.py
   - src/zendesk/models/groupslapolicyresponse.py
   - src/zendesk/models/groupsresponse.py
+  - src/zendesk/models/groupupdaterequest.py
   - src/zendesk/models/hostmappingobject.py
   - src/zendesk/models/incrementalorganizationexportop.py
   - src/zendesk/models/incrementalsampleexportop.py
@@ -6078,6 +6084,8 @@ examples:
           application/json: {"groups": [{"created_at": "2009-07-20T22:55:29Z", "default": true, "deleted": false, "description": "Some clever description here", "id": 3432, "is_public": true, "name": "First Level Support", "updated_at": "2011-05-05T10:38:52Z", "url": "https://company.zendesk.com/api/v2/groups/3432.json"}]}
   CreateGroup:
     default:
+      requestBody:
+        application/json: {"group": {"name": "<value>"}}
       responses:
         "201":
           application/json: {"group": {"created_at": "2009-08-26T00:07:08Z", "id": 122, "is_public": true, "name": "My Group", "updated_at": "2010-05-13T00:07:08Z"}}
@@ -6115,6 +6123,8 @@ examples:
       parameters:
         path:
           group_id: 122
+      requestBody:
+        application/json: {"group": {"name": "<value>"}}
       responses:
         "200":
           application/json: {"group": {"created_at": "2009-08-26T00:07:08Z", "id": 123, "is_public": false, "name": "Interesting Group", "updated_at": "2010-05-13T00:07:08Z"}}
@@ -6122,6 +6132,8 @@ examples:
       parameters:
         path:
           group_id: 122
+      requestBody:
+        application/json: {"group": {"name": "<value>"}}
       responses:
         "200":
           application/json: {"group": {"created_at": "2009-07-20T22:55:29Z", "default": true, "deleted": false, "description": "Some clever description here", "id": 3432, "is_public": true, "name": "First Level Support", "updated_at": "2011-05-05T10:38:52Z", "url": "https://company.zendesk.com/api/v2/groups/3432.json"}}
