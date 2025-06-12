@@ -22,42 +22,63 @@ class ListTicketsSort(str, Enum):
 
 
 class ListTicketsRequestTypedDict(TypedDict):
-    external_id: NotRequired[str]
-    r"""Lists tickets by external id. External ids don't have to be unique for each ticket. As a result, the request may return multiple tickets with the same external id."""
-    page_size: NotRequired[int]
-    r"""Number of records per page (required for cursor pagination)"""
+    page_before: NotRequired[str]
+    r"""A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
+    """
     page_after: NotRequired[str]
-    r"""Cursor for pagination (opaque string)"""
+    r"""A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
+    """
+    page_size: NotRequired[int]
+    r"""Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+
+    """
     sort: NotRequired[ListTicketsSort]
     r"""Sort tickets by field (for cursor pagination use \"field\" for ascending or \"-field\" for descending)"""
+    external_id: NotRequired[str]
+    r"""Lists tickets by external id. External ids don't have to be unique for each ticket. As a result, the request may return multiple tickets with the same external id."""
 
 
 class ListTicketsRequest(BaseModel):
-    external_id: Annotated[
+    page_before: Annotated[
         Optional[str],
+        pydantic.Field(alias="page[before]"),
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = None
-    r"""Lists tickets by external id. External ids don't have to be unique for each ticket. As a result, the request may return multiple tickets with the same external id."""
+    r"""A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
 
-    page_size: Annotated[
-        Optional[int],
-        pydantic.Field(alias="page[size]"),
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = 100
-    r"""Number of records per page (required for cursor pagination)"""
+    """
 
     page_after: Annotated[
         Optional[str],
         pydantic.Field(alias="page[after]"),
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = None
-    r"""Cursor for pagination (opaque string)"""
+    r"""A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
+    """
+
+    page_size: Annotated[
+        Optional[int],
+        pydantic.Field(alias="page[size]"),
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = 100
+    r"""Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+
+    """
 
     sort: Annotated[
         Optional[ListTicketsSort],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = ListTicketsSort.ID
     r"""Sort tickets by field (for cursor pagination use \"field\" for ascending or \"-field\" for descending)"""
+
+    external_id: Annotated[
+        Optional[str],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = None
+    r"""Lists tickets by external id. External ids don't have to be unique for each ticket. As a result, the request may return multiple tickets with the same external id."""
 
 
 class ListTicketsResponseTypedDict(TypedDict):

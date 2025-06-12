@@ -13,8 +13,9 @@ class Brands(BaseSDK):
     def list_brands(
         self,
         *,
-        page_size: Optional[int] = 100,
+        page_before: Optional[str] = None,
         page_after: Optional[str] = None,
+        page_size: Optional[int] = 100,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -37,8 +38,9 @@ class Brands(BaseSDK):
 
         See [Pagination](/api-reference/introduction/pagination/).
 
-        :param page_size: Number of records per page (required for cursor pagination)
-        :param page_after: Cursor for pagination (opaque string)
+        :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -55,8 +57,9 @@ class Brands(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.ListBrandsRequest(
-            page_size=page_size,
+            page_before=page_before,
             page_after=page_after,
+            page_size=page_size,
         )
 
         req = self._build_request(
@@ -110,8 +113,9 @@ class Brands(BaseSDK):
                 return None
 
             return self.list_brands(
-                page_size=page_size,
+                page_before=page_before,
                 page_after=next_cursor,
+                page_size=page_size,
                 retries=retries,
             )
 
@@ -143,8 +147,9 @@ class Brands(BaseSDK):
     async def list_brands_async(
         self,
         *,
-        page_size: Optional[int] = 100,
+        page_before: Optional[str] = None,
         page_after: Optional[str] = None,
+        page_size: Optional[int] = 100,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -167,8 +172,9 @@ class Brands(BaseSDK):
 
         See [Pagination](/api-reference/introduction/pagination/).
 
-        :param page_size: Number of records per page (required for cursor pagination)
-        :param page_after: Cursor for pagination (opaque string)
+        :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -185,8 +191,9 @@ class Brands(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.ListBrandsRequest(
-            page_size=page_size,
+            page_before=page_before,
             page_after=page_after,
+            page_size=page_size,
         )
 
         req = self._build_request_async(
@@ -240,8 +247,9 @@ class Brands(BaseSDK):
                 return None
 
             return self.list_brands(
-                page_size=page_size,
+                page_before=page_before,
                 page_after=next_cursor,
+                page_size=page_size,
                 retries=retries,
             )
 

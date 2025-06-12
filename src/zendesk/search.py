@@ -548,14 +548,15 @@ class Search(BaseSDK):
         self,
         *,
         query: str,
-        page_size: Optional[int] = None,
+        page_before: Optional[str] = None,
         page_after: Optional[str] = None,
+        page_size: Optional[int] = 100,
         filter_type: Optional[models.FilterType] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.SearchExportResponse:
+    ) -> Optional[models.ExportSearchResultsResponse]:
         r"""Export Search Results
 
         Exports a set of results. See [Query syntax](#query-syntax) for the syntax of the `query` parameter.
@@ -609,8 +610,9 @@ class Search(BaseSDK):
 
 
         :param query: The search query. See [Query basics](#query-basics) above. For details on the query syntax, see the [Zendesk Support search reference](https://support.zendesk.com/hc/en-us/articles/203663226)
-        :param page_size: The number of results shown in a page.
+        :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
         :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
         :param filter_type: The object type returned by the export query. Can be `ticket`, `organization`, `user`, or `group`.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -628,9 +630,10 @@ class Search(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.ExportSearchResultsRequest(
-            query=query,
-            page_size=page_size,
+            page_before=page_before,
             page_after=page_after,
+            page_size=page_size,
+            query=query,
             filter_type=filter_type,
         )
 
@@ -673,8 +676,31 @@ class Search(BaseSDK):
             retry_config=retry_config,
         )
 
+        def next_func() -> Optional[models.ExportSearchResultsResponse]:
+            body = utils.unmarshal_json(http_res.text, Union[Dict[Any, Any], List[Any]])
+            next_cursor = JSONPath("$.meta.after_cursor").parse(body)
+
+            if len(next_cursor) == 0:
+                return None
+
+            next_cursor = next_cursor[0]
+            if next_cursor is None:
+                return None
+
+            return self.export_search_results(
+                query=query,
+                page_before=page_before,
+                page_after=next_cursor,
+                page_size=page_size,
+                filter_type=filter_type,
+                retries=retries,
+            )
+
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, models.SearchExportResponse)
+            return models.ExportSearchResultsResponse(
+                result=utils.unmarshal_json(http_res.text, models.SearchExportResponse),
+                next=next_func,
+            )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise errors.APIError(
@@ -699,14 +725,15 @@ class Search(BaseSDK):
         self,
         *,
         query: str,
-        page_size: Optional[int] = None,
+        page_before: Optional[str] = None,
         page_after: Optional[str] = None,
+        page_size: Optional[int] = 100,
         filter_type: Optional[models.FilterType] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.SearchExportResponse:
+    ) -> Optional[models.ExportSearchResultsResponse]:
         r"""Export Search Results
 
         Exports a set of results. See [Query syntax](#query-syntax) for the syntax of the `query` parameter.
@@ -760,8 +787,9 @@ class Search(BaseSDK):
 
 
         :param query: The search query. See [Query basics](#query-basics) above. For details on the query syntax, see the [Zendesk Support search reference](https://support.zendesk.com/hc/en-us/articles/203663226)
-        :param page_size: The number of results shown in a page.
+        :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
         :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
         :param filter_type: The object type returned by the export query. Can be `ticket`, `organization`, `user`, or `group`.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -779,9 +807,10 @@ class Search(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.ExportSearchResultsRequest(
-            query=query,
-            page_size=page_size,
+            page_before=page_before,
             page_after=page_after,
+            page_size=page_size,
+            query=query,
             filter_type=filter_type,
         )
 
@@ -824,8 +853,31 @@ class Search(BaseSDK):
             retry_config=retry_config,
         )
 
+        def next_func() -> Optional[models.ExportSearchResultsResponse]:
+            body = utils.unmarshal_json(http_res.text, Union[Dict[Any, Any], List[Any]])
+            next_cursor = JSONPath("$.meta.after_cursor").parse(body)
+
+            if len(next_cursor) == 0:
+                return None
+
+            next_cursor = next_cursor[0]
+            if next_cursor is None:
+                return None
+
+            return self.export_search_results(
+                query=query,
+                page_before=page_before,
+                page_after=next_cursor,
+                page_size=page_size,
+                filter_type=filter_type,
+                retries=retries,
+            )
+
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, models.SearchExportResponse)
+            return models.ExportSearchResultsResponse(
+                result=utils.unmarshal_json(http_res.text, models.SearchExportResponse),
+                next=next_func,
+            )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise errors.APIError(

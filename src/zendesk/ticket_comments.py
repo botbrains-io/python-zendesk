@@ -886,13 +886,14 @@ class TicketComments(BaseSDK):
         self,
         *,
         ticket_id: int,
-        include_inline_images: Optional[bool] = None,
-        include: Optional[str] = None,
-        page_size: Optional[int] = 100,
+        page_before: Optional[str] = None,
         page_after: Optional[str] = None,
+        page_size: Optional[int] = 100,
         sort: Optional[
             models.ListTicketCommentsSort
         ] = models.ListTicketCommentsSort.CREATED_AT,
+        include_inline_images: Optional[bool] = None,
+        include: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -935,11 +936,12 @@ class TicketComments(BaseSDK):
 
 
         :param ticket_id: The ID of the ticket
+        :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+        :param sort: Sort order - \"created_at\" (ascending) or \"-created_at\" (descending)
         :param include_inline_images: Default is false. When true, inline images are also listed as attachments in the response
         :param include: Accepts \"users\". Use this parameter to list email CCs by side-loading users. Example: `?include=users`. **Note**: If the comment source is email, a deleted user will be represented as the CCd email address. If the comment source is anything else, a deleted user will be represented as the user name.
-        :param page_size: Number of records per page (required for cursor pagination)
-        :param page_after: Cursor for pagination (opaque string)
-        :param sort: Sort order - \"created_at\" (ascending) or \"-created_at\" (descending)
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -957,11 +959,12 @@ class TicketComments(BaseSDK):
 
         request = models.ListTicketCommentsRequest(
             ticket_id=ticket_id,
+            page_before=page_before,
+            page_after=page_after,
+            page_size=page_size,
+            sort=sort,
             include_inline_images=include_inline_images,
             include=include,
-            page_size=page_size,
-            page_after=page_after,
-            sort=sort,
         )
 
         req = self._build_request(
@@ -1016,11 +1019,12 @@ class TicketComments(BaseSDK):
 
             return self.list_ticket_comments(
                 ticket_id=ticket_id,
+                page_before=page_before,
+                page_after=next_cursor,
+                page_size=page_size,
+                sort=sort,
                 include_inline_images=include_inline_images,
                 include=include,
-                page_size=page_size,
-                page_after=next_cursor,
-                sort=sort,
                 retries=retries,
             )
 
@@ -1055,13 +1059,14 @@ class TicketComments(BaseSDK):
         self,
         *,
         ticket_id: int,
-        include_inline_images: Optional[bool] = None,
-        include: Optional[str] = None,
-        page_size: Optional[int] = 100,
+        page_before: Optional[str] = None,
         page_after: Optional[str] = None,
+        page_size: Optional[int] = 100,
         sort: Optional[
             models.ListTicketCommentsSort
         ] = models.ListTicketCommentsSort.CREATED_AT,
+        include_inline_images: Optional[bool] = None,
+        include: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1104,11 +1109,12 @@ class TicketComments(BaseSDK):
 
 
         :param ticket_id: The ID of the ticket
+        :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+        :param sort: Sort order - \"created_at\" (ascending) or \"-created_at\" (descending)
         :param include_inline_images: Default is false. When true, inline images are also listed as attachments in the response
         :param include: Accepts \"users\". Use this parameter to list email CCs by side-loading users. Example: `?include=users`. **Note**: If the comment source is email, a deleted user will be represented as the CCd email address. If the comment source is anything else, a deleted user will be represented as the user name.
-        :param page_size: Number of records per page (required for cursor pagination)
-        :param page_after: Cursor for pagination (opaque string)
-        :param sort: Sort order - \"created_at\" (ascending) or \"-created_at\" (descending)
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1126,11 +1132,12 @@ class TicketComments(BaseSDK):
 
         request = models.ListTicketCommentsRequest(
             ticket_id=ticket_id,
+            page_before=page_before,
+            page_after=page_after,
+            page_size=page_size,
+            sort=sort,
             include_inline_images=include_inline_images,
             include=include,
-            page_size=page_size,
-            page_after=page_after,
-            sort=sort,
         )
 
         req = self._build_request_async(
@@ -1185,11 +1192,12 @@ class TicketComments(BaseSDK):
 
             return self.list_ticket_comments(
                 ticket_id=ticket_id,
+                page_before=page_before,
+                page_after=next_cursor,
+                page_size=page_size,
+                sort=sort,
                 include_inline_images=include_inline_images,
                 include=include,
-                page_size=page_size,
-                page_after=next_cursor,
-                sort=sort,
                 retries=retries,
             )
 

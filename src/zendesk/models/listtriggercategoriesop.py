@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 from enum import Enum
-from typing import List, Optional
+import pydantic
+from typing import Callable, List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 from zendesk.types import BaseModel
 from zendesk.utils import FieldMetadata, QueryParamMetadata
@@ -46,6 +47,18 @@ class Include(str, Enum):
 
 
 class ListTriggerCategoriesRequestTypedDict(TypedDict):
+    page_before: NotRequired[str]
+    r"""A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
+    """
+    page_after: NotRequired[str]
+    r"""A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
+    """
+    page_size: NotRequired[int]
+    r"""Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+
+    """
     page: NotRequired[PageTypedDict]
     r"""Pagination parameters"""
     sort: NotRequired[ListTriggerCategoriesSort]
@@ -55,6 +68,33 @@ class ListTriggerCategoriesRequestTypedDict(TypedDict):
 
 
 class ListTriggerCategoriesRequest(BaseModel):
+    page_before: Annotated[
+        Optional[str],
+        pydantic.Field(alias="page[before]"),
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = None
+    r"""A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
+    """
+
+    page_after: Annotated[
+        Optional[str],
+        pydantic.Field(alias="page[after]"),
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = None
+    r"""A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
+    """
+
+    page_size: Annotated[
+        Optional[int],
+        pydantic.Field(alias="page[size]"),
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = 100
+    r"""Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+
+    """
+
     page: Annotated[
         Optional[Page],
         FieldMetadata(query=QueryParamMetadata(style="deepObject", explode=True)),
@@ -131,7 +171,7 @@ class ListTriggerCategoriesMeta(BaseModel):
     has_more: Optional[bool] = None
 
 
-class ListTriggerCategoriesResponseTypedDict(TypedDict):
+class ListTriggerCategoriesResponseBodyTypedDict(TypedDict):
     r"""A paged array of ticket trigger categories"""
 
     trigger_categories: NotRequired[List[ListTriggerCategoriesTriggerCategoryTypedDict]]
@@ -139,7 +179,7 @@ class ListTriggerCategoriesResponseTypedDict(TypedDict):
     meta: NotRequired[ListTriggerCategoriesMetaTypedDict]
 
 
-class ListTriggerCategoriesResponse(BaseModel):
+class ListTriggerCategoriesResponseBody(BaseModel):
     r"""A paged array of ticket trigger categories"""
 
     trigger_categories: Optional[List[ListTriggerCategoriesTriggerCategory]] = None
@@ -147,3 +187,13 @@ class ListTriggerCategoriesResponse(BaseModel):
     links: Optional[ListTriggerCategoriesLinks] = None
 
     meta: Optional[ListTriggerCategoriesMeta] = None
+
+
+class ListTriggerCategoriesResponseTypedDict(TypedDict):
+    result: ListTriggerCategoriesResponseBodyTypedDict
+
+
+class ListTriggerCategoriesResponse(BaseModel):
+    next: Callable[[], Optional[ListTriggerCategoriesResponse]]
+
+    result: ListTriggerCategoriesResponseBody

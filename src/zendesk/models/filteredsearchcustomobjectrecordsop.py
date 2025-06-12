@@ -9,8 +9,12 @@ from .customobjectrecordsfilteredsearchrequestcomplex import (
     CustomObjectRecordsFilteredSearchRequestComplex,
     CustomObjectRecordsFilteredSearchRequestComplexTypedDict,
 )
+from .customobjectrecordsresponse import (
+    CustomObjectRecordsResponse,
+    CustomObjectRecordsResponseTypedDict,
+)
 import pydantic
-from typing import Optional, Union
+from typing import Callable, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 from zendesk.types import BaseModel
 from zendesk.utils import (
@@ -42,6 +46,18 @@ FilteredSearchCustomObjectRecordsRequestBody = TypeAliasType(
 class FilteredSearchCustomObjectRecordsRequestTypedDict(TypedDict):
     custom_object_key: str
     r"""The key of a custom object"""
+    page_before: NotRequired[str]
+    r"""A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
+    """
+    page_after: NotRequired[str]
+    r"""A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
+    """
+    page_size: NotRequired[int]
+    r"""Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+
+    """
     query: NotRequired[str]
     r"""The query parameter is used to search text-based fields for records that match specific query terms.
     The query can be multiple words or numbers. Every record that matches the beginning of any word or number in the query string is returned.<br/><br/>
@@ -57,18 +73,6 @@ class FilteredSearchCustomObjectRecordsRequestTypedDict(TypedDict):
     r"""One of `name`, `created_at`, `updated_at`, `-name`, `-created_at`, or `-updated_at`. The `-` denotes the sort will be descending. Defaults to sorting by relevance.
 
     """
-    page_before: NotRequired[str]
-    r"""A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
-
-    """
-    page_after: NotRequired[str]
-    r"""A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
-
-    """
-    page_size: NotRequired[int]
-    r"""Specifies how many records should be returned in the response. You can specify up to 100 records per page.
-
-    """
     request_body: NotRequired[FilteredSearchCustomObjectRecordsRequestBodyTypedDict]
 
 
@@ -77,6 +81,33 @@ class FilteredSearchCustomObjectRecordsRequest(BaseModel):
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
     r"""The key of a custom object"""
+
+    page_before: Annotated[
+        Optional[str],
+        pydantic.Field(alias="page[before]"),
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = None
+    r"""A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
+    """
+
+    page_after: Annotated[
+        Optional[str],
+        pydantic.Field(alias="page[after]"),
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = None
+    r"""A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
+    """
+
+    page_size: Annotated[
+        Optional[int],
+        pydantic.Field(alias="page[size]"),
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = 100
+    r"""Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+
+    """
 
     query: Annotated[
         Optional[str],
@@ -101,34 +132,17 @@ class FilteredSearchCustomObjectRecordsRequest(BaseModel):
 
     """
 
-    page_before: Annotated[
-        Optional[str],
-        pydantic.Field(alias="page[before]"),
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = None
-    r"""A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
-
-    """
-
-    page_after: Annotated[
-        Optional[str],
-        pydantic.Field(alias="page[after]"),
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = None
-    r"""A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
-
-    """
-
-    page_size: Annotated[
-        Optional[int],
-        pydantic.Field(alias="page[size]"),
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = None
-    r"""Specifies how many records should be returned in the response. You can specify up to 100 records per page.
-
-    """
-
     request_body: Annotated[
         Optional[FilteredSearchCustomObjectRecordsRequestBody],
         FieldMetadata(request=RequestMetadata(media_type="application/json")),
     ] = None
+
+
+class FilteredSearchCustomObjectRecordsResponseTypedDict(TypedDict):
+    result: CustomObjectRecordsResponseTypedDict
+
+
+class FilteredSearchCustomObjectRecordsResponse(BaseModel):
+    next: Callable[[], Optional[FilteredSearchCustomObjectRecordsResponse]]
+
+    result: CustomObjectRecordsResponse

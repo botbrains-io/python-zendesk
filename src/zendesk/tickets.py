@@ -15,11 +15,14 @@ class Tickets(BaseSDK):
         *,
         sort_by: Optional[models.TicketSortBy] = None,
         sort_order: Optional[models.TicketSortOrder] = None,
+        page_before: Optional[str] = None,
+        page_after: Optional[str] = None,
+        page_size: Optional[int] = 100,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.ListDeletedTicketsResponse:
+    ) -> Optional[models.ListDeletedTicketsResponseResponse]:
         r"""List Deleted Tickets
 
         Returns a maximum of 100 deleted tickets per page. See [Pagination](/api-reference/introduction/pagination/).
@@ -55,6 +58,9 @@ class Tickets(BaseSDK):
 
         :param sort_by: Sort by
         :param sort_order: Sort order. Defaults to \"asc\"
+        :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -73,6 +79,9 @@ class Tickets(BaseSDK):
         request = models.ListDeletedTicketsRequest(
             sort_by=sort_by,
             sort_order=sort_order,
+            page_before=page_before,
+            page_after=page_after,
+            page_size=page_size,
         )
 
         req = self._build_request(
@@ -114,9 +123,32 @@ class Tickets(BaseSDK):
             retry_config=retry_config,
         )
 
+        def next_func() -> Optional[models.ListDeletedTicketsResponseResponse]:
+            body = utils.unmarshal_json(http_res.text, Union[Dict[Any, Any], List[Any]])
+            next_cursor = JSONPath("$.meta.after_cursor").parse(body)
+
+            if len(next_cursor) == 0:
+                return None
+
+            next_cursor = next_cursor[0]
+            if next_cursor is None:
+                return None
+
+            return self.list_deleted_tickets(
+                sort_by=sort_by,
+                sort_order=sort_order,
+                page_before=page_before,
+                page_after=next_cursor,
+                page_size=page_size,
+                retries=retries,
+            )
+
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(
-                http_res.text, models.ListDeletedTicketsResponse
+            return models.ListDeletedTicketsResponseResponse(
+                result=utils.unmarshal_json(
+                    http_res.text, models.ListDeletedTicketsResponse
+                ),
+                next=next_func,
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
@@ -143,11 +175,14 @@ class Tickets(BaseSDK):
         *,
         sort_by: Optional[models.TicketSortBy] = None,
         sort_order: Optional[models.TicketSortOrder] = None,
+        page_before: Optional[str] = None,
+        page_after: Optional[str] = None,
+        page_size: Optional[int] = 100,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.ListDeletedTicketsResponse:
+    ) -> Optional[models.ListDeletedTicketsResponseResponse]:
         r"""List Deleted Tickets
 
         Returns a maximum of 100 deleted tickets per page. See [Pagination](/api-reference/introduction/pagination/).
@@ -183,6 +218,9 @@ class Tickets(BaseSDK):
 
         :param sort_by: Sort by
         :param sort_order: Sort order. Defaults to \"asc\"
+        :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -201,6 +239,9 @@ class Tickets(BaseSDK):
         request = models.ListDeletedTicketsRequest(
             sort_by=sort_by,
             sort_order=sort_order,
+            page_before=page_before,
+            page_after=page_after,
+            page_size=page_size,
         )
 
         req = self._build_request_async(
@@ -242,9 +283,32 @@ class Tickets(BaseSDK):
             retry_config=retry_config,
         )
 
+        def next_func() -> Optional[models.ListDeletedTicketsResponseResponse]:
+            body = utils.unmarshal_json(http_res.text, Union[Dict[Any, Any], List[Any]])
+            next_cursor = JSONPath("$.meta.after_cursor").parse(body)
+
+            if len(next_cursor) == 0:
+                return None
+
+            next_cursor = next_cursor[0]
+            if next_cursor is None:
+                return None
+
+            return self.list_deleted_tickets(
+                sort_by=sort_by,
+                sort_order=sort_order,
+                page_before=page_before,
+                page_after=next_cursor,
+                page_size=page_size,
+                retries=retries,
+            )
+
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(
-                http_res.text, models.ListDeletedTicketsResponse
+            return models.ListDeletedTicketsResponseResponse(
+                result=utils.unmarshal_json(
+                    http_res.text, models.ListDeletedTicketsResponse
+                ),
+                next=next_func,
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
@@ -1079,11 +1143,14 @@ class Tickets(BaseSDK):
     def list_ticket_problems(
         self,
         *,
+        page_before: Optional[str] = None,
+        page_after: Optional[str] = None,
+        page_size: Optional[int] = 100,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Dict[str, Any]:
+    ) -> Optional[models.ListTicketProblemsResponse]:
         r"""List Ticket Problems
 
         The response is always ordered by `updated_at` in descending order
@@ -1099,6 +1166,9 @@ class Tickets(BaseSDK):
 
         See [Pagination](/api-reference/introduction/pagination/).
 
+        :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1113,12 +1183,19 @@ class Tickets(BaseSDK):
             base_url = server_url
         else:
             base_url = self._get_url(base_url, url_variables)
+
+        request = models.ListTicketProblemsRequest(
+            page_before=page_before,
+            page_after=page_after,
+            page_size=page_size,
+        )
+
         req = self._build_request(
             method="GET",
             path="/api/v2/problems",
             base_url=base_url,
             url_variables=url_variables,
-            request=None,
+            request=request,
             request_body_required=False,
             request_has_path_params=False,
             request_has_query_params=True,
@@ -1152,8 +1229,29 @@ class Tickets(BaseSDK):
             retry_config=retry_config,
         )
 
+        def next_func() -> Optional[models.ListTicketProblemsResponse]:
+            body = utils.unmarshal_json(http_res.text, Union[Dict[Any, Any], List[Any]])
+            next_cursor = JSONPath("$.meta.after_cursor").parse(body)
+
+            if len(next_cursor) == 0:
+                return None
+
+            next_cursor = next_cursor[0]
+            if next_cursor is None:
+                return None
+
+            return self.list_ticket_problems(
+                page_before=page_before,
+                page_after=next_cursor,
+                page_size=page_size,
+                retries=retries,
+            )
+
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, Dict[str, Any])
+            return models.ListTicketProblemsResponse(
+                result=utils.unmarshal_json(http_res.text, Dict[str, Any]),
+                next=next_func,
+            )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise errors.APIError(
@@ -1177,11 +1275,14 @@ class Tickets(BaseSDK):
     async def list_ticket_problems_async(
         self,
         *,
+        page_before: Optional[str] = None,
+        page_after: Optional[str] = None,
+        page_size: Optional[int] = 100,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Dict[str, Any]:
+    ) -> Optional[models.ListTicketProblemsResponse]:
         r"""List Ticket Problems
 
         The response is always ordered by `updated_at` in descending order
@@ -1197,6 +1298,9 @@ class Tickets(BaseSDK):
 
         See [Pagination](/api-reference/introduction/pagination/).
 
+        :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1211,12 +1315,19 @@ class Tickets(BaseSDK):
             base_url = server_url
         else:
             base_url = self._get_url(base_url, url_variables)
+
+        request = models.ListTicketProblemsRequest(
+            page_before=page_before,
+            page_after=page_after,
+            page_size=page_size,
+        )
+
         req = self._build_request_async(
             method="GET",
             path="/api/v2/problems",
             base_url=base_url,
             url_variables=url_variables,
-            request=None,
+            request=request,
             request_body_required=False,
             request_has_path_params=False,
             request_has_query_params=True,
@@ -1250,8 +1361,29 @@ class Tickets(BaseSDK):
             retry_config=retry_config,
         )
 
+        def next_func() -> Optional[models.ListTicketProblemsResponse]:
+            body = utils.unmarshal_json(http_res.text, Union[Dict[Any, Any], List[Any]])
+            next_cursor = JSONPath("$.meta.after_cursor").parse(body)
+
+            if len(next_cursor) == 0:
+                return None
+
+            next_cursor = next_cursor[0]
+            if next_cursor is None:
+                return None
+
+            return self.list_ticket_problems(
+                page_before=page_before,
+                page_after=next_cursor,
+                page_size=page_size,
+                retries=retries,
+            )
+
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, Dict[str, Any])
+            return models.ListTicketProblemsResponse(
+                result=utils.unmarshal_json(http_res.text, Dict[str, Any]),
+                next=next_func,
+            )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise errors.APIError(
@@ -1513,10 +1645,11 @@ class Tickets(BaseSDK):
     def list_tickets(
         self,
         *,
-        external_id: Optional[str] = None,
-        page_size: Optional[int] = 100,
+        page_before: Optional[str] = None,
         page_after: Optional[str] = None,
+        page_size: Optional[int] = 100,
         sort: Optional[models.ListTicketsSort] = models.ListTicketsSort.ID,
+        external_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1524,10 +1657,11 @@ class Tickets(BaseSDK):
     ) -> Optional[models.ListTicketsResponse]:
         r"""List Tickets
 
-        :param external_id: Lists tickets by external id. External ids don't have to be unique for each ticket. As a result, the request may return multiple tickets with the same external id.
-        :param page_size: Number of records per page (required for cursor pagination)
-        :param page_after: Cursor for pagination (opaque string)
+        :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
         :param sort: Sort tickets by field (for cursor pagination use \"field\" for ascending or \"-field\" for descending)
+        :param external_id: Lists tickets by external id. External ids don't have to be unique for each ticket. As a result, the request may return multiple tickets with the same external id.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1544,10 +1678,11 @@ class Tickets(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.ListTicketsRequest(
-            external_id=external_id,
-            page_size=page_size,
+            page_before=page_before,
             page_after=page_after,
+            page_size=page_size,
             sort=sort,
+            external_id=external_id,
         )
 
         req = self._build_request(
@@ -1601,10 +1736,11 @@ class Tickets(BaseSDK):
                 return None
 
             return self.list_tickets(
-                external_id=external_id,
-                page_size=page_size,
+                page_before=page_before,
                 page_after=next_cursor,
+                page_size=page_size,
                 sort=sort,
+                external_id=external_id,
                 retries=retries,
             )
 
@@ -1636,10 +1772,11 @@ class Tickets(BaseSDK):
     async def list_tickets_async(
         self,
         *,
-        external_id: Optional[str] = None,
-        page_size: Optional[int] = 100,
+        page_before: Optional[str] = None,
         page_after: Optional[str] = None,
+        page_size: Optional[int] = 100,
         sort: Optional[models.ListTicketsSort] = models.ListTicketsSort.ID,
+        external_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1647,10 +1784,11 @@ class Tickets(BaseSDK):
     ) -> Optional[models.ListTicketsResponse]:
         r"""List Tickets
 
-        :param external_id: Lists tickets by external id. External ids don't have to be unique for each ticket. As a result, the request may return multiple tickets with the same external id.
-        :param page_size: Number of records per page (required for cursor pagination)
-        :param page_after: Cursor for pagination (opaque string)
+        :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
         :param sort: Sort tickets by field (for cursor pagination use \"field\" for ascending or \"-field\" for descending)
+        :param external_id: Lists tickets by external id. External ids don't have to be unique for each ticket. As a result, the request may return multiple tickets with the same external id.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1667,10 +1805,11 @@ class Tickets(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.ListTicketsRequest(
-            external_id=external_id,
-            page_size=page_size,
+            page_before=page_before,
             page_after=page_after,
+            page_size=page_size,
             sort=sort,
+            external_id=external_id,
         )
 
         req = self._build_request_async(
@@ -1724,10 +1863,11 @@ class Tickets(BaseSDK):
                 return None
 
             return self.list_tickets(
-                external_id=external_id,
-                page_size=page_size,
+                page_before=page_before,
                 page_after=next_cursor,
+                page_size=page_size,
                 sort=sort,
+                external_id=external_id,
                 retries=retries,
             )
 
@@ -3192,11 +3332,14 @@ class Tickets(BaseSDK):
         self,
         *,
         ticket_id: int,
+        page_before: Optional[str] = None,
+        page_after: Optional[str] = None,
+        page_size: Optional[int] = 100,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Dict[str, Any]:
+    ) -> Optional[models.ListTicketIncidentsResponse]:
         r"""List Ticket Incidents
 
         #### Allowed For
@@ -3210,6 +3353,9 @@ class Tickets(BaseSDK):
         See [Pagination](/api-reference/introduction/pagination/).
 
         :param ticket_id: The ID of the ticket
+        :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3226,6 +3372,9 @@ class Tickets(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.ListTicketIncidentsRequest(
+            page_before=page_before,
+            page_after=page_after,
+            page_size=page_size,
             ticket_id=ticket_id,
         )
 
@@ -3268,8 +3417,30 @@ class Tickets(BaseSDK):
             retry_config=retry_config,
         )
 
+        def next_func() -> Optional[models.ListTicketIncidentsResponse]:
+            body = utils.unmarshal_json(http_res.text, Union[Dict[Any, Any], List[Any]])
+            next_cursor = JSONPath("$.meta.after_cursor").parse(body)
+
+            if len(next_cursor) == 0:
+                return None
+
+            next_cursor = next_cursor[0]
+            if next_cursor is None:
+                return None
+
+            return self.list_ticket_incidents(
+                ticket_id=ticket_id,
+                page_before=page_before,
+                page_after=next_cursor,
+                page_size=page_size,
+                retries=retries,
+            )
+
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, Dict[str, Any])
+            return models.ListTicketIncidentsResponse(
+                result=utils.unmarshal_json(http_res.text, Dict[str, Any]),
+                next=next_func,
+            )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise errors.APIError(
@@ -3294,11 +3465,14 @@ class Tickets(BaseSDK):
         self,
         *,
         ticket_id: int,
+        page_before: Optional[str] = None,
+        page_after: Optional[str] = None,
+        page_size: Optional[int] = 100,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Dict[str, Any]:
+    ) -> Optional[models.ListTicketIncidentsResponse]:
         r"""List Ticket Incidents
 
         #### Allowed For
@@ -3312,6 +3486,9 @@ class Tickets(BaseSDK):
         See [Pagination](/api-reference/introduction/pagination/).
 
         :param ticket_id: The ID of the ticket
+        :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3328,6 +3505,9 @@ class Tickets(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.ListTicketIncidentsRequest(
+            page_before=page_before,
+            page_after=page_after,
+            page_size=page_size,
             ticket_id=ticket_id,
         )
 
@@ -3370,8 +3550,30 @@ class Tickets(BaseSDK):
             retry_config=retry_config,
         )
 
+        def next_func() -> Optional[models.ListTicketIncidentsResponse]:
+            body = utils.unmarshal_json(http_res.text, Union[Dict[Any, Any], List[Any]])
+            next_cursor = JSONPath("$.meta.after_cursor").parse(body)
+
+            if len(next_cursor) == 0:
+                return None
+
+            next_cursor = next_cursor[0]
+            if next_cursor is None:
+                return None
+
+            return self.list_ticket_incidents(
+                ticket_id=ticket_id,
+                page_before=page_before,
+                page_after=next_cursor,
+                page_size=page_size,
+                retries=retries,
+            )
+
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, Dict[str, Any])
+            return models.ListTicketIncidentsResponse(
+                result=utils.unmarshal_json(http_res.text, Dict[str, Any]),
+                next=next_func,
+            )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise errors.APIError(

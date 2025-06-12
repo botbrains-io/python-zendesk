@@ -23,16 +23,24 @@ class ListTicketCommentsSort(str, Enum):
 class ListTicketCommentsRequestTypedDict(TypedDict):
     ticket_id: int
     r"""The ID of the ticket"""
+    page_before: NotRequired[str]
+    r"""A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
+    """
+    page_after: NotRequired[str]
+    r"""A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
+    """
+    page_size: NotRequired[int]
+    r"""Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+
+    """
+    sort: NotRequired[ListTicketCommentsSort]
+    r"""Sort order - \"created_at\" (ascending) or \"-created_at\" (descending)"""
     include_inline_images: NotRequired[bool]
     r"""Default is false. When true, inline images are also listed as attachments in the response"""
     include: NotRequired[str]
     r"""Accepts \"users\". Use this parameter to list email CCs by side-loading users. Example: `?include=users`. **Note**: If the comment source is email, a deleted user will be represented as the CCd email address. If the comment source is anything else, a deleted user will be represented as the user name."""
-    page_size: NotRequired[int]
-    r"""Number of records per page (required for cursor pagination)"""
-    page_after: NotRequired[str]
-    r"""Cursor for pagination (opaque string)"""
-    sort: NotRequired[ListTicketCommentsSort]
-    r"""Sort order - \"created_at\" (ascending) or \"-created_at\" (descending)"""
 
 
 class ListTicketCommentsRequest(BaseModel):
@@ -40,6 +48,39 @@ class ListTicketCommentsRequest(BaseModel):
         int, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
     r"""The ID of the ticket"""
+
+    page_before: Annotated[
+        Optional[str],
+        pydantic.Field(alias="page[before]"),
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = None
+    r"""A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
+    """
+
+    page_after: Annotated[
+        Optional[str],
+        pydantic.Field(alias="page[after]"),
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = None
+    r"""A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
+    """
+
+    page_size: Annotated[
+        Optional[int],
+        pydantic.Field(alias="page[size]"),
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = 100
+    r"""Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+
+    """
+
+    sort: Annotated[
+        Optional[ListTicketCommentsSort],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = ListTicketCommentsSort.CREATED_AT
+    r"""Sort order - \"created_at\" (ascending) or \"-created_at\" (descending)"""
 
     include_inline_images: Annotated[
         Optional[bool],
@@ -52,26 +93,6 @@ class ListTicketCommentsRequest(BaseModel):
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = None
     r"""Accepts \"users\". Use this parameter to list email CCs by side-loading users. Example: `?include=users`. **Note**: If the comment source is email, a deleted user will be represented as the CCd email address. If the comment source is anything else, a deleted user will be represented as the user name."""
-
-    page_size: Annotated[
-        Optional[int],
-        pydantic.Field(alias="page[size]"),
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = 100
-    r"""Number of records per page (required for cursor pagination)"""
-
-    page_after: Annotated[
-        Optional[str],
-        pydantic.Field(alias="page[after]"),
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = None
-    r"""Cursor for pagination (opaque string)"""
-
-    sort: Annotated[
-        Optional[ListTicketCommentsSort],
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = ListTicketCommentsSort.CREATED_AT
-    r"""Sort order - \"created_at\" (ascending) or \"-created_at\" (descending)"""
 
 
 class ListTicketCommentsResponseTypedDict(TypedDict):

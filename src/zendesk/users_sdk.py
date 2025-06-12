@@ -13,11 +13,14 @@ class UsersSDK(BaseSDK):
     def list_deleted_users(
         self,
         *,
+        page_before: Optional[str] = None,
+        page_after: Optional[str] = None,
+        page_size: Optional[int] = 100,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.DeletedUsersResponse:
+    ) -> Optional[models.ListDeletedUsersResponse]:
         r"""List Deleted Users
 
         Returns deleted users, including permanently deleted users.
@@ -40,6 +43,9 @@ class UsersSDK(BaseSDK):
         * Agents
 
 
+        :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -54,12 +60,19 @@ class UsersSDK(BaseSDK):
             base_url = server_url
         else:
             base_url = self._get_url(base_url, url_variables)
+
+        request = models.ListDeletedUsersRequest(
+            page_before=page_before,
+            page_after=page_after,
+            page_size=page_size,
+        )
+
         req = self._build_request(
             method="GET",
             path="/api/v2/deleted_users",
             base_url=base_url,
             url_variables=url_variables,
-            request=None,
+            request=request,
             request_body_required=False,
             request_has_path_params=False,
             request_has_query_params=True,
@@ -93,8 +106,29 @@ class UsersSDK(BaseSDK):
             retry_config=retry_config,
         )
 
+        def next_func() -> Optional[models.ListDeletedUsersResponse]:
+            body = utils.unmarshal_json(http_res.text, Union[Dict[Any, Any], List[Any]])
+            next_cursor = JSONPath("$.meta.after_cursor").parse(body)
+
+            if len(next_cursor) == 0:
+                return None
+
+            next_cursor = next_cursor[0]
+            if next_cursor is None:
+                return None
+
+            return self.list_deleted_users(
+                page_before=page_before,
+                page_after=next_cursor,
+                page_size=page_size,
+                retries=retries,
+            )
+
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, models.DeletedUsersResponse)
+            return models.ListDeletedUsersResponse(
+                result=utils.unmarshal_json(http_res.text, models.DeletedUsersResponse),
+                next=next_func,
+            )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise errors.APIError(
@@ -118,11 +152,14 @@ class UsersSDK(BaseSDK):
     async def list_deleted_users_async(
         self,
         *,
+        page_before: Optional[str] = None,
+        page_after: Optional[str] = None,
+        page_size: Optional[int] = 100,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.DeletedUsersResponse:
+    ) -> Optional[models.ListDeletedUsersResponse]:
         r"""List Deleted Users
 
         Returns deleted users, including permanently deleted users.
@@ -145,6 +182,9 @@ class UsersSDK(BaseSDK):
         * Agents
 
 
+        :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -159,12 +199,19 @@ class UsersSDK(BaseSDK):
             base_url = server_url
         else:
             base_url = self._get_url(base_url, url_variables)
+
+        request = models.ListDeletedUsersRequest(
+            page_before=page_before,
+            page_after=page_after,
+            page_size=page_size,
+        )
+
         req = self._build_request_async(
             method="GET",
             path="/api/v2/deleted_users",
             base_url=base_url,
             url_variables=url_variables,
-            request=None,
+            request=request,
             request_body_required=False,
             request_has_path_params=False,
             request_has_query_params=True,
@@ -198,8 +245,29 @@ class UsersSDK(BaseSDK):
             retry_config=retry_config,
         )
 
+        def next_func() -> Optional[models.ListDeletedUsersResponse]:
+            body = utils.unmarshal_json(http_res.text, Union[Dict[Any, Any], List[Any]])
+            next_cursor = JSONPath("$.meta.after_cursor").parse(body)
+
+            if len(next_cursor) == 0:
+                return None
+
+            next_cursor = next_cursor[0]
+            if next_cursor is None:
+                return None
+
+            return self.list_deleted_users(
+                page_before=page_before,
+                page_after=next_cursor,
+                page_size=page_size,
+                retries=retries,
+            )
+
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, models.DeletedUsersResponse)
+            return models.ListDeletedUsersResponse(
+                result=utils.unmarshal_json(http_res.text, models.DeletedUsersResponse),
+                next=next_func,
+            )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise errors.APIError(
@@ -831,12 +899,13 @@ class UsersSDK(BaseSDK):
     def list_users(
         self,
         *,
+        page_before: Optional[str] = None,
+        page_after: Optional[str] = None,
+        page_size: Optional[int] = 100,
         role_query_parameter: Optional[models.UserRoleFilter] = None,
         role_query_parameter1: Optional[str] = None,
         permission_set: Optional[int] = None,
         external_id: Optional[str] = None,
-        page_size: Optional[int] = 100,
-        page_after: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -858,12 +927,13 @@ class UsersSDK(BaseSDK):
         * Admins, Agents and Light Agents
 
 
+        :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
         :param role_query_parameter: Filters the results by role. Possible values are \"end-user\", \"agent\", or \"admin\"
         :param role_query_parameter1: Filters the results by more than one role using the format `role[]={role}&role[]={role}`
         :param permission_set: For custom roles which is available on the Enterprise plan and above. You can only filter by one role ID per request
         :param external_id: List users by external id. External id has to be unique for each user under the same account.
-        :param page_size: Number of records per page (required for cursor pagination)
-        :param page_after: Cursor for pagination (opaque string)
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -880,12 +950,13 @@ class UsersSDK(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.ListUsersRequest(
+            page_before=page_before,
+            page_after=page_after,
+            page_size=page_size,
             role_query_parameter=role_query_parameter,
             role_query_parameter1=role_query_parameter1,
             permission_set=permission_set,
             external_id=external_id,
-            page_size=page_size,
-            page_after=page_after,
         )
 
         req = self._build_request(
@@ -939,12 +1010,13 @@ class UsersSDK(BaseSDK):
                 return None
 
             return self.list_users(
+                page_before=page_before,
+                page_after=next_cursor,
+                page_size=page_size,
                 role_query_parameter=role_query_parameter,
                 role_query_parameter1=role_query_parameter1,
                 permission_set=permission_set,
                 external_id=external_id,
-                page_size=page_size,
-                page_after=next_cursor,
                 retries=retries,
             )
 
@@ -976,12 +1048,13 @@ class UsersSDK(BaseSDK):
     async def list_users_async(
         self,
         *,
+        page_before: Optional[str] = None,
+        page_after: Optional[str] = None,
+        page_size: Optional[int] = 100,
         role_query_parameter: Optional[models.UserRoleFilter] = None,
         role_query_parameter1: Optional[str] = None,
         permission_set: Optional[int] = None,
         external_id: Optional[str] = None,
-        page_size: Optional[int] = 100,
-        page_after: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1003,12 +1076,13 @@ class UsersSDK(BaseSDK):
         * Admins, Agents and Light Agents
 
 
+        :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
         :param role_query_parameter: Filters the results by role. Possible values are \"end-user\", \"agent\", or \"admin\"
         :param role_query_parameter1: Filters the results by more than one role using the format `role[]={role}&role[]={role}`
         :param permission_set: For custom roles which is available on the Enterprise plan and above. You can only filter by one role ID per request
         :param external_id: List users by external id. External id has to be unique for each user under the same account.
-        :param page_size: Number of records per page (required for cursor pagination)
-        :param page_after: Cursor for pagination (opaque string)
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1025,12 +1099,13 @@ class UsersSDK(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.ListUsersRequest(
+            page_before=page_before,
+            page_after=page_after,
+            page_size=page_size,
             role_query_parameter=role_query_parameter,
             role_query_parameter1=role_query_parameter1,
             permission_set=permission_set,
             external_id=external_id,
-            page_size=page_size,
-            page_after=page_after,
         )
 
         req = self._build_request_async(
@@ -1084,12 +1159,13 @@ class UsersSDK(BaseSDK):
                 return None
 
             return self.list_users(
+                page_before=page_before,
+                page_after=next_cursor,
+                page_size=page_size,
                 role_query_parameter=role_query_parameter,
                 role_query_parameter1=role_query_parameter1,
                 permission_set=permission_set,
                 external_id=external_id,
-                page_size=page_size,
-                page_after=next_cursor,
                 retries=retries,
             )
 
@@ -1918,12 +1994,15 @@ class UsersSDK(BaseSDK):
         self,
         *,
         user_id: int,
+        page_before: Optional[str] = None,
+        page_after: Optional[str] = None,
+        page_size: Optional[int] = 100,
         application: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.ComplianceDeletionStatusesResponse:
+    ) -> Optional[models.ShowUserComplianceDeletionStatusesResponse]:
         r"""Show Compliance Deletion Statuses
 
         Returns the GDPR status for each user per area of compliance. A Zendesk area of compliance is typically a product like \"support/explore\" but can be more fine-grained for areas within the product lines.
@@ -1951,6 +2030,9 @@ class UsersSDK(BaseSDK):
 
 
         :param user_id: The id of the user
+        :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
         :param application: Area of compliance
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1969,6 +2051,9 @@ class UsersSDK(BaseSDK):
 
         request = models.ShowUserComplianceDeletionStatusesRequest(
             user_id=user_id,
+            page_before=page_before,
+            page_after=page_after,
+            page_size=page_size,
             application=application,
         )
 
@@ -2011,9 +2096,32 @@ class UsersSDK(BaseSDK):
             retry_config=retry_config,
         )
 
+        def next_func() -> Optional[models.ShowUserComplianceDeletionStatusesResponse]:
+            body = utils.unmarshal_json(http_res.text, Union[Dict[Any, Any], List[Any]])
+            next_cursor = JSONPath("$.meta.after_cursor").parse(body)
+
+            if len(next_cursor) == 0:
+                return None
+
+            next_cursor = next_cursor[0]
+            if next_cursor is None:
+                return None
+
+            return self.show_user_compliance_deletion_statuses(
+                user_id=user_id,
+                page_before=page_before,
+                page_after=next_cursor,
+                page_size=page_size,
+                application=application,
+                retries=retries,
+            )
+
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(
-                http_res.text, models.ComplianceDeletionStatusesResponse
+            return models.ShowUserComplianceDeletionStatusesResponse(
+                result=utils.unmarshal_json(
+                    http_res.text, models.ComplianceDeletionStatusesResponse
+                ),
+                next=next_func,
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
@@ -2039,12 +2147,15 @@ class UsersSDK(BaseSDK):
         self,
         *,
         user_id: int,
+        page_before: Optional[str] = None,
+        page_after: Optional[str] = None,
+        page_size: Optional[int] = 100,
         application: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.ComplianceDeletionStatusesResponse:
+    ) -> Optional[models.ShowUserComplianceDeletionStatusesResponse]:
         r"""Show Compliance Deletion Statuses
 
         Returns the GDPR status for each user per area of compliance. A Zendesk area of compliance is typically a product like \"support/explore\" but can be more fine-grained for areas within the product lines.
@@ -2072,6 +2183,9 @@ class UsersSDK(BaseSDK):
 
 
         :param user_id: The id of the user
+        :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
         :param application: Area of compliance
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -2090,6 +2204,9 @@ class UsersSDK(BaseSDK):
 
         request = models.ShowUserComplianceDeletionStatusesRequest(
             user_id=user_id,
+            page_before=page_before,
+            page_after=page_after,
+            page_size=page_size,
             application=application,
         )
 
@@ -2132,9 +2249,32 @@ class UsersSDK(BaseSDK):
             retry_config=retry_config,
         )
 
+        def next_func() -> Optional[models.ShowUserComplianceDeletionStatusesResponse]:
+            body = utils.unmarshal_json(http_res.text, Union[Dict[Any, Any], List[Any]])
+            next_cursor = JSONPath("$.meta.after_cursor").parse(body)
+
+            if len(next_cursor) == 0:
+                return None
+
+            next_cursor = next_cursor[0]
+            if next_cursor is None:
+                return None
+
+            return self.show_user_compliance_deletion_statuses(
+                user_id=user_id,
+                page_before=page_before,
+                page_after=next_cursor,
+                page_size=page_size,
+                application=application,
+                retries=retries,
+            )
+
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(
-                http_res.text, models.ComplianceDeletionStatusesResponse
+            return models.ShowUserComplianceDeletionStatusesResponse(
+                result=utils.unmarshal_json(
+                    http_res.text, models.ComplianceDeletionStatusesResponse
+                ),
+                next=next_func,
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)

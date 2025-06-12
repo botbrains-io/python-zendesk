@@ -11,6 +11,18 @@ from zendesk.utils import FieldMetadata, QueryParamMetadata
 
 
 class ListUsersRequestTypedDict(TypedDict):
+    page_before: NotRequired[str]
+    r"""A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
+    """
+    page_after: NotRequired[str]
+    r"""A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
+    """
+    page_size: NotRequired[int]
+    r"""Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+
+    """
     role_query_parameter: NotRequired[UserRoleFilter]
     r"""Filters the results by role. Possible values are \"end-user\", \"agent\", or \"admin\" 
 
@@ -23,13 +35,36 @@ class ListUsersRequestTypedDict(TypedDict):
     r"""For custom roles which is available on the Enterprise plan and above. You can only filter by one role ID per request"""
     external_id: NotRequired[str]
     r"""List users by external id. External id has to be unique for each user under the same account."""
-    page_size: NotRequired[int]
-    r"""Number of records per page (required for cursor pagination)"""
-    page_after: NotRequired[str]
-    r"""Cursor for pagination (opaque string)"""
 
 
 class ListUsersRequest(BaseModel):
+    page_before: Annotated[
+        Optional[str],
+        pydantic.Field(alias="page[before]"),
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = None
+    r"""A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
+    """
+
+    page_after: Annotated[
+        Optional[str],
+        pydantic.Field(alias="page[after]"),
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = None
+    r"""A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
+    """
+
+    page_size: Annotated[
+        Optional[int],
+        pydantic.Field(alias="page[size]"),
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = 100
+    r"""Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+
+    """
+
     role_query_parameter: Annotated[
         Optional[UserRoleFilter],
         pydantic.Field(alias="role"),
@@ -59,20 +94,6 @@ class ListUsersRequest(BaseModel):
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = None
     r"""List users by external id. External id has to be unique for each user under the same account."""
-
-    page_size: Annotated[
-        Optional[int],
-        pydantic.Field(alias="page[size]"),
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = 100
-    r"""Number of records per page (required for cursor pagination)"""
-
-    page_after: Annotated[
-        Optional[str],
-        pydantic.Field(alias="page[after]"),
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = None
-    r"""Cursor for pagination (opaque string)"""
 
 
 class ListUsersResponseTypedDict(TypedDict):
