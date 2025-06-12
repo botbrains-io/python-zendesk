@@ -1879,7 +1879,7 @@ class CustomObjectRecords(BaseSDK):
         name: Optional[str] = None,
         page_before: Optional[str] = None,
         page_after: Optional[str] = None,
-        page_size: Optional[int] = None,
+        page_size: Optional[int] = 100,
         field_id: Optional[str] = None,
         source: Optional[str] = None,
         requester_id: Optional[int] = None,
@@ -1905,7 +1905,7 @@ class CustomObjectRecords(BaseSDK):
         :param name: Part of a name of the record you are searching for
         :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
         :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
-        :param page_size: The number of records to return in the response. You can specify up to 100 records per page.
+        :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
         :param field_id: The id of the lookup field. If the field has a relationship filter, the filter is applied to the results. Must be used with `source` param.
         :param source: One of \"zen:user\", \"zen:ticket\", \"zen:organization\", or \"zen:custom_object:CUSTOM_OBJECT_KEY\". Represents the object `field_id` belongs to. Must be used with field_id param.
         :param requester_id: The id of the requester. For use with dynamic filters.
@@ -2039,7 +2039,7 @@ class CustomObjectRecords(BaseSDK):
         name: Optional[str] = None,
         page_before: Optional[str] = None,
         page_after: Optional[str] = None,
-        page_size: Optional[int] = None,
+        page_size: Optional[int] = 100,
         field_id: Optional[str] = None,
         source: Optional[str] = None,
         requester_id: Optional[int] = None,
@@ -2065,7 +2065,7 @@ class CustomObjectRecords(BaseSDK):
         :param name: Part of a name of the record you are searching for
         :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
         :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
-        :param page_size: The number of records to return in the response. You can specify up to 100 records per page.
+        :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
         :param field_id: The id of the lookup field. If the field has a relationship filter, the filter is applied to the results. Must be used with `source` param.
         :param source: One of \"zen:user\", \"zen:ticket\", \"zen:organization\", or \"zen:custom_object:CUSTOM_OBJECT_KEY\". Represents the object `field_id` belongs to. Must be used with field_id param.
         :param requester_id: The id of the requester. For use with dynamic filters.

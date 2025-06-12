@@ -39,12 +39,18 @@ class ListWebhookInvocationsRequestTypedDict(TypedDict):
     r"""Filters invocations by invocation status"""
     filter_to_ts: NotRequired[datetime]
     r"""Filters invocations by timestamp. Use ISO 8601 UTC format"""
-    page_after: NotRequired[str]
-    r"""Includes the next page of invocations with defined size"""
     page_before: NotRequired[str]
-    r"""Includes the previous page of invocations with defined size"""
-    page_size: NotRequired[str]
-    r"""Defines a specific number of invocations per page"""
+    r"""A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
+    """
+    page_after: NotRequired[str]
+    r"""A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
+    """
+    page_size: NotRequired[int]
+    r"""Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+
+    """
     sort: NotRequired[ListWebhookInvocationsSort]
     r"""Defines a invocation attribute to sort invocations"""
 
@@ -76,26 +82,32 @@ class ListWebhookInvocationsRequest(BaseModel):
     ] = None
     r"""Filters invocations by timestamp. Use ISO 8601 UTC format"""
 
-    page_after: Annotated[
-        Optional[str],
-        pydantic.Field(alias="page[after]"),
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = None
-    r"""Includes the next page of invocations with defined size"""
-
     page_before: Annotated[
         Optional[str],
         pydantic.Field(alias="page[before]"),
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = None
-    r"""Includes the previous page of invocations with defined size"""
+    r"""A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
 
-    page_size: Annotated[
+    """
+
+    page_after: Annotated[
         Optional[str],
-        pydantic.Field(alias="page[size]"),
+        pydantic.Field(alias="page[after]"),
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = None
-    r"""Defines a specific number of invocations per page"""
+    r"""A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
+    """
+
+    page_size: Annotated[
+        Optional[int],
+        pydantic.Field(alias="page[size]"),
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = 100
+    r"""Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+
+    """
 
     sort: Annotated[
         Optional[ListWebhookInvocationsSort],

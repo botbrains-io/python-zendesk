@@ -18,9 +18,9 @@ class WebhookInvocations(BaseSDK):
         filter_from_ts: Optional[datetime] = None,
         filter_status: Optional[models.ListWebhookInvocationsFilterStatus] = None,
         filter_to_ts: Optional[datetime] = None,
-        page_after: Optional[str] = None,
         page_before: Optional[str] = None,
-        page_size: Optional[str] = None,
+        page_after: Optional[str] = None,
+        page_size: Optional[int] = 100,
         sort: Optional[models.ListWebhookInvocationsSort] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -35,9 +35,9 @@ class WebhookInvocations(BaseSDK):
         :param filter_from_ts: Filters invocations by from timestamp. Use ISO 8601 UTC format
         :param filter_status: Filters invocations by invocation status
         :param filter_to_ts: Filters invocations by timestamp. Use ISO 8601 UTC format
-        :param page_after: Includes the next page of invocations with defined size
-        :param page_before: Includes the previous page of invocations with defined size
-        :param page_size: Defines a specific number of invocations per page
+        :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
         :param sort: Defines a invocation attribute to sort invocations
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -59,8 +59,8 @@ class WebhookInvocations(BaseSDK):
             filter_from_ts=filter_from_ts,
             filter_status=filter_status,
             filter_to_ts=filter_to_ts,
-            page_after=page_after,
             page_before=page_before,
+            page_after=page_after,
             page_size=page_size,
             sort=sort,
         )
@@ -120,8 +120,8 @@ class WebhookInvocations(BaseSDK):
                 filter_from_ts=filter_from_ts,
                 filter_status=filter_status,
                 filter_to_ts=filter_to_ts,
-                page_after=next_cursor,
                 page_before=page_before,
+                page_after=next_cursor,
                 page_size=page_size,
                 sort=sort,
                 retries=retries,
@@ -161,9 +161,9 @@ class WebhookInvocations(BaseSDK):
         filter_from_ts: Optional[datetime] = None,
         filter_status: Optional[models.ListWebhookInvocationsFilterStatus] = None,
         filter_to_ts: Optional[datetime] = None,
-        page_after: Optional[str] = None,
         page_before: Optional[str] = None,
-        page_size: Optional[str] = None,
+        page_after: Optional[str] = None,
+        page_size: Optional[int] = 100,
         sort: Optional[models.ListWebhookInvocationsSort] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -178,9 +178,9 @@ class WebhookInvocations(BaseSDK):
         :param filter_from_ts: Filters invocations by from timestamp. Use ISO 8601 UTC format
         :param filter_status: Filters invocations by invocation status
         :param filter_to_ts: Filters invocations by timestamp. Use ISO 8601 UTC format
-        :param page_after: Includes the next page of invocations with defined size
-        :param page_before: Includes the previous page of invocations with defined size
-        :param page_size: Defines a specific number of invocations per page
+        :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
         :param sort: Defines a invocation attribute to sort invocations
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -202,8 +202,8 @@ class WebhookInvocations(BaseSDK):
             filter_from_ts=filter_from_ts,
             filter_status=filter_status,
             filter_to_ts=filter_to_ts,
-            page_after=page_after,
             page_before=page_before,
+            page_after=page_after,
             page_size=page_size,
             sort=sort,
         )
@@ -263,8 +263,8 @@ class WebhookInvocations(BaseSDK):
                 filter_from_ts=filter_from_ts,
                 filter_status=filter_status,
                 filter_to_ts=filter_to_ts,
-                page_after=next_cursor,
                 page_before=page_before,
+                page_after=next_cursor,
                 page_size=page_size,
                 sort=sort,
                 retries=retries,

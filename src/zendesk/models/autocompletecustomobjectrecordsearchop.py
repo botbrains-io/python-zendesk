@@ -26,7 +26,7 @@ class AutocompleteCustomObjectRecordSearchRequestTypedDict(TypedDict):
 
     """
     page_size: NotRequired[int]
-    r"""The number of records to return in the response. You can specify up to 100 records per page.
+    r"""Specifies how many records should be returned in the response. You can specify up to 100 records per page.
 
     """
     field_id: NotRequired[str]
@@ -85,8 +85,8 @@ class AutocompleteCustomObjectRecordSearchRequest(BaseModel):
         Optional[int],
         pydantic.Field(alias="page[size]"),
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = None
-    r"""The number of records to return in the response. You can specify up to 100 records per page.
+    ] = 100
+    r"""Specifies how many records should be returned in the response. You can specify up to 100 records per page.
 
     """
 

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 37ac03f7-3b34-47b7-8334-e362604f87cd
 management:
-  docChecksum: 1ba715a36a24b4087cdc9f1fa3691b0d
+  docChecksum: 85c08e0c8d9e128b32c1ba74db99cc8e
   docVersion: 2.0.0
   speakeasyVersion: 1.561.0
   generationVersion: 2.628.0
-  releaseVersion: 0.1.8
-  configChecksum: 238681a3d6bff58b0219e5728bd164ed
+  releaseVersion: 0.1.10
+  configChecksum: ffe767b1783e33fa7e3c72a0b57b12f1
   published: true
 features:
   python:
@@ -3931,6 +3931,7 @@ examples:
           requester_id: 264817272
           assignee_id: 7334148660734
           organization_id: 5633330889598
+          page[size]: 100
       responses:
         "200":
           application/json: {"count": 100, "custom_object_records": [{"created_at": "2022-09-12T19:29:59Z", "created_by_user_id": "10001", "custom_object_fields": {"make": "Tesla", "model": "S"}, "custom_object_key": "car", "external_id": "Internal System Record 54848", "id": "01GCSJW391QVSC80GYDH7E93Q6", "name": "My Tesla CO record", "updated_at": "2022-09-15T21:07:03Z", "updated_by_user_id": "10001", "url": "https://{subdomain}.zendesk.com/api/v2/custom_objects/car/records/01GCSJW391QVSC80GYDH7E93Q6.json"}, {"created_at": "2022-09-26T22:24:15Z", "created_by_user_id": "123123", "custom_object_fields": {"make": "Honda", "model": "Civic"}, "custom_object_key": "car", "external_id": null, "id": "01GDXYD7ZTWYP542BA8MDDTE36", "name": "My Tesla CO record2", "updated_at": "2022-09-26T22:24:15Z", "updated_by_user_id": "245159", "url": "https://{subdomain}.zendesk.com/api/v2/custom_objects/car/records/01GDXYD7ZTWYP542BA8MDDTE36.json"}], "links": {"next": "https://{subdomain}.zendesk.com/api/v2/custom_objects/car/records/autocomplete.json?page%5Bafter%5D=eyJmcm9tIjoxLCJzaXplIjoxLCJzZWFyY2hBZnRlciI6bnVsbCwic29ydCI6bnVsbH0%3D&page%5Bsize%5D=1&query=", "prev": null}, "meta": {"after_cursor": "eyJmcm9tIjoxLCJzaXplIjoxLCJzZWFyY2hBZnRlciI6bnVsbCwic29ydCI6bnVsbH0=", "before_cursor": null, "has_more": true}}
@@ -3942,6 +3943,7 @@ examples:
           requester_id: 264817272
           assignee_id: 7334148660734
           organization_id: 5633330889598
+          page[size]: 100
       responses:
         "200":
           application/json: {}
@@ -10376,6 +10378,9 @@ examples:
           application/json: {"access_token": "gErypPlm4dOVgGRvA1ZzMH5MQ3nLo8bo", "scope": "organizations:write read", "token_type": "bearer"}
   listWebhooks:
     speakeasy-default-list-webhooks:
+      parameters:
+        query:
+          page[size]: 100
       responses:
         "200":
           application/json: {}
@@ -10438,6 +10443,8 @@ examples:
       parameters:
         path:
           webhook_id: "<id>"
+        query:
+          page[size]: 100
       responses:
         "200":
           application/json: {}

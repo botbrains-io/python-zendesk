@@ -13,11 +13,11 @@ class Webhooks(BaseSDK):
     def list_webhooks(
         self,
         *,
+        page_before: Optional[str] = None,
+        page_after: Optional[str] = None,
+        page_size: Optional[int] = 100,
         filter_name_contains: Optional[str] = None,
         filter_status: Optional[models.ListWebhooksFilterStatus] = None,
-        page_after: Optional[str] = None,
-        page_before: Optional[str] = None,
-        page_size: Optional[str] = None,
         sort: Optional[models.ListWebhooksSort] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -28,11 +28,11 @@ class Webhooks(BaseSDK):
 
         List webhooks.
 
+        :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
         :param filter_name_contains: Filters the webhooks by a string in the name
         :param filter_status: Filters the webhooks by webhook status
-        :param page_after: Includes the next page of results with defined size
-        :param page_before: Includes the previous page of results with defined size
-        :param page_size: Defines a specified number of results per page
         :param sort: Defines the sorting criteria. Only supports name and status
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -50,11 +50,11 @@ class Webhooks(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.ListWebhooksRequest(
+            page_before=page_before,
+            page_after=page_after,
+            page_size=page_size,
             filter_name_contains=filter_name_contains,
             filter_status=filter_status,
-            page_after=page_after,
-            page_before=page_before,
-            page_size=page_size,
             sort=sort,
         )
 
@@ -109,11 +109,11 @@ class Webhooks(BaseSDK):
                 return None
 
             return self.list_webhooks(
+                page_before=page_before,
+                page_after=next_cursor,
+                page_size=page_size,
                 filter_name_contains=filter_name_contains,
                 filter_status=filter_status,
-                page_after=next_cursor,
-                page_before=page_before,
-                page_size=page_size,
                 sort=sort,
                 retries=retries,
             )
@@ -146,11 +146,11 @@ class Webhooks(BaseSDK):
     async def list_webhooks_async(
         self,
         *,
+        page_before: Optional[str] = None,
+        page_after: Optional[str] = None,
+        page_size: Optional[int] = 100,
         filter_name_contains: Optional[str] = None,
         filter_status: Optional[models.ListWebhooksFilterStatus] = None,
-        page_after: Optional[str] = None,
-        page_before: Optional[str] = None,
-        page_size: Optional[str] = None,
         sort: Optional[models.ListWebhooksSort] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -161,11 +161,11 @@ class Webhooks(BaseSDK):
 
         List webhooks.
 
+        :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+        :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
         :param filter_name_contains: Filters the webhooks by a string in the name
         :param filter_status: Filters the webhooks by webhook status
-        :param page_after: Includes the next page of results with defined size
-        :param page_before: Includes the previous page of results with defined size
-        :param page_size: Defines a specified number of results per page
         :param sort: Defines the sorting criteria. Only supports name and status
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -183,11 +183,11 @@ class Webhooks(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.ListWebhooksRequest(
+            page_before=page_before,
+            page_after=page_after,
+            page_size=page_size,
             filter_name_contains=filter_name_contains,
             filter_status=filter_status,
-            page_after=page_after,
-            page_before=page_before,
-            page_size=page_size,
             sort=sort,
         )
 
@@ -242,11 +242,11 @@ class Webhooks(BaseSDK):
                 return None
 
             return self.list_webhooks(
+                page_before=page_before,
+                page_after=next_cursor,
+                page_size=page_size,
                 filter_name_contains=filter_name_contains,
                 filter_status=filter_status,
-                page_after=next_cursor,
-                page_before=page_before,
-                page_size=page_size,
                 sort=sort,
                 retries=retries,
             )

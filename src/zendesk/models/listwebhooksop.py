@@ -17,21 +17,54 @@ r"""Defines the sorting criteria. Only supports name and status"""
 
 
 class ListWebhooksRequestTypedDict(TypedDict):
+    page_before: NotRequired[str]
+    r"""A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
+    """
+    page_after: NotRequired[str]
+    r"""A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
+    """
+    page_size: NotRequired[int]
+    r"""Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+
+    """
     filter_name_contains: NotRequired[str]
     r"""Filters the webhooks by a string in the name"""
     filter_status: NotRequired[ListWebhooksFilterStatus]
     r"""Filters the webhooks by webhook status"""
-    page_after: NotRequired[str]
-    r"""Includes the next page of results with defined size"""
-    page_before: NotRequired[str]
-    r"""Includes the previous page of results with defined size"""
-    page_size: NotRequired[str]
-    r"""Defines a specified number of results per page"""
     sort: NotRequired[ListWebhooksSort]
     r"""Defines the sorting criteria. Only supports name and status"""
 
 
 class ListWebhooksRequest(BaseModel):
+    page_before: Annotated[
+        Optional[str],
+        pydantic.Field(alias="page[before]"),
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = None
+    r"""A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
+    """
+
+    page_after: Annotated[
+        Optional[str],
+        pydantic.Field(alias="page[after]"),
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = None
+    r"""A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
+    """
+
+    page_size: Annotated[
+        Optional[int],
+        pydantic.Field(alias="page[size]"),
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = 100
+    r"""Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+
+    """
+
     filter_name_contains: Annotated[
         Optional[str],
         pydantic.Field(alias="filter[name_contains]"),
@@ -45,27 +78,6 @@ class ListWebhooksRequest(BaseModel):
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = None
     r"""Filters the webhooks by webhook status"""
-
-    page_after: Annotated[
-        Optional[str],
-        pydantic.Field(alias="page[after]"),
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = None
-    r"""Includes the next page of results with defined size"""
-
-    page_before: Annotated[
-        Optional[str],
-        pydantic.Field(alias="page[before]"),
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = None
-    r"""Includes the previous page of results with defined size"""
-
-    page_size: Annotated[
-        Optional[str],
-        pydantic.Field(alias="page[size]"),
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = None
-    r"""Defines a specified number of results per page"""
 
     sort: Annotated[
         Optional[ListWebhooksSort],

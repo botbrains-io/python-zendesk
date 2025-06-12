@@ -2652,24 +2652,9 @@ paths:
           description: Part of a name of the record you are searching for
           schema:
             type: string
-        - name: page[before]
-          in: query
-          description: |
-            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
-          schema:
-            type: string
-        - name: page[after]
-          in: query
-          description: |
-            A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
-          schema:
-            type: string
-        - name: page[size]
-          in: query
-          description: |
-            The number of records to return in the response. You can specify up to 100 records per page.
-          schema:
-            type: integer
+        - $ref: "#/components/parameters/PageBefore"
+        - $ref: "#/components/parameters/PageAfter"
+        - $ref: "#/components/parameters/PageSize"
         - name: field_id
           in: query
           description: |
@@ -2909,7 +2894,7 @@ paths:
         content:
           application/json:
             schema:
-              anyOf:
+              oneOf:
                 - $ref: "#/components/schemas/CustomObjectRecordsFilteredSearchRequestBasic"
                 - $ref: "#/components/schemas/CustomObjectRecordsFilteredSearchRequestComplex"
             examples:
@@ -16291,6 +16276,9 @@ paths:
       tags:
         - Webhooks
       parameters:
+        - $ref: "#/components/parameters/PageBefore"
+        - $ref: "#/components/parameters/PageAfter"
+        - $ref: "#/components/parameters/PageSize"
         - name: filter[name_contains]
           in: query
           description: Filters the webhooks by a string in the name
@@ -16304,24 +16292,6 @@ paths:
           schema:
             type: string
             enum: [active, inactive]
-        - name: page[after]
-          in: query
-          description: Includes the next page of results with defined size
-          required: false
-          schema:
-            type: string
-        - name: page[before]
-          in: query
-          description: Includes the previous page of results with defined size
-          required: false
-          schema:
-            type: string
-        - name: page[size]
-          in: query
-          description: Defines a specified number of results per page
-          required: false
-          schema:
-            type: string
         - name: sort
           in: query
           description: Defines the sorting criteria. Only supports name and status
@@ -16612,24 +16582,9 @@ paths:
           schema:
             type: string
             format: date-time
-        - name: page[after]
-          in: query
-          description: Includes the next page of invocations with defined size
-          required: false
-          schema:
-            type: string
-        - name: page[before]
-          in: query
-          description: Includes the previous page of invocations with defined size
-          required: false
-          schema:
-            type: string
-        - name: page[size]
-          in: query
-          description: Defines a specific number of invocations per page
-          required: false
-          schema:
-            type: string
+        - $ref: "#/components/parameters/PageBefore"
+        - $ref: "#/components/parameters/PageAfter"
+        - $ref: "#/components/parameters/PageSize"
         - name: sort
           in: query
           description: Defines a invocation attribute to sort invocations
@@ -23336,7 +23291,7 @@ components:
             $ref: "#/components/schemas/ResourceCollectionObject"
     ReverseLookupResponse:
       type: object
-      anyOf:
+      oneOf:
         - $ref: "#/components/schemas/UsersResponse"
     SLAPoliciesResponse:
       type: object
@@ -24608,7 +24563,7 @@ components:
       type: object
       allOf:
         - $ref: "#/components/schemas/TargetCommonFields"
-        - anyOf:
+        - oneOf:
             - $ref: "#/components/schemas/TargetBasecamp"
             - $ref: "#/components/schemas/TargetCampfire"
             - $ref: "#/components/schemas/TargetClickatell"
@@ -26727,7 +26682,7 @@ components:
           type: array
           items:
             type: object
-            anyOf:
+            oneOf:
               - $ref: "#/components/schemas/TriggerCategoryRuleCounts"
             allOf:
               - $ref: "#/components/schemas/TriggerCategory"
@@ -27181,7 +27136,7 @@ components:
         trigger:
           allOf:
             - $ref: "#/components/schemas/TriggerObject"
-            - anyOf:
+            - oneOf:
                 - $ref: "#/components/schemas/TriggerCategory"
                 - $ref: "#/components/schemas/TriggerCategoryId"
     TriggersResponse:
@@ -27782,7 +27737,7 @@ components:
         identity:
           $ref: "#/components/schemas/UserIdentityObject"
     UserInput:
-      anyOf:
+      oneOf:
         - $ref: "#/components/schemas/UserCreateInput"
         - $ref: "#/components/schemas/UserMergePropertiesInput"
         - $ref: "#/components/schemas/UserMergeByIdInput"
@@ -27804,7 +27759,7 @@ components:
         password:
           type: string
     UserObject:
-      anyOf:
+      oneOf:
         - $ref: "#/components/schemas/UserForAdmin"
         - $ref: "#/components/schemas/UserForEndUser"
       additionalProperties: true
@@ -28217,7 +28172,7 @@ components:
             Event subscriptions for the webhook. To subscribe the webhook to Zendesk events, specify one or more event types.
             To connect the webhook to a trigger or automation, specify only "conditional_ticket_events" in the array
         authentication:
-          anyOf:
+          oneOf:
             - $ref: "#/components/schemas/BasicAuthAuthentication"
             - $ref: "#/components/schemas/BearerTokenAuthentication"
             - $ref: "#/components/schemas/ApiKeyAuthentication"
@@ -28283,7 +28238,6 @@ components:
               description: Password for basic authentication
           required:
             - username
-            - password
       required:
         - type
         - data
@@ -28301,8 +28255,6 @@ components:
             token:
               type: string
               description: Bearer token for authentication
-          required:
-            - token
       required:
         - type
         - data
@@ -28325,7 +28277,6 @@ components:
               description: Value of the API key
           required:
             - name
-            - value
         add_position:
           type: string
           enum: [header, query_string]
@@ -28418,7 +28369,7 @@ components:
               items:
                 type: string
             authentication:
-              anyOf:
+              oneOf:
                 - $ref: "#/components/schemas/BasicAuthAuthentication"
                 - $ref: "#/components/schemas/BearerTokenAuthentication"
                 - $ref: "#/components/schemas/ApiKeyAuthentication"
@@ -28446,7 +28397,7 @@ components:
               enum: [json, xml, form_encoded]
               default: json
             authentication:
-              anyOf:
+              oneOf:
                 - $ref: "#/components/schemas/BasicAuthAuthentication"
                 - $ref: "#/components/schemas/BearerTokenAuthentication"
                 - $ref: "#/components/schemas/ApiKeyAuthentication"

@@ -12,7 +12,7 @@ APIKeyAuthenticationType = Literal["api_key"]
 class APIKeyAuthenticationDataTypedDict(TypedDict):
     name: str
     r"""Name of the API key parameter"""
-    value: str
+    value: NotRequired[str]
     r"""Value of the API key"""
 
 
@@ -20,7 +20,7 @@ class APIKeyAuthenticationData(BaseModel):
     name: str
     r"""Name of the API key parameter"""
 
-    value: str
+    value: Optional[str] = None
     r"""Value of the API key"""
 
 
