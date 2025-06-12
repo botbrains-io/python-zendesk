@@ -917,11 +917,6 @@ with Zendesk(
 - [list_webhook_invocations](docs/sdks/webhookinvocations/README.md#list_webhook_invocations) - List Webhook Invocations
 - [list_webhook_invocation_attempts](docs/sdks/webhookinvocations/README.md#list_webhook_invocation_attempts) - List Webhook Invocation Attempts
 
-### [webhook_security](docs/sdks/webhooksecurity/README.md)
-
-- [show_webhook_signing_secret](docs/sdks/webhooksecurity/README.md#show_webhook_signing_secret) - Show Webhook Signing Secret
-- [reset_webhook_signing_secret](docs/sdks/webhooksecurity/README.md#reset_webhook_signing_secret) - Reset Webhook Signing Secret
-
 ### [webhooks](docs/sdks/webhooks/README.md)
 
 - [list_webhooks](docs/sdks/webhooks/README.md#list_webhooks) - List Webhooks
@@ -931,6 +926,8 @@ with Zendesk(
 - [update_webhook](docs/sdks/webhooks/README.md#update_webhook) - Update Webhook
 - [patch_webhook](docs/sdks/webhooks/README.md#patch_webhook) - Patch Webhook
 - [delete_webhook](docs/sdks/webhooks/README.md#delete_webhook) - Delete Webhook
+- [show_webhook_signing_secret](docs/sdks/webhooks/README.md#show_webhook_signing_secret) - Show Webhook Signing Secret
+- [reset_webhook_signing_secret](docs/sdks/webhooks/README.md#reset_webhook_signing_secret) - Reset Webhook Signing Secret
 
 ### [workspaces](docs/sdks/workspaces/README.md)
 
