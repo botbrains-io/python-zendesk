@@ -2,7 +2,7 @@
 
 [project]
 name = "python-zendesk"
-version = "0.1.5"
+version = "0.1.6"
 description = "Python Client SDK for Zendesk Support API."
 authors = [{ name = "Ben Meyer-Meisel" }, { name = "botBrains"}, ]
 readme = "README.md"
@@ -17,7 +17,7 @@ project_urls = { Homepage = "https://github.com/botbrains-io/python-zendesk", Re
 
 [tool.poetry]
 name = "python-zendesk"
-version = "0.1.5"
+version = "0.1.6"
 description = "Python Client SDK for Zendesk Support API."
 authors = ["Ben Meyer-Meisel"]
 readme = "README.md"
