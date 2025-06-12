@@ -5226,6 +5226,12 @@ paths:
 
         * Admins
         * Agents assigned to a custom role with permissions to manage groups (Enterprise only)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GroupCreateRequest"
       responses:
         "201":
           description: Created response
@@ -5268,6 +5274,12 @@ paths:
         #### Allowed For
 
         * Admins
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GroupUpdateRequest"
       responses:
         "200":
           description: Success response
@@ -29323,7 +29335,34 @@ components:
               type: string
             code:
               type: string
+    # NOTE(memben): Added from inferring group body
+    GroupCreateRequest:
+      type: object
+      properties:
+        group:
+          type: object
+          properties:
+            name:
+              type: string
+              description: The name of the group
+          required:
+            - name
+      required:
+        - group
 
+    GroupUpdateRequest:
+      type: object
+      properties:
+        group:
+          type: object
+          properties:
+            name:
+              type: string
+              description: The name of the group
+          required:
+            - name
+      required:
+        - group
   parameters:
     ActivityId:
       name: activity_id
