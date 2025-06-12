@@ -2,23 +2,15 @@
 
 from __future__ import annotations
 from .ticketsresponse import TicketsResponse, TicketsResponseTypedDict
-from enum import Enum
 import pydantic
-from typing import Callable, Optional
+from typing import Callable, Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 from zendesk.types import BaseModel
 from zendesk.utils import FieldMetadata, QueryParamMetadata
 
 
-class ListTicketsSort(str, Enum):
-    r"""Sort tickets by field (for cursor pagination use \"field\" for ascending or \"-field\" for descending)"""
-
-    UPDATED_AT = "updated_at"
-    ID = "id"
-    STATUS = "status"
-    MINUS_UPDATED_AT = "-updated_at"
-    MINUS_ID = "-id"
-    MINUS_STATUS = "-status"
+ListTicketsSort = Literal["updated_at", "id", "status", "-updated_at", "-id", "-status"]
+r"""Sort tickets by field (for cursor pagination use \"field\" for ascending or \"-field\" for descending)"""
 
 
 class ListTicketsRequestTypedDict(TypedDict):
@@ -71,7 +63,7 @@ class ListTicketsRequest(BaseModel):
     sort: Annotated[
         Optional[ListTicketsSort],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = ListTicketsSort.ID
+    ] = "id"
     r"""Sort tickets by field (for cursor pagination use \"field\" for ascending or \"-field\" for descending)"""
 
     external_id: Annotated[

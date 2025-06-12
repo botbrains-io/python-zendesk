@@ -227,9 +227,9 @@ with Zendesk(
     z_client.webhooks.update_webhook(webhook_id="<id>", webhook={
         "name": "<value>",
         "endpoint": "<value>",
-        "http_method": models.WebhookUpdateRequestHTTPMethod.DELETE,
-        "request_format": models.WebhookUpdateRequestRequestFormat.XML,
-        "status": models.WebhookUpdateRequestStatus.ACTIVE,
+        "http_method": "DELETE",
+        "request_format": "xml",
+        "status": "active",
     })
 
     # Use the SDK ...

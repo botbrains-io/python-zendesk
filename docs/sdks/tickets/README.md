@@ -425,7 +425,7 @@ with Zendesk(
     ),
 ) as z_client:
 
-    res = z_client.tickets.list_tickets(page_size=100, sort=models.ListTicketsSort.ID)
+    res = z_client.tickets.list_tickets(page_size=100, sort="id")
 
     while res is not None:
         # Handle items
@@ -477,7 +477,7 @@ with Zendesk(
             "comment": {
                 "body": "The smoke is very colorful.",
             },
-            "priority": models.TicketCreateInputPriority.URGENT,
+            "priority": "urgent",
             "subject": "My printer is on fire!",
         },
     })
@@ -571,7 +571,7 @@ with Zendesk(
             "public": True,
         },
         "custom_status_id": 321,
-        "status": models.TicketUpdateInputStatus.SOLVED,
+        "status": "solved",
     })
 
     # Handle response
@@ -1105,14 +1105,14 @@ with Zendesk(
                 "comment": {
                     "body": "The smoke is very colorful.",
                 },
-                "priority": models.TicketCreateInputPriority.URGENT,
+                "priority": "urgent",
                 "subject": "My printer is on fire!",
             },
             {
                 "comment": {
                     "body": "This is a comment",
                 },
-                "priority": models.TicketCreateInputPriority.NORMAL,
+                "priority": "normal",
                 "subject": "Help",
             },
         ],

@@ -2,21 +2,15 @@
 
 from __future__ import annotations
 from .searchexportresponse import SearchExportResponse, SearchExportResponseTypedDict
-from enum import Enum
 import pydantic
-from typing import Callable, Optional
+from typing import Callable, Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 from zendesk.types import BaseModel
 from zendesk.utils import FieldMetadata, QueryParamMetadata
 
 
-class FilterType(str, Enum):
-    r"""The object type returned by the export query. Can be `ticket`, `organization`, `user`, or `group`."""
-
-    TICKET = "ticket"
-    ORGANIZATION = "organization"
-    USER = "user"
-    GROUP = "group"
+FilterType = Literal["ticket", "organization", "user", "group"]
+r"""The object type returned by the export query. Can be `ticket`, `organization`, `user`, or `group`."""
 
 
 class ExportSearchResultsRequestTypedDict(TypedDict):

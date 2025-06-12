@@ -4,8 +4,7 @@ from __future__ import annotations
 from .batcherroritem import BatchErrorItem, BatchErrorItemTypedDict
 from .triggercategory import TriggerCategory, TriggerCategoryTypedDict
 from .triggerobject import TriggerObject, TriggerObjectTypedDict
-from enum import Enum
-from typing import List, Optional
+from typing import List, Literal, Optional
 from typing_extensions import NotRequired, TypedDict
 from zendesk.types import BaseModel
 
@@ -21,9 +20,7 @@ class BatchJobResponseResults(BaseModel):
     triggers: Optional[List[TriggerObject]] = None
 
 
-class BatchJobResponseStatus(str, Enum):
-    COMPLETE = "complete"
-    FAILED = "failed"
+BatchJobResponseStatus = Literal["complete", "failed"]
 
 
 class BatchJobResponseTypedDict(TypedDict):

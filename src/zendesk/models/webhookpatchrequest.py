@@ -10,30 +10,16 @@ from .bearertokenauthentication import (
     BearerTokenAuthentication,
     BearerTokenAuthenticationTypedDict,
 )
-from enum import Enum
-from typing import Dict, List, Optional, Union
+from typing import Dict, List, Literal, Optional, Union
 from typing_extensions import NotRequired, TypeAliasType, TypedDict
 from zendesk.types import BaseModel
 
 
-class WebhookPatchRequestHTTPMethod(str, Enum):
-    GET = "GET"
-    POST = "POST"
-    PUT = "PUT"
-    PATCH = "PATCH"
-    DELETE = "DELETE"
+WebhookPatchRequestHTTPMethod = Literal["GET", "POST", "PUT", "PATCH", "DELETE"]
 
+WebhookPatchRequestRequestFormat = Literal["json", "xml", "form_encoded"]
 
-class WebhookPatchRequestRequestFormat(str, Enum):
-    JSON = "json"
-    XML = "xml"
-    FORM_ENCODED = "form_encoded"
-
-
-class WebhookPatchRequestStatus(str, Enum):
-    ACTIVE = "active"
-    INACTIVE = "inactive"
-
+WebhookPatchRequestStatus = Literal["active", "inactive"]
 
 WebhookPatchRequestAuthenticationTypedDict = TypeAliasType(
     "WebhookPatchRequestAuthenticationTypedDict",

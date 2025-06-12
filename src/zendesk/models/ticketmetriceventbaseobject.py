@@ -2,35 +2,33 @@
 
 from __future__ import annotations
 from datetime import datetime
-from enum import Enum
-from typing import Optional
+from typing import Literal, Optional
 from typing_extensions import NotRequired, TypedDict
 from zendesk.types import BaseModel
 
 
-class Metric(str, Enum):
-    r"""The metric being tracked"""
+Metric = Literal[
+    "agent_work_time",
+    "pausable_update_time",
+    "periodic_update_time",
+    "reply_time",
+    "requester_wait_time",
+    "resolution_time",
+    "group_ownership_time",
+]
+r"""The metric being tracked"""
 
-    AGENT_WORK_TIME = "agent_work_time"
-    PAUSABLE_UPDATE_TIME = "pausable_update_time"
-    PERIODIC_UPDATE_TIME = "periodic_update_time"
-    REPLY_TIME = "reply_time"
-    REQUESTER_WAIT_TIME = "requester_wait_time"
-    RESOLUTION_TIME = "resolution_time"
-    GROUP_OWNERSHIP_TIME = "group_ownership_time"
-
-
-class TicketMetricEventBaseObjectType(str, Enum):
-    r"""The type of the metric event. See [Ticket metric event types reference](/documentation/ticketing/reference-guides/ticket-metric-event-types-reference)"""
-
-    ACTIVATE = "activate"
-    PAUSE = "pause"
-    FULFILL = "fulfill"
-    APPLY_SLA = "apply_sla"
-    APPLY_GROUP_SLA = "apply_group_sla"
-    BREACH = "breach"
-    UPDATE_STATUS = "update_status"
-    MEASURE = "measure"
+TicketMetricEventBaseObjectType = Literal[
+    "activate",
+    "pause",
+    "fulfill",
+    "apply_sla",
+    "apply_group_sla",
+    "breach",
+    "update_status",
+    "measure",
+]
+r"""The type of the metric event. See [Ticket metric event types reference](/documentation/ticketing/reference-guides/ticket-metric-event-types-reference)"""
 
 
 class TicketMetricEventBaseObjectTypedDict(TypedDict):

@@ -137,7 +137,7 @@ with Zendesk(
             "description": "Customer needs a response quickly",
             "end_user_description": "Your ticket is being responded to",
             "end_user_label": "Urgent processing",
-            "status_category": models.CustomStatusCreateInputStatusCategory.OPEN,
+            "status_category": "open",
         },
     })
 

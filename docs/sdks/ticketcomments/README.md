@@ -335,7 +335,7 @@ with Zendesk(
     ),
 ) as z_client:
 
-    res = z_client.ticket_comments.list_ticket_comments(ticket_id=123456, page_size=100, sort=models.ListTicketCommentsSort.CREATED_AT)
+    res = z_client.ticket_comments.list_ticket_comments(ticket_id=123456, page_size=100, sort="created_at")
 
     while res is not None:
         # Handle items

@@ -3,9 +3,8 @@
 from __future__ import annotations
 from .collaboratorobject import CollaboratorObject, CollaboratorObjectTypedDict
 from datetime import datetime
-from enum import Enum
 from pydantic import model_serializer
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Literal, Optional
 from typing_extensions import NotRequired, TypedDict
 from zendesk.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 
@@ -25,38 +24,19 @@ class TicketSkipObjectCustomField(BaseModel):
     r"""The value of the custom field"""
 
 
-class TicketSkipObjectPriority(str, Enum):
-    r"""The urgency with which the ticket should be addressed"""
+TicketSkipObjectPriority = Literal["urgent", "high", "normal", "low"]
+r"""The urgency with which the ticket should be addressed"""
 
-    URGENT = "urgent"
-    HIGH = "high"
-    NORMAL = "normal"
-    LOW = "low"
+TicketSkipObjectStatus = Literal["new", "open", "pending", "hold", "solved", "closed"]
+r"""The state of the ticket.
 
+If your account has activated custom ticket statuses, this is the ticket's
+status category. See [custom ticket statuses](#custom-ticket-statuses)
 
-class TicketSkipObjectStatus(str, Enum):
-    r"""The state of the ticket.
+"""
 
-    If your account has activated custom ticket statuses, this is the ticket's
-    status category. See [custom ticket statuses](#custom-ticket-statuses)
-
-    """
-
-    NEW = "new"
-    OPEN = "open"
-    PENDING = "pending"
-    HOLD = "hold"
-    SOLVED = "solved"
-    CLOSED = "closed"
-
-
-class TicketSkipObjectType(str, Enum):
-    r"""The type of this ticket"""
-
-    PROBLEM = "problem"
-    INCIDENT = "incident"
-    QUESTION = "question"
-    TASK = "task"
+TicketSkipObjectType = Literal["problem", "incident", "question", "task"]
+r"""The type of this ticket"""
 
 
 class TicketSkipObjectViaTypedDict(TypedDict):

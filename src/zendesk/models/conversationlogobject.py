@@ -3,20 +3,15 @@
 from __future__ import annotations
 from .attachmentobject import AttachmentObject, AttachmentObjectTypedDict
 from datetime import datetime
-from enum import Enum
 import pydantic
 from pydantic import ConfigDict
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 from zendesk.types import BaseModel
 
 
-class ConversationLogObjectType(str, Enum):
-    r"""Either user, agent, or bot"""
-
-    USER = "user"
-    AGENT = "agent"
-    BOT = "bot"
+ConversationLogObjectType = Literal["user", "agent", "bot"]
+r"""Either user, agent, or bot"""
 
 
 class ConversationLogObjectAuthorTypedDict(TypedDict):

@@ -273,7 +273,7 @@ with Zendesk(
     ),
 ) as z_client:
 
-    res = z_client.users.list_users(page_size=100, role_query_parameter=models.UserRoleFilter.AGENT, role_query_parameter1="agent", permission_set=123, external_id="abc")
+    res = z_client.users.list_users(page_size=100, role_query_parameter="agent", role_query_parameter1="agent", permission_set=123, external_id="abc")
 
     while res is not None:
         # Handle items
@@ -755,7 +755,7 @@ with Zendesk(
     ),
 ) as z_client:
 
-    res = z_client.users.count_users(role_query_parameter=models.UserRoleFilter.AGENT, role_query_parameter1="agent", permission_set=123)
+    res = z_client.users.count_users(role_query_parameter="agent", role_query_parameter1="agent", permission_set=123)
 
     # Handle response
     print(res)

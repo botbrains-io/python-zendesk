@@ -134,7 +134,7 @@ with Zendesk(
     ),
 ) as z_client:
 
-    res = z_client.approval_requests.update_decision_approval_request(approval_workflow_instance_id="360002783572", approval_request_id="360002783572", notes="Approved by manager", status=models.UpdateDecisionApprovalRequestStatus.APPROVED)
+    res = z_client.approval_requests.update_decision_approval_request(approval_workflow_instance_id="360002783572", approval_request_id="360002783572", notes="Approved by manager", status="approved")
 
     # Handle response
     print(res)

@@ -6,28 +6,17 @@ from .ticketcommentobject_input import (
     TicketCommentObjectInputTypedDict,
 )
 from datetime import datetime
-from enum import Enum
 import pydantic
-from typing import Optional
+from typing import Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 from zendesk.types import BaseModel
 
 
-class TicketCreateVoicemailTicketRequestPriority(str, Enum):
-    r"""The urgency with which the ticket should be addressed."""
+TicketCreateVoicemailTicketRequestPriority = Literal["urgent", "high", "normal", "low"]
+r"""The urgency with which the ticket should be addressed."""
 
-    URGENT = "urgent"
-    HIGH = "high"
-    NORMAL = "normal"
-    LOW = "low"
-
-
-class ViaID(int, Enum):
-    r"""Required for Create Ticket operation"""
-
-    FORTY_FOUR = 44
-    FORTY_FIVE = 45
-    FORTY_SIX = 46
+ViaID = Literal[44, 45, 46]
+r"""Required for Create Ticket operation"""
 
 
 class VoiceCommentTypedDict(TypedDict):

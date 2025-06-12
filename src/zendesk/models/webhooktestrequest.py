@@ -10,25 +10,14 @@ from .bearertokenauthentication import (
     BearerTokenAuthentication,
     BearerTokenAuthenticationTypedDict,
 )
-from enum import Enum
-from typing import Dict, Optional, Union
+from typing import Dict, Literal, Optional, Union
 from typing_extensions import NotRequired, TypeAliasType, TypedDict
 from zendesk.types import BaseModel
 
 
-class WebhookTestRequestHTTPMethod(str, Enum):
-    GET = "GET"
-    POST = "POST"
-    PUT = "PUT"
-    PATCH = "PATCH"
-    DELETE = "DELETE"
+WebhookTestRequestHTTPMethod = Literal["GET", "POST", "PUT", "PATCH", "DELETE"]
 
-
-class WebhookTestRequestRequestFormat(str, Enum):
-    JSON = "json"
-    XML = "xml"
-    FORM_ENCODED = "form_encoded"
-
+WebhookTestRequestRequestFormat = Literal["json", "xml", "form_encoded"]
 
 WebhookTestRequestAuthenticationTypedDict = TypeAliasType(
     "WebhookTestRequestAuthenticationTypedDict",
@@ -63,13 +52,9 @@ class WebhookTestRequestWebhook(BaseModel):
     endpoint: str
     r"""The test endpoint URL"""
 
-    http_method: Optional[WebhookTestRequestHTTPMethod] = (
-        WebhookTestRequestHTTPMethod.POST
-    )
+    http_method: Optional[WebhookTestRequestHTTPMethod] = "POST"
 
-    request_format: Optional[WebhookTestRequestRequestFormat] = (
-        WebhookTestRequestRequestFormat.JSON
-    )
+    request_format: Optional[WebhookTestRequestRequestFormat] = "json"
 
     authentication: Optional[WebhookTestRequestAuthentication] = None
 

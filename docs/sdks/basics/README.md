@@ -190,8 +190,8 @@ with Zendesk(
             "comment": {
                 "body": "My printer is on fire!",
             },
-            "priority": models.TicketCreateVoicemailTicketRequestPriority.URGENT,
-            "via_id": models.ViaID.FORTY_SIX,
+            "priority": "urgent",
+            "via_id": 46,
             "voice_comment": {
                 "answered_by_id": 28,
                 "call_duration": 40,

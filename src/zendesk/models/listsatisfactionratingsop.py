@@ -5,28 +5,29 @@ from .satisfactionratingsresponse import (
     SatisfactionRatingsResponse,
     SatisfactionRatingsResponseTypedDict,
 )
-from enum import Enum
 import pydantic
-from typing import Callable, Optional
+from typing import Callable, Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 from zendesk.types import BaseModel
 from zendesk.utils import FieldMetadata, QueryParamMetadata
 
 
-class Score(str, Enum):
-    r"""Filters the results by score. Possible values are \"offered\", \"unoffered\", \"received\", \"received_with_comment\", \"received_without_comment\", \"good\", \"good_with_comment\", \"good_without_comment\", \"bad\", \"bad_with_comment\", \"bad_without_comment\" """
+Score = Literal[
+    "offered",
+    "unoffered",
+    "received",
+    "received_with_comment",
+    "received_without_comment",
+    "good",
+    "good_with_comment",
+    "good_without_comment",
+    "bad",
+    "bad_with_comment",
+    "bad_without_comment",
+]
+r"""Filters the results by score. Possible values are \"offered\", \"unoffered\", \"received\", \"received_with_comment\", \"received_without_comment\", \"good\", \"good_with_comment\", \"good_without_comment\", \"bad\", \"bad_with_comment\", \"bad_without_comment\" 
 
-    OFFERED = "offered"
-    UNOFFERED = "unoffered"
-    RECEIVED = "received"
-    RECEIVED_WITH_COMMENT = "received_with_comment"
-    RECEIVED_WITHOUT_COMMENT = "received_without_comment"
-    GOOD = "good"
-    GOOD_WITH_COMMENT = "good_with_comment"
-    GOOD_WITHOUT_COMMENT = "good_without_comment"
-    BAD = "bad"
-    BAD_WITH_COMMENT = "bad_with_comment"
-    BAD_WITHOUT_COMMENT = "bad_without_comment"
+"""
 
 
 class ListSatisfactionRatingsRequestTypedDict(TypedDict):

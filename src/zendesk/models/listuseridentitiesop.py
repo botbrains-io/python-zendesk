@@ -5,24 +5,17 @@ from .useridentitiesresponse import (
     UserIdentitiesResponse,
     UserIdentitiesResponseTypedDict,
 )
-from enum import Enum
 import pydantic
-from typing import Callable, Optional
+from typing import Callable, Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 from zendesk.types import BaseModel
 from zendesk.utils import FieldMetadata, PathParamMetadata, QueryParamMetadata
 
 
-class ListUserIdentitiesType(str, Enum):
-    r"""Filters results by one or more identity types using the format `?type[]={type}&type[]={type}`"""
-
-    EMAIL = "email"
-    FACEBOOK = "facebook"
-    PHONE_NUMBER = "phone_number"
-    SDK = "sdk"
-    TWITTER = "twitter"
-    MESSAGING = "messaging"
-    MICROSOFT = "microsoft"
+ListUserIdentitiesType = Literal[
+    "email", "facebook", "phone_number", "sdk", "twitter", "messaging", "microsoft"
+]
+r"""Filters results by one or more identity types using the format `?type[]={type}&type[]={type}`"""
 
 
 class ListUserIdentitiesRequestTypedDict(TypedDict):

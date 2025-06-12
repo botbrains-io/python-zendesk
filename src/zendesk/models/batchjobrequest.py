@@ -6,14 +6,12 @@ from .triggercategorybatchrequest import (
     TriggerCategoryBatchRequest,
     TriggerCategoryBatchRequestTypedDict,
 )
-from enum import Enum
-from typing import List, Optional
+from typing import List, Literal, Optional
 from typing_extensions import NotRequired, TypedDict
 from zendesk.types import BaseModel
 
 
-class BatchJobRequestAction(str, Enum):
-    PATCH = "patch"
+BatchJobRequestAction = Literal["patch"]
 
 
 class ItemsTypedDict(TypedDict):

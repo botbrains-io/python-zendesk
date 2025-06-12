@@ -3,18 +3,13 @@
 from __future__ import annotations
 from .attachmentobject import AttachmentObject, AttachmentObjectTypedDict
 from datetime import datetime
-from enum import Enum
-from typing import List, Optional
+from typing import List, Literal, Optional
 from typing_extensions import NotRequired, TypedDict
 from zendesk.types import BaseModel
 
 
-class HelpCenterState(str, Enum):
-    r"""The state of the Help Center"""
-
-    ENABLED = "enabled"
-    DISABLED = "disabled"
-    RESTRICTED = "restricted"
+HelpCenterState = Literal["enabled", "disabled", "restricted"]
+r"""The state of the Help Center"""
 
 
 class BrandObjectTypedDict(TypedDict):

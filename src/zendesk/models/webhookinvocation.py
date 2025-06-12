@@ -2,24 +2,23 @@
 
 from __future__ import annotations
 from datetime import datetime
-from enum import Enum
-from typing import Optional
+from typing import Literal, Optional
 from typing_extensions import NotRequired, TypedDict
 from zendesk.types import BaseModel
 
 
-class WebhookInvocationStatus(str, Enum):
-    r"""Status of the webhook invocation"""
-
-    UNKNOWN = "unknown"
-    ACCEPTED = "accepted"
-    SUCCESS = "success"
-    FAILED = "failed"
-    TIMEOUT = "timeout"
-    CIRCUIT_BROKEN = "circuit broken"
-    THROTTLED = "throttled"
-    CLIENT_ERROR = "client error"
-    SERVER_ERROR = "server error"
+WebhookInvocationStatus = Literal[
+    "unknown",
+    "accepted",
+    "success",
+    "failed",
+    "timeout",
+    "circuit broken",
+    "throttled",
+    "client error",
+    "server error",
+]
+r"""Status of the webhook invocation"""
 
 
 class WebhookInvocationTypedDict(TypedDict):

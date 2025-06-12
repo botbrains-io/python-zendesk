@@ -2,26 +2,18 @@
 
 from __future__ import annotations
 from .webhooklistresponse import WebhookListResponse, WebhookListResponseTypedDict
-from enum import Enum
 import pydantic
-from typing import Callable, Optional
+from typing import Callable, Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 from zendesk.types import BaseModel
 from zendesk.utils import FieldMetadata, QueryParamMetadata
 
 
-class ListWebhooksFilterStatus(str, Enum):
-    r"""Filters the webhooks by webhook status"""
+ListWebhooksFilterStatus = Literal["active", "inactive"]
+r"""Filters the webhooks by webhook status"""
 
-    ACTIVE = "active"
-    INACTIVE = "inactive"
-
-
-class ListWebhooksSort(str, Enum):
-    r"""Defines the sorting criteria. Only supports name and status"""
-
-    NAME = "name"
-    STATUS = "status"
+ListWebhooksSort = Literal["name", "status"]
+r"""Defines the sorting criteria. Only supports name and status"""
 
 
 class ListWebhooksRequestTypedDict(TypedDict):

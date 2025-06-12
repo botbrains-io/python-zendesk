@@ -2,20 +2,15 @@
 
 from __future__ import annotations
 from datetime import datetime
-from enum import Enum
-from typing import Optional
+from typing import Literal, Optional
 from typing_extensions import NotRequired, TypedDict
 from zendesk.types import BaseModel
 
 
-class TicketFieldCustomStatusObjectStatusCategory(str, Enum):
-    r"""The status category the custom ticket status belongs to"""
-
-    NEW = "new"
-    OPEN = "open"
-    PENDING = "pending"
-    HOLD = "hold"
-    SOLVED = "solved"
+TicketFieldCustomStatusObjectStatusCategory = Literal[
+    "new", "open", "pending", "hold", "solved"
+]
+r"""The status category the custom ticket status belongs to"""
 
 
 class TicketFieldCustomStatusObjectTypedDict(TypedDict):

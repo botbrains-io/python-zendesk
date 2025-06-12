@@ -6,33 +6,28 @@ from .webhookinvocationlistresponse import (
     WebhookInvocationListResponseTypedDict,
 )
 from datetime import datetime
-from enum import Enum
 import pydantic
-from typing import Callable, Optional
+from typing import Callable, Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 from zendesk.types import BaseModel
 from zendesk.utils import FieldMetadata, PathParamMetadata, QueryParamMetadata
 
 
-class ListWebhookInvocationsFilterStatus(str, Enum):
-    r"""Filters invocations by invocation status"""
+ListWebhookInvocationsFilterStatus = Literal[
+    "unknown",
+    "accepted",
+    "success",
+    "failed",
+    "timeout",
+    "circuit broken",
+    "throttled",
+    "client error",
+    "server error",
+]
+r"""Filters invocations by invocation status"""
 
-    UNKNOWN = "unknown"
-    ACCEPTED = "accepted"
-    SUCCESS = "success"
-    FAILED = "failed"
-    TIMEOUT = "timeout"
-    CIRCUIT_BROKEN = "circuit broken"
-    THROTTLED = "throttled"
-    CLIENT_ERROR = "client error"
-    SERVER_ERROR = "server error"
-
-
-class ListWebhookInvocationsSort(str, Enum):
-    r"""Defines a invocation attribute to sort invocations"""
-
-    LATEST_COMPLETED_AT = "latest_completed_at"
-    MINUS_LATEST_COMPLETED_AT = "-latest_completed_at"
+ListWebhookInvocationsSort = Literal["latest_completed_at", "-latest_completed_at"]
+r"""Defines a invocation attribute to sort invocations"""
 
 
 class ListWebhookInvocationsRequestTypedDict(TypedDict):

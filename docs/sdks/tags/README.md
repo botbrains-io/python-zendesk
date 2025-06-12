@@ -337,7 +337,7 @@ with Zendesk(
     res = z_client.tags.add_ticket_tags(ticket_id=123456, tags=[
         "customer",
         "vip",
-    ], updated_stamp=parse_datetime("2019-09-12T21:45:16Z"), safe_update=models.SafeUpdate.TRUE)
+    ], updated_stamp=parse_datetime("2019-09-12T21:45:16Z"), safe_update="true")
 
     # Handle response
     print(res)
@@ -393,7 +393,7 @@ with Zendesk(
     z_client.tags.remove_ticket_tags(ticket_id=123456, tags=[
         "customer",
         "vip",
-    ], updated_stamp=parse_datetime("2019-09-12T21:45:16Z"), safe_update=models.SafeUpdate.TRUE)
+    ], updated_stamp=parse_datetime("2019-09-12T21:45:16Z"), safe_update="true")
 
     # Use the SDK ...
 

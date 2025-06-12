@@ -261,7 +261,7 @@ with Zendesk(
 ) as z_client:
 
     res = z_client.trigger_categories.batch_operate_trigger_categories(job={
-        "action": models.BatchJobRequestAction.PATCH,
+        "action": "patch",
         "items": {
             "trigger_categories": [
                 {

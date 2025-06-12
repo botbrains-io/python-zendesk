@@ -2,50 +2,25 @@
 
 from __future__ import annotations
 from datetime import datetime
-from enum import Enum
-from typing import Optional
+from typing import Literal, Optional
 from typing_extensions import NotRequired, TypedDict
 from zendesk.types import BaseModel
 
 
-class CnameStatus(str, Enum):
-    r"""Whether all of the required CNAME records are set. Possible values: \"unknown\", \"verified\", \"failed\" """
+CnameStatus = Literal["unknown", "verified", "failed"]
+r"""Whether all of the required CNAME records are set. Possible values: \"unknown\", \"verified\", \"failed\" """
 
-    UNKNOWN = "unknown"
-    VERIFIED = "verified"
-    FAILED = "failed"
+DNSResults = Literal["verified", "failed"]
+r"""Verification statuses for the domain and CNAME records. Possible types: \"verified\", \"failed\" """
 
+DomainVerificationStatus = Literal["unknown", "verified", "failed"]
+r"""Whether the domain verification record is valid. Possible values: \"unknown\", \"verified\", \"failed\" """
 
-class DNSResults(str, Enum):
-    r"""Verification statuses for the domain and CNAME records. Possible types: \"verified\", \"failed\" """
+ForwardingStatus = Literal["unknown", "waiting", "verified", "failed"]
+r"""Status of email forwarding. Possible values: \"unknown\", \"waiting\", \"verified\", or \"failed\" """
 
-    VERIFIED = "verified"
-    FAILED = "failed"
-
-
-class DomainVerificationStatus(str, Enum):
-    r"""Whether the domain verification record is valid. Possible values: \"unknown\", \"verified\", \"failed\" """
-
-    UNKNOWN = "unknown"
-    VERIFIED = "verified"
-    FAILED = "failed"
-
-
-class ForwardingStatus(str, Enum):
-    r"""Status of email forwarding. Possible values: \"unknown\", \"waiting\", \"verified\", or \"failed\" """
-
-    UNKNOWN = "unknown"
-    WAITING = "waiting"
-    VERIFIED = "verified"
-    FAILED = "failed"
-
-
-class SpfStatus(str, Enum):
-    r"""Whether the SPF record is set up correctly. Possible values: \"unknown\", \"verified\", \"failed\" """
-
-    UNKNOWN = "unknown"
-    VERIFIED = "verified"
-    FAILED = "failed"
+SpfStatus = Literal["unknown", "verified", "failed"]
+r"""Whether the SPF record is set up correctly. Possible values: \"unknown\", \"verified\", \"failed\" """
 
 
 class SupportAddressObjectTypedDict(TypedDict):

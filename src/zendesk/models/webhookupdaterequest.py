@@ -11,36 +11,19 @@ from .bearertokenauthentication import (
     BearerTokenAuthenticationTypedDict,
 )
 from .webhooksigningsecret import WebhookSigningSecret, WebhookSigningSecretTypedDict
-from enum import Enum
-from typing import Dict, List, Optional, Union
+from typing import Dict, List, Literal, Optional, Union
 from typing_extensions import NotRequired, TypeAliasType, TypedDict
 from zendesk.types import BaseModel
 
 
-class WebhookUpdateRequestHTTPMethod(str, Enum):
-    r"""HTTP method used for the webhook's requests. To subscribe the webhook to Zendesk events, this must be \"POST\" """
+WebhookUpdateRequestHTTPMethod = Literal["GET", "POST", "PUT", "PATCH", "DELETE"]
+r"""HTTP method used for the webhook's requests. To subscribe the webhook to Zendesk events, this must be \"POST\" """
 
-    GET = "GET"
-    POST = "POST"
-    PUT = "PUT"
-    PATCH = "PATCH"
-    DELETE = "DELETE"
+WebhookUpdateRequestRequestFormat = Literal["json", "xml", "form_encoded"]
+r"""The format of the data that the webhook will send. To subscribe the webhook to Zendesk events, this must be \"json\" """
 
-
-class WebhookUpdateRequestRequestFormat(str, Enum):
-    r"""The format of the data that the webhook will send. To subscribe the webhook to Zendesk events, this must be \"json\" """
-
-    JSON = "json"
-    XML = "xml"
-    FORM_ENCODED = "form_encoded"
-
-
-class WebhookUpdateRequestStatus(str, Enum):
-    r"""Current status of the webhook"""
-
-    ACTIVE = "active"
-    INACTIVE = "inactive"
-
+WebhookUpdateRequestStatus = Literal["active", "inactive"]
+r"""Current status of the webhook"""
 
 WebhookUpdateRequestAuthenticationTypedDict = TypeAliasType(
     "WebhookUpdateRequestAuthenticationTypedDict",

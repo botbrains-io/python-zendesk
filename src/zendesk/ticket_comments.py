@@ -889,9 +889,7 @@ class TicketComments(BaseSDK):
         page_before: Optional[str] = None,
         page_after: Optional[str] = None,
         page_size: Optional[int] = 100,
-        sort: Optional[
-            models.ListTicketCommentsSort
-        ] = models.ListTicketCommentsSort.CREATED_AT,
+        sort: Optional[models.ListTicketCommentsSort] = "created_at",
         include_inline_images: Optional[bool] = None,
         include: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -1062,9 +1060,7 @@ class TicketComments(BaseSDK):
         page_before: Optional[str] = None,
         page_after: Optional[str] = None,
         page_size: Optional[int] = 100,
-        sort: Optional[
-            models.ListTicketCommentsSort
-        ] = models.ListTicketCommentsSort.CREATED_AT,
+        sort: Optional[models.ListTicketCommentsSort] = "created_at",
         include_inline_images: Optional[bool] = None,
         include: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,

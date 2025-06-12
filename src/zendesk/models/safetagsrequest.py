@@ -2,17 +2,13 @@
 
 from __future__ import annotations
 from datetime import datetime
-from enum import Enum
-from typing import List, Optional
+from typing import List, Literal, Optional
 from typing_extensions import NotRequired, TypedDict
 from zendesk.types import BaseModel
 
 
-class SafeUpdate(str, Enum):
-    r"""Enable safe update mode to prevent collisions"""
-
-    TRUE = "true"
-    FALSE = "false"
+SafeUpdate = Literal["true", "false"]
+r"""Enable safe update mode to prevent collisions"""
 
 
 class SafeTagsRequestTypedDict(TypedDict):

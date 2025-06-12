@@ -5,19 +5,17 @@ from .ticketcommentsresponse import (
     TicketCommentsResponse,
     TicketCommentsResponseTypedDict,
 )
-from enum import Enum
 import pydantic
-from typing import Callable, Optional
+from typing import Callable, Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 from zendesk.types import BaseModel
 from zendesk.utils import FieldMetadata, PathParamMetadata, QueryParamMetadata
 
 
-class ListCommentsSort(str, Enum):
-    r"""Specifies how to sort the comments. Possible values are \"created_at\" (ascending order) or \"-created_at\" (descending order)"""
+ListCommentsSort = Literal["created_at", "-created_at"]
+r"""Specifies how to sort the comments. Possible values are \"created_at\" (ascending order) or \"-created_at\" (descending order)
 
-    CREATED_AT = "created_at"
-    MINUS_CREATED_AT = "-created_at"
+"""
 
 
 class ListCommentsRequestTypedDict(TypedDict):

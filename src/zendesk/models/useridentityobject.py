@@ -2,36 +2,28 @@
 
 from __future__ import annotations
 from datetime import datetime
-from enum import Enum
 import pydantic
 from pydantic import model_serializer
-from typing import Optional
+from typing import Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 from zendesk.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 
 
-class UserIdentityObjectType(str, Enum):
-    r"""The type of this identity"""
+UserIdentityObjectType = Literal[
+    "email",
+    "twitter",
+    "facebook",
+    "google",
+    "phone_number",
+    "agent_forwarding",
+    "any_channel",
+    "foreign",
+    "sdk",
+]
+r"""The type of this identity"""
 
-    EMAIL = "email"
-    TWITTER = "twitter"
-    FACEBOOK = "facebook"
-    GOOGLE = "google"
-    PHONE_NUMBER = "phone_number"
-    AGENT_FORWARDING = "agent_forwarding"
-    ANY_CHANNEL = "any_channel"
-    FOREIGN = "foreign"
-    SDK = "sdk"
-
-
-class VerificationMethod(str, Enum):
-    r"""Indicates the state of user identity verification. See [Verification method](#verification-method)."""
-
-    NONE = "none"
-    LOW = "low"
-    SSO = "sso"
-    EMBED = "embed"
-    FULL = "full"
+VerificationMethod = Literal["none", "low", "sso", "embed", "full"]
+r"""Indicates the state of user identity verification. See [Verification method](#verification-method)."""
 
 
 class UserIdentityObjectTypedDict(TypedDict):

@@ -2,28 +2,17 @@
 
 from __future__ import annotations
 from .searchresponse import SearchResponse, SearchResponseTypedDict
-from enum import Enum
-from typing import Callable, Optional
+from typing import Callable, Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 from zendesk.types import BaseModel
 from zendesk.utils import FieldMetadata, QueryParamMetadata
 
 
-class SortBy(str, Enum):
-    r"""One of `updated_at`, `created_at`, `priority`, `status`, or `ticket_type`. Defaults to sorting by relevance"""
+SortBy = Literal["updated_at", "created_at", "priority", "status", "ticket_type"]
+r"""One of `updated_at`, `created_at`, `priority`, `status`, or `ticket_type`. Defaults to sorting by relevance"""
 
-    UPDATED_AT = "updated_at"
-    CREATED_AT = "created_at"
-    PRIORITY = "priority"
-    STATUS = "status"
-    TICKET_TYPE = "ticket_type"
-
-
-class SortOrder(str, Enum):
-    r"""One of `asc` or `desc`.  Defaults to `desc`"""
-
-    ASC = "asc"
-    DESC = "desc"
+SortOrder = Literal["asc", "desc"]
+r"""One of `asc` or `desc`.  Defaults to `desc`"""
 
 
 class ListSearchResultsRequestTypedDict(TypedDict):
