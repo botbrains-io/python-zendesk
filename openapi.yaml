@@ -17407,6 +17407,14 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/WebhookListResponse"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
 
     post:
       summary: Create or Clone Webhook
@@ -17415,6 +17423,8 @@ paths:
         A request body is only required when creating a webhook.
 
         Note that admins cannot clone webhooks created by Zendesk apps.
+
+        **Webhooks for trial accounts**: Zendesk trial accounts are limited to 10 webhooks.
       operationId: createOrCloneWebhook
       tags:
         - Webhooks
@@ -17446,7 +17456,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/ErrorResponse"
         "403":
-          description: Forbidden
+          description: Forbidden - Trial account webhook limit exceeded or insufficient permissions
           content:
             application/json:
               schema:
@@ -17459,6 +17469,8 @@ paths:
         Tests a new or existing webhook.
 
         When testing an existing webhook, the existing webhook data will be attached automatically as part of the outbound test request.
+        The data includes the request format, http method, authentication method (only if same type and add_position are attached), and signing secret.
+        The request payload data will overwrite existing webhook data in the outbound test request.
       operationId: testWebhook
       tags:
         - Webhooks
@@ -17525,7 +17537,10 @@ paths:
 
     put:
       summary: Update Webhook
-      description: Updates the specified webhook.
+      description: |
+        Updates the specified webhook.
+
+        **Restrictions**: Admins cannot set `external_source` and `signing_secret` when updating a webhook.
       operationId: updateWebhook
       tags:
         - Webhooks
@@ -17560,7 +17575,10 @@ paths:
 
     patch:
       summary: Patch Webhook
-      description: Use the webhook_id to update a webhook.
+      description: |
+        Use the webhook_id to update a webhook.
+
+        **Restrictions**: Admins cannot set `external_source` and `signing_secret` when patching a webhook.
       operationId: patchWebhook
       tags:
         - Webhooks
@@ -17700,6 +17718,14 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/WebhookInvocationListResponse"
+      x-speakeasy-pagination:
+        type: cursor
+        inputs:
+          - name: page[after]
+            in: parameters
+            type: cursor
+        outputs:
+          nextCursor: $.meta.after_cursor
 
   /webhooks/{webhook_id}/invocations/{invocation_id}/attempts:
     get:
@@ -29098,9 +29124,15 @@ components:
           type: array
           items:
             type: string
-          description: Event subscriptions for the webhook. To subscribe the webhook to Zendesk events, specify one or more event types
+          description: |
+            Event subscriptions for the webhook. To subscribe the webhook to Zendesk events, specify one or more event types.
+            To connect the webhook to a trigger or automation, specify only "conditional_ticket_events" in the array
         authentication:
-          $ref: "#/components/schemas/WebhookAuthentication"
+          anyOf:
+            - $ref: "#/components/schemas/BasicAuthAuthentication"
+            - $ref: "#/components/schemas/BearerTokenAuthentication"
+            - $ref: "#/components/schemas/ApiKeyAuthentication"
+          description: Adds authentication to the webhook's HTTP requests, if not specified, the webhook will be unauthenticated
         custom_headers:
           type: object
           additionalProperties:
@@ -29111,6 +29143,13 @@ components:
         external_source:
           type: object
           description: External source by which a webhook is created, e.g. Zendesk Marketplace
+          properties:
+            name:
+              type: string
+              description: Name of the external source
+            version:
+              type: string
+              description: Version of the external source
         created_at:
           type: string
           format: date-time
@@ -29136,20 +29175,77 @@ components:
         - request_format
         - status
 
-    WebhookAuthentication:
+    # Authentication type union schemas
+    BasicAuthAuthentication:
       type: object
-      description: Adds authentication to the webhook's HTTP requests
+      description: Basic authentication configuration
       properties:
         type:
           type: string
-          enum: [basic_auth, bearer_token, api_key]
+          enum: [basic_auth]
         data:
           type: object
-          description: Authentication data specific to the type
+          properties:
+            username:
+              type: string
+              description: Username for basic authentication
+            password:
+              type: string
+              description: Password for basic authentication
+          required:
+            - username
+            - password
+      required:
+        - type
+        - data
+
+    BearerTokenAuthentication:
+      type: object
+      description: Bearer token authentication configuration
+      properties:
+        type:
+          type: string
+          enum: [bearer_token]
+        data:
+          type: object
+          properties:
+            token:
+              type: string
+              description: Bearer token for authentication
+          required:
+            - token
+      required:
+        - type
+        - data
+
+    ApiKeyAuthentication:
+      type: object
+      description: API key authentication configuration
+      properties:
+        type:
+          type: string
+          enum: [api_key]
+        data:
+          type: object
+          properties:
+            name:
+              type: string
+              description: Name of the API key parameter
+            value:
+              type: string
+              description: Value of the API key
+          required:
+            - name
+            - value
         add_position:
           type: string
           enum: [header, query_string]
-          description: Where to add the authentication (for API key type)
+          description: Where to add the API key (header or query string)
+          default: header
+      required:
+        - type
+        - data
+        - add_position
 
     WebhookSigningSecret:
       type: object
@@ -29157,14 +29253,30 @@ components:
       properties:
         algorithm:
           type: string
+          description: Signing algorithm (e.g., sha256)
         secret:
           type: string
+          description: The signing secret value
 
     WebhookCreateRequest:
       type: object
       properties:
         webhook:
-          $ref: "#/components/schemas/Webhook"
+          type: object
+          allOf:
+            - $ref: "#/components/schemas/Webhook"
+          # Remove read-only fields for create requests
+          properties:
+            id:
+              readOnly: true
+            created_at:
+              readOnly: true
+            created_by:
+              readOnly: true
+            updated_at:
+              readOnly: true
+            updated_by:
+              readOnly: true
       required:
         - webhook
 
@@ -29172,7 +29284,21 @@ components:
       type: object
       properties:
         webhook:
-          $ref: "#/components/schemas/Webhook"
+          type: object
+          allOf:
+            - $ref: "#/components/schemas/Webhook"
+          # Remove read-only fields for update requests
+          properties:
+            id:
+              readOnly: true
+            created_at:
+              readOnly: true
+            created_by:
+              readOnly: true
+            updated_at:
+              readOnly: true
+            updated_by:
+              readOnly: true
       required:
         - webhook
 
@@ -29182,6 +29308,35 @@ components:
         webhook:
           type: object
           description: Partial webhook object with fields to update
+          properties:
+            name:
+              type: string
+            description:
+              type: string
+            endpoint:
+              type: string
+            http_method:
+              type: string
+              enum: [GET, POST, PUT, PATCH, DELETE]
+            request_format:
+              type: string
+              enum: [json, xml, form_encoded]
+            status:
+              type: string
+              enum: [active, inactive]
+            subscriptions:
+              type: array
+              items:
+                type: string
+            authentication:
+              anyOf:
+                - $ref: "#/components/schemas/BasicAuthAuthentication"
+                - $ref: "#/components/schemas/BearerTokenAuthentication"
+                - $ref: "#/components/schemas/ApiKeyAuthentication"
+            custom_headers:
+              type: object
+              additionalProperties:
+                type: string
 
     WebhookTestRequest:
       type: object
@@ -29192,16 +29347,28 @@ components:
           properties:
             endpoint:
               type: string
+              description: The test endpoint URL
             http_method:
               type: string
+              enum: [GET, POST, PUT, PATCH, DELETE]
+              default: POST
             request_format:
               type: string
+              enum: [json, xml, form_encoded]
+              default: json
             authentication:
-              $ref: "#/components/schemas/WebhookAuthentication"
+              anyOf:
+                - $ref: "#/components/schemas/BasicAuthAuthentication"
+                - $ref: "#/components/schemas/BearerTokenAuthentication"
+                - $ref: "#/components/schemas/ApiKeyAuthentication"
             custom_headers:
               type: object
               additionalProperties:
                 type: string
+          required:
+            - endpoint
+      required:
+        - webhook
 
     WebhookResponse:
       type: object
@@ -29229,16 +29396,26 @@ components:
           properties:
             status:
               type: string
+              description: Test status (e.g., "success", "failed")
             message:
               type: string
+              description: Test result message
+            response_code:
+              type: integer
+              description: HTTP response code from the test endpoint
+            response_body:
+              type: string
+              description: Response body from the test endpoint
 
     WebhookInvocation:
       type: object
       properties:
         id:
           type: string
+          description: Unique invocation identifier
         webhook_id:
           type: string
+          description: ID of the webhook that was invoked
         status:
           type: string
           enum:
@@ -29253,12 +29430,21 @@ components:
               client error,
               server error,
             ]
+          description: Status of the webhook invocation
         created_at:
           type: string
           format: date-time
+          description: When the invocation was created
         latest_completed_at:
           type: string
           format: date-time
+          description: When the invocation was last completed
+        event_type:
+          type: string
+          description: Type of event that triggered the webhook
+        attempts_count:
+          type: integer
+          description: Number of delivery attempts made
 
     WebhookInvocationListResponse:
       type: object
@@ -29277,17 +29463,35 @@ components:
       properties:
         id:
           type: string
+          description: Unique attempt identifier
         invocation_id:
           type: string
+          description: ID of the parent invocation
         status:
           type: string
+          enum: [success, failed, timeout, client error, server error]
+          description: Status of the delivery attempt
         response_code:
           type: integer
+          description: HTTP response code received
         response_body:
           type: string
+          description: Response body received (may be truncated)
+        response_headers:
+          type: object
+          additionalProperties:
+            type: string
+          description: Response headers received
+        error_message:
+          type: string
+          description: Error message if the attempt failed
         created_at:
           type: string
           format: date-time
+          description: When the attempt was made
+        duration_ms:
+          type: integer
+          description: Duration of the attempt in milliseconds
 
     WebhookInvocationAttemptListResponse:
       type: object
@@ -29308,10 +29512,16 @@ components:
       properties:
         has_more:
           type: boolean
+          description: Whether there are more results available
         after_cursor:
           type: string
+          description: Cursor for the next page of results
         before_cursor:
           type: string
+          description: Cursor for the previous page of results
+        count:
+          type: integer
+          description: Total number of items (may not always be present)
 
     PaginationLinks:
       type: object
@@ -29319,9 +29529,11 @@ components:
         prev:
           type: string
           format: uri
+          description: URL for the previous page of results
         next:
           type: string
           format: uri
+          description: URL for the next page of results
 
     ErrorResponse:
       type: object
@@ -29331,10 +29543,33 @@ components:
           properties:
             title:
               type: string
+              description: Error title
             message:
               type: string
+              description: Detailed error message
             code:
               type: string
+              description: Error code
+            details:
+              type: object
+              description: Additional error details
+              additionalProperties: true
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              field:
+                type: string
+                description: Field that caused the error
+              code:
+                type: string
+                description: Error code for this field
+              message:
+                type: string
+                description: Error message for this field
+          description: Field-specific validation errors
+
     # NOTE(memben): Added from inferring group body
     GroupCreateRequest:
       type: object
