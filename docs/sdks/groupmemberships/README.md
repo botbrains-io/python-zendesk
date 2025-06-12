@@ -94,7 +94,10 @@ with Zendesk(
     ),
 ) as z_client:
 
-    res = z_client.group_memberships.create_group_membership()
+    res = z_client.group_memberships.create_group_membership(group_membership={
+        "user_id": 487650,
+        "group_id": 955577,
+    })
 
     # Handle response
     print(res)
@@ -105,6 +108,7 @@ with Zendesk(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `group_membership`                                                  | [models.GroupMembership](../../models/groupmembership.md)           | :heavy_check_mark:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response

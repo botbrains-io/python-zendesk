@@ -283,6 +283,9 @@ class GroupMemberships(BaseSDK):
     def create_group_membership(
         self,
         *,
+        group_membership: Union[
+            models.GroupMembership, models.GroupMembershipTypedDict
+        ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -298,6 +301,7 @@ class GroupMemberships(BaseSDK):
         * Agents assigned to a custom role with permissions to manage group memberships (Enterprise only)
 
 
+        :param group_membership:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -312,19 +316,29 @@ class GroupMemberships(BaseSDK):
             base_url = server_url
         else:
             base_url = self._get_url(base_url, url_variables)
+
+        request = models.GroupMembershipRequest(
+            group_membership=utils.get_pydantic_model(
+                group_membership, models.GroupMembership
+            ),
+        )
+
         req = self._build_request(
             method="POST",
             path="/api/v2/group_memberships",
             base_url=base_url,
             url_variables=url_variables,
-            request=None,
-            request_body_required=False,
+            request=request,
+            request_body_required=True,
             request_has_path_params=False,
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request, False, False, "json", models.GroupMembershipRequest
+            ),
             timeout_ms=timeout_ms,
         )
 
@@ -376,6 +390,9 @@ class GroupMemberships(BaseSDK):
     async def create_group_membership_async(
         self,
         *,
+        group_membership: Union[
+            models.GroupMembership, models.GroupMembershipTypedDict
+        ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -391,6 +408,7 @@ class GroupMemberships(BaseSDK):
         * Agents assigned to a custom role with permissions to manage group memberships (Enterprise only)
 
 
+        :param group_membership:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -405,19 +423,29 @@ class GroupMemberships(BaseSDK):
             base_url = server_url
         else:
             base_url = self._get_url(base_url, url_variables)
+
+        request = models.GroupMembershipRequest(
+            group_membership=utils.get_pydantic_model(
+                group_membership, models.GroupMembership
+            ),
+        )
+
         req = self._build_request_async(
             method="POST",
             path="/api/v2/group_memberships",
             base_url=base_url,
             url_variables=url_variables,
-            request=None,
-            request_body_required=False,
+            request=request,
+            request_body_required=True,
             request_has_path_params=False,
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request, False, False, "json", models.GroupMembershipRequest
+            ),
             timeout_ms=timeout_ms,
         )
 

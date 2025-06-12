@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 37ac03f7-3b34-47b7-8334-e362604f87cd
 management:
-  docChecksum: 68afac0d3eaa73678635900cdd5905ee
+  docChecksum: 1ba715a36a24b4087cdc9f1fa3691b0d
   docVersion: 2.0.0
   speakeasyVersion: 1.561.0
   generationVersion: 2.628.0
-  releaseVersion: 0.1.7
-  configChecksum: ae3cfa2bb8ae36eb054e3a54dd3c7f4a
+  releaseVersion: 0.1.8
+  configChecksum: 238681a3d6bff58b0219e5728bd164ed
   published: true
 features:
   python:
@@ -444,8 +444,10 @@ generatedFiles:
   - docs/models/globalclientsresponse.md
   - docs/models/groupcreaterequest.md
   - docs/models/groupcreaterequestgroup.md
+  - docs/models/groupmembership.md
   - docs/models/groupmembershipbulkdeleterequest.md
   - docs/models/groupmembershipobject.md
+  - docs/models/groupmembershiprequest.md
   - docs/models/groupmembershipresponse.md
   - docs/models/groupmembershipsetdefaultrequest.md
   - docs/models/groupmembershipsresponse.md
@@ -1684,6 +1686,7 @@ generatedFiles:
   - src/zendesk/models/groupcreaterequest.py
   - src/zendesk/models/groupmembershipbulkdeleteop.py
   - src/zendesk/models/groupmembershipobject.py
+  - src/zendesk/models/groupmembershiprequest.py
   - src/zendesk/models/groupmembershipresponse.py
   - src/zendesk/models/groupmembershipsetdefaultop.py
   - src/zendesk/models/groupmembershipsresponse.py
@@ -5937,6 +5940,8 @@ examples:
           application/json: {"group_memberships": [{"created_at": "2009-05-13T00:07:08Z", "default": true, "group_id": 12, "id": 4, "updated_at": "2011-07-22T00:11:12Z", "user_id": 29}, {"created_at": "2012-03-13T22:01:32Z", "default": false, "group_id": 3, "id": 49, "updated_at": "2012-03-13T22:01:32Z", "user_id": 155}]}
   CreateGroupMembership:
     default:
+      requestBody:
+        application/json: {"group_membership": {"user_id": 487650, "group_id": 955577, "default": false}}
       responses:
         "201":
           application/json: {"group_membership": {"created_at": "2012-04-03T12:34:01Z", "default": true, "group_id": 88, "id": 461, "updated_at": "2012-04-03T12:34:01Z", "user_id": 72}}
