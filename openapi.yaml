@@ -18651,7 +18651,7 @@ components:
           description: The name of the image file
           readOnly: true
         height:
-          type: string
+          type: integer
           description: The height of the image file in pixels. If height is unknown, returns null
           readOnly: true
         id:
@@ -18685,7 +18685,7 @@ components:
           description: A URL to access the attachment details
           readOnly: true
         width:
-          type: string
+          type: integer
           description: The width of the image file in pixels. If width is unknown, returns null
           readOnly: true
     AttachmentObject:

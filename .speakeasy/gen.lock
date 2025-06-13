@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 37ac03f7-3b34-47b7-8334-e362604f87cd
 management:
-  docChecksum: 036efb12e1cd12112b754b35e182e0de
+  docChecksum: d1d1df6794708265b7b3b879af422e77
   docVersion: 2.0.0
   speakeasyVersion: 1.563.0
   generationVersion: 2.629.1
-  releaseVersion: 0.1.14
-  configChecksum: 26a2e71bb35eff798862a2e8fcbef3a2
+  releaseVersion: 0.1.15
+  configChecksum: 473b9dd795d8f6fae4ce4c648e432794
   published: true
 features:
   python:
@@ -2787,7 +2787,7 @@ examples:
     default:
       responses:
         "201":
-          application/json: {"upload": {"attachment": {"content_type": "image/png", "content_url": "https://company.zendesk.com/attachments/token/tyBq1ms40dFaHefSIigxZpwGg/?name=crash.png", "deleted": false, "file_name": "crash.png", "height": "62", "id": 1503729607981, "inline": false, "mapped_content_url": "https://company.zendesk.com/attachments/token/tyBq1ms40dFaHefSIigxZpwGg/?name=crash.png", "size": 5172, "url": "https://company.zendesk.com/api/v2/attachments/1503729607981.json", "width": "80", "thumbnails": []}, "attachments": [{"content_type": "image/png", "content_url": "https://company.zendesk.com/attachments/token/tyBq1ms40dFaHefSIigxZpwGg/?name=crash.png", "deleted": false, "file_name": "crash.png", "height": "62", "id": 1503729607981, "inline": false, "mapped_content_url": "https://company.zendesk.com/attachments/token/tyBq1ms40dFaHefSIigxZpwGg/?name=crash.png", "size": 5172, "url": "https://company.zendesk.com/api/v2/attachments/1503729607981.json", "width": "80", "thumbnails": []}], "token": "LXJdriewLBP8JrtzzkN7Ne4k6"}}
+          application/json: {"upload": {"attachment": {"content_type": "image/png", "content_url": "https://company.zendesk.com/attachments/token/tyBq1ms40dFaHefSIigxZpwGg/?name=crash.png", "deleted": false, "file_name": "crash.png", "height": 62, "id": 1503729607981, "inline": false, "mapped_content_url": "https://company.zendesk.com/attachments/token/tyBq1ms40dFaHefSIigxZpwGg/?name=crash.png", "size": 5172, "url": "https://company.zendesk.com/api/v2/attachments/1503729607981.json", "width": 80, "thumbnails": []}, "attachments": [{"content_type": "image/png", "content_url": "https://company.zendesk.com/attachments/token/tyBq1ms40dFaHefSIigxZpwGg/?name=crash.png", "deleted": false, "file_name": "crash.png", "height": 62, "id": 1503729607981, "inline": false, "mapped_content_url": "https://company.zendesk.com/attachments/token/tyBq1ms40dFaHefSIigxZpwGg/?name=crash.png", "size": 5172, "url": "https://company.zendesk.com/api/v2/attachments/1503729607981.json", "width": 80, "thumbnails": []}], "token": "LXJdriewLBP8JrtzzkN7Ne4k6"}}
   DeleteUpload:
     "":
       parameters:
@@ -9473,7 +9473,7 @@ examples:
           page[size]: 100
       responses:
         "200":
-          application/json: {"events": [{"attachments": [{"content_type": "image/png", "content_url": "https://company.zendesk.com/attachments/token/123/?name=sample.png", "deleted": false, "file_name": "sample.png", "height": "128", "id": 8639388162331, "inline": false, "mapped_content_url": "https://company.zendesk.com/attachments/token/h123/?name=sample.png", "size": 20331, "url": "https://company.zendesk.com/api/v2/attachments/13341.json", "width": "128", "thumbnails": [{"content_type": "image/png", "content_url": "https://company.zendesk.com/attachments/token/333/?name=sample_thumb.png", "deleted": false, "file_name": "sample_thumb.png", "height": "80", "id": 8639488164605, "inline": false, "mapped_content_url": "https://company.zendesk.com/attachments/token/333/?name=sample_thumb.png", "size": 10173, "url": "https://company.zendesk.com/api/v2/attachments/86395.json", "width": "80"}]}], "author": {"type": "agent", "zen:sunco:user_id": "a21a91fd1234a", "zen:support:user_id": 123111233, "avatar_url": "https://static.zdassets.com/web_widget/latest/default_avatar.png", "display_name": "Sample Owner"}, "content": {"body": "<div class=\\\"zd-comment\\\" dir=\\\"auto\\\">big bear attachment public comment email<br></div>", "type": "html"}, "created_at": "2024-10-09T03:30:43Z", "id": "01J9Q342W4DE2G1343NNTX36G", "metadata": {"custom": {}, "public": true, "system": {"client": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)", "ip_address": "123.45.67.89", "latitude": -30.3, "location": "Sydney, NSW, Australia", "longitude": 100.1}, "ticket_version": 4}, "reference": "zen:ticket_event:8639326502654", "type": "Comment"}]}
+          application/json: {"events": [{"attachments": [{"content_type": "image/png", "content_url": "https://company.zendesk.com/attachments/token/123/?name=sample.png", "deleted": false, "file_name": "sample.png", "height": 128, "id": 8639388162331, "inline": false, "mapped_content_url": "https://company.zendesk.com/attachments/token/h123/?name=sample.png", "size": 20331, "url": "https://company.zendesk.com/api/v2/attachments/13341.json", "width": 128, "thumbnails": [{"content_type": "image/png", "content_url": "https://company.zendesk.com/attachments/token/333/?name=sample_thumb.png", "deleted": false, "file_name": "sample_thumb.png", "height": 80, "id": 8639488164605, "inline": false, "mapped_content_url": "https://company.zendesk.com/attachments/token/333/?name=sample_thumb.png", "size": 10173, "url": "https://company.zendesk.com/api/v2/attachments/86395.json", "width": 80}]}], "author": {"type": "agent", "zen:sunco:user_id": "a21a91fd1234a", "zen:support:user_id": 123111233, "avatar_url": "https://static.zdassets.com/web_widget/latest/default_avatar.png", "display_name": "Sample Owner"}, "content": {"body": "<div class=\\\"zd-comment\\\" dir=\\\"auto\\\">big bear attachment public comment email<br></div>", "type": "html"}, "created_at": "2024-10-09T03:30:43Z", "id": "01J9Q342W4DE2G1343NNTX36G", "metadata": {"custom": {}, "public": true, "system": {"client": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)", "ip_address": "123.45.67.89", "latitude": -30.3, "location": "Sydney, NSW, Australia", "longitude": 100.1}, "ticket_version": 4}, "reference": "zen:ticket_event:8639326502654", "type": "Comment"}]}
   ListTriggerCategories:
     "":
       parameters:
