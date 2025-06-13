@@ -19209,9 +19209,9 @@ components:
             recipients:
               type: array
               items:
-                $ref: "#/components/schemas/RecipientObject"
+                type: integer
               readOnly: true
-              description: An array of simple objects with the ids and names of the recipients
+              description: An array of recipient IDs
 
     NotificationWithCcsEvent:
       allOf:
@@ -19233,9 +19233,9 @@ components:
             recipients:
               type: array
               items:
-                $ref: "#/components/schemas/RecipientObject"
+                type: integer
               readOnly: true
-              description: An array of simple objects with the ids and names of the recipients
+              description: An array of recipient IDs
 
     SmsNotificationEvent:
       allOf:
@@ -19253,9 +19253,9 @@ components:
             recipients:
               type: array
               items:
-                $ref: "#/components/schemas/RecipientObject"
+                type: integer
               readOnly: true
-              description: An array of simple objects with the ids and names of the recipients
+              description: An array of recipient IDs
 
     CcEvent:
       allOf:
@@ -19273,10 +19273,9 @@ components:
             recipients:
               type: array
               items:
-                $ref: "#/components/schemas/RecipientObject"
+                type: integer
               readOnly: true
-              description: An array of simple objects with the ids and names of the recipients
-
+              description: An array of recipient IDs
     FollowerNotificationEvent:
       allOf:
         - $ref: "#/components/schemas/BaseEvent"
@@ -19297,9 +19296,9 @@ components:
             recipients:
               type: array
               items:
-                $ref: "#/components/schemas/RecipientObject"
+                type: integer
               readOnly: true
-              description: An array of simple objects with the ids and names of the recipients
+              description: An array of recipient IDs
 
     FollowerChangeEvent:
       allOf:
@@ -19429,10 +19428,9 @@ components:
             recipients:
               type: array
               items:
-                $ref: "#/components/schemas/RecipientObject"
+                type: integer
               readOnly: true
-              description: An array of simple objects with the ids and names of the recipients
-
+              description: An array of recipient IDs
     ErrorEvent:
       allOf:
         - $ref: "#/components/schemas/BaseEvent"
@@ -19467,9 +19465,9 @@ components:
             recipients:
               type: array
               items:
-                $ref: "#/components/schemas/RecipientObject"
+                type: integer
               readOnly: true
-              description: The recipients of this tweet
+              description: An array of recipient IDs
 
     FacebookEvent:
       allOf:

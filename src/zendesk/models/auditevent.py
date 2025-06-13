@@ -3,7 +3,6 @@
 from __future__ import annotations
 from .attachmentobject import AttachmentObject, AttachmentObjectTypedDict
 from .attributevalueobject import AttributeValueObject, AttributeValueObjectTypedDict
-from .recipientobject import RecipientObject, RecipientObjectTypedDict
 from .viaobject import ViaObject, ViaObjectTypedDict
 from datetime import datetime
 from pydantic import Discriminator, Tag, model_serializer
@@ -591,8 +590,8 @@ class TweetEventTypedDict(TypedDict):
     r"""Whether this tweet was a direct message"""
     body: NotRequired[str]
     r"""The body of the tweet"""
-    recipients: NotRequired[List[RecipientObjectTypedDict]]
-    r"""The recipients of this tweet"""
+    recipients: NotRequired[List[int]]
+    r"""An array of recipient IDs"""
 
 
 class TweetEvent(BaseModel):
@@ -612,8 +611,8 @@ class TweetEvent(BaseModel):
     body: Optional[str] = None
     r"""The body of the tweet"""
 
-    recipients: Optional[List[RecipientObject]] = None
-    r"""The recipients of this tweet"""
+    recipients: Optional[List[int]] = None
+    r"""An array of recipient IDs"""
 
 
 TypeErrorT = Literal["Error"]
@@ -661,8 +660,8 @@ class OrganizationSubscriptionNotificationEventTypedDict(TypedDict):
     r"""The subject of the message sent to the recipients"""
     body: NotRequired[str]
     r"""The message sent to the recipients"""
-    recipients: NotRequired[List[RecipientObjectTypedDict]]
-    r"""An array of simple objects with the ids and names of the recipients"""
+    recipients: NotRequired[List[int]]
+    r"""An array of recipient IDs"""
 
 
 class OrganizationSubscriptionNotificationEvent(BaseModel):
@@ -682,8 +681,8 @@ class OrganizationSubscriptionNotificationEvent(BaseModel):
     body: Optional[str] = None
     r"""The message sent to the recipients"""
 
-    recipients: Optional[List[RecipientObject]] = None
-    r"""An array of simple objects with the ids and names of the recipients"""
+    recipients: Optional[List[int]] = None
+    r"""An array of recipient IDs"""
 
 
 TypeTicketSharingEvent = Literal["TicketSharingEvent"]
@@ -892,8 +891,8 @@ class FollowerNotificationEventTypedDict(TypedDict):
     r"""The subject of the message sent to the recipients"""
     body: NotRequired[str]
     r"""The message sent to the recipients"""
-    recipients: NotRequired[List[RecipientObjectTypedDict]]
-    r"""An array of simple objects with the ids and names of the recipients"""
+    recipients: NotRequired[List[int]]
+    r"""An array of recipient IDs"""
 
 
 class FollowerNotificationEvent(BaseModel):
@@ -913,8 +912,8 @@ class FollowerNotificationEvent(BaseModel):
     body: Optional[str] = None
     r"""The message sent to the recipients"""
 
-    recipients: Optional[List[RecipientObject]] = None
-    r"""An array of simple objects with the ids and names of the recipients"""
+    recipients: Optional[List[int]] = None
+    r"""An array of recipient IDs"""
 
 
 TypeCc = Literal["Cc"]
@@ -930,8 +929,8 @@ class CcEventTypedDict(TypedDict):
     """
     body: NotRequired[str]
     r"""The message sent to the recipients"""
-    recipients: NotRequired[List[RecipientObjectTypedDict]]
-    r"""An array of simple objects with the ids and names of the recipients"""
+    recipients: NotRequired[List[int]]
+    r"""An array of recipient IDs"""
 
 
 class CcEvent(BaseModel):
@@ -948,8 +947,8 @@ class CcEvent(BaseModel):
     body: Optional[str] = None
     r"""The message sent to the recipients"""
 
-    recipients: Optional[List[RecipientObject]] = None
-    r"""An array of simple objects with the ids and names of the recipients"""
+    recipients: Optional[List[int]] = None
+    r"""An array of recipient IDs"""
 
 
 TypeSmsNotification = Literal["SmsNotification"]
@@ -965,8 +964,8 @@ class SmsNotificationEventTypedDict(TypedDict):
     """
     body: NotRequired[str]
     r"""The message sent to the recipients"""
-    recipients: NotRequired[List[RecipientObjectTypedDict]]
-    r"""An array of simple objects with the ids and names of the recipients"""
+    recipients: NotRequired[List[int]]
+    r"""An array of recipient IDs"""
 
 
 class SmsNotificationEvent(BaseModel):
@@ -983,8 +982,8 @@ class SmsNotificationEvent(BaseModel):
     body: Optional[str] = None
     r"""The message sent to the recipients"""
 
-    recipients: Optional[List[RecipientObject]] = None
-    r"""An array of simple objects with the ids and names of the recipients"""
+    recipients: Optional[List[int]] = None
+    r"""An array of recipient IDs"""
 
 
 TypeNotificationWithCcs = Literal["NotificationWithCcs"]
@@ -1002,8 +1001,8 @@ class NotificationWithCcsEventTypedDict(TypedDict):
     r"""The subject of the message sent to the recipients"""
     body: NotRequired[str]
     r"""The message sent to the recipients"""
-    recipients: NotRequired[List[RecipientObjectTypedDict]]
-    r"""An array of simple objects with the ids and names of the recipients"""
+    recipients: NotRequired[List[int]]
+    r"""An array of recipient IDs"""
 
 
 class NotificationWithCcsEvent(BaseModel):
@@ -1023,8 +1022,8 @@ class NotificationWithCcsEvent(BaseModel):
     body: Optional[str] = None
     r"""The message sent to the recipients"""
 
-    recipients: Optional[List[RecipientObject]] = None
-    r"""An array of simple objects with the ids and names of the recipients"""
+    recipients: Optional[List[int]] = None
+    r"""An array of recipient IDs"""
 
 
 TypeNotification = Literal["Notification"]
@@ -1042,8 +1041,8 @@ class NotificationEventTypedDict(TypedDict):
     r"""The subject of the message sent to the recipients"""
     body: NotRequired[str]
     r"""The message sent to the recipients"""
-    recipients: NotRequired[List[RecipientObjectTypedDict]]
-    r"""An array of simple objects with the ids and names of the recipients"""
+    recipients: NotRequired[List[int]]
+    r"""An array of recipient IDs"""
 
 
 class NotificationEvent(BaseModel):
@@ -1063,8 +1062,8 @@ class NotificationEvent(BaseModel):
     body: Optional[str] = None
     r"""The message sent to the recipients"""
 
-    recipients: Optional[List[RecipientObject]] = None
-    r"""An array of simple objects with the ids and names of the recipients"""
+    recipients: Optional[List[int]] = None
+    r"""An array of recipient IDs"""
 
 
 TypeSuspendedTicketRecovery = Literal["SuspendedTicketRecovery"]
