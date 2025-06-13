@@ -21,7 +21,7 @@ generation:
     oAuth2PasswordEnabled: true
   sdkHooksConfigAccess: true
 python:
-  version: 0.1.12
+  version: 0.1.13
   additionalDependencies:
     dev: {}
     main: {}

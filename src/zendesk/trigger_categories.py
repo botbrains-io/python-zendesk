@@ -16,7 +16,12 @@ class TriggerCategories(BaseSDK):
         page_before: Optional[str] = None,
         page_after: Optional[str] = None,
         page_size: Optional[int] = 100,
-        page: Optional[Union[models.Page, models.PageTypedDict]] = None,
+        page: Optional[
+            Union[
+                models.ListTriggerCategoriesPage,
+                models.ListTriggerCategoriesPageTypedDict,
+            ]
+        ] = None,
         sort: Optional[models.ListTriggerCategoriesSort] = None,
         include: Optional[models.Include] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -61,7 +66,9 @@ class TriggerCategories(BaseSDK):
             page_before=page_before,
             page_after=page_after,
             page_size=page_size,
-            page=utils.get_pydantic_model(page, Optional[models.Page]),
+            page=utils.get_pydantic_model(
+                page, Optional[models.ListTriggerCategoriesPage]
+            ),
             sort=sort,
             include=include,
         )
@@ -163,7 +170,12 @@ class TriggerCategories(BaseSDK):
         page_before: Optional[str] = None,
         page_after: Optional[str] = None,
         page_size: Optional[int] = 100,
-        page: Optional[Union[models.Page, models.PageTypedDict]] = None,
+        page: Optional[
+            Union[
+                models.ListTriggerCategoriesPage,
+                models.ListTriggerCategoriesPageTypedDict,
+            ]
+        ] = None,
         sort: Optional[models.ListTriggerCategoriesSort] = None,
         include: Optional[models.Include] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -208,7 +220,9 @@ class TriggerCategories(BaseSDK):
             page_before=page_before,
             page_after=page_after,
             page_size=page_size,
-            page=utils.get_pydantic_model(page, Optional[models.Page]),
+            page=utils.get_pydantic_model(
+                page, Optional[models.ListTriggerCategoriesPage]
+            ),
             sort=sort,
             include=include,
         )

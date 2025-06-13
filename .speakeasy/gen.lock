@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 37ac03f7-3b34-47b7-8334-e362604f87cd
 management:
-  docChecksum: 08086eaa7fd08ee2b2a53ca395e3d32e
+  docChecksum: db77cd271c76f640115f4ea658c6cd0e
   docVersion: 2.0.0
   speakeasyVersion: 1.563.0
   generationVersion: 2.629.1
-  releaseVersion: 0.1.12
-  configChecksum: 201b93a0f5a73155c0e7ed43c32382f4
+  releaseVersion: 0.1.13
+  configChecksum: 7914bf01dac08a0f6e426ea708c67e39
   published: true
 features:
   python:
@@ -121,17 +121,20 @@ generatedFiles:
   - docs/models/attachmentbaseobject.md
   - docs/models/attachmentobject.md
   - docs/models/attachmentobjectinput.md
+  - docs/models/attachmentredactionevent.md
   - docs/models/attachmentresponse.md
   - docs/models/attachmentupdateinput.md
   - docs/models/attachmentupdaterequest.md
   - docs/models/attachmentuploadresponse.md
   - docs/models/attachmentuploadresponseupload.md
   - docs/models/attributes.md
+  - docs/models/attributevalueobject.md
+  - docs/models/auditevent.md
+  - docs/models/auditeventaction.md
   - docs/models/auditlogobject.md
   - docs/models/auditlogresponse.md
   - docs/models/auditlogsresponse.md
   - docs/models/auditobject.md
-  - docs/models/auditobjectvalue.md
   - docs/models/autocompletecustomobjectrecordsearchrequest.md
   - docs/models/autocompletecustomobjectrecordsearchresponse.md
   - docs/models/autocompleteorganizationsrequest.md
@@ -187,17 +190,24 @@ generatedFiles:
   - docs/models/bulkskillbasedroutingattributevaluesrequest.md
   - docs/models/bulkupdatedefaultcustomstatusrequest.md
   - docs/models/bulkupdatedefaultcustomstatusresponse.md
+  - docs/models/ccevent.md
+  - docs/models/changeevent.md
   - docs/models/changeownpasswordrequest.md
   - docs/models/channelframeworkpushresultsresponse.md
   - docs/models/channelframeworkresultobject.md
   - docs/models/channelframeworkresultstatusobject.md
+  - docs/models/chatendedevent.md
   - docs/models/chatevent.md
+  - docs/models/chatstartedevent.md
   - docs/models/checkhostmappingvalidityforexistingbrandrequest.md
   - docs/models/checkhostmappingvalidityrequest.md
   - docs/models/clientgeneratesecretrequest.md
   - docs/models/cloneticketformrequest.md
   - docs/models/cnamestatus.md
   - docs/models/collaboratorobject.md
+  - docs/models/commentevent.md
+  - docs/models/commentprivacychangeevent.md
+  - docs/models/commentredactionevent.md
   - docs/models/compliancedeletionstatusesresponse.md
   - docs/models/compliancedeletionstatusobject.md
   - docs/models/conditionobject.md
@@ -235,6 +245,7 @@ generatedFiles:
   - docs/models/createdeletionschedulerequest.md
   - docs/models/createdeletionscheduleresponse.md
   - docs/models/createdynamiccontentvariantrequest.md
+  - docs/models/createevent.md
   - docs/models/createmacrorequest.md
   - docs/models/createmacroresponse.md
   - docs/models/createmanydynamiccontentvariantsrequest.md
@@ -310,6 +321,8 @@ generatedFiles:
   - docs/models/customstatusresponse.md
   - docs/models/customstatusupdateinput.md
   - docs/models/customstatusupdaterequest.md
+  - docs/models/datafacebookcomment.md
+  - docs/models/datavoicecomment.md
   - docs/models/definition.md
   - docs/models/definitionsresponse.md
   - docs/models/definitionsresponseconditionsall.md
@@ -388,6 +401,7 @@ generatedFiles:
   - docs/models/dynamiccontentvariantobject.md
   - docs/models/dynamiccontentvariantresponse.md
   - docs/models/dynamiccontentvariantsresponse.md
+  - docs/models/emailccchangeevent.md
   - docs/models/emailccobject.md
   - docs/models/emailccobjectaction.md
   - docs/models/emailnotificationobject.md
@@ -396,6 +410,7 @@ generatedFiles:
   - docs/models/emailnotificationsresponse.md
   - docs/models/emailsenderauthenticationprofile.md
   - docs/models/error.md
+  - docs/models/errorevent.md
   - docs/models/errorlinks.md
   - docs/models/errormessage.md
   - docs/models/errorresponseerror1.md
@@ -404,7 +419,6 @@ generatedFiles:
   - docs/models/essentialscardobject.md
   - docs/models/essentialscardresponse.md
   - docs/models/essentialscardsresponse.md
-  - docs/models/event.md
   - docs/models/executeviewrequest.md
   - docs/models/executeviewresponse.md
   - docs/models/exportauditlogsrequest.md
@@ -413,6 +427,9 @@ generatedFiles:
   - docs/models/exportsearchresultsrequest.md
   - docs/models/exportsearchresultsresponse.md
   - docs/models/exportviewrequest.md
+  - docs/models/externalevent.md
+  - docs/models/facebookcommentevent.md
+  - docs/models/facebookevent.md
   - docs/models/failedresult.md
   - docs/models/fieldkey.md
   - docs/models/fields.md
@@ -422,6 +439,8 @@ generatedFiles:
   - docs/models/filteredsearchcustomobjectrecordsresponse.md
   - docs/models/filtertype.md
   - docs/models/firstresolutiontimeinminutes.md
+  - docs/models/followerchangeevent.md
+  - docs/models/followernotificationevent.md
   - docs/models/followerobject.md
   - docs/models/followerobjectaction.md
   - docs/models/forwardingstatus.md
@@ -575,6 +594,7 @@ generatedFiles:
   - docs/models/listrequestsresponse.md
   - docs/models/listsatisfactionratingsrequest.md
   - docs/models/listsatisfactionratingsresponse.md
+  - docs/models/listsatisfactionratingsscore.md
   - docs/models/listsearchresultsrequest.md
   - docs/models/listsearchresultsresponse.md
   - docs/models/listsessionsrequest.md
@@ -618,6 +638,7 @@ generatedFiles:
   - docs/models/listtickettagsrequest.md
   - docs/models/listtriggercategorieslinks.md
   - docs/models/listtriggercategoriesmeta.md
+  - docs/models/listtriggercategoriespage.md
   - docs/models/listtriggercategoriesrequest.md
   - docs/models/listtriggercategoriesresponse.md
   - docs/models/listtriggercategoriesresponsebody.md
@@ -649,6 +670,7 @@ generatedFiles:
   - docs/models/localeobject.md
   - docs/models/localeresponse.md
   - docs/models/localesresponse.md
+  - docs/models/logmeintranscriptevent.md
   - docs/models/logoutmanyusersrequest.md
   - docs/models/macro.md
   - docs/models/macroapplyticketresponse.md
@@ -660,6 +682,7 @@ generatedFiles:
   - docs/models/macrocategoriesresponse.md
   - docs/models/macroinput.md
   - docs/models/macroobject.md
+  - docs/models/macroreferenceevent.md
   - docs/models/macroresponse.md
   - docs/models/macrosresponse.md
   - docs/models/macroupdatemanyinput.md
@@ -674,6 +697,8 @@ generatedFiles:
   - docs/models/mergeticketsintotargetticketrequest.md
   - docs/models/metadata.md
   - docs/models/metric.md
+  - docs/models/notificationevent.md
+  - docs/models/notificationwithccsevent.md
   - docs/models/oauthclientobject.md
   - docs/models/oauthclientresponse.md
   - docs/models/oauthclientsresponse.md
@@ -698,6 +723,7 @@ generatedFiles:
   - docs/models/objecttriggerrequest.md
   - docs/models/objecttriggerresponse.md
   - docs/models/objecttriggersresponse.md
+  - docs/models/offeredtoevent.md
   - docs/models/onholdtimeinminutes.md
   - docs/models/openticketinagentbrowserrequest.md
   - docs/models/openusersprofileinagentbrowserrequest.md
@@ -727,6 +753,7 @@ generatedFiles:
   - docs/models/organizationsresponse.md
   - docs/models/organizationsubscriptioncreaterequest.md
   - docs/models/organizationsubscriptioninput.md
+  - docs/models/organizationsubscriptionnotificationevent.md
   - docs/models/organizationsubscriptionobject.md
   - docs/models/organizationsubscriptionresponse.md
   - docs/models/organizationsubscriptionsresponse.md
@@ -737,8 +764,11 @@ generatedFiles:
   - docs/models/permanentlydeleteuserrequest.md
   - docs/models/previewviewsrequest.md
   - docs/models/previewviewsresponse.md
+  - docs/models/previousvalue.md
+  - docs/models/previousvalueunion.md
   - docs/models/primarygroups.md
   - docs/models/primarygroupsgroup.md
+  - docs/models/pushevent.md
   - docs/models/pushnotificationdevicesrequest.md
   - docs/models/queueobject.md
   - docs/models/queueobjectall.md
@@ -750,6 +780,7 @@ generatedFiles:
   - docs/models/recoversuspendedticketresponse.md
   - docs/models/recoversuspendedticketsrequest.md
   - docs/models/recoversuspendedticketsresponse.md
+  - docs/models/recoverytype.md
   - docs/models/redactchatcommentattachmentrequest.md
   - docs/models/redactchatcommentrequest.md
   - docs/models/redactcommentattachmentrequest.md
@@ -785,8 +816,10 @@ generatedFiles:
   - docs/models/retrieveresourcecollectionrequest.md
   - docs/models/reverselookupresponse.md
   - docs/models/revokeoauthtokenrequest.md
+  - docs/models/routingchannelevent.md
   - docs/models/safetagsrequest.md
   - docs/models/safeupdate.md
+  - docs/models/satisfactionratingevent.md
   - docs/models/satisfactionratingobject.md
   - docs/models/satisfactionratingresponse.md
   - docs/models/satisfactionratingscountresponse.md
@@ -903,6 +936,7 @@ generatedFiles:
   - docs/models/showwebhooksigningsecretrequest.md
   - docs/models/showworkspacerequest.md
   - docs/models/showworkspaceresponse.md
+  - docs/models/skillassignedevent.md
   - docs/models/skillbasedroutingattributedefinitions.md
   - docs/models/skillbasedroutingattributedefinitionsconditionsall.md
   - docs/models/skillbasedroutingattributedefinitionsconditionsany.md
@@ -931,6 +965,7 @@ generatedFiles:
   - docs/models/slapolicymetricobject.md
   - docs/models/slapolicyobject.md
   - docs/models/slapolicyresponse.md
+  - docs/models/smsnotificationevent.md
   - docs/models/snapshot.md
   - docs/models/sortby.md
   - docs/models/sortorder.md
@@ -938,8 +973,11 @@ generatedFiles:
   - docs/models/supportaddressesresponse.md
   - docs/models/supportaddressobject.md
   - docs/models/supportaddressresponse.md
+  - docs/models/surveyofferedevent.md
+  - docs/models/surveyresponsesubmittedevent.md
   - docs/models/suspendedticketobject.md
   - docs/models/suspendedticketobjectauthor.md
+  - docs/models/suspendedticketrecoveryevent.md
   - docs/models/suspendedticketsattachmentsresponse.md
   - docs/models/suspendedticketsattachmentsresponseupload.md
   - docs/models/suspendedticketsexportresponse.md
@@ -1037,6 +1075,7 @@ generatedFiles:
   - docs/models/ticketrelatedinformationrequest.md
   - docs/models/ticketresponse.md
   - docs/models/ticketscreaterequest.md
+  - docs/models/ticketsharingevent.md
   - docs/models/ticketskipcreation.md
   - docs/models/ticketskipobject.md
   - docs/models/ticketskipobjectcustomfield.md
@@ -1058,6 +1097,7 @@ generatedFiles:
   - docs/models/ticketupdateinputtype.md
   - docs/models/ticketupdaterequest.md
   - docs/models/ticketupdateresponse.md
+  - docs/models/ticketvia.md
   - docs/models/timebasedexportincrementalticketsresponse.md
   - docs/models/timebasedexportincrementalusersresponse.md
   - docs/models/to.md
@@ -1106,11 +1146,45 @@ generatedFiles:
   - docs/models/triggersresponse.md
   - docs/models/triggerwithcategoryrequest.md
   - docs/models/triggerwithcategoryrequesttriggercategory.md
+  - docs/models/tweetevent.md
   - docs/models/twitterchannelobject.md
   - docs/models/twitterchannelresponse.md
   - docs/models/twitterchannelsresponse.md
   - docs/models/twitterchanneltwicketstatusresponse.md
   - docs/models/twitterchanneltwicketstatusresponsestatus.md
+  - docs/models/typeassociateattvalsevent.md
+  - docs/models/typeattachmentredactionevent.md
+  - docs/models/typecc.md
+  - docs/models/typechange.md
+  - docs/models/typechatendedevent.md
+  - docs/models/typechatstartedevent.md
+  - docs/models/typecomment.md
+  - docs/models/typecommentprivacychange.md
+  - docs/models/typecommentredactionevent.md
+  - docs/models/typecreate.md
+  - docs/models/typeemailccchange.md
+  - docs/models/typeerrort.md
+  - docs/models/typeexternal.md
+  - docs/models/typefacebookcomment.md
+  - docs/models/typefacebookevent.md
+  - docs/models/typefollowernotificationevent.md
+  - docs/models/typefollowerschange.md
+  - docs/models/typelogmeintranscript.md
+  - docs/models/typemacroreference.md
+  - docs/models/typenotification.md
+  - docs/models/typenotificationwithccs.md
+  - docs/models/typeofferedtoevent.md
+  - docs/models/typeorganizationactivity.md
+  - docs/models/typepush.md
+  - docs/models/typeroutingchannelevent.md
+  - docs/models/typesatisfactionrating.md
+  - docs/models/typesmsnotification.md
+  - docs/models/typesurveyoffered.md
+  - docs/models/typesurveyresponsesubmitted.md
+  - docs/models/typesuspendedticketrecovery.md
+  - docs/models/typeticketsharingevent.md
+  - docs/models/typetweet.md
+  - docs/models/typevoicecomment.md
   - docs/models/unassignorganizationrequest.md
   - docs/models/updateattachmentrequest.md
   - docs/models/updateattributerequest.md
@@ -1195,6 +1269,10 @@ generatedFiles:
   - docs/models/usersrequest.md
   - docs/models/usersresponse.md
   - docs/models/utils/retryconfig.md
+  - docs/models/valuechange.md
+  - docs/models/valuechangeunion.md
+  - docs/models/valuecreate.md
+  - docs/models/valuecreateunion.md
   - docs/models/verificationmethod.md
   - docs/models/verifysubdomainavailabilityrequest.md
   - docs/models/verifysubdomainavailabilityresponse.md
@@ -1214,6 +1292,7 @@ generatedFiles:
   - docs/models/viewscountresponsecount.md
   - docs/models/viewsresponse.md
   - docs/models/voicecomment.md
+  - docs/models/voicecommentevent.md
   - docs/models/webhook.md
   - docs/models/webhookauthentication.md
   - docs/models/webhookcreaterequest.md
@@ -1457,6 +1536,8 @@ generatedFiles:
   - src/zendesk/models/attachmentupdateinput.py
   - src/zendesk/models/attachmentupdaterequest.py
   - src/zendesk/models/attachmentuploadresponse.py
+  - src/zendesk/models/attributevalueobject.py
+  - src/zendesk/models/auditevent.py
   - src/zendesk/models/auditlogobject.py
   - src/zendesk/models/auditlogresponse.py
   - src/zendesk/models/auditlogsresponse.py
@@ -4774,7 +4855,7 @@ examples:
         application/json: {"ticket": {"comment": {"body": "Thanks for choosing Acme Jet Motors.", "public": true}, "custom_status_id": 321, "status": "solved"}}
       responses:
         "200":
-          application/json: {"audit": {"events": [{"field_name": "subject", "id": 206091192546, "type": "Create", "value": "My printer is on fire!"}, {"body": "The smoke is very colorful.", "id": 206091192547, "type": "Comment"}, {"field_name": "status", "id": 206091192548, "type": "Create", "value": "open"}, {"field_name": "custom_status_id", "id": 206091192549, "type": "Create", "value": 123}]}, "ticket": {"custom_status_id": 123, "id": 35436, "requester_id": 123453, "status": "open", "subject": "My printer is on fire!"}}
+          application/json: {"audit": {"events": [{"id": 206091192546, "type": "Create", "field_name": "subject", "value": "My printer is on fire!"}, {"id": 206091192547, "type": "Comment", "body": "The smoke is very colorful."}, {"id": 206091192548, "type": "Create", "field_name": "status", "value": "open"}, {"id": 206091192549, "type": "Create", "field_name": "custom_status_id", "value": [123]}]}, "ticket": {"custom_status_id": 123, "id": 35436, "requester_id": 123453, "status": "open", "subject": "My printer is on fire!"}}
     "":
       parameters:
         path:
@@ -4792,7 +4873,7 @@ examples:
         application/json: {"ticket": {"comment": {"body": "The smoke is very colorful."}, "priority": "urgent", "subject": "My printer is on fire!"}}
       responses:
         "200":
-          application/json: {"audit": {"via": {"channel": "rule", "source": {"from": {"id": 22472716, "title": "Assign to first responder"}, "rel": "trigger", "to": {}}}}, "ticket": {"assignee_id": 235323, "collaborator_ids": [35334, 234], "created_at": "2009-07-20T22:55:29Z", "custom_fields": [{"id": 27642, "value": "745"}, {"id": 27648, "value": "yes"}], "custom_status_id": 123, "description": "The fire is very colorful.", "due_at": null, "external_id": "ahg35h3jh", "follower_ids": [35334, 234], "from_messaging_channel": false, "generated_timestamp": 1304553600, "group_id": 98738, "has_incidents": false, "id": 35436, "organization_id": 509974, "priority": "high", "problem_id": 9873764, "raw_subject": "{{dc.printer_on_fire}}", "recipient": "support@company.com", "requester_id": 20978392, "satisfaction_rating": {"comment": "Great support!", "id": 1234, "score": "good"}, "sharing_agreement_ids": [84432], "status": "open", "subject": "Help, my printer is on fire!", "submitter_id": 76872, "tags": ["enterprise", "other_tag"], "type": "incident", "updated_at": "2011-05-05T10:38:52Z", "url": "https://company.zendesk.com/api/v2/tickets/35436.json", "via": {"channel": "web"}}}
+          application/json: {"audit": {"events": [{"id": 447486, "type": "OfferedToEvent"}], "via": {"channel": "rule", "source": {"from": {"id": 22472716, "title": "Assign to first responder"}, "rel": "trigger", "to": {}}}}, "ticket": {"assignee_id": 235323, "collaborator_ids": [35334, 234], "created_at": "2009-07-20T22:55:29Z", "custom_fields": [{"id": 27642, "value": "745"}, {"id": 27648, "value": "yes"}], "custom_status_id": 123, "description": "The fire is very colorful.", "due_at": null, "external_id": "ahg35h3jh", "follower_ids": [35334, 234], "from_messaging_channel": false, "generated_timestamp": 1304553600, "group_id": 98738, "has_incidents": false, "id": 35436, "organization_id": 509974, "priority": "high", "problem_id": 9873764, "raw_subject": "{{dc.printer_on_fire}}", "recipient": "support@company.com", "requester_id": 20978392, "satisfaction_rating": {"comment": "Great support!", "id": 1234, "score": "good"}, "sharing_agreement_ids": [84432], "status": "open", "subject": "Help, my printer is on fire!", "submitter_id": 76872, "tags": ["enterprise", "other_tag"], "type": "incident", "updated_at": "2011-05-05T10:38:52Z", "url": "https://company.zendesk.com/api/v2/tickets/35436.json", "via": {"channel": "web"}}}
   DeleteTicket:
     "":
       parameters:

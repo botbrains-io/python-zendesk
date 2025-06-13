@@ -12,7 +12,7 @@ from zendesk.types import BaseModel
 from zendesk.utils import FieldMetadata, QueryParamMetadata
 
 
-Score = Literal[
+ListSatisfactionRatingsScore = Literal[
     "offered",
     "unoffered",
     "received",
@@ -43,7 +43,7 @@ class ListSatisfactionRatingsRequestTypedDict(TypedDict):
     r"""Specifies how many records should be returned in the response. You can specify up to 100 records per page.
 
     """
-    score: NotRequired[Score]
+    score: NotRequired[ListSatisfactionRatingsScore]
     r"""Filters the results by score. Possible values are \"offered\", \"unoffered\", \"received\", \"received_with_comment\", \"received_without_comment\", \"good\", \"good_with_comment\", \"good_without_comment\", \"bad\", \"bad_with_comment\", \"bad_without_comment\" 
 
     """
@@ -86,7 +86,7 @@ class ListSatisfactionRatingsRequest(BaseModel):
     """
 
     score: Annotated[
-        Optional[Score],
+        Optional[ListSatisfactionRatingsScore],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = None
     r"""Filters the results by score. Possible values are \"offered\", \"unoffered\", \"received\", \"received_with_comment\", \"received_without_comment\", \"good\", \"good_with_comment\", \"good_without_comment\", \"bad\", \"bad_with_comment\", \"bad_without_comment\" 

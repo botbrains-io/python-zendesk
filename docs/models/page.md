@@ -1,12 +1,9 @@
 # Page
 
-Pagination parameters
+The name and graph id of the Facebook Page associated with the event
 
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `after`            | *Optional[str]*    | :heavy_minus_sign: | N/A                |
-| `before`           | *Optional[str]*    | :heavy_minus_sign: | N/A                |
-| `size`             | *Optional[int]*    | :heavy_minus_sign: | N/A                |
+| Field       | Type        | Required    | Description |
+| ----------- | ----------- | ----------- | ----------- |

@@ -8,7 +8,7 @@ from zendesk.types import BaseModel
 from zendesk.utils import FieldMetadata, QueryParamMetadata
 
 
-class PageTypedDict(TypedDict):
+class ListTriggerCategoriesPageTypedDict(TypedDict):
     r"""Pagination parameters"""
 
     after: NotRequired[str]
@@ -16,7 +16,7 @@ class PageTypedDict(TypedDict):
     size: NotRequired[int]
 
 
-class Page(BaseModel):
+class ListTriggerCategoriesPage(BaseModel):
     r"""Pagination parameters"""
 
     after: Annotated[Optional[str], FieldMetadata(query=True)] = None
@@ -55,7 +55,7 @@ class ListTriggerCategoriesRequestTypedDict(TypedDict):
     r"""Specifies how many records should be returned in the response. You can specify up to 100 records per page.
 
     """
-    page: NotRequired[PageTypedDict]
+    page: NotRequired[ListTriggerCategoriesPageTypedDict]
     r"""Pagination parameters"""
     sort: NotRequired[ListTriggerCategoriesSort]
     r"""Sort parameters"""
@@ -92,7 +92,7 @@ class ListTriggerCategoriesRequest(BaseModel):
     """
 
     page: Annotated[
-        Optional[Page],
+        Optional[ListTriggerCategoriesPage],
         FieldMetadata(query=QueryParamMetadata(style="deepObject", explode=True)),
     ] = None
     r"""Pagination parameters"""

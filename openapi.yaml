@@ -19758,50 +19758,7 @@ components:
         attribute_id:
           type: integer
           description: The ID of the attribute (skill type)
-    # End Claude Gen # 
-    AuditObject:
-      type: object
-      properties:
-        author_id:
-          type: integer
-          readOnly: true
-        created_at:
-          type: string
-          format: date-time
-          readOnly: true
-        events:
-          type: array
-          items:
-            type: object
-            properties:
-              body:
-                type: string
-                readOnly: true
-              field_name:
-                type: string
-                readOnly: true
-              id:
-                type: integer
-                readOnly: true
-              type:
-                type: string
-                readOnly: true
-              value:
-                oneOf:
-                  - type: string
-                  - type: integer
-          readOnly: true
-        id:
-          type: integer
-          readOnly: true
-        metadata:
-          type: object
-          readOnly: true
-        ticket_id:
-          type: integer
-          readOnly: true
-        via:
-          $ref: "#/components/schemas/ViaObject"
+    # End Claude Gen #
     AuthorObject:
       type: object
       properties:
