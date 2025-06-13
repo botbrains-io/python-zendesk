@@ -18834,6 +18834,931 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/AuditLogObject"
+    # Generated via Claude from https://developer.zendesk.com/documentation/ticketing/reference-guides/ticket-audit-events-reference/ #
+    AuditObject:
+      type: object
+      properties:
+        author_id:
+          type: integer
+          readOnly: true
+          description: ID of the user who created the audit
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          description: When the audit was created
+        events:
+          type: array
+          items:
+            $ref: "#/components/schemas/AuditEvent"
+          readOnly: true
+          description: Array of events that occurred in this audit
+        id:
+          type: integer
+          readOnly: true
+          description: Automatically assigned audit ID
+        metadata:
+          type: object
+          readOnly: true
+          description: Additional metadata about the audit
+        ticket_id:
+          type: integer
+          readOnly: true
+          description: ID of the ticket this audit belongs to
+        via:
+          $ref: "#/components/schemas/ViaObject"
+
+    AuditEvent:
+      type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          Create: "#/components/schemas/CreateEvent"
+          Change: "#/components/schemas/ChangeEvent"
+          Comment: "#/components/schemas/CommentEvent"
+          CommentRedactionEvent: "#/components/schemas/CommentRedactionEvent"
+          AttachmentRedactionEvent: "#/components/schemas/AttachmentRedactionEvent"
+          VoiceComment: "#/components/schemas/VoiceCommentEvent"
+          CommentPrivacyChange: "#/components/schemas/CommentPrivacyChangeEvent"
+          SuspendedTicketRecovery: "#/components/schemas/SuspendedTicketRecoveryEvent"
+          Notification: "#/components/schemas/NotificationEvent"
+          NotificationWithCcs: "#/components/schemas/NotificationWithCcsEvent"
+          SmsNotification: "#/components/schemas/SmsNotificationEvent"
+          Cc: "#/components/schemas/CcEvent"
+          FollowerNotificationEvent: "#/components/schemas/FollowerNotificationEvent"
+          FollowersChange: "#/components/schemas/FollowerChangeEvent"
+          EmailCcChange: "#/components/schemas/EmailCcChangeEvent"
+          MacroReference: "#/components/schemas/MacroReferenceEvent"
+          SatisfactionRating: "#/components/schemas/SatisfactionRatingEvent"
+          TicketSharingEvent: "#/components/schemas/TicketSharingEvent"
+          OrganizationActivity: "#/components/schemas/OrganizationSubscriptionNotificationEvent"
+          Error: "#/components/schemas/ErrorEvent"
+          Tweet: "#/components/schemas/TweetEvent"
+          FacebookEvent: "#/components/schemas/FacebookEvent"
+          FacebookComment: "#/components/schemas/FacebookCommentEvent"
+          External: "#/components/schemas/ExternalEvent"
+          LogMeInTranscript: "#/components/schemas/LogMeInTranscriptEvent"
+          Push: "#/components/schemas/PushEvent"
+          ChatStartedEvent: "#/components/schemas/ChatStartedEvent"
+          ChatEndedEvent: "#/components/schemas/ChatEndedEvent"
+          AssociateAttValsEvent: "#/components/schemas/SkillAssignedEvent"
+          SurveyOffered: "#/components/schemas/SurveyOfferedEvent"
+          SurveyResponseSubmitted: "#/components/schemas/SurveyResponseSubmittedEvent"
+          OfferedToEvent: "#/components/schemas/OfferedToEvent"
+          RoutingChannelEvent: "#/components/schemas/RoutingChannelEvent"
+      oneOf:
+        - $ref: "#/components/schemas/CreateEvent"
+        - $ref: "#/components/schemas/ChangeEvent"
+        - $ref: "#/components/schemas/CommentEvent"
+        - $ref: "#/components/schemas/CommentRedactionEvent"
+        - $ref: "#/components/schemas/AttachmentRedactionEvent"
+        - $ref: "#/components/schemas/VoiceCommentEvent"
+        - $ref: "#/components/schemas/CommentPrivacyChangeEvent"
+        - $ref: "#/components/schemas/SuspendedTicketRecoveryEvent"
+        - $ref: "#/components/schemas/NotificationEvent"
+        - $ref: "#/components/schemas/NotificationWithCcsEvent"
+        - $ref: "#/components/schemas/SmsNotificationEvent"
+        - $ref: "#/components/schemas/CcEvent"
+        - $ref: "#/components/schemas/FollowerNotificationEvent"
+        - $ref: "#/components/schemas/FollowerChangeEvent"
+        - $ref: "#/components/schemas/EmailCcChangeEvent"
+        - $ref: "#/components/schemas/MacroReferenceEvent"
+        - $ref: "#/components/schemas/SatisfactionRatingEvent"
+        - $ref: "#/components/schemas/TicketSharingEvent"
+        - $ref: "#/components/schemas/OrganizationSubscriptionNotificationEvent"
+        - $ref: "#/components/schemas/ErrorEvent"
+        - $ref: "#/components/schemas/TweetEvent"
+        - $ref: "#/components/schemas/FacebookEvent"
+        - $ref: "#/components/schemas/FacebookCommentEvent"
+        - $ref: "#/components/schemas/ExternalEvent"
+        - $ref: "#/components/schemas/LogMeInTranscriptEvent"
+        - $ref: "#/components/schemas/PushEvent"
+        - $ref: "#/components/schemas/ChatStartedEvent"
+        - $ref: "#/components/schemas/ChatEndedEvent"
+        - $ref: "#/components/schemas/SkillAssignedEvent"
+        - $ref: "#/components/schemas/SurveyOfferedEvent"
+        - $ref: "#/components/schemas/SurveyResponseSubmittedEvent"
+        - $ref: "#/components/schemas/OfferedToEvent"
+        - $ref: "#/components/schemas/RoutingChannelEvent"
+
+    BaseEvent:
+      type: object
+      required:
+        - id
+        - type
+      properties:
+        id:
+          type: integer
+          readOnly: true
+          description: Automatically assigned when the event is created
+        type:
+          type: string
+          readOnly: true
+          description: The type of event
+        via:
+          $ref: "#/components/schemas/ViaObject"
+          description: Via object if different from the audit's via object
+
+    # Individual Event Schemas
+
+    CreateEvent:
+      allOf:
+        - $ref: "#/components/schemas/BaseEvent"
+        - type: object
+          properties:
+            type:
+              type: string
+              enum: ["Create"]
+              readOnly: true
+            field_name:
+              type: string
+              readOnly: true
+              description: The name of the field that was set
+            value:
+              oneOf:
+                - type: string
+                - type: array
+                  items: {}
+                - type: object
+              readOnly: true
+              description: The value of the field that was set
+
+    ChangeEvent:
+      allOf:
+        - $ref: "#/components/schemas/BaseEvent"
+        - type: object
+          properties:
+            type:
+              type: string
+              enum: ["Change"]
+              readOnly: true
+            field_name:
+              type: string
+              readOnly: true
+              description: The name of the field that was changed
+            value:
+              oneOf:
+                - type: string
+                - type: array
+                  items: {}
+                - type: object
+              readOnly: true
+              description: The value of the field that was changed
+            previous_value:
+              oneOf:
+                - type: string
+                - type: array
+                  items: {}
+                - type: object
+              readOnly: true
+              description: The previous value of the field that was changed
+
+    CommentEvent:
+      allOf:
+        - $ref: "#/components/schemas/BaseEvent"
+        - type: object
+          properties:
+            type:
+              type: string
+              enum: ["Comment"]
+              readOnly: true
+            body:
+              type: string
+              readOnly: true
+              description: The comment body
+            html_body:
+              type: string
+              readOnly: true
+              description: The comment formatted as HTML
+            public:
+              type: boolean
+              readOnly: true
+              description: Whether the comment is public
+            trusted:
+              type: boolean
+              readOnly: true
+              description: Whether the comment is trusted
+            author_id:
+              type: integer
+              readOnly: true
+              description: The comment author ID
+            attachments:
+              type: array
+              items:
+                $ref: "#/components/schemas/AttachmentObject"
+              readOnly: true
+
+    CommentRedactionEvent:
+      allOf:
+        - $ref: "#/components/schemas/BaseEvent"
+        - type: object
+          properties:
+            type:
+              type: string
+              enum: ["CommentRedactionEvent"]
+              readOnly: true
+            comment_id:
+              type: integer
+              readOnly: true
+              description: The comment with the redacted text
+
+    AttachmentRedactionEvent:
+      allOf:
+        - $ref: "#/components/schemas/BaseEvent"
+        - type: object
+          properties:
+            type:
+              type: string
+              enum: ["AttachmentRedactionEvent"]
+              readOnly: true
+            attachment_id:
+              type: integer
+              readOnly: true
+              description: The redacted attachment
+            comment_id:
+              type: integer
+              readOnly: true
+              description: The comment with the redacted attachment
+
+    VoiceCommentEvent:
+      allOf:
+        - $ref: "#/components/schemas/BaseEvent"
+        - type: object
+          properties:
+            type:
+              type: string
+              enum: ["VoiceComment"]
+              readOnly: true
+            data:
+              type: object
+              readOnly: true
+              description: Properties describing the voice comment
+            formatted_from:
+              type: string
+              readOnly: true
+              description: A formatted version of the phone number which dialed the call
+            formatted_to:
+              type: string
+              readOnly: true
+              description: A formatted version of the phone number which answered the call
+            body:
+              type: string
+              readOnly: true
+              description: Comment added to the ticket
+            html_body:
+              type: string
+              readOnly: true
+              description: The comment formatted to HTML
+            public:
+              type: boolean
+              readOnly: true
+              description: If true, the ticket requester can see the comment
+            trusted:
+              type: boolean
+              readOnly: true
+              description: If this comment is trusted or marked as being potentially fraudulent
+            author_id:
+              type: integer
+              readOnly: true
+              description: The comment author, typically the agent assigned to the ticket
+            transcription_visible:
+              type: boolean
+              readOnly: true
+              description: Whether the transcription is visible on the ticket
+            attachments:
+              type: array
+              items:
+                $ref: "#/components/schemas/AttachmentObject"
+              readOnly: true
+
+    CommentPrivacyChangeEvent:
+      allOf:
+        - $ref: "#/components/schemas/BaseEvent"
+        - type: object
+          properties:
+            type:
+              type: string
+              enum: ["CommentPrivacyChange"]
+              readOnly: true
+            comment_id:
+              type: integer
+              readOnly: true
+              description: The id of the comment that changed privacy
+            public:
+              type: boolean
+              readOnly: true
+              description: Tells if the comment was made public or private
+
+    SuspendedTicketRecoveryEvent:
+      allOf:
+        - $ref: "#/components/schemas/BaseEvent"
+        - type: object
+          properties:
+            type:
+              type: string
+              enum: ["SuspendedTicketRecovery"]
+              readOnly: true
+            cause:
+              type: string
+              readOnly: true
+              description: The details of the suspension
+            cause_name:
+              type: string
+              readOnly: true
+              description: The key of the cause of suspension
+            cause_id:
+              type: integer
+              readOnly: true
+              description: The id of the cause of suspension
+            recovery_details:
+              type: string
+              readOnly: true
+              description: The details of the recovery, including the recovery type and the recovery author's name
+            recovery_type:
+              type: string
+              enum: ["manual", "automatic"]
+              readOnly: true
+              description: The type of recovery
+            recovered_at:
+              type: string
+              format: date-time
+              readOnly: true
+              description: The date of recovery
+            recovered_by:
+              type: integer
+              readOnly: true
+              description: The user who performed the recovery
+
+    NotificationEvent:
+      allOf:
+        - $ref: "#/components/schemas/BaseEvent"
+        - type: object
+          properties:
+            type:
+              type: string
+              enum: ["Notification"]
+              readOnly: true
+            subject:
+              type: string
+              readOnly: true
+              description: The subject of the message sent to the recipients
+            body:
+              type: string
+              readOnly: true
+              description: The message sent to the recipients
+            recipients:
+              type: array
+              items:
+                $ref: "#/components/schemas/RecipientObject"
+              readOnly: true
+              description: An array of simple objects with the ids and names of the recipients
+
+    NotificationWithCcsEvent:
+      allOf:
+        - $ref: "#/components/schemas/BaseEvent"
+        - type: object
+          properties:
+            type:
+              type: string
+              enum: ["NotificationWithCcs"]
+              readOnly: true
+            subject:
+              type: string
+              readOnly: true
+              description: The subject of the message sent to the recipients
+            body:
+              type: string
+              readOnly: true
+              description: The message sent to the recipients
+            recipients:
+              type: array
+              items:
+                $ref: "#/components/schemas/RecipientObject"
+              readOnly: true
+              description: An array of simple objects with the ids and names of the recipients
+
+    SmsNotificationEvent:
+      allOf:
+        - $ref: "#/components/schemas/BaseEvent"
+        - type: object
+          properties:
+            type:
+              type: string
+              enum: ["SmsNotification"]
+              readOnly: true
+            body:
+              type: string
+              readOnly: true
+              description: The message sent to the recipients
+            recipients:
+              type: array
+              items:
+                $ref: "#/components/schemas/RecipientObject"
+              readOnly: true
+              description: An array of simple objects with the ids and names of the recipients
+
+    CcEvent:
+      allOf:
+        - $ref: "#/components/schemas/BaseEvent"
+        - type: object
+          properties:
+            type:
+              type: string
+              enum: ["Cc"]
+              readOnly: true
+            body:
+              type: string
+              readOnly: true
+              description: The message sent to the recipients
+            recipients:
+              type: array
+              items:
+                $ref: "#/components/schemas/RecipientObject"
+              readOnly: true
+              description: An array of simple objects with the ids and names of the recipients
+
+    FollowerNotificationEvent:
+      allOf:
+        - $ref: "#/components/schemas/BaseEvent"
+        - type: object
+          properties:
+            type:
+              type: string
+              enum: ["FollowerNotificationEvent"]
+              readOnly: true
+            subject:
+              type: string
+              readOnly: true
+              description: The subject of the message sent to the recipients
+            body:
+              type: string
+              readOnly: true
+              description: The message sent to the recipients
+            recipients:
+              type: array
+              items:
+                $ref: "#/components/schemas/RecipientObject"
+              readOnly: true
+              description: An array of simple objects with the ids and names of the recipients
+
+    FollowerChangeEvent:
+      allOf:
+        - $ref: "#/components/schemas/BaseEvent"
+        - type: object
+          properties:
+            type:
+              type: string
+              enum: ["FollowersChange"]
+              readOnly: true
+            previous_followers:
+              type: array
+              items:
+                type: integer
+              readOnly: true
+              description: The previous followers on the ticket
+            current_followers:
+              type: array
+              items:
+                type: integer
+              readOnly: true
+              description: The current followers on the ticket
+
+    EmailCcChangeEvent:
+      allOf:
+        - $ref: "#/components/schemas/BaseEvent"
+        - type: object
+          properties:
+            type:
+              type: string
+              enum: ["EmailCcChange"]
+              readOnly: true
+            previous_email_ccs:
+              type: array
+              items:
+                type: string
+              readOnly: true
+              description: The previous email CCs on the ticket
+            current_email_ccs:
+              type: array
+              items:
+                type: string
+              readOnly: true
+              description: The current email CCs on the ticket
+
+    MacroReferenceEvent:
+      allOf:
+        - $ref: "#/components/schemas/BaseEvent"
+        - type: object
+          properties:
+            type:
+              type: string
+              enum: ["MacroReference"]
+              readOnly: true
+            macro_id:
+              type: integer
+              readOnly: true
+              description: The id of the macro this event refers to
+            macro_title:
+              type: string
+              readOnly: true
+              description: The title of the macro this event refers to
+            macro_deleted:
+              type: boolean
+              readOnly: true
+              description: Whether or not the macro this event refers to is deleted
+
+    SatisfactionRatingEvent:
+      allOf:
+        - $ref: "#/components/schemas/BaseEvent"
+        - type: object
+          properties:
+            type:
+              type: string
+              enum: ["SatisfactionRating"]
+              readOnly: true
+            score:
+              type: string
+              enum: ["offered", "unoffered", "good", "bad"]
+              readOnly: true
+              description: The rating state
+            assignee_id:
+              type: integer
+              readOnly: true
+              description: Who the ticket was assigned to upon rating time
+            body:
+              type: string
+              readOnly: true
+              description: The users comment posted during rating
+
+    TicketSharingEvent:
+      allOf:
+        - $ref: "#/components/schemas/BaseEvent"
+        - type: object
+          properties:
+            type:
+              type: string
+              enum: ["TicketSharingEvent"]
+              readOnly: true
+            agreement_id:
+              type: integer
+              readOnly: true
+              description: The sharing agreement id
+            action:
+              type: string
+              enum: ["shared", "unshared"]
+              readOnly: true
+              description: The sharing action
+
+    OrganizationSubscriptionNotificationEvent:
+      allOf:
+        - $ref: "#/components/schemas/BaseEvent"
+        - type: object
+          properties:
+            type:
+              type: string
+              enum: ["OrganizationActivity"]
+              readOnly: true
+            subject:
+              type: string
+              readOnly: true
+              description: The subject of the message sent to the recipients
+            body:
+              type: string
+              readOnly: true
+              description: The message sent to the recipients
+            recipients:
+              type: array
+              items:
+                $ref: "#/components/schemas/RecipientObject"
+              readOnly: true
+              description: An array of simple objects with the ids and names of the recipients
+
+    ErrorEvent:
+      allOf:
+        - $ref: "#/components/schemas/BaseEvent"
+        - type: object
+          properties:
+            type:
+              type: string
+              enum: ["Error"]
+              readOnly: true
+            message:
+              type: string
+              readOnly: true
+              description: The error message
+
+    TweetEvent:
+      allOf:
+        - $ref: "#/components/schemas/BaseEvent"
+        - type: object
+          properties:
+            type:
+              type: string
+              enum: ["Tweet"]
+              readOnly: true
+            direct_message:
+              type: boolean
+              readOnly: true
+              description: Whether this tweet was a direct message
+            body:
+              type: string
+              readOnly: true
+              description: The body of the tweet
+            recipients:
+              type: array
+              items:
+                $ref: "#/components/schemas/RecipientObject"
+              readOnly: true
+              description: The recipients of this tweet
+
+    FacebookEvent:
+      allOf:
+        - $ref: "#/components/schemas/BaseEvent"
+        - type: object
+          properties:
+            type:
+              type: string
+              enum: ["FacebookEvent"]
+              readOnly: true
+            page:
+              type: object
+              readOnly: true
+              description: The name and graph id of the Facebook Page associated with the event
+            communication:
+              type: integer
+              readOnly: true
+              description: The Zendesk Support id of the associated communication
+            ticket_via:
+              type: string
+              enum: ["post", "message"]
+              readOnly: true
+              description: Post or message depending on the association
+            body:
+              type: string
+              readOnly: true
+              description: The value of the message posted to Facebook
+
+    FacebookCommentEvent:
+      allOf:
+        - $ref: "#/components/schemas/BaseEvent"
+        - type: object
+          properties:
+            type:
+              type: string
+              enum: ["FacebookComment"]
+              readOnly: true
+            data:
+              type: object
+              readOnly: true
+              description: Properties of the Facebook comment
+            body:
+              type: string
+              readOnly: true
+              description: The actual comment made by the author
+            html_body:
+              type: string
+              readOnly: true
+              description: The actual comment made by the author formatted as HTML
+            public:
+              type: boolean
+              readOnly: true
+              description: If this is a public comment or an internal-agents-only note
+            trusted:
+              type: boolean
+              readOnly: true
+              description: If this comment is trusted or marked as being potentially fraudulent
+            author_id:
+              type: integer
+              readOnly: true
+              description: The id of the author of this comment
+            graph_object_id:
+              type: string
+              readOnly: true
+              description: The graph object id of the associated Facebook Wall post or message
+
+    ExternalEvent:
+      allOf:
+        - $ref: "#/components/schemas/BaseEvent"
+        - type: object
+          properties:
+            type:
+              type: string
+              enum: ["External"]
+              readOnly: true
+            resource:
+              type: string
+              readOnly: true
+              description: External target id
+            body:
+              type: string
+              readOnly: true
+              description: Trigger message for this target event
+
+    LogMeInTranscriptEvent:
+      allOf:
+        - $ref: "#/components/schemas/BaseEvent"
+        - type: object
+          properties:
+            type:
+              type: string
+              enum: ["LogMeInTranscript"]
+              readOnly: true
+            body:
+              type: string
+              readOnly: true
+              description: An audit of the transcript
+
+    PushEvent:
+      allOf:
+        - $ref: "#/components/schemas/BaseEvent"
+        - type: object
+          properties:
+            type:
+              type: string
+              enum: ["Push"]
+              readOnly: true
+            value:
+              type: string
+              readOnly: true
+              description: Data being pushed out of our system
+            value_reference:
+              type: string
+              readOnly: true
+              description: A reference to the destination of the data
+
+    ChatStartedEvent:
+      allOf:
+        - $ref: "#/components/schemas/BaseEvent"
+        - type: object
+          properties:
+            type:
+              type: string
+              enum: ["ChatStartedEvent"]
+              readOnly: true
+            value:
+              type: array
+              items: {}
+              readOnly: true
+              description: Properties of the messaging conversation
+            history:
+              type: array
+              items: {}
+              readOnly: true
+              description: Data about chat events
+            webpath:
+              type: array
+              items: {}
+              readOnly: true
+              description: The webpath for the messaging conversation
+            attachments:
+              type: array
+              items:
+                $ref: "#/components/schemas/AttachmentObject"
+              readOnly: true
+
+    ChatEndedEvent:
+      allOf:
+        - $ref: "#/components/schemas/BaseEvent"
+        - type: object
+          properties:
+            type:
+              type: string
+              enum: ["ChatEndedEvent"]
+              readOnly: true
+            value:
+              type: array
+              items: {}
+              readOnly: true
+              description: Properties of the messaging conversation
+            attachments:
+              type: array
+              items:
+                $ref: "#/components/schemas/AttachmentObject"
+              readOnly: true
+
+    SkillAssignedEvent:
+      allOf:
+        - $ref: "#/components/schemas/BaseEvent"
+        - type: object
+          properties:
+            type:
+              type: string
+              enum: ["AssociateAttValsEvent"]
+              readOnly: true
+            attribute_values:
+              type: array
+              items:
+                $ref: "#/components/schemas/AttributeValueObject"
+              readOnly: true
+              description: Skills assigned to the ticket
+
+    SurveyOfferedEvent:
+      allOf:
+        - $ref: "#/components/schemas/BaseEvent"
+        - type: object
+          properties:
+            type:
+              type: string
+              enum: ["SurveyOffered"]
+              readOnly: true
+            assigned_user_id:
+              type: integer
+              nullable: true
+              readOnly: true
+              description: The id of the user assigned to the ticket at the time the survey was offered
+            assigned_group_id:
+              type: integer
+              nullable: true
+              readOnly: true
+              description: The id of the group assigned to the ticket at the time the survey was offered
+            survey_id:
+              type: string
+              readOnly: true
+              description: A ULID representing the survey that was offered
+            survey_type:
+              type: string
+              readOnly: true
+              description: The type of the survey that was offered
+
+    SurveyResponseSubmittedEvent:
+      allOf:
+        - $ref: "#/components/schemas/BaseEvent"
+        - type: object
+          properties:
+            type:
+              type: string
+              enum: ["SurveyResponseSubmitted"]
+              readOnly: true
+            assigned_user_id:
+              type: integer
+              nullable: true
+              readOnly: true
+              description: The id of the user assigned to the ticket at the time the survey response was submitted
+            assigned_group_id:
+              type: integer
+              nullable: true
+              readOnly: true
+              description: The id of the group assigned to the ticket at the time the survey response was submitted
+            survey_response_id:
+              type: string
+              readOnly: true
+              description: A ULID representing the survey response that was submitted
+            survey_type:
+              type: string
+              readOnly: true
+              description: The type of the survey that was offered
+
+    OfferedToEvent:
+      allOf:
+        - $ref: "#/components/schemas/BaseEvent"
+        - type: object
+          properties:
+            type:
+              type: string
+              enum: ["OfferedToEvent"]
+              readOnly: true
+            assignee:
+              type: integer
+              readOnly: true
+              description: The id of the agent the ticket was offered to
+            skills:
+              type: array
+              items:
+                $ref: "#/components/schemas/AttributeValueObject"
+              readOnly: true
+              description: Skills used to route the ticket to an agent
+
+    RoutingChannelEvent:
+      allOf:
+        - $ref: "#/components/schemas/BaseEvent"
+        - type: object
+          properties:
+            type:
+              type: string
+              enum: ["RoutingChannelEvent"]
+              readOnly: true
+            previous:
+              type: string
+              readOnly: true
+              description: The previous routing channel
+            current:
+              type: string
+              readOnly: true
+              description: The current routing channel
+    # Supporting Object Schemas
+    AttributeValueObject:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Attribute value ID
+        name:
+          type: string
+          description: Attribute value name
+        attribute_id:
+          type: integer
+          description: The ID of the attribute (skill type)
+    # End Claude Gen # 
     AuditObject:
       type: object
       properties:
