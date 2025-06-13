@@ -15,7 +15,7 @@ class AttachmentBaseObjectTypedDict(TypedDict):
     r"""If true, the attachment has been deleted"""
     file_name: NotRequired[str]
     r"""The name of the image file"""
-    height: NotRequired[int]
+    height: NotRequired[str]
     r"""The height of the image file in pixels. If height is unknown, returns null"""
     id: NotRequired[int]
     r"""Automatically assigned when created"""
@@ -34,7 +34,7 @@ class AttachmentBaseObjectTypedDict(TypedDict):
     r"""The size of the image file in bytes"""
     url: NotRequired[str]
     r"""A URL to access the attachment details"""
-    width: NotRequired[int]
+    width: NotRequired[str]
     r"""The width of the image file in pixels. If width is unknown, returns null"""
 
 
@@ -51,7 +51,7 @@ class AttachmentBaseObject(BaseModel):
     file_name: Optional[str] = None
     r"""The name of the image file"""
 
-    height: Optional[int] = None
+    height: Optional[str] = None
     r"""The height of the image file in pixels. If height is unknown, returns null"""
 
     id: Optional[int] = None
@@ -78,5 +78,5 @@ class AttachmentBaseObject(BaseModel):
     url: Optional[str] = None
     r"""A URL to access the attachment details"""
 
-    width: Optional[int] = None
+    width: Optional[str] = None
     r"""The width of the image file in pixels. If width is unknown, returns null"""

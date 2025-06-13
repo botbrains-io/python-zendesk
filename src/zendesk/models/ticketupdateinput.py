@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 from .collaboratorobject import CollaboratorObject, CollaboratorObjectTypedDict
-from .customfieldobject import CustomFieldObject, CustomFieldObjectTypedDict
 from .emailccobject import EmailCCObject, EmailCCObjectTypedDict
 from .followerobject import FollowerObject, FollowerObjectTypedDict
 from .ticketcommentobject_input import (
@@ -14,6 +13,21 @@ from pydantic import model_serializer
 from typing import List, Literal, Optional
 from typing_extensions import NotRequired, TypedDict
 from zendesk.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
+
+
+class TicketUpdateInputCustomFieldTypedDict(TypedDict):
+    id: NotRequired[int]
+    r"""The id of the custom field"""
+    value: NotRequired[str]
+    r"""The value of the custom field"""
+
+
+class TicketUpdateInputCustomField(BaseModel):
+    id: Optional[int] = None
+    r"""The id of the custom field"""
+
+    value: Optional[str] = None
+    r"""The value of the custom field"""
 
 
 TicketUpdateInputPriority = Literal["urgent", "high", "normal", "low"]
@@ -43,7 +57,7 @@ class TicketUpdateInputTypedDict(TypedDict):
     collaborator_ids: NotRequired[List[int]]
     r"""The ids of users currently CC'ed on the ticket"""
     comment: NotRequired[TicketCommentObjectInputTypedDict]
-    custom_fields: NotRequired[List[CustomFieldObjectTypedDict]]
+    custom_fields: NotRequired[List[TicketUpdateInputCustomFieldTypedDict]]
     r"""Custom fields for the ticket. See [Setting custom field values](/documentation/ticketing/managing-tickets/creating-and-updating-tickets#setting-custom-field-values)"""
     custom_status_id: NotRequired[int]
     r"""The custom ticket status id of the ticket. See [custom ticket statuses](#custom-ticket-statuses)"""
@@ -104,7 +118,7 @@ class TicketUpdateInput(BaseModel):
 
     comment: Optional[TicketCommentObjectInput] = None
 
-    custom_fields: Optional[List[CustomFieldObject]] = None
+    custom_fields: Optional[List[TicketUpdateInputCustomField]] = None
     r"""Custom fields for the ticket. See [Setting custom field values](/documentation/ticketing/managing-tickets/creating-and-updating-tickets#setting-custom-field-values)"""
 
     custom_status_id: Optional[int] = None

@@ -614,12 +614,6 @@ if TYPE_CHECKING:
         CursorBasedExportIncrementalUsersResponse,
         CursorBasedExportIncrementalUsersResponseTypedDict,
     )
-    from .customfieldobject import (
-        CustomFieldObject,
-        CustomFieldObjectRelationshipFilter,
-        CustomFieldObjectRelationshipFilterTypedDict,
-        CustomFieldObjectTypedDict,
-    )
     from .customfieldoptionobject import (
         CustomFieldOptionObject,
         CustomFieldOptionObjectTypedDict,
@@ -2739,6 +2733,8 @@ if TYPE_CHECKING:
     )
     from .ticketcreateinput import (
         TicketCreateInput,
+        TicketCreateInputCustomField,
+        TicketCreateInputCustomFieldTypedDict,
         TicketCreateInputPriority,
         TicketCreateInputStatus,
         TicketCreateInputType,
@@ -2904,6 +2900,8 @@ if TYPE_CHECKING:
     )
     from .ticketupdateinput import (
         TicketUpdateInput,
+        TicketUpdateInputCustomField,
+        TicketUpdateInputCustomFieldTypedDict,
         TicketUpdateInputPriority,
         TicketUpdateInputStatus,
         TicketUpdateInputType,
@@ -3860,10 +3858,6 @@ __all__ = [
     "CursorBasedExportIncrementalTicketsResponseTypedDict",
     "CursorBasedExportIncrementalUsersResponse",
     "CursorBasedExportIncrementalUsersResponseTypedDict",
-    "CustomFieldObject",
-    "CustomFieldObjectRelationshipFilter",
-    "CustomFieldObjectRelationshipFilterTypedDict",
-    "CustomFieldObjectTypedDict",
     "CustomFieldOptionObject",
     "CustomFieldOptionObjectInput",
     "CustomFieldOptionObjectInputTypedDict",
@@ -5290,6 +5284,8 @@ __all__ = [
     "TicketCommentsResponse",
     "TicketCommentsResponseTypedDict",
     "TicketCreateInput",
+    "TicketCreateInputCustomField",
+    "TicketCreateInputCustomFieldTypedDict",
     "TicketCreateInputPriority",
     "TicketCreateInputStatus",
     "TicketCreateInputType",
@@ -5390,6 +5386,8 @@ __all__ = [
     "TicketSortBy",
     "TicketSortOrder",
     "TicketUpdateInput",
+    "TicketUpdateInputCustomField",
+    "TicketUpdateInputCustomFieldTypedDict",
     "TicketUpdateInputPriority",
     "TicketUpdateInputStatus",
     "TicketUpdateInputType",
@@ -6191,10 +6189,6 @@ _dynamic_imports: dict[str, str] = {
     "CursorBasedExportIncrementalTicketsResponseTypedDict": ".cursorbasedexportincrementalticketsresponse",
     "CursorBasedExportIncrementalUsersResponse": ".cursorbasedexportincrementalusersresponse",
     "CursorBasedExportIncrementalUsersResponseTypedDict": ".cursorbasedexportincrementalusersresponse",
-    "CustomFieldObject": ".customfieldobject",
-    "CustomFieldObjectRelationshipFilter": ".customfieldobject",
-    "CustomFieldObjectRelationshipFilterTypedDict": ".customfieldobject",
-    "CustomFieldObjectTypedDict": ".customfieldobject",
     "CustomFieldOptionObject": ".customfieldoptionobject",
     "CustomFieldOptionObjectTypedDict": ".customfieldoptionobject",
     "CustomFieldOptionObjectInput": ".customfieldoptionobject_input",
@@ -7609,6 +7603,8 @@ _dynamic_imports: dict[str, str] = {
     "TicketCommentsResponse": ".ticketcommentsresponse",
     "TicketCommentsResponseTypedDict": ".ticketcommentsresponse",
     "TicketCreateInput": ".ticketcreateinput",
+    "TicketCreateInputCustomField": ".ticketcreateinput",
+    "TicketCreateInputCustomFieldTypedDict": ".ticketcreateinput",
     "TicketCreateInputPriority": ".ticketcreateinput",
     "TicketCreateInputStatus": ".ticketcreateinput",
     "TicketCreateInputType": ".ticketcreateinput",
@@ -7733,6 +7729,8 @@ _dynamic_imports: dict[str, str] = {
     "TicketsUpdateManyRequest": ".ticketsupdatemanyop",
     "TicketsUpdateManyRequestTypedDict": ".ticketsupdatemanyop",
     "TicketUpdateInput": ".ticketupdateinput",
+    "TicketUpdateInputCustomField": ".ticketupdateinput",
+    "TicketUpdateInputCustomFieldTypedDict": ".ticketupdateinput",
     "TicketUpdateInputPriority": ".ticketupdateinput",
     "TicketUpdateInputStatus": ".ticketupdateinput",
     "TicketUpdateInputType": ".ticketupdateinput",
