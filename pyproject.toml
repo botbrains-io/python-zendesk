@@ -12,6 +12,7 @@ dependencies = [
     "httpx >=0.28.1",
     "jsonpath-python >=1.0.6",
     "pydantic >=2.11.2",
+    "pyyaml (>=6.0.2,<7.0.0)",
 ]
 project_urls = { Homepage = "https://github.com/botbrains-io/python-zendesk", Repository = "https://github.com/botbrains-io/python-zendesk.git", Documentation = "https://github.com/botbrains-io/python-zendesk#readme" }
 
@@ -33,6 +34,7 @@ pydantic = ">=2.11.2"
 [tool.poetry.group.dev.dependencies]
 mypy = "==1.15.0"
 pylint = "==3.2.3"
+pyyaml = ">=6.0.0"
 
 [build-system]
 requires = ["poetry-core"]
