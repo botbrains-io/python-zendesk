@@ -147,10 +147,10 @@ with Zendesk(
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `deletion_schedule_id`                                              | *int*                                                               | :heavy_check_mark:                                                  | The id of the deletion schedule                                     | 132828                                                              |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `deletion_schedule_id`                                              | *int*                                                               | :heavy_check_mark:                                                  | The id of the deletion schedule                                     |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
 
@@ -209,11 +209,11 @@ with Zendesk(
 
 ### Parameters
 
-| Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     | Example                                                                         |
-| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| `deletion_schedule_id`                                                          | *int*                                                                           | :heavy_check_mark:                                                              | The id of the deletion schedule                                                 | 132828                                                                          |
-| `deletion_schedule`                                                             | [Optional[models.DeletionScheduleInput]](../../models/deletionscheduleinput.md) | :heavy_minus_sign:                                                              | N/A                                                                             |                                                                                 |
-| `retries`                                                                       | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                | :heavy_minus_sign:                                                              | Configuration to override the default retry behavior of the client.             |                                                                                 |
+| Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `deletion_schedule_id`                                                          | *int*                                                                           | :heavy_check_mark:                                                              | The id of the deletion schedule                                                 |
+| `deletion_schedule`                                                             | [Optional[models.DeletionScheduleInput]](../../models/deletionscheduleinput.md) | :heavy_minus_sign:                                                              | N/A                                                                             |
+| `retries`                                                                       | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                | :heavy_minus_sign:                                                              | Configuration to override the default retry behavior of the client.             |
 
 ### Response
 
@@ -255,10 +255,10 @@ with Zendesk(
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `deletion_schedule_id`                                              | *int*                                                               | :heavy_check_mark:                                                  | The id of the deletion schedule                                     | 132828                                                              |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `deletion_schedule_id`                                              | *int*                                                               | :heavy_check_mark:                                                  | The id of the deletion schedule                                     |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Errors
 

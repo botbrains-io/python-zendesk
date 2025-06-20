@@ -3,6 +3,6 @@
 
 ## Fields
 
-| Field                              | Type                               | Required                           | Description                        | Example                            |
-| ---------------------------------- | ---------------------------------- | ---------------------------------- | ---------------------------------- | ---------------------------------- |
-| `ids`                              | *str*                              | :heavy_check_mark:                 | Comma-separated list of ticket ids | 35436,35437                        |
+| Field                              | Type                               | Required                           | Description                        |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| `ids`                              | *str*                              | :heavy_check_mark:                 | Comma-separated list of ticket ids |

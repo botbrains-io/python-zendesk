@@ -3,6 +3,6 @@
 
 ## Fields
 
-| Field                                | Type                                 | Required                             | Description                          | Example                              |
-| ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| `identifiers`                        | *Optional[str]*                      | :heavy_minus_sign:                   | Identifiers for the dynamic contents | item1,item2                          |
+| Field                                | Type                                 | Required                             | Description                          |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| `identifiers`                        | *Optional[str]*                      | :heavy_minus_sign:                   | Identifiers for the dynamic contents |

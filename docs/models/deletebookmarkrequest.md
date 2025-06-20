@@ -3,6 +3,6 @@
 
 ## Fields
 
-| Field                  | Type                   | Required               | Description            | Example                |
-| ---------------------- | ---------------------- | ---------------------- | ---------------------- | ---------------------- |
-| `bookmark_id`          | *int*                  | :heavy_check_mark:     | The ID of the bookmark | 900000001111           |
+| Field                  | Type                   | Required               | Description            |
+| ---------------------- | ---------------------- | ---------------------- | ---------------------- |
+| `bookmark_id`          | *int*                  | :heavy_check_mark:     | The ID of the bookmark |

@@ -3,6 +3,6 @@
 
 ## Fields
 
-| Field                | Type                 | Required             | Description          | Example              |
-| -------------------- | -------------------- | -------------------- | -------------------- | -------------------- |
-| `target_id`          | *int*                | :heavy_check_mark:   | The ID of the target | 211                  |
+| Field                | Type                 | Required             | Description          |
+| -------------------- | -------------------- | -------------------- | -------------------- |
+| `target_id`          | *int*                | :heavy_check_mark:   | The ID of the target |

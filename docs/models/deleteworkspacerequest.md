@@ -3,6 +3,6 @@
 
 ## Fields
 
-| Field                   | Type                    | Required                | Description             | Example                 |
-| ----------------------- | ----------------------- | ----------------------- | ----------------------- | ----------------------- |
-| `workspace_id`          | *int*                   | :heavy_check_mark:      | The id of the workspace | 3133                    |
+| Field                   | Type                    | Required                | Description             |
+| ----------------------- | ----------------------- | ----------------------- | ----------------------- |
+| `workspace_id`          | *int*                   | :heavy_check_mark:      | The id of the workspace |

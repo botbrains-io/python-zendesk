@@ -59,10 +59,10 @@ with Zendesk(
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `name`                                                              | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | A substring of a tag to search for                                  | att                                                                 |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `name`                                                              | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | A substring of a tag to search for                                  |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
 
@@ -217,10 +217,10 @@ with Zendesk(
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `ticket_id`                                                         | *int*                                                               | :heavy_check_mark:                                                  | The ID of the ticket                                                | 123456                                                              |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `ticket_id`                                                         | *int*                                                               | :heavy_check_mark:                                                  | The ID of the ticket                                                |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
 
@@ -266,11 +266,11 @@ with Zendesk(
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `ticket_id`                                                         | *int*                                                               | :heavy_check_mark:                                                  | The ID of the ticket                                                | 123456                                                              |
-| `tags`                                                              | List[*str*]                                                         | :heavy_check_mark:                                                  | An array of tag strings to add or set                               | [<br/>"customer",<br/>"vip"<br/>]                                   |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `ticket_id`                                                         | *int*                                                               | :heavy_check_mark:                                                  | The ID of the ticket                                                |
+| `tags`                                                              | List[*str*]                                                         | :heavy_check_mark:                                                  | An array of tag strings to add or set                               |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
 
@@ -324,7 +324,6 @@ For details, see [Protecting against ticket update collisions](/api-reference/ti
 
 ```python
 from zendesk import Zendesk, models
-from zendesk.utils import parse_datetime
 
 
 with Zendesk(
@@ -337,7 +336,7 @@ with Zendesk(
     res = z_client.tags.add_ticket_tags(ticket_id=123456, tags=[
         "customer",
         "vip",
-    ], updated_stamp=parse_datetime("2019-09-12T21:45:16Z"), safe_update="true")
+    ])
 
     # Handle response
     print(res)
@@ -346,13 +345,13 @@ with Zendesk(
 
 ### Parameters
 
-| Parameter                                                                                                          | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        | Example                                                                                                            |
-| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
-| `ticket_id`                                                                                                        | *int*                                                                                                              | :heavy_check_mark:                                                                                                 | The ID of the ticket                                                                                               | 123456                                                                                                             |
-| `tags`                                                                                                             | List[*str*]                                                                                                        | :heavy_check_mark:                                                                                                 | An array of tag strings to add or set                                                                              | [<br/>"customer",<br/>"vip"<br/>]                                                                                  |
-| `updated_stamp`                                                                                                    | [date](https://docs.python.org/3/library/datetime.html#date-objects)                                               | :heavy_minus_sign:                                                                                                 | The ticket's latest updated_at timestamp for safe updates.<br/>Must match the current timestamp to prevent collision.<br/> | 2019-09-12T21:45:16Z                                                                                               |
-| `safe_update`                                                                                                      | [Optional[models.SafeUpdate]](../../models/safeupdate.md)                                                          | :heavy_minus_sign:                                                                                                 | Enable safe update mode to prevent collisions                                                                      | true                                                                                                               |
-| `retries`                                                                                                          | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                   | :heavy_minus_sign:                                                                                                 | Configuration to override the default retry behavior of the client.                                                |                                                                                                                    |
+| Parameter                                                                                                          | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| `ticket_id`                                                                                                        | *int*                                                                                                              | :heavy_check_mark:                                                                                                 | The ID of the ticket                                                                                               |
+| `tags`                                                                                                             | List[*str*]                                                                                                        | :heavy_check_mark:                                                                                                 | An array of tag strings to add or set                                                                              |
+| `updated_stamp`                                                                                                    | [date](https://docs.python.org/3/library/datetime.html#date-objects)                                               | :heavy_minus_sign:                                                                                                 | The ticket's latest updated_at timestamp for safe updates.<br/>Must match the current timestamp to prevent collision.<br/> |
+| `safe_update`                                                                                                      | [Optional[models.SafeUpdate]](../../models/safeupdate.md)                                                          | :heavy_minus_sign:                                                                                                 | Enable safe update mode to prevent collisions                                                                      |
+| `retries`                                                                                                          | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                   | :heavy_minus_sign:                                                                                                 | Configuration to override the default retry behavior of the client.                                                |
 
 ### Response
 
@@ -380,7 +379,6 @@ This endpoint supports safe updates. See the PUT endpoint documentation for deta
 
 ```python
 from zendesk import Zendesk, models
-from zendesk.utils import parse_datetime
 
 
 with Zendesk(
@@ -393,7 +391,7 @@ with Zendesk(
     z_client.tags.remove_ticket_tags(ticket_id=123456, tags=[
         "customer",
         "vip",
-    ], updated_stamp=parse_datetime("2019-09-12T21:45:16Z"), safe_update="true")
+    ])
 
     # Use the SDK ...
 
@@ -401,13 +399,13 @@ with Zendesk(
 
 ### Parameters
 
-| Parameter                                                                                                          | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        | Example                                                                                                            |
-| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
-| `ticket_id`                                                                                                        | *int*                                                                                                              | :heavy_check_mark:                                                                                                 | The ID of the ticket                                                                                               | 123456                                                                                                             |
-| `tags`                                                                                                             | List[*str*]                                                                                                        | :heavy_check_mark:                                                                                                 | An array of tag strings to add or set                                                                              | [<br/>"customer",<br/>"vip"<br/>]                                                                                  |
-| `updated_stamp`                                                                                                    | [date](https://docs.python.org/3/library/datetime.html#date-objects)                                               | :heavy_minus_sign:                                                                                                 | The ticket's latest updated_at timestamp for safe updates.<br/>Must match the current timestamp to prevent collision.<br/> | 2019-09-12T21:45:16Z                                                                                               |
-| `safe_update`                                                                                                      | [Optional[models.SafeUpdate]](../../models/safeupdate.md)                                                          | :heavy_minus_sign:                                                                                                 | Enable safe update mode to prevent collisions                                                                      | true                                                                                                               |
-| `retries`                                                                                                          | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                   | :heavy_minus_sign:                                                                                                 | Configuration to override the default retry behavior of the client.                                                |                                                                                                                    |
+| Parameter                                                                                                          | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| `ticket_id`                                                                                                        | *int*                                                                                                              | :heavy_check_mark:                                                                                                 | The ID of the ticket                                                                                               |
+| `tags`                                                                                                             | List[*str*]                                                                                                        | :heavy_check_mark:                                                                                                 | An array of tag strings to add or set                                                                              |
+| `updated_stamp`                                                                                                    | [date](https://docs.python.org/3/library/datetime.html#date-objects)                                               | :heavy_minus_sign:                                                                                                 | The ticket's latest updated_at timestamp for safe updates.<br/>Must match the current timestamp to prevent collision.<br/> |
+| `safe_update`                                                                                                      | [Optional[models.SafeUpdate]](../../models/safeupdate.md)                                                          | :heavy_minus_sign:                                                                                                 | Enable safe update mode to prevent collisions                                                                      |
+| `retries`                                                                                                          | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                   | :heavy_minus_sign:                                                                                                 | Configuration to override the default retry behavior of the client.                                                |
 
 ### Errors
 
@@ -446,10 +444,10 @@ with Zendesk(
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `organization_id`                                                   | *int*                                                               | :heavy_check_mark:                                                  | The ID of an organization                                           | 16                                                                  |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `organization_id`                                                   | *int*                                                               | :heavy_check_mark:                                                  | The ID of an organization                                           |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
 
@@ -495,11 +493,11 @@ with Zendesk(
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `organization_id`                                                   | *int*                                                               | :heavy_check_mark:                                                  | The ID of an organization                                           | 16                                                                  |
-| `tags`                                                              | List[*str*]                                                         | :heavy_check_mark:                                                  | An array of tag strings to add or set                               | [<br/>"customer",<br/>"vip"<br/>]                                   |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `organization_id`                                                   | *int*                                                               | :heavy_check_mark:                                                  | The ID of an organization                                           |
+| `tags`                                                              | List[*str*]                                                         | :heavy_check_mark:                                                  | An array of tag strings to add or set                               |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
 
@@ -545,11 +543,11 @@ with Zendesk(
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `organization_id`                                                   | *int*                                                               | :heavy_check_mark:                                                  | The ID of an organization                                           | 16                                                                  |
-| `tags`                                                              | List[*str*]                                                         | :heavy_check_mark:                                                  | An array of tag strings to add or set                               | [<br/>"customer",<br/>"vip"<br/>]                                   |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `organization_id`                                                   | *int*                                                               | :heavy_check_mark:                                                  | The ID of an organization                                           |
+| `tags`                                                              | List[*str*]                                                         | :heavy_check_mark:                                                  | An array of tag strings to add or set                               |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
 
@@ -594,11 +592,11 @@ with Zendesk(
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `organization_id`                                                   | *int*                                                               | :heavy_check_mark:                                                  | The ID of an organization                                           | 16                                                                  |
-| `tags`                                                              | List[*str*]                                                         | :heavy_check_mark:                                                  | An array of tag strings to add or set                               | [<br/>"customer",<br/>"vip"<br/>]                                   |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `organization_id`                                                   | *int*                                                               | :heavy_check_mark:                                                  | The ID of an organization                                           |
+| `tags`                                                              | List[*str*]                                                         | :heavy_check_mark:                                                  | An array of tag strings to add or set                               |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Errors
 
@@ -637,10 +635,10 @@ with Zendesk(
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `user_id`                                                           | *int*                                                               | :heavy_check_mark:                                                  | The id of the user                                                  | 35436                                                               |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `user_id`                                                           | *int*                                                               | :heavy_check_mark:                                                  | The id of the user                                                  |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
 
@@ -686,11 +684,11 @@ with Zendesk(
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `user_id`                                                           | *int*                                                               | :heavy_check_mark:                                                  | The id of the user                                                  | 35436                                                               |
-| `tags`                                                              | List[*str*]                                                         | :heavy_check_mark:                                                  | An array of tag strings to add or set                               | [<br/>"customer",<br/>"vip"<br/>]                                   |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `user_id`                                                           | *int*                                                               | :heavy_check_mark:                                                  | The id of the user                                                  |
+| `tags`                                                              | List[*str*]                                                         | :heavy_check_mark:                                                  | An array of tag strings to add or set                               |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
 
@@ -736,11 +734,11 @@ with Zendesk(
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `user_id`                                                           | *int*                                                               | :heavy_check_mark:                                                  | The id of the user                                                  | 35436                                                               |
-| `tags`                                                              | List[*str*]                                                         | :heavy_check_mark:                                                  | An array of tag strings to add or set                               | [<br/>"customer",<br/>"vip"<br/>]                                   |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `user_id`                                                           | *int*                                                               | :heavy_check_mark:                                                  | The id of the user                                                  |
+| `tags`                                                              | List[*str*]                                                         | :heavy_check_mark:                                                  | An array of tag strings to add or set                               |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
 
@@ -785,11 +783,11 @@ with Zendesk(
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `user_id`                                                           | *int*                                                               | :heavy_check_mark:                                                  | The id of the user                                                  | 35436                                                               |
-| `tags`                                                              | List[*str*]                                                         | :heavy_check_mark:                                                  | An array of tag strings to add or set                               | [<br/>"customer",<br/>"vip"<br/>]                                   |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `user_id`                                                           | *int*                                                               | :heavy_check_mark:                                                  | The id of the user                                                  |
+| `tags`                                                              | List[*str*]                                                         | :heavy_check_mark:                                                  | An array of tag strings to add or set                               |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Errors
 
