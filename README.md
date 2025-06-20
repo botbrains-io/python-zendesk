@@ -11,7 +11,7 @@ sh scripts/generate.sh
 ## How to generate the website mdx
 
 ```bash
-curl https://<CRAWLER_URL>/crawl?urls[]=https://developer.zendesk.com/api-reference/ticketing/introduction/&include_globs[]=https://developer.zendesk.com/api-reference/ticketing/** > website.md
+curl https://<CRAWLER_URL>/crawl?urls[]=https://developer.zendesk.com/api-reference/ticketing/introduction/&limit=100&render_mode=no-js&include_globs[]=https://developer.zendesk.com/api-reference/ticketing/**&include_only_selectors[]=.documentContent__DocumentContent-sc-196ktpv-0
 ```
 
 <!-- Start Summary [summary] -->
