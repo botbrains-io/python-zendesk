@@ -16,6 +16,7 @@
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="TicketImport" method="post" path="/api/v2/imports/tickets" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -84,6 +85,7 @@ Accepts an array of up to 100 ticket objects.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="TicketBulkImport" method="post" path="/api/v2/imports/tickets/create_many" -->
 ```python
 from zendesk import Zendesk, models
 

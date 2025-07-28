@@ -20,6 +20,7 @@
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListSharingAgreements" method="get" path="/api/v2/sharing_agreements" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -63,6 +64,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateSharingAgreement" method="post" path="/api/v2/sharing_agreements" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -108,6 +110,7 @@ Returns a sharing agreement for your account.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowSharingAgreement" method="get" path="/api/v2/sharing_agreements/{sharing_agreement_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -154,6 +157,7 @@ Returns an updated sharing agreement. Only `status` is allowed to be updated.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="UpdateSharingAgreement" method="put" path="/api/v2/sharing_agreements/{sharing_agreement_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -200,6 +204,7 @@ Deletes a sharing agreement.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="DeleteSharingAgreement" method="delete" path="/api/v2/sharing_agreements/{sharing_agreement_id}" -->
 ```python
 from zendesk import Zendesk, models
 

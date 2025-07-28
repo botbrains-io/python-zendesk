@@ -25,6 +25,7 @@ in the list has an `attachments` list that specifies an `id` for each attachment
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowAttachment" method="get" path="/api/v2/attachments/{attachment_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -71,6 +72,7 @@ Toggles enabling or restricting agent access to attachments with detected malwar
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="UpdateAttachment" method="put" path="/api/v2/attachments/{attachment_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -126,6 +128,7 @@ Also, if you want to redact an inline attachment, you can use the `include_inlin
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="RedactCommentAttachment" method="put" path="/api/v2/tickets/{ticket_id}/comments/{comment_id}/attachments/{attachment_id}/redact" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -182,6 +185,7 @@ Adding multiple files to the same upload is handled by splitting requests and pa
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="UploadFiles" method="post" path="/api/v2/uploads" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -225,6 +229,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="DeleteUpload" method="delete" path="/api/v2/uploads/{token}" -->
 ```python
 from zendesk import Zendesk, models
 

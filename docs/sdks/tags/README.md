@@ -39,6 +39,7 @@ See [Using Offset Pagination](/api-reference/ticketing/introduction/#using-offse
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="AutocompleteTags" method="get" path="/api/v2/autocomplete/tags" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -94,6 +95,7 @@ Returns a maximum of 100 records per page.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListTags" method="get" path="/api/v2/tags" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -153,6 +155,7 @@ updated in the background and the `value` property in the `count` object is limi
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CountTags" method="get" path="/api/v2/tags/count" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -197,6 +200,7 @@ Lists all tags associated with a specific ticket.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="listTicketTags" method="get" path="/api/v2/tickets/{ticket_id}/tags" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -243,6 +247,7 @@ Replaces all existing tags on a ticket with the provided tags.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="setTicketTags" method="post" path="/api/v2/tickets/{ticket_id}/tags" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -322,6 +327,7 @@ For details, see [Protecting against ticket update collisions](/api-reference/ti
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="addTicketTags" method="put" path="/api/v2/tickets/{ticket_id}/tags" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -377,6 +383,7 @@ This endpoint supports safe updates. See the PUT endpoint documentation for deta
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="removeTicketTags" method="delete" path="/api/v2/tickets/{ticket_id}/tags" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -424,6 +431,7 @@ Lists all tags associated with a specific organization.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="listOrganizationTags" method="get" path="/api/v2/organizations/{organization_id}/tags" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -470,6 +478,7 @@ Replaces all existing tags on an organization with the provided tags.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="setOrganizationTags" method="post" path="/api/v2/organizations/{organization_id}/tags" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -520,6 +529,7 @@ Adds tags to an organization.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="addOrganizationTags" method="put" path="/api/v2/organizations/{organization_id}/tags" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -570,6 +580,7 @@ Removes specified tags from an organization.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="removeOrganizationTags" method="delete" path="/api/v2/organizations/{organization_id}/tags" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -615,6 +626,7 @@ Lists all tags associated with a specific user.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="listUserTags" method="get" path="/api/v2/users/{user_id}/tags" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -661,6 +673,7 @@ Replaces all existing tags on a user with the provided tags.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="setUserTags" method="post" path="/api/v2/users/{user_id}/tags" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -711,6 +724,7 @@ Adds tags to a user.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="addUserTags" method="put" path="/api/v2/users/{user_id}/tags" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -761,6 +775,7 @@ Removes specified tags from a user.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="removeUserTags" method="delete" path="/api/v2/users/{user_id}/tags" -->
 ```python
 from zendesk import Zendesk, models
 

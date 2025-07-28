@@ -26,6 +26,7 @@ See [Pagination](/api-reference/introduction/pagination/).
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListTriggerCategories" method="get" path="/api/v2/trigger_categories" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -79,6 +80,7 @@ Creates a ticket trigger category.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateTriggerCategory" method="post" path="/api/v2/trigger_categories" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -124,6 +126,7 @@ Returns the ticket trigger category with the specified ID.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowTriggerCategoryById" method="get" path="/api/v2/trigger_categories/{trigger_category_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -166,6 +169,7 @@ Updates the ticket trigger category with the specified ID.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="UpdateTriggerCategory" method="patch" path="/api/v2/trigger_categories/{trigger_category_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -212,6 +216,7 @@ Deletes the ticket trigger category with the specified ID.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="DeleteTriggerCategory" method="delete" path="/api/v2/trigger_categories/{trigger_category_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -249,6 +254,7 @@ Creates a job that performs a batch operation for the given ticket trigger categ
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="BatchOperateTriggerCategories" method="post" path="/api/v2/trigger_categories/jobs" -->
 ```python
 from zendesk import Zendesk, models
 

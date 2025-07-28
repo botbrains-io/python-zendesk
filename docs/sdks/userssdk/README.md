@@ -54,6 +54,7 @@ Returns a maximum of 100 records per page.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListDeletedUsers" method="get" path="/api/v2/deleted_users" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -104,6 +105,7 @@ Returns users that have been deleted but not permanently yet. See [Permanently D
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowDeletedUser" method="get" path="/api/v2/deleted_users/{deleted_user_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -159,6 +161,7 @@ Zendesk recommends that you obey the Retry-After header values.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="PermanentlyDeleteUser" method="delete" path="/api/v2/deleted_users/{deleted_user_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -210,6 +213,7 @@ This indicates that the count is being updated in the background, and `count[val
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CountDeletedUsers" method="get" path="/api/v2/deleted_users/count" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -262,6 +266,7 @@ Returns a maximum of 100 records per page.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListUsers" method="get" path="/api/v2/users" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -311,6 +316,7 @@ Create User
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateUser" method="post" path="/api/v2/users" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -378,6 +384,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowUser" method="get" path="/api/v2/users/{user_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -419,6 +426,7 @@ Update User
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="UpdateUser" method="put" path="/api/v2/users/{user_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -477,6 +485,7 @@ To comply with GDPR, a further step is needed. See [Permanently Delete User](/ap
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="DeleteUser" method="delete" path="/api/v2/users/{user_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -540,6 +549,7 @@ See [Pagination](/api-reference/introduction/pagination/).
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowUserComplianceDeletionStatuses" method="get" path="/api/v2/users/{user_id}/compliance_deletion_statuses" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -600,6 +610,7 @@ For more information about how user data is merged, see [Merging a user's duplic
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="MergeEndUsers" method="put" path="/api/v2/users/{user_id}/merge" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -644,6 +655,7 @@ Show User Related Information
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowUserRelated" method="get" path="/api/v2/users/{user_id}/related" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -691,6 +703,7 @@ It only returns users with no foreign identities.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="AutocompleteUsers" method="get" path="/api/v2/users/autocomplete" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -744,6 +757,7 @@ This indicates that the count is being updated in the background. The `count` ob
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CountUsers" method="get" path="/api/v2/users/count" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -804,6 +818,7 @@ This endpoint returns a `job_status` [JSON object](/api-reference/ticketing/tick
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateManyUsers" method="post" path="/api/v2/users/create_many" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -887,6 +902,7 @@ However, if an existing user is found, the system will update the user's externa
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateOrUpdateUser" method="post" path="/api/v2/users/create_or_update" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -964,6 +980,7 @@ This endpoint returns a `job_status` [JSON object](/api-reference/ticketing/tick
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateOrUpdateManyUsers" method="post" path="/api/v2/users/create_or_update_many" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -1049,6 +1066,7 @@ This endpoint returns a `job_status` [JSON object](/api-reference/ticketing/tick
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="DestroyManyUsers" method="delete" path="/api/v2/users/destroy_many" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -1096,6 +1114,7 @@ Accepts a comma-separated list of up to 100 user ids.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="LogoutManyUsers" method="post" path="/api/v2/users/logout_many" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -1148,6 +1167,7 @@ For an example using an authenticity token, see the AJAX request in the [Upgradi
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowCurrentUser" method="get" path="/api/v2/users/me" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -1193,6 +1213,7 @@ Sends the owner a reminder email to update their subscription so more agents can
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="RequestUserCreate" method="post" path="/api/v2/users/request_create" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -1250,6 +1271,7 @@ See [Using Offset Pagination](/api-reference/ticketing/introduction/#using-offse
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="SearchUsers" method="get" path="/api/v2/users/search" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -1297,6 +1319,7 @@ Accepts a comma-separated list of up to 100 user ids or external ids.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowManyUsers" method="get" path="/api/v2/users/show_many" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -1339,6 +1362,7 @@ Update Many Users
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="UpdateManyUsers" method="put" path="/api/v2/users/update_many" -->
 ```python
 from zendesk import Zendesk, models
 

@@ -28,6 +28,7 @@ See [Pagination](/api-reference/introduction/pagination/).
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListTicketMetricEvents" method="get" path="/api/v2/incremental/ticket_metric_events" -->
 ```python
 from zendesk import Zendesk, models
 

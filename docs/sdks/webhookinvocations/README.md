@@ -14,6 +14,7 @@ Returns up to 7 days of invocations for a webhook.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="listWebhookInvocations" method="get" path="/api/v2/webhooks/{webhook_id}/invocations" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -64,6 +65,7 @@ Returns the invocation attempts for the specified webhook.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="listWebhookInvocationAttempts" method="get" path="/api/v2/webhooks/{webhook_id}/invocations/{invocation_id}/attempts" -->
 ```python
 from zendesk import Zendesk, models
 

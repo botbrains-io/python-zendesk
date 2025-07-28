@@ -18,6 +18,7 @@ Creates an approval workflow instance attached to a ticket. The request must inc
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateApprovalWorkflowInstance" method="post" path="/api/v2/approval_workflow_instances" -->
 ```python
 from zendesk import Zendesk, models
 

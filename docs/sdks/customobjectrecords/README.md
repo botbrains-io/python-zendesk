@@ -49,6 +49,7 @@ This endpoint returns a `job_status` [JSON object](/api-reference/ticketing/tick
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CustomObjectRecordBulkJobs" method="post" path="/api/v2/custom_objects/{custom_object_key}/jobs" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -121,6 +122,7 @@ Lists all undeleted custom object records for the specified object
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListCustomObjectRecords" method="get" path="/api/v2/custom_objects/{custom_object_key}/records" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -173,6 +175,7 @@ Creates a custom object record according to all the properties described by a cu
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateCustomObjectRecord" method="post" path="/api/v2/custom_objects/{custom_object_key}/records" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -223,6 +226,7 @@ If a record exists for the given external id or name, updates it. Only the speci
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="UpsertCustomObjectRecordByExternalIdOrName" method="patch" path="/api/v2/custom_objects/{custom_object_key}/records" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -275,6 +279,7 @@ Deletes a record with the specified external id or name. The `is_unique` propert
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="DeleteCustomObjectRecordByExternalIdOrName" method="delete" path="/api/v2/custom_objects/{custom_object_key}/records" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -316,6 +321,7 @@ Returns a custom record for a specific object using a provided id.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowCustomObjectRecord" method="get" path="/api/v2/custom_objects/{custom_object_key}/records/{custom_object_record_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -362,6 +368,7 @@ Updates an individual custom object record. The updating rules are as follows:
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="UpdateCustomObjectRecord" method="patch" path="/api/v2/custom_objects/{custom_object_key}/records/{custom_object_record_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -406,6 +413,7 @@ Deletes a record with the specified id
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="DeleteCustomObjectRecord" method="delete" path="/api/v2/custom_objects/{custom_object_key}/records/{custom_object_record_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -450,6 +458,7 @@ Retrieves an array of custom object records that have a field value that matches
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="AutocompleteCustomObjectRecordSearch" method="get" path="/api/v2/custom_objects/{custom_object_key}/records/autocomplete" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -504,6 +513,7 @@ Returns a total count of records for a specific custom object as well as the tim
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CountCustomObjectRecords" method="get" path="/api/v2/custom_objects/{custom_object_key}/records/count" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -552,6 +562,7 @@ Returns an array of custom object records that meet the search criteria
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="SearchCustomObjectRecords" method="get" path="/api/v2/custom_objects/{custom_object_key}/records/search" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -655,6 +666,7 @@ A comparison object is a JSON object that has the following properties:
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="FilteredSearchCustomObjectRecords" method="post" path="/api/v2/custom_objects/{custom_object_key}/records/search" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -735,6 +747,7 @@ List the current count and the limit for custom object records
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CustomObjectRecordsLimit" method="get" path="/api/v2/custom_objects/limits/record_limit" -->
 ```python
 from zendesk import Zendesk, models
 

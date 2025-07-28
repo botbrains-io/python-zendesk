@@ -11312,6 +11312,12 @@ paths:
           description: Comma-separated list of ticket ids
           schema:
             type: string
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TicketsUpdateManyRequestBody"
       responses:
         "200":
           description: Successful response
@@ -24423,6 +24429,10 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/TicketCreateInput"
+    TicketsUpdateManyRequestBody:
+      type: object
+      description: Arbitrary JSON payload for updating multiple tickets
+      additionalProperties: true
     TicketsResponse:
       type: object
       properties:

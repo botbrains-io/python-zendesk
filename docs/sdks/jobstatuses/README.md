@@ -27,6 +27,7 @@ See [Pagination](/api-reference/introduction/pagination/).
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListJobStatuses" method="get" path="/api/v2/job_statuses" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -77,6 +78,7 @@ Shows the status of a background job.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowJobStatus" method="get" path="/api/v2/job_statuses/{job_status_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -123,6 +125,7 @@ Accepts a comma-separated list of job status ids.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowManyJobStatuses" method="get" path="/api/v2/job_statuses/show_many" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -185,6 +188,7 @@ This endpoint returns a `job_status` [JSON object](/api-reference/ticketing/tick
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="BulkSetAgentAttributeValuesJob" method="post" path="/api/v2/routing/agents/instance_values/job" -->
 ```python
 from zendesk import Zendesk, models
 

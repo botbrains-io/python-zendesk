@@ -32,6 +32,7 @@ See [Pagination](/api-reference/introduction/pagination/).
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListBrands" method="get" path="/api/v2/brands" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -78,6 +79,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateBrand" method="post" path="/api/v2/brands" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -128,6 +130,7 @@ Returns a brand for your account.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowBrand" method="get" path="/api/v2/brands/{brand_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -175,6 +178,7 @@ A brand image can be updated by uploading a local file using the update brand en
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="UpdateBrand" method="put" path="/api/v2/brands/{brand_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -225,6 +229,7 @@ Deletes a brand.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="DeleteBrand" method="delete" path="/api/v2/brands/{brand_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -264,6 +269,7 @@ Returns a JSON object determining whether a host mapping is valid for the given 
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CheckHostMappingValidityForExistingBrand" method="get" path="/api/v2/brands/{brand_id}/check_host_mapping" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -309,6 +315,7 @@ Returns a JSON object determining whether a host mapping is valid for a given su
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CheckHostMappingValidity" method="get" path="/api/v2/brands/check_host_mapping" -->
 ```python
 from zendesk import Zendesk, models
 

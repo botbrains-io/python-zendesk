@@ -54,6 +54,7 @@ Returns a maximum of 100 records per page.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListViews" method="get" path="/api/v2/views" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -219,6 +220,7 @@ You can group and sort items in the view by adding items to the `output` paramet
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateView" method="post" path="/api/v2/views" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -262,6 +264,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowView" method="get" path="/api/v2/views/{view_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -357,6 +360,7 @@ You can also update how items are sorted and grouped. See [View sorting](#view-s
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="UpdateView" method="put" path="/api/v2/views/{view_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -400,6 +404,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="DeleteView" method="delete" path="/api/v2/views/{view_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -469,6 +474,7 @@ View counts are represented as JSON objects with the following attributes:
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="GetViewCount" method="get" path="/api/v2/views/{view_id}/count" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -536,6 +542,7 @@ See [Pagination](/api-reference/introduction/pagination/).
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ExecuteView" method="get" path="/api/v2/views/{view_id}/execute" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -589,6 +596,7 @@ Returns the csv attachment of the specified view if possible. Enqueues a job to 
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ExportView" method="get" path="/api/v2/views/{view_id}/export" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -639,6 +647,7 @@ See [Pagination](/api-reference/introduction/pagination/).
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListTicketsFromView" method="get" path="/api/v2/views/{view_id}/tickets" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -709,6 +718,7 @@ Returns a maximum of 100 records per page.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListActiveViews" method="get" path="/api/v2/views/active" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -758,6 +768,7 @@ A compacted list of shared and personal views available to the current user. Thi
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListCompactViews" method="get" path="/api/v2/views/compact" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -806,6 +817,7 @@ This indicates that the count is being updated in the background, and `count[val
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CountViews" method="get" path="/api/v2/views/count" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -855,6 +867,7 @@ This endpoint is rate limited to 6 requests every 5 minutes.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="GetViewCounts" method="get" path="/api/v2/views/count_many" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -900,6 +913,7 @@ Deletes the views corresponding to the provided list of IDs.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="BulkDeleteViews" method="delete" path="/api/v2/views/destroy_many" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -958,6 +972,7 @@ See [Pagination](/api-reference/introduction/pagination/).
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="PreviewViews" method="post" path="/api/v2/views/preview" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -1008,6 +1023,7 @@ Returns the ticket count for a single preview.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="PreviewCount" method="post" path="/api/v2/views/preview/count" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -1066,6 +1082,7 @@ The following sideloads are supported. For more information, see [Side-loading](
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="SearchViews" method="get" path="/api/v2/views/search" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -1125,6 +1142,7 @@ The following sideloads are supported:
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListViewsById" method="get" path="/api/v2/views/show_many" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -1195,6 +1213,7 @@ Each view may have the following properties:
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="UpdateManyViews" method="put" path="/api/v2/views/update_many" -->
 ```python
 from zendesk import Zendesk, models
 

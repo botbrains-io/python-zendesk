@@ -25,6 +25,7 @@ Creates an approval request that is attached to a ticket. The request must inclu
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateApprovalRequest" method="post" path="/api/v2/approval_workflow_instances/{approval_workflow_instance_id}/approval_requests" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -76,6 +77,7 @@ Shows an approval request.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowApprovalRequest" method="get" path="/api/v2/approval_workflow_instances/{approval_workflow_instance_id}/approval_requests/{approval_request_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -123,6 +125,7 @@ Updates the  approver's decision about an approval request.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="UpdateDecisionApprovalRequest" method="patch" path="/api/v2/approval_workflow_instances/{approval_workflow_instance_id}/approval_requests/{approval_request_id}/decision" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -172,6 +175,7 @@ Returns a list of approvals associated with a specific [workflow instance](/api-
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="SearchApprovals" method="post" path="/api/v2/approval_workflow_instances/{approval_workflow_instance_id}/approval_requests/search" -->
 ```python
 from zendesk import Zendesk, models
 

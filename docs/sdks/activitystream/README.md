@@ -33,6 +33,7 @@ Returns a maximum of 100 records per page.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListActivities" method="get" path="/api/v2/activities" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -84,6 +85,7 @@ Lists a specific activity.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowActivity" method="get" path="/api/v2/activities/{activity_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -133,6 +135,7 @@ This indicates that the count is being updated in the background, and `count[val
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CountActivities" method="get" path="/api/v2/activities/count" -->
 ```python
 from zendesk import Zendesk, models
 

@@ -16,6 +16,7 @@
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListBookmarks" method="get" path="/api/v2/bookmarks" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -57,6 +58,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateBookmark" method="post" path="/api/v2/bookmarks" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -105,6 +107,7 @@ If the bookmark already exists with a specified ticket id, the response status w
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="DeleteBookmark" method="delete" path="/api/v2/bookmarks/{bookmark_id}" -->
 ```python
 from zendesk import Zendesk, models
 

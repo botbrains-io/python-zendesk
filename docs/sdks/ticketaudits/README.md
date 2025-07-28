@@ -25,6 +25,7 @@ This endpoint should not be used for capturing change data. When continually cha
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListTicketAudits" method="get" path="/api/v2/ticket_audits" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -86,6 +87,7 @@ Returns a maximum of 100 records per page.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListAuditsForTicket" method="get" path="/api/v2/tickets/{ticket_id}/audits" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -135,6 +137,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowTicketAudit" method="get" path="/api/v2/tickets/{ticket_id}/audits/{ticket_audit_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -180,6 +183,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="MakeTicketCommentPrivateFromAudits" method="put" path="/api/v2/tickets/{ticket_id}/audits/{ticket_audit_id}/make_private" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -231,6 +235,7 @@ The `count[refreshed_at]` property is a timestamp that indicates when the count 
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CountAuditsForTicket" method="get" path="/api/v2/tickets/{ticket_id}/audits/count" -->
 ```python
 from zendesk import Zendesk, models
 

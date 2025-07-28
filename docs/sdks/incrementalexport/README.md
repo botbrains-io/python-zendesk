@@ -24,6 +24,7 @@ Use the `incremental_resource` parameter to specify the resource. Possible value
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="IncrementalSampleExport" method="get" path="/api/v2/incremental/{incremental_resource}/sample" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -73,6 +74,7 @@ See [Organizations sideloads](/documentation/ticketing/using-the-zendesk-api/sid
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="IncrementalOrganizationExport" method="get" path="/api/v2/incremental/organizations" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -159,6 +161,7 @@ update is listed as an object in the event's `child_events` array. Example:
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="IncrementalTicketEvents" method="get" path="/api/v2/incremental/ticket_events" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -226,6 +229,7 @@ See [Tickets sideloads](/documentation/ticketing/using-the-zendesk-api/side_load
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="IncrementalTicketExportTime" method="get" path="/api/v2/incremental/tickets" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -284,6 +288,7 @@ See [Tickets sideloads](/documentation/ticketing/using-the-zendesk-api/side_load
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="IncrementalTicketExportCursor" method="get" path="/api/v2/incremental/tickets/cursor" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -333,6 +338,7 @@ See [Users sideloads](/documentation/ticketing/using-the-zendesk-api/side_loadin
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="IncrementalUserExportTime" method="get" path="/api/v2/incremental/users" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -382,6 +388,7 @@ See [Users sideloads](/documentation/ticketing/using-the-zendesk-api/side_loadin
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="IncrementalUserExportCursor" method="get" path="/api/v2/incremental/users/cursor" -->
 ```python
 from zendesk import Zendesk, models
 

@@ -124,6 +124,7 @@ The implicit grant flow has been deprecated. It's considered insecure and its us
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateTokenForGrantType" method="post" path="/oauth/tokens" -->
 ```python
 from zendesk import Zendesk, models
 

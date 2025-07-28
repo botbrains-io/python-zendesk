@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 37ac03f7-3b34-47b7-8334-e362604f87cd
 management:
-  docChecksum: 7d2b038b1e96de24cb956384b41fdfa7
+  docChecksum: f8855f4609d621242037a27e2c8cc57f
   docVersion: 2.0.0
-  speakeasyVersion: 1.563.1
-  generationVersion: 2.629.1
-  releaseVersion: 0.1.16
-  configChecksum: 11cf1f3184cca2d5bcaa68aec0ec10aa
+  speakeasyVersion: 1.592.1
+  generationVersion: 2.667.0
+  releaseVersion: 0.1.17
+  configChecksum: 0db766c4248cf8ae787e235d00a5719b
   published: true
 features:
   python:
@@ -14,7 +14,7 @@ features:
     additionalProperties: 1.0.1
     configurableModuleName: 0.2.0
     constsAndDefaults: 1.0.5
-    core: 5.19.3
+    core: 5.19.5
     deepObjectParams: 0.1.0
     defaultEnabledRetries: 0.2.0
     deprecations: 3.0.2
@@ -39,7 +39,6 @@ generatedFiles:
   - .devcontainer/devcontainer.json
   - .devcontainer/setup.sh
   - .gitattributes
-  - .python-version
   - .vscode/settings.json
   - USAGE.md
   - docs/errors/batchjobresponseerror.md
@@ -1461,8 +1460,11 @@ generatedFiles:
   - src/zendesk/errors/error.py
   - src/zendesk/errors/errorresponse.py
   - src/zendesk/errors/errors.py
+  - src/zendesk/errors/no_response_error.py
   - src/zendesk/errors/recoversuspendedticketunprocessablecontentresponse_error.py
+  - src/zendesk/errors/responsevalidationerror.py
   - src/zendesk/errors/skillbasedroutingattributevalueserror.py
+  - src/zendesk/errors/zendeskerror.py
   - src/zendesk/essentials_card.py
   - src/zendesk/global_clients.py
   - src/zendesk/grant_type_tokens.py
@@ -2374,6 +2376,7 @@ generatedFiles:
   - src/zendesk/utils/retries.py
   - src/zendesk/utils/security.py
   - src/zendesk/utils/serializers.py
+  - src/zendesk/utils/unmarshal_json_response.py
   - src/zendesk/utils/url.py
   - src/zendesk/utils/values.py
   - src/zendesk/views.py

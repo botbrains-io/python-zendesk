@@ -14,6 +14,7 @@ Create Trial Account
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateTrialAccount" method="post" path="/api/v2/accounts" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -57,6 +58,7 @@ Returns "true" if the subdomain is available.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="VerifySubdomainAvailability" method="get" path="/api/v2/accounts/available" -->
 ```python
 from zendesk import Zendesk, models
 

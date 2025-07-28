@@ -36,6 +36,7 @@ This endpoint can be used to determine if a merge is still in progress, has comp
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowOrganizationMerge" method="get" path="/api/v2/organization_merges/{organization_merge_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -91,6 +92,7 @@ If the agent has a custom agent role that restricts their access to only users i
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListOrganizations" method="get" path="/api/v2/organizations" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -146,6 +148,7 @@ organization names.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateOrganization" method="post" path="/api/v2/organizations" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -193,6 +196,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowOrganization" method="get" path="/api/v2/organizations/{organization_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -252,6 +256,7 @@ Agents with no permissions restrictions can only update "notes" on organizations
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="UpdateOrganization" method="put" path="/api/v2/organizations/{organization_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -298,6 +303,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="DeleteOrganization" method="delete" path="/api/v2/organizations/{organization_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -354,6 +360,7 @@ Merges two organizations by moving all users, tickets, and domain names from the
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateOrganizationMerge" method="post" path="/api/v2/organizations/{organization_id}/merge" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -412,6 +419,7 @@ See [Pagination](/api-reference/introduction/pagination/) for more details.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListOrganizationMerges" method="get" path="/api/v2/organizations/{organization_id}/merges" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -461,6 +469,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="OrganizationRelated" method="get" path="/api/v2/organizations/{organization_id}/related" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -514,6 +523,7 @@ See [Using Offset Pagination](/api-reference/ticketing/introduction/#using-offse
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="AutocompleteOrganizations" method="get" path="/api/v2/organizations/autocomplete" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -573,6 +583,7 @@ updated in the background and the `value` property of the `count` object is limi
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CountOrganizations" method="get" path="/api/v2/organizations/count" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -622,6 +633,7 @@ This endpoint returns a `job_status` [JSON object](/api-reference/ticketing/tick
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateManyOrganizations" method="post" path="/api/v2/organizations/create_many" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -672,6 +684,7 @@ not available as a matching criteria.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateOrUpdateOrganization" method="post" path="/api/v2/organizations/create_or_update" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -722,6 +735,7 @@ This endpoint returns a `job_status` [JSON object](/api-reference/ticketing/tick
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="DeleteManyOrganizations" method="delete" path="/api/v2/organizations/destroy_many" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -782,6 +796,7 @@ See [Creating custom agent roles](https://support.zendesk.com/hc/en-us/articles/
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="SearchOrganizations" method="get" path="/api/v2/organizations/search" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -830,6 +845,7 @@ Accepts a comma-separated list of up to 100 organization ids or external ids.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowManyOrganizations" method="get" path="/api/v2/organizations/show_many" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -913,6 +929,7 @@ Agents with no permissions restrictions can only update "notes" on organizations
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="UpdateManyOrganizations" method="put" path="/api/v2/organizations/update_many" -->
 ```python
 from zendesk import Zendesk, models
 

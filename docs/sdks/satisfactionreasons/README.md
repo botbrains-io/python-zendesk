@@ -19,6 +19,7 @@ List all reasons for an account
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListSatisfactionRatingReasons" method="get" path="/api/v2/satisfaction_reasons" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -62,6 +63,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowSatisfactionRatings" method="get" path="/api/v2/satisfaction_reasons/{satisfaction_reason_id}" -->
 ```python
 from zendesk import Zendesk, models
 

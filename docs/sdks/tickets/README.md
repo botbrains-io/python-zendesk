@@ -66,6 +66,7 @@ The rate limiting mechanism behaves as described in
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListDeletedTickets" method="get" path="/api/v2/deleted_tickets" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -125,6 +126,7 @@ Use the [Show Job Status](/api-reference/ticketing/ticket-management/job_statuse
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="DeleteTicketPermanently" method="delete" path="/api/v2/deleted_tickets/{ticket_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -168,6 +170,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="RestoreDeletedTicket" method="put" path="/api/v2/deleted_tickets/{ticket_id}/restore" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -222,6 +225,7 @@ This endpoint returns a `job_status` [JSON object](/api-reference/ticketing/tick
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="BulkPermanentlyDeleteTickets" method="delete" path="/api/v2/deleted_tickets/destroy_many" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -265,6 +269,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="BulkRestoreDeletedTickets" method="put" path="/api/v2/deleted_tickets/restore_many" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -317,6 +322,7 @@ See [Pagination](/api-reference/introduction/pagination/).
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListTicketProblems" method="get" path="/api/v2/problems" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -370,6 +376,7 @@ You can specify the `text` parameter in the request body rather than the query s
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="AutocompleteProblems" method="post" path="/api/v2/problems/autocomplete" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -414,6 +421,7 @@ List Tickets
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListTickets" method="get" path="/api/v2/tickets" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -461,6 +469,7 @@ Create Ticket
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateTicket" method="post" path="/api/v2/tickets" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -513,6 +522,7 @@ Returns a number of ticket properties though not the ticket comments. To get the
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowTicket" method="get" path="/api/v2/tickets/{ticket_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -554,6 +564,7 @@ Update Ticket
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="UpdateTicket" method="put" path="/api/v2/tickets/{ticket_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -618,6 +629,7 @@ To delete many tickets, you may use [Bulk Delete Tickets](/api-reference/ticketi
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="DeleteTicket" method="delete" path="/api/v2/tickets/{ticket_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -656,6 +668,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListTicketCollaborators" method="get" path="/api/v2/tickets/{ticket_id}/collaborators" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -707,6 +720,7 @@ If the feature is not enabled, the default CC functionality is used. In that cas
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListTicketEmailCCs" method="get" path="/api/v2/tickets/{ticket_id}/email_ccs" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -756,6 +770,7 @@ The [CCs and Followers](https://support.zendesk.com/hc/en-us/articles/203690846)
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListTicketFollowers" method="get" path="/api/v2/tickets/{ticket_id}/followers" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -805,6 +820,7 @@ See [Pagination](/api-reference/introduction/pagination/).
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListTicketIncidents" method="get" path="/api/v2/tickets/{ticket_id}/incidents" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -853,6 +869,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="MarkTicketAsSpamAndSuspendRequester" method="put" path="/api/v2/tickets/{ticket_id}/mark_as_spam" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -930,6 +947,7 @@ In any other case, comments default to private but can be modified with the comm
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="MergeTicketsIntoTargetTicket" method="post" path="/api/v2/tickets/{ticket_id}/merge" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -992,6 +1010,7 @@ The request returns a data object with the following properties:
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="TicketRelatedInformation" method="get" path="/api/v2/tickets/{ticket_id}/related" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -1043,6 +1062,7 @@ This indicates that the count is being updated in the background, and `count[val
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CountTickets" method="get" path="/api/v2/tickets/count" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -1088,6 +1108,7 @@ This endpoint returns a `job_status` [JSON object](/api-reference/ticketing/tick
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="TicketsCreateMany" method="post" path="/api/v2/tickets/create_many" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -1157,6 +1178,7 @@ This endpoint returns a `job_status` [JSON object](/api-reference/ticketing/tick
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="BulkDeleteTickets" method="delete" path="/api/v2/tickets/destroy_many" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -1204,6 +1226,7 @@ This endpoint returns a `job_status` [JSON object](/api-reference/ticketing/tick
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="MarkManyTicketsAsSpam" method="put" path="/api/v2/tickets/mark_many_as_spam" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -1250,6 +1273,7 @@ This endpoint will return up to 100 tickets records.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="TicketsShowMany" method="get" path="/api/v2/tickets/show_many" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -1291,6 +1315,7 @@ Accepts an array of up to 100 ticket objects, or a comma-separated list of up to
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="TicketsUpdateMany" method="put" path="/api/v2/tickets/update_many" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -1314,6 +1339,7 @@ with Zendesk(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `ids`                                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | Comma-separated list of ticket ids                                  |
+| `request_body`                                                      | Dict[str, *Any*]                                                    | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response

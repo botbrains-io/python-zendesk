@@ -29,6 +29,7 @@ Returns a maximum of 100 records per page.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListUserFields" method="get" path="/api/v2/user_fields" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -92,6 +93,7 @@ See [About custom field types](https://support.zendesk.com/hc/en-us/articles/203
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateUserField" method="post" path="/api/v2/user_fields" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -135,6 +137,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ReorderUserField" method="put" path="/api/v2/user_fields/reorder" -->
 ```python
 from zendesk import Zendesk, models
 

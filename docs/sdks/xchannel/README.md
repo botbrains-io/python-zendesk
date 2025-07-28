@@ -20,6 +20,7 @@
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListMonitoredTwitterHandles" method="get" path="/api/v2/channels/twitter/monitored_twitter_handles" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -64,6 +65,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowMonitoredTwitterHandle" method="get" path="/api/v2/channels/twitter/monitored_twitter_handles/{monitored_twitter_handle_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -112,6 +114,7 @@ The submitter of the ticket is set to be the user submitting the API request.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateTicketFromTweet" method="post" path="/api/v2/channels/twitter/tickets" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -155,6 +158,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="GettingTwicketStatus" method="get" path="/api/v2/channels/twitter/tickets/{comment_id}/statuses" -->
 ```python
 from zendesk import Zendesk, models
 

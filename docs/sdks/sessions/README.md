@@ -31,6 +31,7 @@ See [Pagination](/api-reference/introduction/pagination/).
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListSessions" method="get" path="/api/v2/sessions" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -81,6 +82,7 @@ Deletes all the sessions for a user.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="BulkDeleteSessionsByUserId" method="delete" path="/api/v2/users/{user_id}/sessions" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -120,6 +122,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowSession" method="get" path="/api/v2/users/{user_id}/sessions/{session_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -165,6 +168,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="DeleteSession" method="delete" path="/api/v2/users/{user_id}/sessions/{session_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -208,6 +212,7 @@ made from a Zendesk app. When using OAuth or basic authentication, you don't hav
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="DeleteAuthenticatedSession" method="delete" path="/api/v2/users/me/logout" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -246,6 +251,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowCurrentlyAuthenticatedSession" method="get" path="/api/v2/users/me/session" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -289,6 +295,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="RenewCurrentSession" method="get" path="/api/v2/users/me/session/renew" -->
 ```python
 from zendesk import Zendesk, models
 

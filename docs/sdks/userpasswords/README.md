@@ -20,6 +20,7 @@ An admin can set a user's password only if the setting is enabled in Zendesk Sup
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="SetUserPassword" method="post" path="/api/v2/users/{user_id}/password" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -67,6 +68,7 @@ You can only change your own password. Nobody can change the password of another
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ChangeOwnPassword" method="put" path="/api/v2/users/{user_id}/password" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -112,6 +114,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="GetUserPasswordRequirements" method="get" path="/api/v2/users/{user_id}/password/requirements" -->
 ```python
 from zendesk import Zendesk, models
 

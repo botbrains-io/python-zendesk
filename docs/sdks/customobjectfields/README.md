@@ -28,6 +28,7 @@ See [Pagination](/api-reference/introduction/pagination/).
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListCustomObjectFields" method="get" path="/api/v2/custom_objects/{custom_object_key}/fields" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -93,6 +94,7 @@ See [About custom field types](https://support.zendesk.com/hc/en-us/articles/203
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateCustomObjectField" method="post" path="/api/v2/custom_objects/{custom_object_key}/fields" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -142,6 +144,7 @@ Returns a custom field for a specific object using a provided key or id of the f
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowCustomObjectField" method="get" path="/api/v2/custom_objects/{custom_object_key}/fields/{custom_object_field_key_or_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -195,6 +198,7 @@ Updates individual custom object fields. The updating rules are as follows:
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="UpdateCustomObjectField" method="patch" path="/api/v2/custom_objects/{custom_object_key}/fields/{custom_object_field_key_or_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -239,6 +243,7 @@ Deletes a field with the specified key. Note: You can't delete standard fields.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="DeleteCustomObjectField" method="delete" path="/api/v2/custom_objects/{custom_object_key}/fields/{custom_object_field_key_or_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -280,6 +285,7 @@ Sets a preferred order of custom fields for a specific object by providing field
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ReorderCustomObjectFields" method="put" path="/api/v2/custom_objects/{custom_object_key}/fields/reorder" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -323,6 +329,7 @@ List the current count and the limit for a custom object's fields
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CustomObjectFieldsLimit" method="get" path="/api/v2/custom_objects/{custom_object_key}/limits/field_limit" -->
 ```python
 from zendesk import Zendesk, models
 

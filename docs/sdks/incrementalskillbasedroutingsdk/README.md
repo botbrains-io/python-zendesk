@@ -28,6 +28,7 @@ Optional
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="IncrementalSkilBasedRoutingAttributeValuesExport" method="get" path="/api/v2/incremental/routing/attribute_values" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -82,6 +83,7 @@ Optional
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="IncrementalSkilBasedRoutingAttributesExport" method="get" path="/api/v2/incremental/routing/attributes" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -136,6 +138,7 @@ Optional
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="IncrementalSkilBasedRoutingInstanceValuesExport" method="get" path="/api/v2/incremental/routing/instance_values" -->
 ```python
 from zendesk import Zendesk, models
 

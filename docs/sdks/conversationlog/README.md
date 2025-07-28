@@ -27,6 +27,7 @@ Returns a maximum of 100 records per page.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListConversationLogForTicket" method="get" path="/api/v2/tickets/{ticket_id}/conversation_log" -->
 ```python
 from zendesk import Zendesk, models
 

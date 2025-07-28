@@ -35,6 +35,7 @@ Returns an attribute value.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListAGentAttributeValues" method="get" path="/api/v2/routing/agents/{user_id}/instance_values" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -81,6 +82,7 @@ Adds the specified attributes if no attributes exists, or replaces all existing 
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="SetAgentAttributeValues" method="post" path="/api/v2/routing/agents/{user_id}/instance_values" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -131,6 +133,7 @@ Note: `page[before]` and `page[after]` can't be used together in the same reques
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListManyAgentsAttributeValues" method="get" path="/api/v2/routing/agents/instance_values" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -199,6 +202,7 @@ This endpoint returns a `job_status` [JSON object](/api-reference/ticketing/tick
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="BulkSetAgentAttributeValuesJob" method="post" path="/api/v2/routing/agents/instance_values/job" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -260,6 +264,7 @@ The following sideloads are supported:
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListAccountAttributes" method="get" path="/api/v2/routing/attributes" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -305,6 +310,7 @@ Creates an attribute.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateAttribute" method="post" path="/api/v2/routing/attributes" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -350,6 +356,7 @@ Returns an attribute.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowAttribute" method="get" path="/api/v2/routing/attributes/{attribute_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -396,6 +403,7 @@ Updates an attribute.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="UpdateAttribute" method="put" path="/api/v2/routing/attributes/{attribute_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -442,6 +450,7 @@ Deletes an attribute.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="DeleteAttribute" method="delete" path="/api/v2/routing/attributes/{attribute_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -483,6 +492,7 @@ Returns a list of attribute values for a provided attribute.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListAttributeValues" method="get" path="/api/v2/routing/attributes/{attribute_id}/values" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -529,6 +539,7 @@ Creates an attribute value.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateAttributeValue" method="post" path="/api/v2/routing/attributes/{attribute_id}/values" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -575,6 +586,7 @@ Returns an attribute value.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowAttributeValue" method="get" path="/api/v2/routing/attributes/{attribute_id}/values/{attribute_value_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -622,6 +634,7 @@ Updates the name and ticket conditions of a skill. When a ticket is created, the
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="UpdateAttributeValue" method="patch" path="/api/v2/routing/attributes/{attribute_id}/values/{attribute_value_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -669,6 +682,7 @@ Deletes an attribute value.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="DeleteAttributeValue" method="delete" path="/api/v2/routing/attributes/{attribute_id}/values/{attribute_value_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -711,6 +725,7 @@ Returns the condition definitions that can be configured to apply attributes to 
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListRoutingAttributeDefinitions" method="get" path="/api/v2/routing/attributes/definitions" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -756,6 +771,7 @@ Returns a list of ticket ids that contain attributes matching the current user's
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListTicketsFullfilledByUser" method="get" path="/api/v2/routing/requirements/fulfilled" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -802,6 +818,7 @@ Returns a list of attributes values for the ticket.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListTicketAttributeValues" method="get" path="/api/v2/routing/tickets/{ticket_id}/instance_values" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -850,6 +867,7 @@ Invalid or deleted attributes are ignored.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="SetTicketAttributeValues" method="post" path="/api/v2/routing/tickets/{ticket_id}/instance_values" -->
 ```python
 from zendesk import Zendesk, models
 

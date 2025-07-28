@@ -22,6 +22,7 @@ Lists resource collections for the account.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListResourceCollections" method="get" path="/api/v2/resource_collections" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -70,6 +71,7 @@ status](/api-reference/ticketing/ticket-management/job_statuses/) for creation o
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateResourceCollection" method="post" path="/api/v2/resource_collections" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -115,6 +117,7 @@ Retrieves details for a specified resource collection.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="RetrieveResourceCollection" method="get" path="/api/v2/resource_collections/{resource_collection_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -164,6 +167,7 @@ status](/api-reference/ticketing/ticket-management/job_statuses/) for the resour
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="UpdateResourceCollection" method="put" path="/api/v2/resource_collections/{resource_collection_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -213,6 +217,7 @@ status](/api-reference/ticketing/ticket-management/job_statuses/) for deletion o
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="DeleteResourceCollection" method="delete" path="/api/v2/resource_collections/{resource_collection_id}" -->
 ```python
 from zendesk import Zendesk, models
 

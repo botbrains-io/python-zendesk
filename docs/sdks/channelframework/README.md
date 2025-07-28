@@ -35,6 +35,7 @@ The response does not include a response body
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ReportChannelbackError" method="post" path="/api/v2/any_channel/channelback/report_error" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -167,6 +168,7 @@ same order.  For example, if you call `push` with 3 external resources, a succes
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="PushContentToSupport" method="post" path="/api/v2/any_channel/push" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -223,6 +225,7 @@ The response body is empty.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ValidateToken" method="post" path="/api/v2/any_channel/validate_token" -->
 ```python
 from zendesk import Zendesk, models
 

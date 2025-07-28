@@ -25,6 +25,7 @@ Lists the translation locales available for the account.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListLocales" method="get" path="/api/v2/locales" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -68,6 +69,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowLocaleById" method="get" path="/api/v2/locales/{locale_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -114,6 +116,7 @@ Lists the translation locales that have been localized for agents on a specific 
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListLocalesForAgent" method="get" path="/api/v2/locales/agent" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -159,6 +162,7 @@ This works like [Show Locale](#show-locale), but instead of taking a locale id a
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowCurrentLocale" method="get" path="/api/v2/locales/current" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -202,6 +206,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="DetectBestLocale" method="get" path="/api/v2/locales/detect_best_locale" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -247,6 +252,7 @@ Lists the translation locales that are available to all accounts.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListAvailablePublicLocales" method="get" path="/api/v2/locales/public" -->
 ```python
 from zendesk import Zendesk, models
 

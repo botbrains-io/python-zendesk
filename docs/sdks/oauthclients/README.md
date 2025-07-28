@@ -30,6 +30,7 @@ Returns a maximum of 100 records per page.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListOAuthClients" method="get" path="/api/v2/oauth/clients" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -78,6 +79,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateOAuthClient" method="post" path="/api/v2/oauth/clients" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -120,6 +122,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowClient" method="get" path="/api/v2/oauth/clients/{oauth_client_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -163,6 +166,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="UpdateClient" method="put" path="/api/v2/oauth/clients/{oauth_client_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -206,6 +210,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="DeleteClient" method="delete" path="/api/v2/oauth/clients/{oauth_client_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -244,6 +249,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ClientGenerateSecret" method="put" path="/api/v2/oauth/clients/{oauth_client_id}/generate_secret" -->
 ```python
 from zendesk import Zendesk, models
 

@@ -33,6 +33,7 @@ Returns a maximum of 100 records per page.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListSupportAddresses" method="get" path="/api/v2/recipient_addresses" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -89,6 +90,7 @@ To add an external email address such as help@omniwearshop.com, the email must a
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateSupportAddress" method="post" path="/api/v2/recipient_addresses" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -133,6 +135,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowSupportAddress" method="get" path="/api/v2/recipient_addresses/{support_address_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -184,6 +187,7 @@ Address](#create-support-address) endpoint.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="UpdateSupportAddress" method="put" path="/api/v2/recipient_addresses/{support_address_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -231,6 +235,7 @@ Deletes a support address.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="DeleteRecipientAddress" method="delete" path="/api/v2/recipient_addresses/{support_address_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -287,6 +292,7 @@ When calling the endpoint with `type` set to "dns", it runs checks on your CNAME
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="VerifySupportAddressForwarding" method="put" path="/api/v2/recipient_addresses/{support_address_id}/verify" -->
 ```python
 from zendesk import Zendesk, models
 

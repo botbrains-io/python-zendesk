@@ -29,6 +29,7 @@ Returns a list of all ticket forms for your account if accessed as an admin or a
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListTicketForms" method="get" path="/api/v2/ticket_forms" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -76,6 +77,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateTicketForm" method="post" path="/api/v2/ticket_forms" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -119,6 +121,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowTicketForm" method="get" path="/api/v2/ticket_forms/{ticket_form_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -162,6 +165,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="UpdateTicketForm" method="put" path="/api/v2/ticket_forms/{ticket_form_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -205,6 +209,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="DeleteTicketForm" method="delete" path="/api/v2/ticket_forms/{ticket_form_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -244,6 +249,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CloneTicketForm" method="post" path="/api/v2/ticket_forms/{ticket_form_id}/clone" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -291,6 +297,7 @@ Fetches all of the associated ticket form statuses of a ticket form.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="TicketFormTicketFormStatuses" method="get" path="/api/v2/ticket_forms/{ticket_form_id}/ticket_form_statuses" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -337,6 +344,7 @@ Creates one or many ticket form status associations
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateTicketFormStatuses" method="post" path="/api/v2/ticket_forms/{ticket_form_id}/ticket_form_statuses" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -391,6 +399,7 @@ Updates or deletes ticket form status associations. This is a bulk operation tha
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="UpdateTicketFormStatuses" method="put" path="/api/v2/ticket_forms/{ticket_form_id}/ticket_form_statuses" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -446,6 +455,7 @@ Updates or deletes ticket form status association by id.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="UpdateTicketFormStatusById" method="put" path="/api/v2/ticket_forms/{ticket_form_id}/ticket_form_statuses/{ticket_form_status_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -509,6 +519,7 @@ You can pass in the following parameter in the payload:
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ReorderTicketForms" method="put" path="/api/v2/ticket_forms/reorder" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -554,6 +565,7 @@ Takes an `ids` query parameter that accepts a comma-separated list of up to 100 
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowManyTicketForms" method="get" path="/api/v2/ticket_forms/show_many" -->
 ```python
 from zendesk import Zendesk, models
 

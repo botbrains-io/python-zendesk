@@ -30,6 +30,7 @@ Returns a maximum of 100 records per page.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListOAuthTokens" method="get" path="/api/v2/oauth/tokens" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -164,6 +165,7 @@ end users. See [Making API requests on behalf of end users](/documentation/ticke
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateOAuthToken" method="post" path="/api/v2/oauth/tokens" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -222,6 +224,7 @@ curl https://{subdomain}.zendesk.com/api/v2/oauth/tokens/current.json \
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowToken" method="get" path="/api/v2/oauth/tokens/{oauth_token_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -265,6 +268,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="RevokeOAuthToken" method="delete" path="/api/v2/oauth/tokens/{oauth_token_id}" -->
 ```python
 from zendesk import Zendesk, models
 

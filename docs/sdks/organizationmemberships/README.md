@@ -38,6 +38,7 @@ Returns a maximum of 100 records per page.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListOrganizationMemberships" method="get" path="/api/v2/organization_memberships" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -89,6 +90,7 @@ Assigns a user to a given organization. Returns an error with status 422 if the 
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateOrganizationMembership" method="post" path="/api/v2/organization_memberships" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -132,6 +134,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowOrganizationMembershipById" method="get" path="/api/v2/organization_memberships/{organization_membership_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -179,6 +182,7 @@ Immediately removes a user from an organization and schedules a job to unassign 
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="DeleteOrganizationMembership" method="delete" path="/api/v2/organization_memberships/{organization_membership_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -222,6 +226,7 @@ This endpoint returns a `job_status` [JSON object](/api-reference/ticketing/tick
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateManyOrganizationMemberships" method="post" path="/api/v2/organization_memberships/create_many" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -271,6 +276,7 @@ This endpoint returns a `job_status` [JSON object](/api-reference/ticketing/tick
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="DeleteManyOrganizationMemberships" method="delete" path="/api/v2/organization_memberships/destroy_many" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -318,6 +324,7 @@ Sets the default organization membership of a given user.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="SetOrganizationMembershipAsDefault" method="put" path="/api/v2/users/{user_id}/organization_memberships/{organization_membership_id}/make_default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -365,6 +372,7 @@ Immediately removes a user from an organization and schedules a job to unassign 
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="UnassignOrganization" method="delete" path="/api/v2/users/{user_id}/organizations/{organization_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -407,6 +415,7 @@ Sets the default organization membership of a given user.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="SetOrganizationAsDefault" method="put" path="/api/v2/users/{user_id}/organizations/{organization_id}/make_default" -->
 ```python
 from zendesk import Zendesk, models
 

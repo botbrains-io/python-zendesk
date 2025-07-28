@@ -26,6 +26,7 @@
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListSLAPolicies" method="get" path="/api/v2/slas/policies" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -73,6 +74,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateSLAPolicy" method="post" path="/api/v2/slas/policies" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -120,6 +122,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowSLAPolicy" method="get" path="/api/v2/slas/policies/{sla_policy_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -170,6 +173,7 @@ Updates the specified policy.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="UpdateSLAPolicy" method="put" path="/api/v2/slas/policies/{sla_policy_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -218,6 +222,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="DeleteSLAPolicy" method="delete" path="/api/v2/slas/policies/{sla_policy_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -261,6 +266,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="RetrieveSLAPolicyFilterDefinitionItems" method="get" path="/api/v2/slas/policies/definitions" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -308,6 +314,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ReorderSLAPolicies" method="put" path="/api/v2/slas/policies/reorder" -->
 ```python
 from zendesk import Zendesk, models
 

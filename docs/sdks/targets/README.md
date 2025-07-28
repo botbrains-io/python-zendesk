@@ -20,6 +20,7 @@
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListTargets" method="get" path="/api/v2/targets" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -63,6 +64,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateTarget" method="post" path="/api/v2/targets" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -106,6 +108,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowTarget" method="get" path="/api/v2/targets/{target_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -149,6 +152,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="UpdateTarget" method="put" path="/api/v2/targets/{target_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -192,6 +196,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="DeleteTarget" method="delete" path="/api/v2/targets/{target_id}" -->
 ```python
 from zendesk import Zendesk, models
 

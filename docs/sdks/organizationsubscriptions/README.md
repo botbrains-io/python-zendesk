@@ -30,6 +30,7 @@ For end users, the response will only list the subscriptions created by the requ
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListOrganizationSubscriptions" method="get" path="/api/v2/organization_subscriptions" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -80,6 +81,7 @@ End users can only subscribe to shared organizations in which they're members.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateOrganizationSubscription" method="post" path="/api/v2/organization_subscriptions" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -131,6 +133,7 @@ For end users, the response will only list the subscriptions created by the requ
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowOrganizationSubscription" method="get" path="/api/v2/organization_subscriptions/{organization_subscription_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -175,6 +178,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="DeleteOrganizationSubscription" method="delete" path="/api/v2/organization_subscriptions/{organization_subscription_id}" -->
 ```python
 from zendesk import Zendesk, models
 

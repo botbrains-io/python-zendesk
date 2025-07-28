@@ -9,14 +9,17 @@ if TYPE_CHECKING:
     from .error import Error, ErrorData
     from .errorresponse import ErrorResponse, ErrorResponseData
     from .errors import Errors, ErrorsData
+    from .no_response_error import NoResponseError
     from .recoversuspendedticketunprocessablecontentresponse_error import (
         RecoverSuspendedTicketUnprocessableContentResponseError,
         RecoverSuspendedTicketUnprocessableContentResponseErrorData,
     )
+    from .responsevalidationerror import ResponseValidationError
     from .skillbasedroutingattributevalueserror import (
         SkillBasedRoutingAttributeValuesError,
         SkillBasedRoutingAttributeValuesErrorData,
     )
+    from .zendeskerror import ZendeskError
 
 __all__ = [
     "APIError",
@@ -28,10 +31,13 @@ __all__ = [
     "ErrorResponseData",
     "Errors",
     "ErrorsData",
+    "NoResponseError",
     "RecoverSuspendedTicketUnprocessableContentResponseError",
     "RecoverSuspendedTicketUnprocessableContentResponseErrorData",
+    "ResponseValidationError",
     "SkillBasedRoutingAttributeValuesError",
     "SkillBasedRoutingAttributeValuesErrorData",
+    "ZendeskError",
 ]
 
 _dynamic_imports: dict[str, str] = {
@@ -44,10 +50,13 @@ _dynamic_imports: dict[str, str] = {
     "ErrorResponseData": ".errorresponse",
     "Errors": ".errors",
     "ErrorsData": ".errors",
+    "NoResponseError": ".no_response_error",
     "RecoverSuspendedTicketUnprocessableContentResponseError": ".recoversuspendedticketunprocessablecontentresponse_error",
     "RecoverSuspendedTicketUnprocessableContentResponseErrorData": ".recoversuspendedticketunprocessablecontentresponse_error",
+    "ResponseValidationError": ".responsevalidationerror",
     "SkillBasedRoutingAttributeValuesError": ".skillbasedroutingattributevalueserror",
     "SkillBasedRoutingAttributeValuesErrorData": ".skillbasedroutingattributevalueserror",
+    "ZendeskError": ".zendeskerror",
 }
 
 

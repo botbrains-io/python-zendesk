@@ -23,6 +23,7 @@ Updates the default values for many custom ticket statuses at once.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="BulkUpdateDefaultCustomStatus" method="put" path="/api/v2/custom_status/default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -71,6 +72,7 @@ Lists all undeleted custom ticket statuses for the account. No pagination is pro
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListCustomStatuses" method="get" path="/api/v2/custom_statuses" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -119,6 +121,7 @@ Takes a `custom_status` object that specifies the custom ticket status propertie
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateCustomStatus" method="post" path="/api/v2/custom_statuses" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -174,6 +177,7 @@ Returns the custom ticket status object.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowCustomStatus" method="get" path="/api/v2/custom_statuses/{custom_status_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -220,6 +224,7 @@ Takes a `custom_status` object that specifies the properties to update.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="UpdateCustomStatus" method="put" path="/api/v2/custom_statuses/{custom_status_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -273,6 +278,7 @@ Creates one or many tickets form status associations for a custom status.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateTicketFormStatusesForCustomStatus" method="post" path="/api/v2/custom_statuses/{custom_status_id}/ticket_form_statuses" -->
 ```python
 from zendesk import Zendesk, models
 

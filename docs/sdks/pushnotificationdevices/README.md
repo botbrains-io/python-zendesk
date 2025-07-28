@@ -17,6 +17,7 @@ Unregisters the mobile devices that are receiving push notifications. Specify th
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="PushNotificationDevices" method="post" path="/api/v2/push_notification_devices/destroy_many" -->
 ```python
 from zendesk import Zendesk, models
 

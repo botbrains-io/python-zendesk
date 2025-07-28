@@ -24,6 +24,7 @@ Returns all active queues for an account.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListQueues" method="get" path="/api/v2/queues" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -69,6 +70,7 @@ Creates a queue. Accepts a JSON queue definition as the request body.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateQueue" method="post" path="/api/v2/queues" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -113,6 +115,7 @@ Returns a queue for the given queue id.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowQueueById" method="get" path="/api/v2/queues/{queue_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -158,6 +161,7 @@ Updates the queue definition for a given queue id.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="UpdateQueue" method="put" path="/api/v2/queues/{queue_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -203,6 +207,7 @@ Deletes the queue and related records.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="DeleteQueue" method="delete" path="/api/v2/queues/{queue_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -247,6 +252,7 @@ as well as the possible operators.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListQueueDefinitions" method="get" path="/api/v2/queues/definitions" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -295,6 +301,7 @@ You must include every queue id in your account to reorder the OCR queues. If no
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ReorderQueues" method="patch" path="/api/v2/queues/order" -->
 ```python
 from zendesk import Zendesk, models
 

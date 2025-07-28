@@ -68,6 +68,7 @@ Status 200 OK
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="RedactChatCommentAttachment" method="put" path="/api/v2/chat_file_redactions/{ticket_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -164,6 +165,7 @@ Status 200 OK
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="RedactChatComment" method="put" path="/api/v2/chat_redactions/{ticket_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -251,6 +253,7 @@ This endpoint provides all the same functionality that the [Redact String in Com
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="RedactTicketCommentInAgentWorkspace" method="put" path="/api/v2/comment_redactions/{ticket_comment_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -324,6 +327,7 @@ When using offset pagination, use the following parameters to change the sort or
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListTicketComments" method="get" path="/api/v2/tickets/{ticket_id}/comments" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -376,6 +380,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="MakeTicketCommentPrivate" method="put" path="/api/v2/tickets/{ticket_id}/comments/{ticket_comment_id}/make_private" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -431,6 +436,7 @@ To use this endpoint, the "Agents can delete tickets" option must be enabled in 
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="RedactStringInComment" method="put" path="/api/v2/tickets/{ticket_id}/comments/{ticket_comment_id}/redact" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -481,6 +487,7 @@ This indicates that the count is being updated in the background, and `count[val
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CountTicketComments" method="get" path="/api/v2/tickets/{ticket_id}/comments/count" -->
 ```python
 from zendesk import Zendesk, models
 

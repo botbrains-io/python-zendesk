@@ -21,6 +21,7 @@ List webhooks.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="listWebhooks" method="get" path="/api/v2/webhooks" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -75,6 +76,7 @@ Note that admins cannot clone webhooks created by Zendesk apps.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="createOrCloneWebhook" method="post" path="/api/v2/webhooks" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -123,6 +125,7 @@ The request payload data will overwrite existing webhook data in the outbound te
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="testWebhook" method="post" path="/api/v2/webhooks/test" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -168,6 +171,7 @@ Returns the specified webhook.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="showWebhook" method="get" path="/api/v2/webhooks/{webhook_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -213,6 +217,7 @@ Updates the specified webhook.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="updateWebhook" method="put" path="/api/v2/webhooks/{webhook_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -260,6 +265,7 @@ Use the webhook_id to update a webhook.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="patchWebhook" method="patch" path="/api/v2/webhooks/{webhook_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -298,6 +304,7 @@ Deletes the specified webhook.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="deleteWebhook" method="delete" path="/api/v2/webhooks/{webhook_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -336,6 +343,7 @@ Returns the webhook's signing secret. Note that admins cannot reveal secrets of 
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="showWebhookSigningSecret" method="get" path="/api/v2/webhooks/{webhook_id}/signing_secret" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -379,6 +387,7 @@ Resets a signing secret for the specified webhook. Note that admins cannot reset
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="resetWebhookSigningSecret" method="post" path="/api/v2/webhooks/{webhook_id}/signing_secret" -->
 ```python
 from zendesk import Zendesk, models
 

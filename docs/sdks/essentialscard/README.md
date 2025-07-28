@@ -19,6 +19,7 @@ Gets the essentials card for an object type.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowEssentialsCard" method="get" path="/api/v2/object_layouts/{object_type}/essentials_card" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -63,6 +64,7 @@ Updates the essentials card for an object type.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="UpdateEssentialsCard" method="put" path="/api/v2/object_layouts/{object_type}/essentials_card" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -107,6 +109,7 @@ Delete the essentials card for an object type.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="DeleteEssentialsCard" method="delete" path="/api/v2/object_layouts/{object_type}/essentials_card" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -146,6 +149,7 @@ Gets the list of essentials cards.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowEssentialsCards" method="get" path="/api/v2/object_layouts/essentials_cards" -->
 ```python
 from zendesk import Zendesk, models
 

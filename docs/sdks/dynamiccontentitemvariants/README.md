@@ -31,6 +31,7 @@ See [Pagination](/api-reference/introduction/pagination/).
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="DynamicContentListVariants" method="get" path="/api/v2/dynamic_content/items/{dynamic_content_item_id}/variants" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -82,6 +83,7 @@ You can only create one variant for each locale id. If a locale variant already 
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateDynamicContentVariant" method="post" path="/api/v2/dynamic_content/items/{dynamic_content_item_id}/variants" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -126,6 +128,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ShowDynamicContentVariant" method="get" path="/api/v2/dynamic_content/items/{dynamic_content_item_id}/variants/{dynammic_content_variant_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -175,6 +178,7 @@ You can't switch the active state of the default variant of an item. Similarly, 
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="UpdateDynamicContentVariant" method="put" path="/api/v2/dynamic_content/items/{dynamic_content_item_id}/variants/{dynammic_content_variant_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -220,6 +224,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="DeleteDynamicContentVariant" method="delete" path="/api/v2/dynamic_content/items/{dynamic_content_item_id}/variants/{dynammic_content_variant_id}" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -260,6 +265,7 @@ with Zendesk(
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateManyDynamicContentVariants" method="post" path="/api/v2/dynamic_content/items/{dynamic_content_item_id}/variants/create_many" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -308,6 +314,7 @@ You must specify the variants by id in the body. To get the variant ids, see [Li
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="UpdateManyDynamicContentVariants" method="put" path="/api/v2/dynamic_content/items/{dynamic_content_item_id}/variants/update_many" -->
 ```python
 from zendesk import Zendesk, models
 
