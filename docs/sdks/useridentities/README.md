@@ -1,5 +1,4 @@
 # UserIdentities
-(*user_identities*)
 
 ## Overview
 

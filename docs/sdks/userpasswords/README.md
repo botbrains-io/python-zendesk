@@ -1,5 +1,4 @@
 # UserPasswords
-(*user_passwords*)
 
 ## Overview
 

@@ -1,5 +1,4 @@
 # ActivityStream
-(*activity_stream*)
 
 ## Overview
 

@@ -9,10 +9,17 @@ from zendesk.types import BaseModel
 from zendesk.utils import FieldMetadata, QueryParamMetadata
 
 
-ListWebhooksFilterStatus = Literal["active", "inactive"]
+ListWebhooksFilterStatus = Literal[
+    "active",
+    "inactive",
+]
 r"""Filters the webhooks by webhook status"""
 
-ListWebhooksSort = Literal["name", "status"]
+
+ListWebhooksSort = Literal[
+    "name",
+    "status",
+]
 r"""Defines the sorting criteria. Only supports name and status"""
 
 

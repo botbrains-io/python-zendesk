@@ -52,6 +52,7 @@ class GroupSLAPolicies(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -68,7 +69,7 @@ class GroupSLAPolicies(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ListGroupSLAPolicies",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -131,6 +132,7 @@ class GroupSLAPolicies(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -147,7 +149,7 @@ class GroupSLAPolicies(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ListGroupSLAPolicies",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -210,6 +212,7 @@ class GroupSLAPolicies(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -226,7 +229,7 @@ class GroupSLAPolicies(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CreateGroupSLAPolicy",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -289,6 +292,7 @@ class GroupSLAPolicies(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -305,7 +309,7 @@ class GroupSLAPolicies(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CreateGroupSLAPolicy",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -375,6 +379,7 @@ class GroupSLAPolicies(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -391,7 +396,7 @@ class GroupSLAPolicies(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ShowGroupSLAPolicy",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -461,6 +466,7 @@ class GroupSLAPolicies(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -477,7 +483,7 @@ class GroupSLAPolicies(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ShowGroupSLAPolicy",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -549,6 +555,7 @@ class GroupSLAPolicies(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -565,7 +572,7 @@ class GroupSLAPolicies(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="UpdateGroupSLAPolicy",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -637,6 +644,7 @@ class GroupSLAPolicies(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -653,7 +661,7 @@ class GroupSLAPolicies(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="UpdateGroupSLAPolicy",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -723,6 +731,7 @@ class GroupSLAPolicies(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -739,7 +748,7 @@ class GroupSLAPolicies(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="DeleteGroupSLAPolicy",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -809,6 +818,7 @@ class GroupSLAPolicies(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -825,7 +835,7 @@ class GroupSLAPolicies(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="DeleteGroupSLAPolicy",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -888,6 +898,7 @@ class GroupSLAPolicies(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -904,7 +915,7 @@ class GroupSLAPolicies(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="RetrieveGroupSLAPolicyFilterDefinitionItems",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -969,6 +980,7 @@ class GroupSLAPolicies(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -985,7 +997,7 @@ class GroupSLAPolicies(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="RetrieveGroupSLAPolicyFilterDefinitionItems",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1057,6 +1069,7 @@ class GroupSLAPolicies(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1073,7 +1086,7 @@ class GroupSLAPolicies(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ReorderGroupSLAPolicies",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1143,6 +1156,7 @@ class GroupSLAPolicies(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1159,7 +1173,7 @@ class GroupSLAPolicies(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ReorderGroupSLAPolicies",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),

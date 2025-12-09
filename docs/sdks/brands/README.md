@@ -1,5 +1,4 @@
 # Brands
-(*brands*)
 
 ## Overview
 

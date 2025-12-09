@@ -1,5 +1,4 @@
 # DynamicContentItemVariants
-(*dynamic_content_item_variants*)
 
 ## Overview
 

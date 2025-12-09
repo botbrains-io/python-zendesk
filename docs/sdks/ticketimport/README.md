@@ -1,5 +1,4 @@
 # TicketImport
-(*ticket_import*)
 
 ## Overview
 

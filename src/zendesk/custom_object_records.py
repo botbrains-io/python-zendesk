@@ -100,6 +100,7 @@ class CustomObjectRecords(BaseSDK):
                 "json",
                 Optional[models.CustomObjectRecordsBulkCreateRequest],
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -116,7 +117,7 @@ class CustomObjectRecords(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CustomObjectRecordBulkJobs",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -228,6 +229,7 @@ class CustomObjectRecords(BaseSDK):
                 "json",
                 Optional[models.CustomObjectRecordsBulkCreateRequest],
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -244,7 +246,7 @@ class CustomObjectRecords(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CustomObjectRecordBulkJobs",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -296,9 +298,13 @@ class CustomObjectRecords(BaseSDK):
         :param filter_ids: Optional comma-separated list of ids to filter records by. If one or more ids are specified, only matching records are returned. The ids must be unique and are case sensitive.
         :param filter_external_ids: Optional comma-separated list of external ids to filter records by. If one or more ids are specified, only matching records are returned. The ids must be unique and are case sensitive.
         :param sort: One of `id`, `updated_at`, `-id`, or `-updated_at`. The `-` denotes the sort will be descending.
+
         :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -337,6 +343,7 @@ class CustomObjectRecords(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -353,7 +360,7 @@ class CustomObjectRecords(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ListCustomObjectRecords",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -371,7 +378,7 @@ class CustomObjectRecords(BaseSDK):
                 return None
 
             next_cursor = next_cursor[0]
-            if next_cursor is None:
+            if next_cursor is None or str(next_cursor).strip() == "":
                 return None
 
             return self.list_custom_object_records(
@@ -430,9 +437,13 @@ class CustomObjectRecords(BaseSDK):
         :param filter_ids: Optional comma-separated list of ids to filter records by. If one or more ids are specified, only matching records are returned. The ids must be unique and are case sensitive.
         :param filter_external_ids: Optional comma-separated list of external ids to filter records by. If one or more ids are specified, only matching records are returned. The ids must be unique and are case sensitive.
         :param sort: One of `id`, `updated_at`, `-id`, or `-updated_at`. The `-` denotes the sort will be descending.
+
         :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -471,6 +482,7 @@ class CustomObjectRecords(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -487,7 +499,7 @@ class CustomObjectRecords(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ListCustomObjectRecords",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -505,7 +517,7 @@ class CustomObjectRecords(BaseSDK):
                 return None
 
             next_cursor = next_cursor[0]
-            if next_cursor is None:
+            if next_cursor is None or str(next_cursor).strip() == "":
                 return None
 
             return self.list_custom_object_records(
@@ -602,6 +614,7 @@ class CustomObjectRecords(BaseSDK):
                 "json",
                 Optional[models.CustomObjectRecordsCreateRequest],
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -618,7 +631,7 @@ class CustomObjectRecords(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CreateCustomObjectRecord",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -706,6 +719,7 @@ class CustomObjectRecords(BaseSDK):
                 "json",
                 Optional[models.CustomObjectRecordsCreateRequest],
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -722,7 +736,7 @@ class CustomObjectRecords(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CreateCustomObjectRecord",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -816,6 +830,7 @@ class CustomObjectRecords(BaseSDK):
                 "json",
                 Optional[models.CustomObjectRecordsUpsertRequest],
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -832,7 +847,7 @@ class CustomObjectRecords(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="UpsertCustomObjectRecordByExternalIdOrName",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -926,6 +941,7 @@ class CustomObjectRecords(BaseSDK):
                 "json",
                 Optional[models.CustomObjectRecordsUpsertRequest],
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -942,7 +958,7 @@ class CustomObjectRecords(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="UpsertCustomObjectRecordByExternalIdOrName",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1018,6 +1034,7 @@ class CustomObjectRecords(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1034,7 +1051,7 @@ class CustomObjectRecords(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="DeleteCustomObjectRecordByExternalIdOrName",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1110,6 +1127,7 @@ class CustomObjectRecords(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1126,7 +1144,7 @@ class CustomObjectRecords(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="DeleteCustomObjectRecordByExternalIdOrName",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1199,6 +1217,7 @@ class CustomObjectRecords(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1215,7 +1234,7 @@ class CustomObjectRecords(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ShowCustomObjectRecord",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1288,6 +1307,7 @@ class CustomObjectRecords(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1304,7 +1324,7 @@ class CustomObjectRecords(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ShowCustomObjectRecord",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1378,6 +1398,7 @@ class CustomObjectRecords(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1394,7 +1415,7 @@ class CustomObjectRecords(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="UpdateCustomObjectRecord",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1468,6 +1489,7 @@ class CustomObjectRecords(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1484,7 +1506,7 @@ class CustomObjectRecords(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="UpdateCustomObjectRecord",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1556,6 +1578,7 @@ class CustomObjectRecords(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1572,7 +1595,7 @@ class CustomObjectRecords(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="DeleteCustomObjectRecord",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1644,6 +1667,7 @@ class CustomObjectRecords(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1660,7 +1684,7 @@ class CustomObjectRecords(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="DeleteCustomObjectRecord",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1713,13 +1737,21 @@ class CustomObjectRecords(BaseSDK):
         :param custom_object_key: The key of a custom object
         :param name: Part of a name of the record you are searching for
         :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+
         :param field_id: The id of the lookup field. If the field has a relationship filter, the filter is applied to the results. Must be used with `source` param.
+
         :param source: One of \"zen:user\", \"zen:ticket\", \"zen:organization\", or \"zen:custom_object:CUSTOM_OBJECT_KEY\". Represents the object `field_id` belongs to. Must be used with field_id param.
+
         :param requester_id: The id of the requester. For use with dynamic filters.
+
         :param assignee_id: The id of the selected assignee. For use with dynamic filters.
+
         :param organization_id: The id of the organization the requester belongs to. For use with dynamic filters.
+
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1761,6 +1793,7 @@ class CustomObjectRecords(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1777,7 +1810,7 @@ class CustomObjectRecords(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="AutocompleteCustomObjectRecordSearch",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1797,7 +1830,7 @@ class CustomObjectRecords(BaseSDK):
                 return None
 
             next_cursor = next_cursor[0]
-            if next_cursor is None:
+            if next_cursor is None or str(next_cursor).strip() == "":
                 return None
 
             return self.autocomplete_custom_object_record_search(
@@ -1862,13 +1895,21 @@ class CustomObjectRecords(BaseSDK):
         :param custom_object_key: The key of a custom object
         :param name: Part of a name of the record you are searching for
         :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+
         :param field_id: The id of the lookup field. If the field has a relationship filter, the filter is applied to the results. Must be used with `source` param.
+
         :param source: One of \"zen:user\", \"zen:ticket\", \"zen:organization\", or \"zen:custom_object:CUSTOM_OBJECT_KEY\". Represents the object `field_id` belongs to. Must be used with field_id param.
+
         :param requester_id: The id of the requester. For use with dynamic filters.
+
         :param assignee_id: The id of the selected assignee. For use with dynamic filters.
+
         :param organization_id: The id of the organization the requester belongs to. For use with dynamic filters.
+
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1910,6 +1951,7 @@ class CustomObjectRecords(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1926,7 +1968,7 @@ class CustomObjectRecords(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="AutocompleteCustomObjectRecordSearch",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1946,7 +1988,7 @@ class CustomObjectRecords(BaseSDK):
                 return None
 
             next_cursor = next_cursor[0]
-            if next_cursor is None:
+            if next_cursor is None or str(next_cursor).strip() == "":
                 return None
 
             return self.autocomplete_custom_object_record_search(
@@ -2027,6 +2069,7 @@ class CustomObjectRecords(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2043,7 +2086,7 @@ class CustomObjectRecords(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CountCustomObjectRecords",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2114,6 +2157,7 @@ class CustomObjectRecords(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2130,7 +2174,7 @@ class CustomObjectRecords(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CountCustomObjectRecords",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2180,10 +2224,22 @@ class CustomObjectRecords(BaseSDK):
 
         :param custom_object_key: The key of a custom object
         :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
-        :param query: The query parameter is used to search text-based fields for records that match specific query terms. The query can be multiple words or numbers. Every record that matches the beginning of any word or number in the query string is returned.<br/><br/>  Fuzzy search is supported for the following text-based field types: : Text fields, Multi Line Text fields, and RegExp fields.<br/><br/>  For example, you might want to search for records related to Tesla vehicles: `query=Tesla`. In this example the API would return every record for the given custom object where any of the supported text fields contain the word 'Tesla'.<br/><br/>  You can include multiple words or numbers in your search. For example: `query=Tesla Honda 2020`. This search phrase would be URL encoded as `query=Tesla%20Honda%202020` and return every record for the custom object for which any of the supported text fields contained 'Tesla', 'Honda', or '2020'.
+
+        :param query: The query parameter is used to search text-based fields for records that match specific query terms.
+            The query can be multiple words or numbers. Every record that matches the beginning of any word or number in the query string is returned.<br/><br/>
+
+            Fuzzy search is supported for the following text-based field types: : Text fields, Multi Line Text fields, and RegExp fields.<br/><br/>
+
+            For example, you might want to search for records related to Tesla vehicles: `query=Tesla`. In this example the API would return every record for the given custom object where any of the supported text fields contain the word 'Tesla'.<br/><br/>
+
+            You can include multiple words or numbers in your search. For example: `query=Tesla Honda 2020`. This search phrase would be URL encoded as `query=Tesla%20Honda%202020` and return every record for the custom object for which any of the supported text fields contained 'Tesla', 'Honda', or '2020'.
+
         :param sort: One of `name`, `created_at`, `updated_at`, `-name`, `-created_at`, or `-updated_at`. The `-` denotes the sort will be descending. Defaults to sorting by relevance.
+
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2221,6 +2277,7 @@ class CustomObjectRecords(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2237,7 +2294,7 @@ class CustomObjectRecords(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="SearchCustomObjectRecords",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2255,7 +2312,7 @@ class CustomObjectRecords(BaseSDK):
                 return None
 
             next_cursor = next_cursor[0]
-            if next_cursor is None:
+            if next_cursor is None or str(next_cursor).strip() == "":
                 return None
 
             return self.search_custom_object_records(
@@ -2311,10 +2368,22 @@ class CustomObjectRecords(BaseSDK):
 
         :param custom_object_key: The key of a custom object
         :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
-        :param query: The query parameter is used to search text-based fields for records that match specific query terms. The query can be multiple words or numbers. Every record that matches the beginning of any word or number in the query string is returned.<br/><br/>  Fuzzy search is supported for the following text-based field types: : Text fields, Multi Line Text fields, and RegExp fields.<br/><br/>  For example, you might want to search for records related to Tesla vehicles: `query=Tesla`. In this example the API would return every record for the given custom object where any of the supported text fields contain the word 'Tesla'.<br/><br/>  You can include multiple words or numbers in your search. For example: `query=Tesla Honda 2020`. This search phrase would be URL encoded as `query=Tesla%20Honda%202020` and return every record for the custom object for which any of the supported text fields contained 'Tesla', 'Honda', or '2020'.
+
+        :param query: The query parameter is used to search text-based fields for records that match specific query terms.
+            The query can be multiple words or numbers. Every record that matches the beginning of any word or number in the query string is returned.<br/><br/>
+
+            Fuzzy search is supported for the following text-based field types: : Text fields, Multi Line Text fields, and RegExp fields.<br/><br/>
+
+            For example, you might want to search for records related to Tesla vehicles: `query=Tesla`. In this example the API would return every record for the given custom object where any of the supported text fields contain the word 'Tesla'.<br/><br/>
+
+            You can include multiple words or numbers in your search. For example: `query=Tesla Honda 2020`. This search phrase would be URL encoded as `query=Tesla%20Honda%202020` and return every record for the custom object for which any of the supported text fields contained 'Tesla', 'Honda', or '2020'.
+
         :param sort: One of `name`, `created_at`, `updated_at`, `-name`, `-created_at`, or `-updated_at`. The `-` denotes the sort will be descending. Defaults to sorting by relevance.
+
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2352,6 +2421,7 @@ class CustomObjectRecords(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2368,7 +2438,7 @@ class CustomObjectRecords(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="SearchCustomObjectRecords",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2386,7 +2456,7 @@ class CustomObjectRecords(BaseSDK):
                 return None
 
             next_cursor = next_cursor[0]
-            if next_cursor is None:
+            if next_cursor is None or str(next_cursor).strip() == "":
                 return None
 
             return self.search_custom_object_records(
@@ -2496,10 +2566,22 @@ class CustomObjectRecords(BaseSDK):
 
         :param custom_object_key: The key of a custom object
         :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
-        :param query: The query parameter is used to search text-based fields for records that match specific query terms. The query can be multiple words or numbers. Every record that matches the beginning of any word or number in the query string is returned.<br/><br/>  Fuzzy search is supported for the following text-based field types: Text fields, Multi Line Text fields, and RegExp fields.<br/><br/>  For example, you might want to search for records related to Tesla vehicles: `query=Tesla`. In this example the API would return every record for the given custom object where any of the supported text fields contain the word 'Tesla'.<br/><br/>  You can include multiple words or numbers in your search. For example: `query=Tesla Honda 2020`. This search phrase would be URL encoded as `query=Tesla%20Honda%202020` and return every record for the custom object for which any of the supported text fields contained 'Tesla', 'Honda', or '2020'.
+
+        :param query: The query parameter is used to search text-based fields for records that match specific query terms.
+            The query can be multiple words or numbers. Every record that matches the beginning of any word or number in the query string is returned.<br/><br/>
+
+            Fuzzy search is supported for the following text-based field types: Text fields, Multi Line Text fields, and RegExp fields.<br/><br/>
+
+            For example, you might want to search for records related to Tesla vehicles: `query=Tesla`. In this example the API would return every record for the given custom object where any of the supported text fields contain the word 'Tesla'.<br/><br/>
+
+            You can include multiple words or numbers in your search. For example: `query=Tesla Honda 2020`. This search phrase would be URL encoded as `query=Tesla%20Honda%202020` and return every record for the custom object for which any of the supported text fields contained 'Tesla', 'Honda', or '2020'.
+
         :param sort: One of `name`, `created_at`, `updated_at`, `-name`, `-created_at`, or `-updated_at`. The `-` denotes the sort will be descending. Defaults to sorting by relevance.
+
         :param request_body:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -2549,6 +2631,7 @@ class CustomObjectRecords(BaseSDK):
                 "json",
                 Optional[models.FilteredSearchCustomObjectRecordsRequestBody],
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2565,7 +2648,7 @@ class CustomObjectRecords(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="FilteredSearchCustomObjectRecords",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2583,7 +2666,7 @@ class CustomObjectRecords(BaseSDK):
                 return None
 
             next_cursor = next_cursor[0]
-            if next_cursor is None:
+            if next_cursor is None or str(next_cursor).strip() == "":
                 return None
 
             return self.filtered_search_custom_object_records(
@@ -2694,10 +2777,22 @@ class CustomObjectRecords(BaseSDK):
 
         :param custom_object_key: The key of a custom object
         :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
-        :param query: The query parameter is used to search text-based fields for records that match specific query terms. The query can be multiple words or numbers. Every record that matches the beginning of any word or number in the query string is returned.<br/><br/>  Fuzzy search is supported for the following text-based field types: Text fields, Multi Line Text fields, and RegExp fields.<br/><br/>  For example, you might want to search for records related to Tesla vehicles: `query=Tesla`. In this example the API would return every record for the given custom object where any of the supported text fields contain the word 'Tesla'.<br/><br/>  You can include multiple words or numbers in your search. For example: `query=Tesla Honda 2020`. This search phrase would be URL encoded as `query=Tesla%20Honda%202020` and return every record for the custom object for which any of the supported text fields contained 'Tesla', 'Honda', or '2020'.
+
+        :param query: The query parameter is used to search text-based fields for records that match specific query terms.
+            The query can be multiple words or numbers. Every record that matches the beginning of any word or number in the query string is returned.<br/><br/>
+
+            Fuzzy search is supported for the following text-based field types: Text fields, Multi Line Text fields, and RegExp fields.<br/><br/>
+
+            For example, you might want to search for records related to Tesla vehicles: `query=Tesla`. In this example the API would return every record for the given custom object where any of the supported text fields contain the word 'Tesla'.<br/><br/>
+
+            You can include multiple words or numbers in your search. For example: `query=Tesla Honda 2020`. This search phrase would be URL encoded as `query=Tesla%20Honda%202020` and return every record for the custom object for which any of the supported text fields contained 'Tesla', 'Honda', or '2020'.
+
         :param sort: One of `name`, `created_at`, `updated_at`, `-name`, `-created_at`, or `-updated_at`. The `-` denotes the sort will be descending. Defaults to sorting by relevance.
+
         :param request_body:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -2747,6 +2842,7 @@ class CustomObjectRecords(BaseSDK):
                 "json",
                 Optional[models.FilteredSearchCustomObjectRecordsRequestBody],
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2763,7 +2859,7 @@ class CustomObjectRecords(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="FilteredSearchCustomObjectRecords",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2781,7 +2877,7 @@ class CustomObjectRecords(BaseSDK):
                 return None
 
             next_cursor = next_cursor[0]
-            if next_cursor is None:
+            if next_cursor is None or str(next_cursor).strip() == "":
                 return None
 
             return self.filtered_search_custom_object_records(
@@ -2852,6 +2948,7 @@ class CustomObjectRecords(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2868,7 +2965,7 @@ class CustomObjectRecords(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CustomObjectRecordsLimit",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2930,6 +3027,7 @@ class CustomObjectRecords(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2946,7 +3044,7 @@ class CustomObjectRecords(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CustomObjectRecordsLimit",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),

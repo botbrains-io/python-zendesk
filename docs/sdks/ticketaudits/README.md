@@ -1,5 +1,4 @@
 # TicketAudits
-(*ticket_audits*)
 
 ## Overview
 

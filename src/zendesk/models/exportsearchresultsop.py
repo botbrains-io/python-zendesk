@@ -9,7 +9,12 @@ from zendesk.types import BaseModel
 from zendesk.utils import FieldMetadata, QueryParamMetadata
 
 
-FilterType = Literal["ticket", "organization", "user", "group"]
+FilterType = Literal[
+    "ticket",
+    "organization",
+    "user",
+    "group",
+]
 r"""The object type returned by the export query. Can be `ticket`, `organization`, `user`, or `group`."""
 
 

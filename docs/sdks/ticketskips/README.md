@@ -1,5 +1,4 @@
 # TicketSkips
-(*ticket_skips*)
 
 ## Overview
 

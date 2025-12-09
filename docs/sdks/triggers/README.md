@@ -1,5 +1,4 @@
 # Triggers
-(*triggers*)
 
 ## Overview
 

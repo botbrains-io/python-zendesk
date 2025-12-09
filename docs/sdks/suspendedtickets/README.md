@@ -1,5 +1,4 @@
 # SuspendedTickets
-(*suspended_tickets*)
 
 ## Overview
 

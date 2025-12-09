@@ -45,8 +45,11 @@ class UsersSDK(BaseSDK):
 
 
         :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -81,6 +84,7 @@ class UsersSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -97,7 +101,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ListDeletedUsers",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -115,7 +119,7 @@ class UsersSDK(BaseSDK):
                 return None
 
             next_cursor = next_cursor[0]
-            if next_cursor is None:
+            if next_cursor is None or str(next_cursor).strip() == "":
                 return None
 
             return self.list_deleted_users(
@@ -173,8 +177,11 @@ class UsersSDK(BaseSDK):
 
 
         :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -209,6 +216,7 @@ class UsersSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -225,7 +233,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ListDeletedUsers",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -243,7 +251,7 @@ class UsersSDK(BaseSDK):
                 return None
 
             next_cursor = next_cursor[0]
-            if next_cursor is None:
+            if next_cursor is None or str(next_cursor).strip() == "":
                 return None
 
             return self.list_deleted_users(
@@ -318,6 +326,7 @@ class UsersSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -334,7 +343,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ShowDeletedUser",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -406,6 +415,7 @@ class UsersSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -422,7 +432,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ShowDeletedUser",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -503,6 +513,7 @@ class UsersSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -519,7 +530,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="PermanentlyDeleteUser",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -600,6 +611,7 @@ class UsersSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -616,7 +628,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="PermanentlyDeleteUser",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -686,6 +698,7 @@ class UsersSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -702,7 +715,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CountDeletedUsers",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -772,6 +785,7 @@ class UsersSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -788,7 +802,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CountDeletedUsers",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -841,10 +855,15 @@ class UsersSDK(BaseSDK):
 
 
         :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+
         :param role_query_parameter: Filters the results by role. Possible values are \"end-user\", \"agent\", or \"admin\"
+
         :param role_query_parameter1: Filters the results by more than one role using the format `role[]={role}&role[]={role}`
+
         :param permission_set: For custom roles which is available on the Enterprise plan and above. You can only filter by one role ID per request
         :param external_id: List users by external id. External id has to be unique for each user under the same account.
         :param retries: Override the default retry configuration for this method
@@ -885,6 +904,7 @@ class UsersSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -901,7 +921,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ListUsers",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -919,7 +939,7 @@ class UsersSDK(BaseSDK):
                 return None
 
             next_cursor = next_cursor[0]
-            if next_cursor is None:
+            if next_cursor is None or str(next_cursor).strip() == "":
                 return None
 
             return self.list_users(
@@ -979,10 +999,15 @@ class UsersSDK(BaseSDK):
 
 
         :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+
         :param role_query_parameter: Filters the results by role. Possible values are \"end-user\", \"agent\", or \"admin\"
+
         :param role_query_parameter1: Filters the results by more than one role using the format `role[]={role}&role[]={role}`
+
         :param permission_set: For custom roles which is available on the Enterprise plan and above. You can only filter by one role ID per request
         :param external_id: List users by external id. External id has to be unique for each user under the same account.
         :param retries: Override the default retry configuration for this method
@@ -1023,6 +1048,7 @@ class UsersSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1039,7 +1065,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ListUsers",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1057,7 +1083,7 @@ class UsersSDK(BaseSDK):
                 return None
 
             next_cursor = next_cursor[0]
-            if next_cursor is None:
+            if next_cursor is None or str(next_cursor).strip() == "":
                 return None
 
             return self.list_users(
@@ -1132,6 +1158,7 @@ class UsersSDK(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.UserRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1148,7 +1175,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CreateUser",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1216,6 +1243,7 @@ class UsersSDK(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.UserRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1232,7 +1260,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CreateUser",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1302,6 +1330,7 @@ class UsersSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1318,7 +1347,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ShowUser",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1388,6 +1417,7 @@ class UsersSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1404,7 +1434,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ShowUser",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1477,6 +1507,7 @@ class UsersSDK(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.user_request, False, False, "json", models.UserRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1493,7 +1524,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="UpdateUser",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1566,6 +1597,7 @@ class UsersSDK(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.user_request, False, False, "json", models.UserRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1582,7 +1614,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="UpdateUser",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1661,6 +1693,7 @@ class UsersSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1677,7 +1710,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="DeleteUser",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1756,6 +1789,7 @@ class UsersSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1772,7 +1806,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="DeleteUser",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1834,8 +1868,11 @@ class UsersSDK(BaseSDK):
 
         :param user_id: The id of the user
         :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+
         :param application: Area of compliance
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1873,6 +1910,7 @@ class UsersSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1889,7 +1927,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ShowUserComplianceDeletionStatuses",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1907,7 +1945,7 @@ class UsersSDK(BaseSDK):
                 return None
 
             next_cursor = next_cursor[0]
-            if next_cursor is None:
+            if next_cursor is None or str(next_cursor).strip() == "":
                 return None
 
             return self.show_user_compliance_deletion_statuses(
@@ -1976,8 +2014,11 @@ class UsersSDK(BaseSDK):
 
         :param user_id: The id of the user
         :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+
         :param application: Area of compliance
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -2015,6 +2056,7 @@ class UsersSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2031,7 +2073,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ShowUserComplianceDeletionStatuses",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2049,7 +2091,7 @@ class UsersSDK(BaseSDK):
                 return None
 
             next_cursor = next_cursor[0]
-            if next_cursor is None:
+            if next_cursor is None or str(next_cursor).strip() == "":
                 return None
 
             return self.show_user_compliance_deletion_statuses(
@@ -2144,6 +2186,7 @@ class UsersSDK(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.user_request, False, False, "json", models.UserRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2160,7 +2203,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="MergeEndUsers",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2248,6 +2291,7 @@ class UsersSDK(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.user_request, False, False, "json", models.UserRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2264,7 +2308,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="MergeEndUsers",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2329,6 +2373,7 @@ class UsersSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2345,7 +2390,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ShowUserRelated",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2410,6 +2455,7 @@ class UsersSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2426,7 +2472,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ShowUserRelated",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2469,8 +2515,13 @@ class UsersSDK(BaseSDK):
 
 
         :param name: The name to search for the user.
-        :param field_id: The id of a lookup relationship field.  The type of field is determined by the `source` param
-        :param source: If a `field_id` is provided, this specifies the type of the field. For example, if the field is on a \"zen:user\", it references a field on a user
+
+        :param field_id: The id of a lookup relationship field.  The type of field is determined
+            by the `source` param
+
+        :param source: If a `field_id` is provided, this specifies the type of the field.
+            For example, if the field is on a \"zen:user\", it references a field on a user
+
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2505,6 +2556,7 @@ class UsersSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2521,7 +2573,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="AutocompleteUsers",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2564,8 +2616,13 @@ class UsersSDK(BaseSDK):
 
 
         :param name: The name to search for the user.
-        :param field_id: The id of a lookup relationship field.  The type of field is determined by the `source` param
-        :param source: If a `field_id` is provided, this specifies the type of the field. For example, if the field is on a \"zen:user\", it references a field on a user
+
+        :param field_id: The id of a lookup relationship field.  The type of field is determined
+            by the `source` param
+
+        :param source: If a `field_id` is provided, this specifies the type of the field.
+            For example, if the field is on a \"zen:user\", it references a field on a user
+
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2600,6 +2657,7 @@ class UsersSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2616,7 +2674,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="AutocompleteUsers",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2663,7 +2721,9 @@ class UsersSDK(BaseSDK):
 
 
         :param role_query_parameter: Filters the results by role. Possible values are \"end-user\", \"agent\", or \"admin\"
+
         :param role_query_parameter1: Filters the results by more than one role using the format `role[]={role}&role[]={role}`
+
         :param permission_set: For custom roles which is available on the Enterprise plan and above. You can only filter by one role ID per request
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -2699,6 +2759,7 @@ class UsersSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2715,7 +2776,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CountUsers",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2762,7 +2823,9 @@ class UsersSDK(BaseSDK):
 
 
         :param role_query_parameter: Filters the results by role. Possible values are \"end-user\", \"agent\", or \"admin\"
+
         :param role_query_parameter1: Filters the results by more than one role using the format `role[]={role}&role[]={role}`
+
         :param permission_set: For custom roles which is available on the Enterprise plan and above. You can only filter by one role ID per request
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -2798,6 +2861,7 @@ class UsersSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2814,7 +2878,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CountUsers",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2901,6 +2965,7 @@ class UsersSDK(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.UsersRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2917,7 +2982,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CreateManyUsers",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -3004,6 +3069,7 @@ class UsersSDK(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.UsersRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -3020,7 +3086,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CreateManyUsers",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -3111,6 +3177,7 @@ class UsersSDK(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.UserRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -3127,7 +3194,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CreateOrUpdateUser",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -3218,6 +3285,7 @@ class UsersSDK(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.UserRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -3234,7 +3302,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CreateOrUpdateUser",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -3317,6 +3385,7 @@ class UsersSDK(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.UsersRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -3333,7 +3402,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CreateOrUpdateManyUsers",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -3416,6 +3485,7 @@ class UsersSDK(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.UsersRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -3432,7 +3502,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CreateOrUpdateManyUsers",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -3513,6 +3583,7 @@ class UsersSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -3529,7 +3600,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="DestroyManyUsers",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -3610,6 +3681,7 @@ class UsersSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -3626,7 +3698,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="DestroyManyUsers",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -3666,6 +3738,7 @@ class UsersSDK(BaseSDK):
 
 
         :param ids: Accepts a comma-separated list of up to 100 user ids.
+
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3698,6 +3771,7 @@ class UsersSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -3714,7 +3788,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="LogoutManyUsers",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -3754,6 +3828,7 @@ class UsersSDK(BaseSDK):
 
 
         :param ids: Accepts a comma-separated list of up to 100 user ids.
+
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3786,6 +3861,7 @@ class UsersSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -3802,7 +3878,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="LogoutManyUsers",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -3873,6 +3949,7 @@ class UsersSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -3889,7 +3966,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ShowCurrentUser",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -3960,6 +4037,7 @@ class UsersSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -3976,7 +4054,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ShowCurrentUser",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -4051,6 +4129,7 @@ class UsersSDK(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.UserRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -4067,7 +4146,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="RequestUserCreate",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -4142,6 +4221,7 @@ class UsersSDK(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.UserRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -4158,7 +4238,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="RequestUserCreate",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -4206,8 +4286,14 @@ class UsersSDK(BaseSDK):
         * Agents
 
 
-        :param query: The `query` parameter supports the Zendesk search syntax for more advanced user searches. It can specify a partial or full value of any user property, including name, email address, notes, or phone. Example: `query=\"jdoe\"`. See the [Search API](/api-reference/ticketing/ticket-management/search/).
+        :param query: The `query` parameter supports the Zendesk search syntax for more advanced
+            user searches. It can specify a partial or full value of any
+            user property, including name, email address, notes, or phone. Example:
+            `query=\"jdoe\"`.
+            See the [Search API](/api-reference/ticketing/ticket-management/search/).
+
         :param external_id: The `external_id` parameter does not support the search syntax. It only accepts ids.
+
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -4241,6 +4327,7 @@ class UsersSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -4257,7 +4344,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="SearchUsers",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -4305,8 +4392,14 @@ class UsersSDK(BaseSDK):
         * Agents
 
 
-        :param query: The `query` parameter supports the Zendesk search syntax for more advanced user searches. It can specify a partial or full value of any user property, including name, email address, notes, or phone. Example: `query=\"jdoe\"`. See the [Search API](/api-reference/ticketing/ticket-management/search/).
+        :param query: The `query` parameter supports the Zendesk search syntax for more advanced
+            user searches. It can specify a partial or full value of any
+            user property, including name, email address, notes, or phone. Example:
+            `query=\"jdoe\"`.
+            See the [Search API](/api-reference/ticketing/ticket-management/search/).
+
         :param external_id: The `external_id` parameter does not support the search syntax. It only accepts ids.
+
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -4340,6 +4433,7 @@ class UsersSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -4356,7 +4450,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="SearchUsers",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -4397,7 +4491,9 @@ class UsersSDK(BaseSDK):
 
 
         :param ids: Accepts a comma-separated list of up to 100 user ids.
+
         :param external_ids: Accepts a comma-separated list of up to 100 external ids.
+
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -4431,6 +4527,7 @@ class UsersSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -4447,7 +4544,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ShowManyUsers",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -4488,7 +4585,9 @@ class UsersSDK(BaseSDK):
 
 
         :param ids: Accepts a comma-separated list of up to 100 user ids.
+
         :param external_ids: Accepts a comma-separated list of up to 100 external ids.
+
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -4522,6 +4621,7 @@ class UsersSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -4538,7 +4638,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ShowManyUsers",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -4621,6 +4721,7 @@ class UsersSDK(BaseSDK):
                 "json",
                 models.UpdateManyUsersRequestBody,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -4637,7 +4738,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="UpdateManyUsers",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -4720,6 +4821,7 @@ class UsersSDK(BaseSDK):
                 "json",
                 models.UpdateManyUsersRequestBody,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -4736,7 +4838,7 @@ class UsersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="UpdateManyUsers",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),

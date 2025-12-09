@@ -1,5 +1,4 @@
 # Macros
-(*macros*)
 
 ## Overview
 

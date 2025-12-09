@@ -8,7 +8,11 @@ from typing_extensions import NotRequired, TypedDict
 from zendesk.types import BaseModel
 
 
-HelpCenterState = Literal["enabled", "disabled", "restricted"]
+HelpCenterState = Literal[
+    "enabled",
+    "disabled",
+    "restricted",
+]
 r"""The state of the Help Center"""
 
 

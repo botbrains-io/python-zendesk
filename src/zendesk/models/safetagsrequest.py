@@ -7,7 +7,10 @@ from typing_extensions import NotRequired, TypedDict
 from zendesk.types import BaseModel
 
 
-SafeUpdate = Literal["true", "false"]
+SafeUpdate = Literal[
+    "true",
+    "false",
+]
 r"""Enable safe update mode to prevent collisions"""
 
 

@@ -1,5 +1,4 @@
 # CustomObjectRecords
-(*custom_object_records*)
 
 ## Overview
 

@@ -54,6 +54,7 @@ class ResourceCollections(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -70,7 +71,7 @@ class ResourceCollections(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ListResourceCollections",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -135,6 +136,7 @@ class ResourceCollections(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -151,7 +153,7 @@ class ResourceCollections(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ListResourceCollections",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -219,6 +221,7 @@ class ResourceCollections(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -235,7 +238,7 @@ class ResourceCollections(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CreateResourceCollection",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -303,6 +306,7 @@ class ResourceCollections(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -319,7 +323,7 @@ class ResourceCollections(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CreateResourceCollection",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -391,6 +395,7 @@ class ResourceCollections(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -407,7 +412,7 @@ class ResourceCollections(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="RetrieveResourceCollection",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -479,6 +484,7 @@ class ResourceCollections(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -495,7 +501,7 @@ class ResourceCollections(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="RetrieveResourceCollection",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -570,6 +576,7 @@ class ResourceCollections(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -586,7 +593,7 @@ class ResourceCollections(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="UpdateResourceCollection",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -661,6 +668,7 @@ class ResourceCollections(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -677,7 +685,7 @@ class ResourceCollections(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="UpdateResourceCollection",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -752,6 +760,7 @@ class ResourceCollections(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -768,7 +777,7 @@ class ResourceCollections(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="DeleteResourceCollection",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -843,6 +852,7 @@ class ResourceCollections(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -859,7 +869,7 @@ class ResourceCollections(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="DeleteResourceCollection",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),

@@ -1,5 +1,4 @@
 # Reseller
-(*reseller*)
 
 ## Overview
 

@@ -10,7 +10,11 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 from zendesk.types import BaseModel
 
 
-ConversationLogObjectType = Literal["user", "agent", "bot"]
+ConversationLogObjectType = Literal[
+    "user",
+    "agent",
+    "bot",
+]
 r"""Either user, agent, or bot"""
 
 

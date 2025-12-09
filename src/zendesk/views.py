@@ -55,8 +55,11 @@ class Views(BaseSDK):
 
 
         :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+
         :param access: Only views with given access. May be \"personal\", \"shared\", or \"account\"
         :param active: Only active views if true, inactive views if false
         :param group_id: Only views belonging to given group
@@ -101,6 +104,7 @@ class Views(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -117,7 +121,7 @@ class Views(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ListViews",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -135,7 +139,7 @@ class Views(BaseSDK):
                 return None
 
             next_cursor = next_cursor[0]
-            if next_cursor is None:
+            if next_cursor is None or str(next_cursor).strip() == "":
                 return None
 
             return self.list_views(
@@ -208,8 +212,11 @@ class Views(BaseSDK):
 
 
         :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+
         :param access: Only views with given access. May be \"personal\", \"shared\", or \"account\"
         :param active: Only active views if true, inactive views if false
         :param group_id: Only views belonging to given group
@@ -254,6 +261,7 @@ class Views(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -270,7 +278,7 @@ class Views(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ListViews",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -288,7 +296,7 @@ class Views(BaseSDK):
                 return None
 
             next_cursor = next_cursor[0]
-            if next_cursor is None:
+            if next_cursor is None or str(next_cursor).strip() == "":
                 return None
 
             return self.list_views(
@@ -471,6 +479,7 @@ class Views(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -487,7 +496,7 @@ class Views(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CreateView",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -662,6 +671,7 @@ class Views(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -678,7 +688,7 @@ class Views(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CreateView",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -748,6 +758,7 @@ class Views(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -764,7 +775,7 @@ class Views(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ShowView",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -834,6 +845,7 @@ class Views(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -850,7 +862,7 @@ class Views(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ShowView",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -971,6 +983,7 @@ class Views(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -987,7 +1000,7 @@ class Views(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="UpdateView",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1108,6 +1121,7 @@ class Views(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1124,7 +1138,7 @@ class Views(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="UpdateView",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1193,6 +1207,7 @@ class Views(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1209,7 +1224,7 @@ class Views(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="DeleteView",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1278,6 +1293,7 @@ class Views(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1294,7 +1310,7 @@ class Views(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="DeleteView",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1394,6 +1410,7 @@ class Views(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1410,7 +1427,7 @@ class Views(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="GetViewCount",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1510,6 +1527,7 @@ class Views(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1526,7 +1544,7 @@ class Views(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="GetViewCount",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1593,8 +1611,11 @@ class Views(BaseSDK):
 
         :param view_id: The ID of the view
         :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+
         :param sort_by: The ticket field used for sorting. This will either be a title or a custom field id.
         :param sort_order: The direction the tickets are sorted. May be one of 'asc' or 'desc'
         :param retries: Override the default retry configuration for this method
@@ -1634,6 +1655,7 @@ class Views(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1650,7 +1672,7 @@ class Views(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ExecuteView",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1668,7 +1690,7 @@ class Views(BaseSDK):
                 return None
 
             next_cursor = next_cursor[0]
-            if next_cursor is None:
+            if next_cursor is None or str(next_cursor).strip() == "":
                 return None
 
             return self.execute_view(
@@ -1741,8 +1763,11 @@ class Views(BaseSDK):
 
         :param view_id: The ID of the view
         :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+
         :param sort_by: The ticket field used for sorting. This will either be a title or a custom field id.
         :param sort_order: The direction the tickets are sorted. May be one of 'asc' or 'desc'
         :param retries: Override the default retry configuration for this method
@@ -1782,6 +1807,7 @@ class Views(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1798,7 +1824,7 @@ class Views(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ExecuteView",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1816,7 +1842,7 @@ class Views(BaseSDK):
                 return None
 
             next_cursor = next_cursor[0]
-            if next_cursor is None:
+            if next_cursor is None or str(next_cursor).strip() == "":
                 return None
 
             return self.execute_view(
@@ -1894,6 +1920,7 @@ class Views(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1910,7 +1937,7 @@ class Views(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ExportView",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1982,6 +2009,7 @@ class Views(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1998,7 +2026,7 @@ class Views(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ExportView",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2048,8 +2076,11 @@ class Views(BaseSDK):
 
         :param view_id: The ID of the view
         :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+
         :param sort_by: Sort or group the tickets by a column in the [View columns](#view-columns) table. The `subject` and `submitter` columns are not supported
         :param sort_order: One of \"asc\" or \"desc\". Defaults to \"asc\" for alphabetical and position sort, \"desc\" for all others
         :param retries: Override the default retry configuration for this method
@@ -2089,6 +2120,7 @@ class Views(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2105,7 +2137,7 @@ class Views(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ListTicketsFromView",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2123,7 +2155,7 @@ class Views(BaseSDK):
                 return None
 
             next_cursor = next_cursor[0]
-            if next_cursor is None:
+            if next_cursor is None or str(next_cursor).strip() == "":
                 return None
 
             return self.list_tickets_from_view(
@@ -2179,8 +2211,11 @@ class Views(BaseSDK):
 
         :param view_id: The ID of the view
         :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+
         :param sort_by: Sort or group the tickets by a column in the [View columns](#view-columns) table. The `subject` and `submitter` columns are not supported
         :param sort_order: One of \"asc\" or \"desc\". Defaults to \"asc\" for alphabetical and position sort, \"desc\" for all others
         :param retries: Override the default retry configuration for this method
@@ -2220,6 +2255,7 @@ class Views(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2236,7 +2272,7 @@ class Views(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ListTicketsFromView",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2254,7 +2290,7 @@ class Views(BaseSDK):
                 return None
 
             next_cursor = next_cursor[0]
-            if next_cursor is None:
+            if next_cursor is None or str(next_cursor).strip() == "":
                 return None
 
             return self.list_tickets_from_view(
@@ -2358,6 +2394,7 @@ class Views(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2374,7 +2411,7 @@ class Views(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ListActiveViews",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2472,6 +2509,7 @@ class Views(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2488,7 +2526,7 @@ class Views(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ListActiveViews",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2553,6 +2591,7 @@ class Views(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2569,7 +2608,7 @@ class Views(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ListCompactViews",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2634,6 +2673,7 @@ class Views(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2650,7 +2690,7 @@ class Views(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ListCompactViews",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2718,6 +2758,7 @@ class Views(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2734,7 +2775,7 @@ class Views(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CountViews",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2802,6 +2843,7 @@ class Views(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2818,7 +2860,7 @@ class Views(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CountViews",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2894,6 +2936,7 @@ class Views(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2910,7 +2953,7 @@ class Views(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="GetViewCounts",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2986,6 +3029,7 @@ class Views(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -3002,7 +3046,7 @@ class Views(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="GetViewCounts",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -3073,6 +3117,7 @@ class Views(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -3089,7 +3134,7 @@ class Views(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="BulkDeleteViews",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -3160,6 +3205,7 @@ class Views(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -3176,7 +3222,7 @@ class Views(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="BulkDeleteViews",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -3235,8 +3281,11 @@ class Views(BaseSDK):
 
 
         :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3271,6 +3320,7 @@ class Views(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -3287,7 +3337,7 @@ class Views(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="PreviewViews",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -3305,7 +3355,7 @@ class Views(BaseSDK):
                 return None
 
             next_cursor = next_cursor[0]
-            if next_cursor is None:
+            if next_cursor is None or str(next_cursor).strip() == "":
                 return None
 
             return self.preview_views(
@@ -3367,8 +3417,11 @@ class Views(BaseSDK):
 
 
         :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3403,6 +3456,7 @@ class Views(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -3419,7 +3473,7 @@ class Views(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="PreviewViews",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -3437,7 +3491,7 @@ class Views(BaseSDK):
                 return None
 
             next_cursor = next_cursor[0]
-            if next_cursor is None:
+            if next_cursor is None or str(next_cursor).strip() == "":
                 return None
 
             return self.preview_views(
@@ -3505,6 +3559,7 @@ class Views(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -3521,7 +3576,7 @@ class Views(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="PreviewCount",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -3586,6 +3641,7 @@ class Views(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -3602,7 +3658,7 @@ class Views(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="PreviewCount",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -3705,6 +3761,7 @@ class Views(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -3721,7 +3778,7 @@ class Views(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="SearchViews",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -3824,6 +3881,7 @@ class Views(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -3840,7 +3898,7 @@ class Views(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="SearchViews",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -3922,6 +3980,7 @@ class Views(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -3938,7 +3997,7 @@ class Views(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ListViewsById",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -4020,6 +4079,7 @@ class Views(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -4036,7 +4096,7 @@ class Views(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ListViewsById",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -4124,6 +4184,7 @@ class Views(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -4140,7 +4201,7 @@ class Views(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="UpdateManyViews",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -4228,6 +4289,7 @@ class Views(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -4244,7 +4306,7 @@ class Views(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="UpdateManyViews",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),

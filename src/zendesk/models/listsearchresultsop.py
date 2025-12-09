@@ -8,10 +8,20 @@ from zendesk.types import BaseModel
 from zendesk.utils import FieldMetadata, QueryParamMetadata
 
 
-SortBy = Literal["updated_at", "created_at", "priority", "status", "ticket_type"]
+SortBy = Literal[
+    "updated_at",
+    "created_at",
+    "priority",
+    "status",
+    "ticket_type",
+]
 r"""One of `updated_at`, `created_at`, `priority`, `status`, or `ticket_type`. Defaults to sorting by relevance"""
 
-SortOrder = Literal["asc", "desc"]
+
+SortOrder = Literal[
+    "asc",
+    "desc",
+]
 r"""One of `asc` or `desc`.  Defaults to `desc`"""
 
 

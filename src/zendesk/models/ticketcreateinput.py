@@ -30,10 +30,23 @@ class TicketCreateInputCustomField(BaseModel):
     r"""The value of the custom field"""
 
 
-TicketCreateInputPriority = Literal["urgent", "high", "normal", "low"]
+TicketCreateInputPriority = Literal[
+    "urgent",
+    "high",
+    "normal",
+    "low",
+]
 r"""The urgency with which the ticket should be addressed."""
 
-TicketCreateInputStatus = Literal["new", "open", "pending", "hold", "solved", "closed"]
+
+TicketCreateInputStatus = Literal[
+    "new",
+    "open",
+    "pending",
+    "hold",
+    "solved",
+    "closed",
+]
 r"""The state of the ticket.
 
 If your account has activated custom ticket statuses, this is the ticket's
@@ -41,7 +54,13 @@ status category. See [custom ticket statuses](#custom-ticket-statuses).
 
 """
 
-TicketCreateInputType = Literal["problem", "incident", "question", "task"]
+
+TicketCreateInputType = Literal[
+    "problem",
+    "incident",
+    "question",
+    "task",
+]
 r"""The type of this ticket."""
 
 

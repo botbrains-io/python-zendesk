@@ -1,5 +1,4 @@
 # PushNotificationDevices
-(*push_notification_devices*)
 
 ## Overview
 

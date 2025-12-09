@@ -1,5 +1,4 @@
 # ApprovalRequests
-(*approval_requests*)
 
 ## Overview
 

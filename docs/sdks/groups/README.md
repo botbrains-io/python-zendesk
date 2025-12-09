@@ -1,5 +1,4 @@
 # Groups
-(*groups*)
 
 ## Overview
 

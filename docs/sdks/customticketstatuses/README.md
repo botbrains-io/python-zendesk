@@ -1,5 +1,4 @@
 # CustomTicketStatuses
-(*custom_ticket_statuses*)
 
 ## Overview
 

@@ -1,5 +1,4 @@
 # WebhookInvocations
-(*webhook_invocations*)
 
 ## Overview
 

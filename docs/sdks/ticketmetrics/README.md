@@ -1,5 +1,4 @@
 # TicketMetrics
-(*ticket_metrics*)
 
 ## Overview
 

@@ -10,16 +10,34 @@ from .bearertokenauthentication import (
     BearerTokenAuthentication,
     BearerTokenAuthenticationTypedDict,
 )
+from pydantic import Discriminator, Tag
 from typing import Dict, List, Literal, Optional, Union
-from typing_extensions import NotRequired, TypeAliasType, TypedDict
+from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 from zendesk.types import BaseModel
+from zendesk.utils import get_discriminator
 
 
-WebhookPatchRequestHTTPMethod = Literal["GET", "POST", "PUT", "PATCH", "DELETE"]
+WebhookPatchRequestHTTPMethod = Literal[
+    "GET",
+    "POST",
+    "PUT",
+    "PATCH",
+    "DELETE",
+]
 
-WebhookPatchRequestRequestFormat = Literal["json", "xml", "form_encoded"]
 
-WebhookPatchRequestStatus = Literal["active", "inactive"]
+WebhookPatchRequestRequestFormat = Literal[
+    "json",
+    "xml",
+    "form_encoded",
+]
+
+
+WebhookPatchRequestStatus = Literal[
+    "active",
+    "inactive",
+]
+
 
 WebhookPatchRequestAuthenticationTypedDict = TypeAliasType(
     "WebhookPatchRequestAuthenticationTypedDict",
@@ -31,10 +49,14 @@ WebhookPatchRequestAuthenticationTypedDict = TypeAliasType(
 )
 
 
-WebhookPatchRequestAuthentication = TypeAliasType(
-    "WebhookPatchRequestAuthentication",
-    Union[BasicAuthAuthentication, BearerTokenAuthentication, APIKeyAuthentication],
-)
+WebhookPatchRequestAuthentication = Annotated[
+    Union[
+        Annotated[BasicAuthAuthentication, Tag("basic_auth")],
+        Annotated[BearerTokenAuthentication, Tag("bearer_token")],
+        Annotated[APIKeyAuthentication, Tag("api_key")],
+    ],
+    Discriminator(lambda m: get_discriminator(m, "type", "type")),
+]
 
 
 class WebhookPatchRequestWebhookTypedDict(TypedDict):

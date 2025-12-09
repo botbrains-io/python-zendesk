@@ -1,5 +1,4 @@
 # GroupMemberships
-(*group_memberships*)
 
 ## Overview
 

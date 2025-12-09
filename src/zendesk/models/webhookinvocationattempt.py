@@ -8,7 +8,11 @@ from zendesk.types import BaseModel
 
 
 WebhookInvocationAttemptStatus = Literal[
-    "success", "failed", "timeout", "client error", "server error"
+    "success",
+    "failed",
+    "timeout",
+    "client error",
+    "server error",
 ]
 r"""Status of the delivery attempt"""
 

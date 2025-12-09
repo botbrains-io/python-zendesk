@@ -1,5 +1,4 @@
 # SharingAgreements
-(*sharing_agreements*)
 
 ## Overview
 

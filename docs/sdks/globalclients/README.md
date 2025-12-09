@@ -1,5 +1,4 @@
 # GlobalClients
-(*global_clients*)
 
 ## Overview
 

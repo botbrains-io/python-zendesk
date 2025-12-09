@@ -1,5 +1,4 @@
 # Views
-(*views*)
 
 ## Overview
 

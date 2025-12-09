@@ -23374,7 +23374,9 @@ components:
           description: The name of the form that is displayed to an end user
         end_user_conditions:
           type: array
-          description: Array of condition sets for end user products
+          description: |
+            Array of condition sets for end user products. Sending an empty array `[]`
+            removes the end user conditions from the form.
           items:
             type: object
             additionalProperties: true
@@ -23909,8 +23911,12 @@ components:
                 type: integer
                 description: The id of the custom field
               value:
-                type: string
                 description: The value of the custom field
+                nullable: true
+                oneOf:
+                  - type: string
+                  - type: integer
+                  - type: boolean
         custom_status_id:
           type: integer
           description:

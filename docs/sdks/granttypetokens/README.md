@@ -1,5 +1,4 @@
 # GrantTypeTokens
-(*grant_type_tokens*)
 
 ## Overview
 

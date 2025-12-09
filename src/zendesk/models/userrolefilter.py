@@ -4,4 +4,8 @@ from __future__ import annotations
 from typing import Literal
 
 
-UserRoleFilter = Literal["end-user", "agent", "admin"]
+UserRoleFilter = Literal[
+    "end-user",
+    "agent",
+    "admin",
+]

@@ -1,5 +1,4 @@
 # TicketMetricEvents
-(*ticket_metric_events*)
 
 ## Overview
 

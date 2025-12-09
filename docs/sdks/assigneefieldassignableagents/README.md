@@ -1,5 +1,4 @@
 # AssigneeFieldAssignableAgents
-(*assignee_field_assignable_agents*)
 
 ## Overview
 

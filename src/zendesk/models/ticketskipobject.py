@@ -4,15 +4,25 @@ from __future__ import annotations
 from .collaboratorobject import CollaboratorObject, CollaboratorObjectTypedDict
 from datetime import datetime
 from pydantic import model_serializer
-from typing import Any, Dict, List, Literal, Optional
-from typing_extensions import NotRequired, TypedDict
+from typing import Any, Dict, List, Literal, Optional, Union
+from typing_extensions import NotRequired, TypeAliasType, TypedDict
 from zendesk.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
+
+
+TicketSkipObjectValueTypedDict = TypeAliasType(
+    "TicketSkipObjectValueTypedDict", Union[str, int, bool]
+)
+r"""The value of the custom field"""
+
+
+TicketSkipObjectValue = TypeAliasType("TicketSkipObjectValue", Union[str, int, bool])
+r"""The value of the custom field"""
 
 
 class TicketSkipObjectCustomFieldTypedDict(TypedDict):
     id: NotRequired[int]
     r"""The id of the custom field"""
-    value: NotRequired[str]
+    value: NotRequired[Nullable[TicketSkipObjectValueTypedDict]]
     r"""The value of the custom field"""
 
 
@@ -20,14 +30,57 @@ class TicketSkipObjectCustomField(BaseModel):
     id: Optional[int] = None
     r"""The id of the custom field"""
 
-    value: Optional[str] = None
+    value: OptionalNullable[TicketSkipObjectValue] = UNSET
     r"""The value of the custom field"""
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = ["id", "value"]
+        nullable_fields = ["value"]
+        null_default_fields = []
 
-TicketSkipObjectPriority = Literal["urgent", "high", "normal", "low"]
+        serialized = handler(self)
+
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+            serialized.pop(k, None)
+
+            optional_nullable = k in optional_fields and k in nullable_fields
+            is_set = (
+                self.__pydantic_fields_set__.intersection({n})
+                or k in null_default_fields
+            )  # pylint: disable=no-member
+
+            if val is not None and val != UNSET_SENTINEL:
+                m[k] = val
+            elif val != UNSET_SENTINEL and (
+                not k in optional_fields or (optional_nullable and is_set)
+            ):
+                m[k] = val
+
+        return m
+
+
+TicketSkipObjectPriority = Literal[
+    "urgent",
+    "high",
+    "normal",
+    "low",
+]
 r"""The urgency with which the ticket should be addressed"""
 
-TicketSkipObjectStatus = Literal["new", "open", "pending", "hold", "solved", "closed"]
+
+TicketSkipObjectStatus = Literal[
+    "new",
+    "open",
+    "pending",
+    "hold",
+    "solved",
+    "closed",
+]
 r"""The state of the ticket.
 
 If your account has activated custom ticket statuses, this is the ticket's
@@ -35,7 +88,13 @@ status category. See [custom ticket statuses](#custom-ticket-statuses)
 
 """
 
-TicketSkipObjectType = Literal["problem", "incident", "question", "task"]
+
+TicketSkipObjectType = Literal[
+    "problem",
+    "incident",
+    "question",
+    "task",
+]
 r"""The type of this ticket"""
 
 

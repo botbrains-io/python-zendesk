@@ -38,7 +38,8 @@ ListTriggerCategoriesSort = Literal[
 ]
 r"""Sort parameters"""
 
-Include = Literal["rule_counts"]
+
+Include = Literal["rule_counts",]
 r"""Allowed sideloads"""
 
 

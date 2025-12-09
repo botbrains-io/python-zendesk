@@ -47,6 +47,7 @@ class Reseller(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -63,7 +64,7 @@ class Reseller(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CreateTrialAccount",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -121,6 +122,7 @@ class Reseller(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -137,7 +139,7 @@ class Reseller(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CreateTrialAccount",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -175,6 +177,7 @@ class Reseller(BaseSDK):
 
 
         :param subdomain: Specify the name of the subdomain you want to verify. The name can't contain underscores, hyphens, or spaces.
+
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -207,6 +210,7 @@ class Reseller(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -223,7 +227,7 @@ class Reseller(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="VerifySubdomainAvailability",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -263,6 +267,7 @@ class Reseller(BaseSDK):
 
 
         :param subdomain: Specify the name of the subdomain you want to verify. The name can't contain underscores, hyphens, or spaces.
+
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -295,6 +300,7 @@ class Reseller(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -311,7 +317,7 @@ class Reseller(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="VerifySubdomainAvailability",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),

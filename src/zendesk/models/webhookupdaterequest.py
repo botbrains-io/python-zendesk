@@ -11,19 +11,37 @@ from .bearertokenauthentication import (
     BearerTokenAuthenticationTypedDict,
 )
 from .webhooksigningsecret import WebhookSigningSecret, WebhookSigningSecretTypedDict
+from pydantic import Discriminator, Tag
 from typing import Dict, List, Literal, Optional, Union
-from typing_extensions import NotRequired, TypeAliasType, TypedDict
+from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 from zendesk.types import BaseModel
+from zendesk.utils import get_discriminator
 
 
-WebhookUpdateRequestHTTPMethod = Literal["GET", "POST", "PUT", "PATCH", "DELETE"]
+WebhookUpdateRequestHTTPMethod = Literal[
+    "GET",
+    "POST",
+    "PUT",
+    "PATCH",
+    "DELETE",
+]
 r"""HTTP method used for the webhook's requests. To subscribe the webhook to Zendesk events, this must be \"POST\" """
 
-WebhookUpdateRequestRequestFormat = Literal["json", "xml", "form_encoded"]
+
+WebhookUpdateRequestRequestFormat = Literal[
+    "json",
+    "xml",
+    "form_encoded",
+]
 r"""The format of the data that the webhook will send. To subscribe the webhook to Zendesk events, this must be \"json\" """
 
-WebhookUpdateRequestStatus = Literal["active", "inactive"]
+
+WebhookUpdateRequestStatus = Literal[
+    "active",
+    "inactive",
+]
 r"""Current status of the webhook"""
+
 
 WebhookUpdateRequestAuthenticationTypedDict = TypeAliasType(
     "WebhookUpdateRequestAuthenticationTypedDict",
@@ -36,10 +54,14 @@ WebhookUpdateRequestAuthenticationTypedDict = TypeAliasType(
 r"""Adds authentication to the webhook's HTTP requests, if not specified, the webhook will be unauthenticated"""
 
 
-WebhookUpdateRequestAuthentication = TypeAliasType(
-    "WebhookUpdateRequestAuthentication",
-    Union[BasicAuthAuthentication, BearerTokenAuthentication, APIKeyAuthentication],
-)
+WebhookUpdateRequestAuthentication = Annotated[
+    Union[
+        Annotated[BasicAuthAuthentication, Tag("basic_auth")],
+        Annotated[BearerTokenAuthentication, Tag("bearer_token")],
+        Annotated[APIKeyAuthentication, Tag("api_key")],
+    ],
+    Discriminator(lambda m: get_discriminator(m, "type", "type")),
+]
 r"""Adds authentication to the webhook's HTTP requests, if not specified, the webhook will be unauthenticated"""
 
 

@@ -1,5 +1,4 @@
 # DeletionSchedules
-(*deletion_schedules*)
 
 ## Overview
 

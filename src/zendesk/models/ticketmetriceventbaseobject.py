@@ -18,6 +18,7 @@ Metric = Literal[
 ]
 r"""The metric being tracked"""
 
+
 TicketMetricEventBaseObjectType = Literal[
     "activate",
     "pause",

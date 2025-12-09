@@ -6,7 +6,12 @@ from typing_extensions import NotRequired, TypedDict
 from zendesk.types import BaseModel
 
 
-OrganizationMergeListResponseStatus = Literal["new", "in_progress", "error", "complete"]
+OrganizationMergeListResponseStatus = Literal[
+    "new",
+    "in_progress",
+    "error",
+    "complete",
+]
 
 
 class OrganizationMergeListResponseOrganizationMergeTypedDict(TypedDict):

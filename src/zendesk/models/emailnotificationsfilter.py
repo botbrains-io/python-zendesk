@@ -4,4 +4,8 @@ from __future__ import annotations
 from typing import Literal
 
 
-EmailNotificationsFilter = Literal["ticket_id", "comment_id", "notification_id"]
+EmailNotificationsFilter = Literal[
+    "ticket_id",
+    "comment_id",
+    "notification_id",
+]

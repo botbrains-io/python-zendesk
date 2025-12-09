@@ -1,5 +1,4 @@
 # Attachments
-(*attachments*)
 
 ## Overview
 

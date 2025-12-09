@@ -6,7 +6,10 @@ from typing_extensions import NotRequired, TypedDict
 from zendesk.types import BaseModel
 
 
-FollowerObjectAction = Literal["put", "delete"]
+FollowerObjectAction = Literal[
+    "put",
+    "delete",
+]
 
 
 class FollowerObjectTypedDict(TypedDict):

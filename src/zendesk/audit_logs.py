@@ -46,8 +46,11 @@ class AuditLogs(BaseSDK):
 
 
         :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+
         :param filter_source_type: Filter audit logs by the source type. For example, user or rule
         :param filter_source_id: Filter audit logs by the source id. Requires `filter[source_type]` to also be set
         :param filter_actor_id: Filter audit logs by the actor id
@@ -96,6 +99,7 @@ class AuditLogs(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -112,7 +116,7 @@ class AuditLogs(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ListAuditLogs",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -130,7 +134,7 @@ class AuditLogs(BaseSDK):
                 return None
 
             next_cursor = next_cursor[0]
-            if next_cursor is None:
+            if next_cursor is None or str(next_cursor).strip() == "":
                 return None
 
             return self.list_audit_logs(
@@ -196,8 +200,11 @@ class AuditLogs(BaseSDK):
 
 
         :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+
         :param filter_source_type: Filter audit logs by the source type. For example, user or rule
         :param filter_source_id: Filter audit logs by the source id. Requires `filter[source_type]` to also be set
         :param filter_actor_id: Filter audit logs by the actor id
@@ -246,6 +253,7 @@ class AuditLogs(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -262,7 +270,7 @@ class AuditLogs(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ListAuditLogs",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -280,7 +288,7 @@ class AuditLogs(BaseSDK):
                 return None
 
             next_cursor = next_cursor[0]
-            if next_cursor is None:
+            if next_cursor is None or str(next_cursor).strip() == "":
                 return None
 
             return self.list_audit_logs(
@@ -360,6 +368,7 @@ class AuditLogs(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -376,7 +385,7 @@ class AuditLogs(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ShowAuditLog",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -446,6 +455,7 @@ class AuditLogs(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -462,7 +472,7 @@ class AuditLogs(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ShowAuditLog",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -547,6 +557,7 @@ class AuditLogs(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -563,7 +574,7 @@ class AuditLogs(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ExportAuditLogs",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -648,6 +659,7 @@ class AuditLogs(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -664,7 +676,7 @@ class AuditLogs(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ExportAuditLogs",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),

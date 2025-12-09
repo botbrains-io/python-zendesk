@@ -1,5 +1,4 @@
 # TargetFailures
-(*target_failures*)
 
 ## Overview
 

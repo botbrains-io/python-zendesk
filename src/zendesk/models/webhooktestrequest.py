@@ -10,14 +10,28 @@ from .bearertokenauthentication import (
     BearerTokenAuthentication,
     BearerTokenAuthenticationTypedDict,
 )
+from pydantic import Discriminator, Tag
 from typing import Dict, Literal, Optional, Union
-from typing_extensions import NotRequired, TypeAliasType, TypedDict
+from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 from zendesk.types import BaseModel
+from zendesk.utils import get_discriminator
 
 
-WebhookTestRequestHTTPMethod = Literal["GET", "POST", "PUT", "PATCH", "DELETE"]
+WebhookTestRequestHTTPMethod = Literal[
+    "GET",
+    "POST",
+    "PUT",
+    "PATCH",
+    "DELETE",
+]
 
-WebhookTestRequestRequestFormat = Literal["json", "xml", "form_encoded"]
+
+WebhookTestRequestRequestFormat = Literal[
+    "json",
+    "xml",
+    "form_encoded",
+]
+
 
 WebhookTestRequestAuthenticationTypedDict = TypeAliasType(
     "WebhookTestRequestAuthenticationTypedDict",
@@ -29,10 +43,14 @@ WebhookTestRequestAuthenticationTypedDict = TypeAliasType(
 )
 
 
-WebhookTestRequestAuthentication = TypeAliasType(
-    "WebhookTestRequestAuthentication",
-    Union[BasicAuthAuthentication, BearerTokenAuthentication, APIKeyAuthentication],
-)
+WebhookTestRequestAuthentication = Annotated[
+    Union[
+        Annotated[BasicAuthAuthentication, Tag("basic_auth")],
+        Annotated[BearerTokenAuthentication, Tag("bearer_token")],
+        Annotated[APIKeyAuthentication, Tag("api_key")],
+    ],
+    Discriminator(lambda m: get_discriminator(m, "type", "type")),
+]
 
 
 class WebhookTestRequestWebhookTypedDict(TypedDict):

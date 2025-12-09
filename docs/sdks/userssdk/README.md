@@ -1,5 +1,4 @@
-# UsersSDK
-(*users*)
+# Users
 
 ## Overview
 
@@ -438,10 +437,8 @@ with Zendesk(
     ),
 ) as z_client:
 
-    res = z_client.users.update_user(user_id=35436, user=models.UserMergeByIDInput(
-        **{
-            "name": "Roger Wilco II",
-        },
+    res = z_client.users.update_user(user_id=35436, user=models.UserMergePropertiesInput(
+        name="Roger Wilco II",
     ))
 
     # Handle response
@@ -1375,10 +1372,8 @@ with Zendesk(
 ) as z_client:
 
     res = z_client.users.update_many_users(request_body=models.UpdateManyUsersUserRequest(
-        user=models.UserMergeByIDInput(
-            **{
-                "organization_id": 1,
-            },
+        user=models.UserMergePropertiesInput(
+            organization_id=1,
         ),
     ), ids="1,2,3", external_ids="abc,def,ghi")
 

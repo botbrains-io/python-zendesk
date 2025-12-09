@@ -1,5 +1,4 @@
 # SupportAddresses
-(*support_addresses*)
 
 ## Overview
 

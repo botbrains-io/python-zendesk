@@ -4,4 +4,7 @@ from __future__ import annotations
 from typing import Literal
 
 
-TicketSortOrder = Literal["asc", "desc"]
+TicketSortOrder = Literal[
+    "asc",
+    "desc",
+]

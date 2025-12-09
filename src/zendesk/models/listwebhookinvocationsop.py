@@ -26,7 +26,11 @@ ListWebhookInvocationsFilterStatus = Literal[
 ]
 r"""Filters invocations by invocation status"""
 
-ListWebhookInvocationsSort = Literal["latest_completed_at", "-latest_completed_at"]
+
+ListWebhookInvocationsSort = Literal[
+    "latest_completed_at",
+    "-latest_completed_at",
+]
 r"""Defines a invocation attribute to sort invocations"""
 
 

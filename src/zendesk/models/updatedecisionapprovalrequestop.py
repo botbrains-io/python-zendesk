@@ -8,7 +8,10 @@ from zendesk.utils import FieldMetadata, PathParamMetadata, RequestMetadata
 
 
 UpdateDecisionApprovalRequestStatus = Literal[
-    "approved", "rejected", "pending", "withdrawn"
+    "approved",
+    "rejected",
+    "pending",
+    "withdrawn",
 ]
 r"""The status of the approval request"""
 

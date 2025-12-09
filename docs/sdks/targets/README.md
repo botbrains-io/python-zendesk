@@ -1,5 +1,4 @@
 # Targets
-(*targets*)
 
 ## Overview
 

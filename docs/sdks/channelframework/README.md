@@ -1,5 +1,4 @@
 # ChannelFramework
-(*channel_framework*)
 
 ## Overview
 

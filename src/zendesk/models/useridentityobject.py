@@ -22,7 +22,14 @@ UserIdentityObjectType = Literal[
 ]
 r"""The type of this identity"""
 
-VerificationMethod = Literal["none", "low", "sso", "embed", "full"]
+
+VerificationMethod = Literal[
+    "none",
+    "low",
+    "sso",
+    "embed",
+    "full",
+]
 r"""Indicates the state of user identity verification. See [Verification method](#verification-method)."""
 
 

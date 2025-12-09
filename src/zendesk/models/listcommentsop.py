@@ -12,7 +12,10 @@ from zendesk.types import BaseModel
 from zendesk.utils import FieldMetadata, PathParamMetadata, QueryParamMetadata
 
 
-ListCommentsSort = Literal["created_at", "-created_at"]
+ListCommentsSort = Literal[
+    "created_at",
+    "-created_at",
+]
 r"""Specifies how to sort the comments. Possible values are \"created_at\" (ascending order) or \"-created_at\" (descending order)
 
 """

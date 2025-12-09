@@ -1,5 +1,4 @@
 # OAuthTokens
-(*o_auth_tokens*)
 
 ## Overview
 

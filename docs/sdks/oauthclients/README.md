@@ -1,5 +1,4 @@
 # OAuthClients
-(*o_auth_clients*)
 
 ## Overview
 

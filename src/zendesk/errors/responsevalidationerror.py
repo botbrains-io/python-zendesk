@@ -2,10 +2,12 @@
 
 import httpx
 from typing import Optional
+from dataclasses import dataclass
 
 from zendesk.errors import ZendeskError
 
 
+@dataclass(unsafe_hash=True)
 class ResponseValidationError(ZendeskError):
     """Error raised when there is a type mismatch between the response data and the expected Pydantic model."""
 

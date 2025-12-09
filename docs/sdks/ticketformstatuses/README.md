@@ -1,5 +1,4 @@
 # TicketFormStatuses
-(*ticket_form_statuses*)
 
 ## Overview
 

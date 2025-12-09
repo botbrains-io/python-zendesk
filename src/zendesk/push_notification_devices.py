@@ -74,6 +74,7 @@ class PushNotificationDevices(BaseSDK):
                 "json",
                 Optional[models.PushNotificationDevicesRequest],
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -90,7 +91,7 @@ class PushNotificationDevices(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="PushNotificationDevices",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -175,6 +176,7 @@ class PushNotificationDevices(BaseSDK):
                 "json",
                 Optional[models.PushNotificationDevicesRequest],
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -191,7 +193,7 @@ class PushNotificationDevices(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="PushNotificationDevices",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),

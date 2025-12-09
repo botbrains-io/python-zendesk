@@ -6,7 +6,7 @@ from typing_extensions import NotRequired, TypedDict
 from zendesk.types import BaseModel
 
 
-BearerTokenAuthenticationType = Literal["bearer_token"]
+BearerTokenAuthenticationType = Literal["bearer_token",]
 
 
 class BearerTokenAuthenticationDataTypedDict(TypedDict):

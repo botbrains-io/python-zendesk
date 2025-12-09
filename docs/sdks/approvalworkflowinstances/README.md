@@ -1,5 +1,4 @@
 # ApprovalWorkflowInstances
-(*approval_workflow_instances*)
 
 ## Overview
 

@@ -1,5 +1,4 @@
 # Locales
-(*locales*)
 
 ## Overview
 

@@ -75,6 +75,7 @@ class CustomTicketStatuses(BaseSDK):
                 "json",
                 Optional[models.BulkUpdateDefaultCustomStatusRequest],
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -91,7 +92,7 @@ class CustomTicketStatuses(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="BulkUpdateDefaultCustomStatus",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -179,6 +180,7 @@ class CustomTicketStatuses(BaseSDK):
                 "json",
                 Optional[models.BulkUpdateDefaultCustomStatusRequest],
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -195,7 +197,7 @@ class CustomTicketStatuses(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="BulkUpdateDefaultCustomStatus",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -275,6 +277,7 @@ class CustomTicketStatuses(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -291,7 +294,7 @@ class CustomTicketStatuses(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ListCustomStatuses",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -369,6 +372,7 @@ class CustomTicketStatuses(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -385,7 +389,7 @@ class CustomTicketStatuses(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ListCustomStatuses",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -467,6 +471,7 @@ class CustomTicketStatuses(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, True, "json", Optional[models.CustomStatusCreateRequest]
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -483,7 +488,7 @@ class CustomTicketStatuses(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CreateCustomStatus",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -565,6 +570,7 @@ class CustomTicketStatuses(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, True, "json", Optional[models.CustomStatusCreateRequest]
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -581,7 +587,7 @@ class CustomTicketStatuses(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CreateCustomStatus",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -653,6 +659,7 @@ class CustomTicketStatuses(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -669,7 +676,7 @@ class CustomTicketStatuses(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ShowCustomStatus",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -741,6 +748,7 @@ class CustomTicketStatuses(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -757,7 +765,7 @@ class CustomTicketStatuses(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ShowCustomStatus",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -847,6 +855,7 @@ class CustomTicketStatuses(BaseSDK):
                 "json",
                 Optional[models.CustomStatusUpdateRequest],
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -863,7 +872,7 @@ class CustomTicketStatuses(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="UpdateCustomStatus",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -953,6 +962,7 @@ class CustomTicketStatuses(BaseSDK):
                 "json",
                 Optional[models.CustomStatusUpdateRequest],
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -969,7 +979,7 @@ class CustomTicketStatuses(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="UpdateCustomStatus",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1057,6 +1067,7 @@ class CustomTicketStatuses(BaseSDK):
                 "json",
                 Optional[models.CreateTicketFormStatusesForCustomStatusRequestBody],
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1073,7 +1084,7 @@ class CustomTicketStatuses(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CreateTicketFormStatusesForCustomStatus",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1161,6 +1172,7 @@ class CustomTicketStatuses(BaseSDK):
                 "json",
                 Optional[models.CreateTicketFormStatusesForCustomStatusRequestBody],
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1177,7 +1189,7 @@ class CustomTicketStatuses(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CreateTicketFormStatusesForCustomStatus",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),

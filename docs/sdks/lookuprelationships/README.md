@@ -1,5 +1,4 @@
 # LookupRelationships
-(*lookup_relationships*)
 
 ## Overview
 

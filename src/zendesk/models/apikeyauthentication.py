@@ -6,7 +6,7 @@ from typing_extensions import NotRequired, TypedDict
 from zendesk.types import BaseModel
 
 
-APIKeyAuthenticationType = Literal["api_key"]
+APIKeyAuthenticationType = Literal["api_key",]
 
 
 class APIKeyAuthenticationDataTypedDict(TypedDict):
@@ -24,7 +24,10 @@ class APIKeyAuthenticationData(BaseModel):
     r"""Value of the API key"""
 
 
-AddPosition = Literal["header", "query_string"]
+AddPosition = Literal[
+    "header",
+    "query_string",
+]
 r"""Where to add the API key (header or query string)"""
 
 

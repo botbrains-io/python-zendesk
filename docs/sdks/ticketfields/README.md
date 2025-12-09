@@ -1,5 +1,4 @@
 # TicketFields
-(*ticket_fields*)
 
 ## Overview
 

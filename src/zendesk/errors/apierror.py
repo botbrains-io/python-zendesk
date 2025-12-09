@@ -2,12 +2,14 @@
 
 import httpx
 from typing import Optional
+from dataclasses import dataclass
 
 from zendesk.errors import ZendeskError
 
 MAX_MESSAGE_LEN = 10_000
 
 
+@dataclass(unsafe_hash=True)
 class APIError(ZendeskError):
     """The fallback error class if no more specific error class is matched."""
 

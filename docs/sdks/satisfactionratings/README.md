@@ -1,5 +1,4 @@
 # SatisfactionRatings
-(*satisfaction_ratings*)
 
 ## Overview
 

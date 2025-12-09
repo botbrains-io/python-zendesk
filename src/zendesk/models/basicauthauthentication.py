@@ -6,7 +6,7 @@ from typing_extensions import NotRequired, TypedDict
 from zendesk.types import BaseModel
 
 
-BasicAuthAuthenticationType = Literal["basic_auth"]
+BasicAuthAuthenticationType = Literal["basic_auth",]
 
 
 class BasicAuthAuthenticationDataTypedDict(TypedDict):

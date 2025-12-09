@@ -11,7 +11,7 @@ from typing_extensions import NotRequired, TypedDict
 from zendesk.types import BaseModel
 
 
-BatchJobRequestAction = Literal["patch"]
+BatchJobRequestAction = Literal["patch",]
 
 
 class ItemsTypedDict(TypedDict):

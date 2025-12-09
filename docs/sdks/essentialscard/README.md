@@ -1,5 +1,4 @@
 # EssentialsCard
-(*essentials_card*)
 
 ## Overview
 

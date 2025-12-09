@@ -20,7 +20,10 @@ class BatchJobResponseResults(BaseModel):
     triggers: Optional[List[TriggerObject]] = None
 
 
-BatchJobResponseStatus = Literal["complete", "failed"]
+BatchJobResponseStatus = Literal[
+    "complete",
+    "failed",
+]
 
 
 class BatchJobResponseTypedDict(TypedDict):

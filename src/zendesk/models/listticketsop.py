@@ -9,7 +9,14 @@ from zendesk.types import BaseModel
 from zendesk.utils import FieldMetadata, QueryParamMetadata
 
 
-ListTicketsSort = Literal["updated_at", "id", "status", "-updated_at", "-id", "-status"]
+ListTicketsSort = Literal[
+    "updated_at",
+    "id",
+    "status",
+    "-updated_at",
+    "-id",
+    "-status",
+]
 r"""Sort tickets by field (for cursor pagination use \"field\" for ascending or \"-field\" for descending)"""
 
 

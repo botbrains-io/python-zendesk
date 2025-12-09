@@ -1,5 +1,4 @@
 # Basics
-(*basics*)
 
 ## Overview
 

@@ -1,5 +1,4 @@
 # SLAPolicies
-(*sla_policies*)
 
 ## Overview
 

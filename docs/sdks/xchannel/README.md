@@ -1,5 +1,4 @@
 # XChannel
-(*x_channel*)
 
 ## Overview
 

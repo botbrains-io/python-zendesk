@@ -1,5 +1,4 @@
 # GroupSLAPolicies
-(*group_sla_policies*)
 
 ## Overview
 

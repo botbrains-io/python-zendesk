@@ -7,7 +7,11 @@ from zendesk.types import BaseModel
 
 
 CustomStatusCreateInputStatusCategory = Literal[
-    "new", "open", "pending", "hold", "solved"
+    "new",
+    "open",
+    "pending",
+    "hold",
+    "solved",
 ]
 r"""The status category the custom ticket status belongs to"""
 

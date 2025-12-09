@@ -12,10 +12,20 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 from zendesk.types import BaseModel
 
 
-TicketCreateVoicemailTicketRequestPriority = Literal["urgent", "high", "normal", "low"]
+TicketCreateVoicemailTicketRequestPriority = Literal[
+    "urgent",
+    "high",
+    "normal",
+    "low",
+]
 r"""The urgency with which the ticket should be addressed."""
 
-ViaID = Literal[44, 45, 46]
+
+ViaID = Literal[
+    44,
+    45,
+    46,
+]
 r"""Required for Create Ticket operation"""
 
 

@@ -89,6 +89,7 @@ class ApprovalRequests(BaseSDK):
                 "json",
                 models.ApprovalRequestCreateRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -105,7 +106,7 @@ class ApprovalRequests(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CreateApprovalRequest",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -205,6 +206,7 @@ class ApprovalRequests(BaseSDK):
                 "json",
                 models.ApprovalRequestCreateRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -221,7 +223,7 @@ class ApprovalRequests(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CreateApprovalRequest",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -296,6 +298,7 @@ class ApprovalRequests(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -312,7 +315,7 @@ class ApprovalRequests(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ShowApprovalRequest",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -387,6 +390,7 @@ class ApprovalRequests(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -403,7 +407,7 @@ class ApprovalRequests(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ShowApprovalRequest",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -493,6 +497,7 @@ class ApprovalRequests(BaseSDK):
                 "json",
                 models.UpdateDecisionApprovalRequestRequestBody,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -509,7 +514,7 @@ class ApprovalRequests(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="UpdateDecisionApprovalRequest",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -599,6 +604,7 @@ class ApprovalRequests(BaseSDK):
                 "json",
                 models.UpdateDecisionApprovalRequestRequestBody,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -615,7 +621,7 @@ class ApprovalRequests(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="UpdateDecisionApprovalRequest",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -687,6 +693,7 @@ class ApprovalRequests(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -703,7 +710,7 @@ class ApprovalRequests(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="SearchApprovals",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -777,6 +784,7 @@ class ApprovalRequests(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -793,7 +801,7 @@ class ApprovalRequests(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="SearchApprovals",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),

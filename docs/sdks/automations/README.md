@@ -1,5 +1,4 @@
 # Automations
-(*automations*)
 
 ## Overview
 

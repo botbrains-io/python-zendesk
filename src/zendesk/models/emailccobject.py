@@ -6,7 +6,10 @@ from typing_extensions import NotRequired, TypedDict
 from zendesk.types import BaseModel
 
 
-EmailCCObjectAction = Literal["put", "delete"]
+EmailCCObjectAction = Literal[
+    "put",
+    "delete",
+]
 
 
 class EmailCCObjectTypedDict(TypedDict):

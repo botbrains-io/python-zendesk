@@ -23,7 +23,10 @@ class TicketFormObjectTypedDict(TypedDict):
     display_name: NotRequired[str]
     r"""The name of the form that is displayed to an end user"""
     end_user_conditions: NotRequired[List[Dict[str, Any]]]
-    r"""Array of condition sets for end user products"""
+    r"""Array of condition sets for end user products. Sending an empty array `[]`
+    removes the end user conditions from the form.
+
+    """
     end_user_visible: NotRequired[bool]
     r"""Is the form visible to the end user"""
     id: NotRequired[int]
@@ -69,7 +72,10 @@ class TicketFormObject(BaseModel):
     r"""The name of the form that is displayed to an end user"""
 
     end_user_conditions: Optional[List[Dict[str, Any]]] = None
-    r"""Array of condition sets for end user products"""
+    r"""Array of condition sets for end user products. Sending an empty array `[]`
+    removes the end user conditions from the form.
+
+    """
 
     end_user_visible: Optional[bool] = None
     r"""Is the form visible to the end user"""

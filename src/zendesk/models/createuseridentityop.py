@@ -9,7 +9,13 @@ from zendesk.utils import FieldMetadata, PathParamMetadata, QueryParamMetadata
 
 
 CreateUserIdentityType = Literal[
-    "email", "facebook", "phone_number", "sdk", "twitter", "messaging", "microsoft"
+    "email",
+    "facebook",
+    "phone_number",
+    "sdk",
+    "twitter",
+    "messaging",
+    "microsoft",
 ]
 r"""Filters results by one or more identity types using the format `?type[]={type}&type[]={type}`"""
 

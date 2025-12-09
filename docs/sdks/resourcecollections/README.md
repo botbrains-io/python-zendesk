@@ -1,5 +1,4 @@
 # ResourceCollections
-(*resource_collections*)
 
 ## Overview
 

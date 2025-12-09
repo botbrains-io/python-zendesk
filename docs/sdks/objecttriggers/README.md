@@ -1,5 +1,4 @@
 # ObjectTriggers
-(*object_triggers*)
 
 ## Overview
 

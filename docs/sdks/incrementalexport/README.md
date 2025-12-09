@@ -1,5 +1,4 @@
 # IncrementalExport
-(*incremental_export*)
 
 ## Overview
 

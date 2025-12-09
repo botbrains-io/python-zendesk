@@ -7,7 +7,13 @@ from typing_extensions import NotRequired, TypedDict
 from zendesk.types import BaseModel
 
 
-CustomStatusObjectStatusCategory = Literal["new", "open", "pending", "hold", "solved"]
+CustomStatusObjectStatusCategory = Literal[
+    "new",
+    "open",
+    "pending",
+    "hold",
+    "solved",
+]
 r"""The status category the custom ticket status belongs to"""
 
 

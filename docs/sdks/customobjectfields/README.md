@@ -1,5 +1,4 @@
 # CustomObjectFields
-(*custom_object_fields*)
 
 ## Overview
 

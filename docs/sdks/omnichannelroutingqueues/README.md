@@ -1,5 +1,4 @@
 # OmnichannelRoutingQueues
-(*omnichannel_routing_queues*)
 
 ## Overview
 

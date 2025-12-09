@@ -1,5 +1,4 @@
-# IncrementalSkillBasedRoutingSDK
-(*incremental_skill_based_routing*)
+# IncrementalSkillBasedRouting
 
 ## Overview
 

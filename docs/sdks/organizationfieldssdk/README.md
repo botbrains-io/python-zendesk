@@ -1,5 +1,4 @@
-# OrganizationFieldsSDK
-(*organization_fields*)
+# OrganizationFields
 
 ## Overview
 

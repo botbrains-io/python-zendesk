@@ -1,5 +1,4 @@
 # TriggerCategories
-(*trigger_categories*)
 
 ## Overview
 

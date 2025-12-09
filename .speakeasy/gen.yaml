@@ -19,16 +19,25 @@ generation:
   auth:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
+    hoistGlobalSecurity: true
   sdkHooksConfigAccess: true
+  schemas:
+    allOfMergeStrategy: shallowMerge
+  requestBodyFieldName: ""
+  persistentEdits: {}
   tests:
     generateTests: true
     generateNewTests: false
     skipResponseBodyAssertions: false
 python:
-  version: 0.1.17
+  version: 0.2.0
   additionalDependencies:
     dev: {}
     main: {}
+  allowedRedefinedBuiltins:
+    - id
+    - object
+  asyncMode: both
   authors:
     - Speakeasy
   baseErrorName: ZendeskError
@@ -51,13 +60,19 @@ python:
       operations: ""
       shared: ""
       webhooks: ""
+  inferUnionDiscriminators: true
   inputModelSuffix: input
+  license: ""
   maxMethodParams: 999
   methodArguments: infer-optional-args
   moduleName: zendesk
+  multipartArrayFormat: legacy
   outputModelSuffix: output
+  packageManager: poetry
   packageName: python-zendesk
+  preApplyUnionDiscriminators: false
   pytestFilterWarnings: []
   pytestTimeout: 0
   responseFormat: flat
+  sseFlatResponse: false
   templateVersion: v2

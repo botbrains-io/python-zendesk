@@ -1,5 +1,4 @@
 # SatisfactionReasons
-(*satisfaction_reasons*)
 
 ## Overview
 

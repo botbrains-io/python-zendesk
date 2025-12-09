@@ -1,5 +1,4 @@
 # SkillBasedRouting
-(*skill_based_routing*)
 
 ## Overview
 

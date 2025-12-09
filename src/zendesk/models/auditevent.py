@@ -12,7 +12,7 @@ from zendesk.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SE
 from zendesk.utils import get_discriminator
 
 
-TypeRoutingChannelEvent = Literal["RoutingChannelEvent"]
+TypeRoutingChannelEvent = Literal["RoutingChannelEvent",]
 
 
 class RoutingChannelEventTypedDict(TypedDict):
@@ -47,7 +47,7 @@ class RoutingChannelEvent(BaseModel):
     r"""The current routing channel"""
 
 
-TypeOfferedToEvent = Literal["OfferedToEvent"]
+TypeOfferedToEvent = Literal["OfferedToEvent",]
 
 
 class OfferedToEventTypedDict(TypedDict):
@@ -82,7 +82,7 @@ class OfferedToEvent(BaseModel):
     r"""Skills used to route the ticket to an agent"""
 
 
-TypeSurveyResponseSubmitted = Literal["SurveyResponseSubmitted"]
+TypeSurveyResponseSubmitted = Literal["SurveyResponseSubmitted",]
 
 
 class SurveyResponseSubmittedEventTypedDict(TypedDict):
@@ -163,7 +163,7 @@ class SurveyResponseSubmittedEvent(BaseModel):
         return m
 
 
-TypeSurveyOffered = Literal["SurveyOffered"]
+TypeSurveyOffered = Literal["SurveyOffered",]
 
 
 class SurveyOfferedEventTypedDict(TypedDict):
@@ -244,7 +244,7 @@ class SurveyOfferedEvent(BaseModel):
         return m
 
 
-TypeAssociateAttValsEvent = Literal["AssociateAttValsEvent"]
+TypeAssociateAttValsEvent = Literal["AssociateAttValsEvent",]
 
 
 class SkillAssignedEventTypedDict(TypedDict):
@@ -274,7 +274,7 @@ class SkillAssignedEvent(BaseModel):
     r"""Skills assigned to the ticket"""
 
 
-TypeChatEndedEvent = Literal["ChatEndedEvent"]
+TypeChatEndedEvent = Literal["ChatEndedEvent",]
 
 
 class ChatEndedEventTypedDict(TypedDict):
@@ -307,7 +307,7 @@ class ChatEndedEvent(BaseModel):
     attachments: Optional[List[AttachmentObject]] = None
 
 
-TypeChatStartedEvent = Literal["ChatStartedEvent"]
+TypeChatStartedEvent = Literal["ChatStartedEvent",]
 
 
 class ChatStartedEventTypedDict(TypedDict):
@@ -350,7 +350,7 @@ class ChatStartedEvent(BaseModel):
     attachments: Optional[List[AttachmentObject]] = None
 
 
-TypePush = Literal["Push"]
+TypePush = Literal["Push",]
 
 
 class PushEventTypedDict(TypedDict):
@@ -385,7 +385,7 @@ class PushEvent(BaseModel):
     r"""A reference to the destination of the data"""
 
 
-TypeLogMeInTranscript = Literal["LogMeInTranscript"]
+TypeLogMeInTranscript = Literal["LogMeInTranscript",]
 
 
 class LogMeInTranscriptEventTypedDict(TypedDict):
@@ -415,7 +415,7 @@ class LogMeInTranscriptEvent(BaseModel):
     r"""An audit of the transcript"""
 
 
-TypeExternal = Literal["External"]
+TypeExternal = Literal["External",]
 
 
 class ExternalEventTypedDict(TypedDict):
@@ -450,7 +450,7 @@ class ExternalEvent(BaseModel):
     r"""Trigger message for this target event"""
 
 
-TypeFacebookComment = Literal["FacebookComment"]
+TypeFacebookComment = Literal["FacebookComment",]
 
 
 class DataFacebookCommentTypedDict(TypedDict):
@@ -518,7 +518,7 @@ class FacebookCommentEvent(BaseModel):
     r"""The graph object id of the associated Facebook Wall post or message"""
 
 
-TypeFacebookEvent = Literal["FacebookEvent"]
+TypeFacebookEvent = Literal["FacebookEvent",]
 
 
 class PageTypedDict(TypedDict):
@@ -529,7 +529,10 @@ class Page(BaseModel):
     r"""The name and graph id of the Facebook Page associated with the event"""
 
 
-TicketVia = Literal["post", "message"]
+TicketVia = Literal[
+    "post",
+    "message",
+]
 r"""Post or message depending on the association"""
 
 
@@ -575,7 +578,7 @@ class FacebookEvent(BaseModel):
     r"""The value of the message posted to Facebook"""
 
 
-TypeTweet = Literal["Tweet"]
+TypeTweet = Literal["Tweet",]
 
 
 class TweetEventTypedDict(TypedDict):
@@ -615,7 +618,7 @@ class TweetEvent(BaseModel):
     r"""An array of recipient IDs"""
 
 
-TypeErrorT = Literal["Error"]
+TypeErrorT = Literal["Error",]
 
 
 class ErrorEventTypedDict(TypedDict):
@@ -645,7 +648,7 @@ class ErrorEvent(BaseModel):
     r"""The error message"""
 
 
-TypeOrganizationActivity = Literal["OrganizationActivity"]
+TypeOrganizationActivity = Literal["OrganizationActivity",]
 
 
 class OrganizationSubscriptionNotificationEventTypedDict(TypedDict):
@@ -685,9 +688,13 @@ class OrganizationSubscriptionNotificationEvent(BaseModel):
     r"""An array of recipient IDs"""
 
 
-TypeTicketSharingEvent = Literal["TicketSharingEvent"]
+TypeTicketSharingEvent = Literal["TicketSharingEvent",]
 
-AuditEventAction = Literal["shared", "unshared"]
+
+AuditEventAction = Literal[
+    "shared",
+    "unshared",
+]
 r"""The sharing action"""
 
 
@@ -723,9 +730,15 @@ class TicketSharingEvent(BaseModel):
     r"""The sharing action"""
 
 
-TypeSatisfactionRating = Literal["SatisfactionRating"]
+TypeSatisfactionRating = Literal["SatisfactionRating",]
 
-Score = Literal["offered", "unoffered", "good", "bad"]
+
+Score = Literal[
+    "offered",
+    "unoffered",
+    "good",
+    "bad",
+]
 r"""The rating state"""
 
 
@@ -766,7 +779,7 @@ class SatisfactionRatingEvent(BaseModel):
     r"""The users comment posted during rating"""
 
 
-TypeMacroReference = Literal["MacroReference"]
+TypeMacroReference = Literal["MacroReference",]
 
 
 class MacroReferenceEventTypedDict(TypedDict):
@@ -806,7 +819,7 @@ class MacroReferenceEvent(BaseModel):
     r"""Whether or not the macro this event refers to is deleted"""
 
 
-TypeEmailCcChange = Literal["EmailCcChange"]
+TypeEmailCcChange = Literal["EmailCcChange",]
 
 
 class EmailCcChangeEventTypedDict(TypedDict):
@@ -841,7 +854,7 @@ class EmailCcChangeEvent(BaseModel):
     r"""The current email CCs on the ticket"""
 
 
-TypeFollowersChange = Literal["FollowersChange"]
+TypeFollowersChange = Literal["FollowersChange",]
 
 
 class FollowerChangeEventTypedDict(TypedDict):
@@ -876,7 +889,7 @@ class FollowerChangeEvent(BaseModel):
     r"""The current followers on the ticket"""
 
 
-TypeFollowerNotificationEvent = Literal["FollowerNotificationEvent"]
+TypeFollowerNotificationEvent = Literal["FollowerNotificationEvent",]
 
 
 class FollowerNotificationEventTypedDict(TypedDict):
@@ -916,7 +929,7 @@ class FollowerNotificationEvent(BaseModel):
     r"""An array of recipient IDs"""
 
 
-TypeCc = Literal["Cc"]
+TypeCc = Literal["Cc",]
 
 
 class CcEventTypedDict(TypedDict):
@@ -951,7 +964,7 @@ class CcEvent(BaseModel):
     r"""An array of recipient IDs"""
 
 
-TypeSmsNotification = Literal["SmsNotification"]
+TypeSmsNotification = Literal["SmsNotification",]
 
 
 class SmsNotificationEventTypedDict(TypedDict):
@@ -986,7 +999,7 @@ class SmsNotificationEvent(BaseModel):
     r"""An array of recipient IDs"""
 
 
-TypeNotificationWithCcs = Literal["NotificationWithCcs"]
+TypeNotificationWithCcs = Literal["NotificationWithCcs",]
 
 
 class NotificationWithCcsEventTypedDict(TypedDict):
@@ -1026,7 +1039,7 @@ class NotificationWithCcsEvent(BaseModel):
     r"""An array of recipient IDs"""
 
 
-TypeNotification = Literal["Notification"]
+TypeNotification = Literal["Notification",]
 
 
 class NotificationEventTypedDict(TypedDict):
@@ -1066,9 +1079,13 @@ class NotificationEvent(BaseModel):
     r"""An array of recipient IDs"""
 
 
-TypeSuspendedTicketRecovery = Literal["SuspendedTicketRecovery"]
+TypeSuspendedTicketRecovery = Literal["SuspendedTicketRecovery",]
 
-RecoveryType = Literal["manual", "automatic"]
+
+RecoveryType = Literal[
+    "manual",
+    "automatic",
+]
 r"""The type of recovery"""
 
 
@@ -1129,7 +1146,7 @@ class SuspendedTicketRecoveryEvent(BaseModel):
     r"""The user who performed the recovery"""
 
 
-TypeCommentPrivacyChange = Literal["CommentPrivacyChange"]
+TypeCommentPrivacyChange = Literal["CommentPrivacyChange",]
 
 
 class CommentPrivacyChangeEventTypedDict(TypedDict):
@@ -1164,7 +1181,7 @@ class CommentPrivacyChangeEvent(BaseModel):
     r"""Tells if the comment was made public or private"""
 
 
-TypeVoiceComment = Literal["VoiceComment"]
+TypeVoiceComment = Literal["VoiceComment",]
 
 
 class DataVoiceCommentTypedDict(TypedDict):
@@ -1245,7 +1262,7 @@ class VoiceCommentEvent(BaseModel):
     attachments: Optional[List[AttachmentObject]] = None
 
 
-TypeAttachmentRedactionEvent = Literal["AttachmentRedactionEvent"]
+TypeAttachmentRedactionEvent = Literal["AttachmentRedactionEvent",]
 
 
 class AttachmentRedactionEventTypedDict(TypedDict):
@@ -1280,7 +1297,7 @@ class AttachmentRedactionEvent(BaseModel):
     r"""The comment with the redacted attachment"""
 
 
-TypeCommentRedactionEvent = Literal["CommentRedactionEvent"]
+TypeCommentRedactionEvent = Literal["CommentRedactionEvent",]
 
 
 class CommentRedactionEventTypedDict(TypedDict):
@@ -1310,7 +1327,7 @@ class CommentRedactionEvent(BaseModel):
     r"""The comment with the redacted text"""
 
 
-TypeComment = Literal["Comment"]
+TypeComment = Literal["Comment",]
 
 
 class CommentEventTypedDict(TypedDict):
@@ -1363,7 +1380,7 @@ class CommentEvent(BaseModel):
     attachments: Optional[List[AttachmentObject]] = None
 
 
-TypeChange = Literal["Change"]
+TypeChange = Literal["Change",]
 
 
 class ValueChangeTypedDict(TypedDict):
@@ -1441,7 +1458,7 @@ class ChangeEvent(BaseModel):
     r"""The previous value of the field that was changed"""
 
 
-TypeCreate = Literal["Create"]
+TypeCreate = Literal["Create",]
 
 
 class ValueCreateTypedDict(TypedDict):

@@ -1,5 +1,4 @@
 # DynamicContent
-(*dynamic_content*)
 
 ## Overview
 

@@ -63,8 +63,14 @@ class TicketFields(BaseSDK):
         * Anyone
 
 
-        :param locale: Forces the `title_in_portal` property to return a dynamic content variant for the specified locale.  Only accepts [active locale ids](/api-reference/ticketing/account-configuration/locales/#list-locales). Example: `locale=\"de\"`.
-        :param creator: Displays the `creator_user_id` and `creator_app_name` properties. If the ticket field is created  by an app, `creator_app_name` is the name of the app and `creator_user_id` is `-1`. If the ticket field  is not created by an app, `creator_app_name` is null
+        :param locale: Forces the `title_in_portal` property to return a dynamic content variant for the specified locale.
+            Only accepts [active locale ids](/api-reference/ticketing/account-configuration/locales/#list-locales).
+            Example: `locale=\"de\"`.
+
+        :param creator: Displays the `creator_user_id` and `creator_app_name` properties. If the ticket field is created
+            by an app, `creator_app_name` is the name of the app and `creator_user_id` is `-1`. If the ticket field
+            is not created by an app, `creator_app_name` is null
+
         :param page_size: Number of records per page (required for cursor pagination)
         :param page_after: Cursor for pagination (opaque string)
         :param retries: Override the default retry configuration for this method
@@ -102,6 +108,7 @@ class TicketFields(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -118,7 +125,7 @@ class TicketFields(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ListTicketFields",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -136,7 +143,7 @@ class TicketFields(BaseSDK):
                 return None
 
             next_cursor = next_cursor[0]
-            if next_cursor is None:
+            if next_cursor is None or str(next_cursor).strip() == "":
                 return None
 
             return self.list_ticket_fields(
@@ -213,8 +220,14 @@ class TicketFields(BaseSDK):
         * Anyone
 
 
-        :param locale: Forces the `title_in_portal` property to return a dynamic content variant for the specified locale.  Only accepts [active locale ids](/api-reference/ticketing/account-configuration/locales/#list-locales). Example: `locale=\"de\"`.
-        :param creator: Displays the `creator_user_id` and `creator_app_name` properties. If the ticket field is created  by an app, `creator_app_name` is the name of the app and `creator_user_id` is `-1`. If the ticket field  is not created by an app, `creator_app_name` is null
+        :param locale: Forces the `title_in_portal` property to return a dynamic content variant for the specified locale.
+            Only accepts [active locale ids](/api-reference/ticketing/account-configuration/locales/#list-locales).
+            Example: `locale=\"de\"`.
+
+        :param creator: Displays the `creator_user_id` and `creator_app_name` properties. If the ticket field is created
+            by an app, `creator_app_name` is the name of the app and `creator_user_id` is `-1`. If the ticket field
+            is not created by an app, `creator_app_name` is null
+
         :param page_size: Number of records per page (required for cursor pagination)
         :param page_after: Cursor for pagination (opaque string)
         :param retries: Override the default retry configuration for this method
@@ -252,6 +265,7 @@ class TicketFields(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -268,7 +282,7 @@ class TicketFields(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ListTicketFields",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -286,7 +300,7 @@ class TicketFields(BaseSDK):
                 return None
 
             next_cursor = next_cursor[0]
-            if next_cursor is None:
+            if next_cursor is None or str(next_cursor).strip() == "":
                 return None
 
             return self.list_ticket_fields(
@@ -380,6 +394,7 @@ class TicketFields(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -396,7 +411,7 @@ class TicketFields(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CreateTicketField",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -486,6 +501,7 @@ class TicketFields(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -502,7 +518,7 @@ class TicketFields(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CreateTicketField",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -549,7 +565,10 @@ class TicketFields(BaseSDK):
 
 
         :param ticket_field_id: The ID of the ticket field
-        :param creator: If true, displays the `creator_user_id` and `creator_app_name` properties. If the ticket field is created  by an app, `creator_app_name` is the name of the app and `creator_user_id` is `-1`. If the ticket field  is not created by an app, then `creator_app_name` is null
+        :param creator: If true, displays the `creator_user_id` and `creator_app_name` properties. If the ticket field is created
+            by an app, `creator_app_name` is the name of the app and `creator_user_id` is `-1`. If the ticket field
+            is not created by an app, then `creator_app_name` is null
+
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -583,6 +602,7 @@ class TicketFields(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -599,7 +619,7 @@ class TicketFields(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ShowTicketfield",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -646,7 +666,10 @@ class TicketFields(BaseSDK):
 
 
         :param ticket_field_id: The ID of the ticket field
-        :param creator: If true, displays the `creator_user_id` and `creator_app_name` properties. If the ticket field is created  by an app, `creator_app_name` is the name of the app and `creator_user_id` is `-1`. If the ticket field  is not created by an app, then `creator_app_name` is null
+        :param creator: If true, displays the `creator_user_id` and `creator_app_name` properties. If the ticket field is created
+            by an app, `creator_app_name` is the name of the app and `creator_user_id` is `-1`. If the ticket field
+            is not created by an app, then `creator_app_name` is null
+
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -680,6 +703,7 @@ class TicketFields(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -696,7 +720,7 @@ class TicketFields(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ShowTicketfield",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -787,7 +811,10 @@ class TicketFields(BaseSDK):
 
 
         :param ticket_field_id: The ID of the ticket field
-        :param creator: If true, displays the `creator_user_id` and `creator_app_name` properties. If the ticket field is created  by an app, `creator_app_name` is the name of the app and `creator_user_id` is `-1`. If the ticket field  is not created by an app, then `creator_app_name` is null
+        :param creator: If true, displays the `creator_user_id` and `creator_app_name` properties. If the ticket field is created
+            by an app, `creator_app_name` is the name of the app and `creator_user_id` is `-1`. If the ticket field
+            is not created by an app, then `creator_app_name` is null
+
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -821,6 +848,7 @@ class TicketFields(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -837,7 +865,7 @@ class TicketFields(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="UpdateTicketField",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -928,7 +956,10 @@ class TicketFields(BaseSDK):
 
 
         :param ticket_field_id: The ID of the ticket field
-        :param creator: If true, displays the `creator_user_id` and `creator_app_name` properties. If the ticket field is created  by an app, `creator_app_name` is the name of the app and `creator_user_id` is `-1`. If the ticket field  is not created by an app, then `creator_app_name` is null
+        :param creator: If true, displays the `creator_user_id` and `creator_app_name` properties. If the ticket field is created
+            by an app, `creator_app_name` is the name of the app and `creator_user_id` is `-1`. If the ticket field
+            is not created by an app, then `creator_app_name` is null
+
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -962,6 +993,7 @@ class TicketFields(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -978,7 +1010,7 @@ class TicketFields(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="UpdateTicketField",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1017,7 +1049,10 @@ class TicketFields(BaseSDK):
 
 
         :param ticket_field_id: The ID of the ticket field
-        :param creator: If true, displays the `creator_user_id` and `creator_app_name` properties. If the ticket field is created  by an app, `creator_app_name` is the name of the app and `creator_user_id` is `-1`. If the ticket field  is not created by an app, then `creator_app_name` is null
+        :param creator: If true, displays the `creator_user_id` and `creator_app_name` properties. If the ticket field is created
+            by an app, `creator_app_name` is the name of the app and `creator_user_id` is `-1`. If the ticket field
+            is not created by an app, then `creator_app_name` is null
+
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1051,6 +1086,7 @@ class TicketFields(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1067,7 +1103,7 @@ class TicketFields(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="DeleteTicketField",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1106,7 +1142,10 @@ class TicketFields(BaseSDK):
 
 
         :param ticket_field_id: The ID of the ticket field
-        :param creator: If true, displays the `creator_user_id` and `creator_app_name` properties. If the ticket field is created  by an app, `creator_app_name` is the name of the app and `creator_user_id` is `-1`. If the ticket field  is not created by an app, then `creator_app_name` is null
+        :param creator: If true, displays the `creator_user_id` and `creator_app_name` properties. If the ticket field is created
+            by an app, `creator_app_name` is the name of the app and `creator_user_id` is `-1`. If the ticket field
+            is not created by an app, then `creator_app_name` is null
+
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1140,6 +1179,7 @@ class TicketFields(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1156,7 +1196,7 @@ class TicketFields(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="DeleteTicketField",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1207,8 +1247,11 @@ class TicketFields(BaseSDK):
 
         :param ticket_field_id: The ID of the ticket field
         :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1244,6 +1287,7 @@ class TicketFields(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1260,7 +1304,7 @@ class TicketFields(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ListTicketFieldOptions",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1278,7 +1322,7 @@ class TicketFields(BaseSDK):
                 return None
 
             next_cursor = next_cursor[0]
-            if next_cursor is None:
+            if next_cursor is None or str(next_cursor).strip() == "":
                 return None
 
             return self.list_ticket_field_options(
@@ -1335,8 +1379,11 @@ class TicketFields(BaseSDK):
 
         :param ticket_field_id: The ID of the ticket field
         :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1372,6 +1419,7 @@ class TicketFields(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1388,7 +1436,7 @@ class TicketFields(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ListTicketFieldOptions",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1406,7 +1454,7 @@ class TicketFields(BaseSDK):
                 return None
 
             next_cursor = next_cursor[0]
-            if next_cursor is None:
+            if next_cursor is None or str(next_cursor).strip() == "":
                 return None
 
             return self.list_ticket_field_options(
@@ -1506,6 +1554,7 @@ class TicketFields(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1522,7 +1571,7 @@ class TicketFields(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CreateOrUpdateTicketFieldOption",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1616,6 +1665,7 @@ class TicketFields(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1632,7 +1682,7 @@ class TicketFields(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CreateOrUpdateTicketFieldOption",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1704,6 +1754,7 @@ class TicketFields(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1720,7 +1771,7 @@ class TicketFields(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ShowTicketFieldOption",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1792,6 +1843,7 @@ class TicketFields(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1808,7 +1860,7 @@ class TicketFields(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ShowTicketFieldOption",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1880,6 +1932,7 @@ class TicketFields(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1896,7 +1949,7 @@ class TicketFields(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="DeleteTicketFieldOption",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1968,6 +2021,7 @@ class TicketFields(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1984,7 +2038,7 @@ class TicketFields(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="DeleteTicketFieldOption",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2052,6 +2106,7 @@ class TicketFields(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2068,7 +2123,7 @@ class TicketFields(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CountTicketFields",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2136,6 +2191,7 @@ class TicketFields(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2152,7 +2208,7 @@ class TicketFields(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CountTicketFields",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2222,6 +2278,7 @@ class TicketFields(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2238,7 +2295,7 @@ class TicketFields(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ReorderTicketFields",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2308,6 +2365,7 @@ class TicketFields(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2324,7 +2382,7 @@ class TicketFields(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ReorderTicketFields",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),

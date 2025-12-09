@@ -1,5 +1,4 @@
 # BrandAgents
-(*brand_agents*)
 
 ## Overview
 

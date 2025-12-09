@@ -70,6 +70,7 @@ class Tags(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -86,7 +87,7 @@ class Tags(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="AutocompleteTags",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -165,6 +166,7 @@ class Tags(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -181,7 +183,7 @@ class Tags(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="AutocompleteTags",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -232,8 +234,11 @@ class Tags(BaseSDK):
 
 
         :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -268,6 +273,7 @@ class Tags(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -284,7 +290,7 @@ class Tags(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ListTags",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -302,7 +308,7 @@ class Tags(BaseSDK):
                 return None
 
             next_cursor = next_cursor[0]
-            if next_cursor is None:
+            if next_cursor is None or str(next_cursor).strip() == "":
                 return None
 
             return self.list_tags(
@@ -356,8 +362,11 @@ class Tags(BaseSDK):
 
 
         :param page_before: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.before_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_after: A [pagination cursor](/documentation/api-basics/pagination/paginating-through-lists-using-cursor-pagination) that tells the endpoint which page to start on. It should be a `meta.after_cursor` value from a previous request. Note: `page[before]` and `page[after]` can't be used together in the same request.
+
         :param page_size: Specifies how many records should be returned in the response. You can specify up to 100 records per page.
+
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -392,6 +401,7 @@ class Tags(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -408,7 +418,7 @@ class Tags(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="ListTags",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -426,7 +436,7 @@ class Tags(BaseSDK):
                 return None
 
             next_cursor = next_cursor[0]
-            if next_cursor is None:
+            if next_cursor is None or str(next_cursor).strip() == "":
                 return None
 
             return self.list_tags(
@@ -503,6 +513,7 @@ class Tags(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -519,7 +530,7 @@ class Tags(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CountTags",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -593,6 +604,7 @@ class Tags(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -609,7 +621,7 @@ class Tags(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="CountTags",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -680,6 +692,7 @@ class Tags(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -696,7 +709,7 @@ class Tags(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="listTicketTags",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -771,6 +784,7 @@ class Tags(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -787,7 +801,7 @@ class Tags(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="listTicketTags",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -870,6 +884,7 @@ class Tags(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.tags_request, False, False, "json", models.TagsRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -886,7 +901,7 @@ class Tags(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="setTicketTags",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -969,6 +984,7 @@ class Tags(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.tags_request, False, False, "json", models.TagsRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -985,7 +1001,7 @@ class Tags(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="setTicketTags",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1061,7 +1077,9 @@ class Tags(BaseSDK):
 
         :param ticket_id: The ID of the ticket
         :param tags: An array of tag strings to add or set
-        :param updated_stamp: The ticket's latest updated_at timestamp for safe updates. Must match the current timestamp to prevent collision.
+        :param updated_stamp: The ticket's latest updated_at timestamp for safe updates.
+            Must match the current timestamp to prevent collision.
+
         :param safe_update: Enable safe update mode to prevent collisions
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1103,6 +1121,7 @@ class Tags(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.safe_tags_request, False, False, "json", models.SafeTagsRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1119,7 +1138,7 @@ class Tags(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="addTicketTags",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1195,7 +1214,9 @@ class Tags(BaseSDK):
 
         :param ticket_id: The ID of the ticket
         :param tags: An array of tag strings to add or set
-        :param updated_stamp: The ticket's latest updated_at timestamp for safe updates. Must match the current timestamp to prevent collision.
+        :param updated_stamp: The ticket's latest updated_at timestamp for safe updates.
+            Must match the current timestamp to prevent collision.
+
         :param safe_update: Enable safe update mode to prevent collisions
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1237,6 +1258,7 @@ class Tags(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.safe_tags_request, False, False, "json", models.SafeTagsRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1253,7 +1275,7 @@ class Tags(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="addTicketTags",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1303,7 +1325,9 @@ class Tags(BaseSDK):
 
         :param ticket_id: The ID of the ticket
         :param tags: An array of tag strings to add or set
-        :param updated_stamp: The ticket's latest updated_at timestamp for safe updates. Must match the current timestamp to prevent collision.
+        :param updated_stamp: The ticket's latest updated_at timestamp for safe updates.
+            Must match the current timestamp to prevent collision.
+
         :param safe_update: Enable safe update mode to prevent collisions
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1345,6 +1369,7 @@ class Tags(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.safe_tags_request, False, False, "json", models.SafeTagsRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1361,7 +1386,7 @@ class Tags(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="removeTicketTags",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1411,7 +1436,9 @@ class Tags(BaseSDK):
 
         :param ticket_id: The ID of the ticket
         :param tags: An array of tag strings to add or set
-        :param updated_stamp: The ticket's latest updated_at timestamp for safe updates. Must match the current timestamp to prevent collision.
+        :param updated_stamp: The ticket's latest updated_at timestamp for safe updates.
+            Must match the current timestamp to prevent collision.
+
         :param safe_update: Enable safe update mode to prevent collisions
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1453,6 +1480,7 @@ class Tags(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.safe_tags_request, False, False, "json", models.SafeTagsRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1469,7 +1497,7 @@ class Tags(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="removeTicketTags",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1544,6 +1572,7 @@ class Tags(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1560,7 +1589,7 @@ class Tags(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="listOrganizationTags",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1635,6 +1664,7 @@ class Tags(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1651,7 +1681,7 @@ class Tags(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="listOrganizationTags",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1734,6 +1764,7 @@ class Tags(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.tags_request, False, False, "json", models.TagsRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1750,7 +1781,7 @@ class Tags(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="setOrganizationTags",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1833,6 +1864,7 @@ class Tags(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.tags_request, False, False, "json", models.TagsRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1849,7 +1881,7 @@ class Tags(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="setOrganizationTags",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1932,6 +1964,7 @@ class Tags(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.tags_request, False, False, "json", models.TagsRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1948,7 +1981,7 @@ class Tags(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="addOrganizationTags",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2031,6 +2064,7 @@ class Tags(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.tags_request, False, False, "json", models.TagsRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2047,7 +2081,7 @@ class Tags(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="addOrganizationTags",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2130,6 +2164,7 @@ class Tags(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.tags_request, False, False, "json", models.TagsRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2146,7 +2181,7 @@ class Tags(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="removeOrganizationTags",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2229,6 +2264,7 @@ class Tags(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.tags_request, False, False, "json", models.TagsRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2245,7 +2281,7 @@ class Tags(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="removeOrganizationTags",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2320,6 +2356,7 @@ class Tags(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2336,7 +2373,7 @@ class Tags(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="listUserTags",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2411,6 +2448,7 @@ class Tags(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2427,7 +2465,7 @@ class Tags(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="listUserTags",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2510,6 +2548,7 @@ class Tags(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.tags_request, False, False, "json", models.TagsRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2526,7 +2565,7 @@ class Tags(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="setUserTags",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2609,6 +2648,7 @@ class Tags(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.tags_request, False, False, "json", models.TagsRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2625,7 +2665,7 @@ class Tags(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="setUserTags",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2708,6 +2748,7 @@ class Tags(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.tags_request, False, False, "json", models.TagsRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2724,7 +2765,7 @@ class Tags(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="addUserTags",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2807,6 +2848,7 @@ class Tags(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.tags_request, False, False, "json", models.TagsRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2823,7 +2865,7 @@ class Tags(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="addUserTags",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -2906,6 +2948,7 @@ class Tags(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.tags_request, False, False, "json", models.TagsRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2922,7 +2965,7 @@ class Tags(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="removeUserTags",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -3005,6 +3048,7 @@ class Tags(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.tags_request, False, False, "json", models.TagsRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -3021,7 +3065,7 @@ class Tags(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="removeUserTags",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),

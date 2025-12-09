@@ -6,7 +6,10 @@ from typing_extensions import NotRequired, TypedDict
 from zendesk.types import BaseModel
 
 
-EmailSenderAuthenticationProfile = Literal["default", "enhanced"]
+EmailSenderAuthenticationProfile = Literal[
+    "default",
+    "enhanced",
+]
 r"""The sender authentication profile in use."""
 
 

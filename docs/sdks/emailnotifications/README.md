@@ -1,5 +1,4 @@
 # EmailNotifications
-(*email_notifications*)
 
 ## Overview
 

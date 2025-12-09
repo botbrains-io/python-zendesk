@@ -1,5 +1,4 @@
 # ConversationLog
-(*conversation_log*)
 
 ## Overview
 

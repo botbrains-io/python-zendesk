@@ -4,4 +4,8 @@ from __future__ import annotations
 from typing import Literal
 
 
-TicketSortBy = Literal["id", "subject", "deleted_at"]
+TicketSortBy = Literal[
+    "id",
+    "subject",
+    "deleted_at",
+]

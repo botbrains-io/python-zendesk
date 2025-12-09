@@ -49,7 +49,15 @@ Support API: Zendesk Support API endpoints
 >
 > Once a Python version reaches its [official end of life date](https://devguide.python.org/versions/), a 3-month grace period is provided for users to upgrade. Following this grace period, the minimum python version supported in the SDK will be updated.
 
-The SDK can be installed with either *pip* or *poetry* package managers.
+The SDK can be installed with *uv*, *pip*, or *poetry* package managers.
+
+### uv
+
+*uv* is a fast Python package installer and resolver, designed as a drop-in replacement for pip and pip-tools. It's recommended for its speed and modern Python tooling capabilities.
+
+```bash
+uv add python-zendesk
+```
 
 ### PIP
 
@@ -134,7 +142,8 @@ with Zendesk(
 
 </br>
 
-The same SDK client can also be used to make asychronous requests by importing asyncio.
+The same SDK client can also be used to make asynchronous requests by importing asyncio.
+
 ```python
 # Asynchronous Example
 import asyncio
@@ -195,39 +204,39 @@ with Zendesk(
 <details open>
 <summary>Available methods</summary>
 
-### [account_settings](docs/sdks/accountsettings/README.md)
+### [AccountSettings](docs/sdks/accountsettings/README.md)
 
 * [show_account_settings](docs/sdks/accountsettings/README.md#show_account_settings) - Show Settings
 * [update_account_settings](docs/sdks/accountsettings/README.md#update_account_settings) - Update Account Settings
 
-### [activity_stream](docs/sdks/activitystream/README.md)
+### [ActivityStream](docs/sdks/activitystream/README.md)
 
 * [list_activities](docs/sdks/activitystream/README.md#list_activities) - List Activities
 * [show_activity](docs/sdks/activitystream/README.md#show_activity) - Show Activity
 * [count_activities](docs/sdks/activitystream/README.md#count_activities) - Count Activities
 
-### [approval_requests](docs/sdks/approvalrequests/README.md)
+### [ApprovalRequests](docs/sdks/approvalrequests/README.md)
 
 * [create_approval_request](docs/sdks/approvalrequests/README.md#create_approval_request) - Create an Approval Request
 * [show_approval_request](docs/sdks/approvalrequests/README.md#show_approval_request) - Show Approval Request
 * [update_decision_approval_request](docs/sdks/approvalrequests/README.md#update_decision_approval_request) - Update Approval Request Status
 * [search_approvals](docs/sdks/approvalrequests/README.md#search_approvals) - Get Approvals by Approval Workflow Id
 
-### [approval_workflow_instances](docs/sdks/approvalworkflowinstances/README.md)
+### [ApprovalWorkflowInstances](docs/sdks/approvalworkflowinstances/README.md)
 
 * [create_approval_workflow_instance](docs/sdks/approvalworkflowinstances/README.md#create_approval_workflow_instance) - Create Approval Workflow Instance
 
-### [assignee_field_assignable_agents](docs/sdks/assigneefieldassignableagents/README.md)
+### [AssigneeFieldAssignableAgents](docs/sdks/assigneefieldassignableagents/README.md)
 
 * [list_assignee_field_assignable_groups_and_agents_search](docs/sdks/assigneefieldassignableagents/README.md#list_assignee_field_assignable_groups_and_agents_search) - List assignable groups and agents based on query matched against name
 * [list_assignee_field_assignable_groups](docs/sdks/assigneefieldassignableagents/README.md#list_assignee_field_assignable_groups) - List assignable groups on the AssigneeField
 * [list_assignee_field_assignable_group_agents](docs/sdks/assigneefieldassignableagents/README.md#list_assignee_field_assignable_group_agents) - List assignable agents from a group on the AssigneeField
 
-### [assignee_field_assignable_groups](docs/sdks/assigneefieldassignablegroups/README.md)
+### [AssigneeFieldAssignableGroups](docs/sdks/assigneefieldassignablegroups/README.md)
 
 * [list_assignee_field_assignable_groups_and_agents_search](docs/sdks/assigneefieldassignablegroups/README.md#list_assignee_field_assignable_groups_and_agents_search) - List assignable groups and agents based on query matched against name
 
-### [attachments](docs/sdks/attachments/README.md)
+### [Attachments](docs/sdks/attachments/README.md)
 
 * [show_attachment](docs/sdks/attachments/README.md#show_attachment) - Show Attachment
 * [update_attachment](docs/sdks/attachments/README.md#update_attachment) - Update Attachment for Malware
@@ -235,13 +244,13 @@ with Zendesk(
 * [upload_files](docs/sdks/attachments/README.md#upload_files) - Upload Files
 * [delete_upload](docs/sdks/attachments/README.md#delete_upload) - Delete Upload
 
-### [audit_logs](docs/sdks/auditlogs/README.md)
+### [AuditLogs](docs/sdks/auditlogs/README.md)
 
 * [list_audit_logs](docs/sdks/auditlogs/README.md#list_audit_logs) - List Audit Logs
 * [show_audit_log](docs/sdks/auditlogs/README.md#show_audit_log) - Show Audit Log
 * [export_audit_logs](docs/sdks/auditlogs/README.md#export_audit_logs) - Export Audit Logs
 
-### [automations](docs/sdks/automations/README.md)
+### [Automations](docs/sdks/automations/README.md)
 
 * [list_automations](docs/sdks/automations/README.md#list_automations) - List Automations
 * [create_automation](docs/sdks/automations/README.md#create_automation) - Create Automation
@@ -253,24 +262,24 @@ with Zendesk(
 * [search_automations](docs/sdks/automations/README.md#search_automations) - Search Automations
 * [update_many_automations](docs/sdks/automations/README.md#update_many_automations) - Update Many Automations
 
-### [basics](docs/sdks/basics/README.md)
+### [Basics](docs/sdks/basics/README.md)
 
 * [open_ticket_in_agent_browser](docs/sdks/basics/README.md#open_ticket_in_agent_browser) - Open Ticket in Agent's Browser
 * [open_users_profile_in_agent_browser](docs/sdks/basics/README.md#open_users_profile_in_agent_browser) - Open a User's Profile in an Agent's Browser
 * [create_ticket_or_voicemail_ticket](docs/sdks/basics/README.md#create_ticket_or_voicemail_ticket) - Create Ticket or Voicemail Ticket
 
-### [bookmarks](docs/sdks/bookmarks/README.md)
+### [Bookmarks](docs/sdks/bookmarks/README.md)
 
 * [list_bookmarks](docs/sdks/bookmarks/README.md#list_bookmarks) - List Bookmarks
 * [create_bookmark](docs/sdks/bookmarks/README.md#create_bookmark) - Create Bookmark
 * [delete_bookmark](docs/sdks/bookmarks/README.md#delete_bookmark) - Delete Bookmark
 
-### [brand_agents](docs/sdks/brandagents/README.md)
+### [BrandAgents](docs/sdks/brandagents/README.md)
 
 * [list_brand_agents](docs/sdks/brandagents/README.md#list_brand_agents) - List Brand Agent Memberships
 * [show_brand_agent_by_id](docs/sdks/brandagents/README.md#show_brand_agent_by_id) - Show Brand Agent Membership
 
-### [brands](docs/sdks/brands/README.md)
+### [Brands](docs/sdks/brands/README.md)
 
 * [list_brands](docs/sdks/brands/README.md#list_brands) - List Brands
 * [create_brand](docs/sdks/brands/README.md#create_brand) - Create Brand
@@ -280,17 +289,17 @@ with Zendesk(
 * [check_host_mapping_validity_for_existing_brand](docs/sdks/brands/README.md#check_host_mapping_validity_for_existing_brand) - Check Host Mapping Validity for an Existing Brand
 * [check_host_mapping_validity](docs/sdks/brands/README.md#check_host_mapping_validity) - Check Host Mapping Validity
 
-### [channel_framework](docs/sdks/channelframework/README.md)
+### [ChannelFramework](docs/sdks/channelframework/README.md)
 
 * [report_channelback_error](docs/sdks/channelframework/README.md#report_channelback_error) - Report Channelback Error to Zendesk
 * [push_content_to_support](docs/sdks/channelframework/README.md#push_content_to_support) - Push Content to Support
 * [validate_token](docs/sdks/channelframework/README.md#validate_token) - Validate Token
 
-### [conversation_log](docs/sdks/conversationlog/README.md)
+### [ConversationLog](docs/sdks/conversationlog/README.md)
 
 * [list_conversation_log_for_ticket](docs/sdks/conversationlog/README.md#list_conversation_log_for_ticket) - List Conversation log for Ticket
 
-### [custom_object_fields](docs/sdks/customobjectfields/README.md)
+### [CustomObjectFields](docs/sdks/customobjectfields/README.md)
 
 * [list_custom_object_fields](docs/sdks/customobjectfields/README.md#list_custom_object_fields) - List Custom Object Fields
 * [create_custom_object_field](docs/sdks/customobjectfields/README.md#create_custom_object_field) - Create Custom Object Field
@@ -300,7 +309,7 @@ with Zendesk(
 * [reorder_custom_object_fields](docs/sdks/customobjectfields/README.md#reorder_custom_object_fields) - Reorder Custom Fields of an Object
 * [custom_object_fields_limit](docs/sdks/customobjectfields/README.md#custom_object_fields_limit) - Custom Object Fields Limit
 
-### [custom_object_records](docs/sdks/customobjectrecords/README.md)
+### [CustomObjectRecords](docs/sdks/customobjectrecords/README.md)
 
 * [custom_object_record_bulk_jobs](docs/sdks/customobjectrecords/README.md#custom_object_record_bulk_jobs) - Custom Object Record Bulk Jobs
 * [list_custom_object_records](docs/sdks/customobjectrecords/README.md#list_custom_object_records) - List Custom Object Records
@@ -316,7 +325,7 @@ with Zendesk(
 * [filtered_search_custom_object_records](docs/sdks/customobjectrecords/README.md#filtered_search_custom_object_records) - Filtered Search of Custom Object Records
 * [custom_object_records_limit](docs/sdks/customobjectrecords/README.md#custom_object_records_limit) - Custom Object Records Limit
 
-### [custom_objects](docs/sdks/customobjects/README.md)
+### [CustomObjects](docs/sdks/customobjects/README.md)
 
 * [list_custom_objects](docs/sdks/customobjects/README.md#list_custom_objects) - List Custom Objects
 * [create_custom_object](docs/sdks/customobjects/README.md#create_custom_object) - Create Custom Object
@@ -325,7 +334,7 @@ with Zendesk(
 * [delete_custom_object](docs/sdks/customobjects/README.md#delete_custom_object) - Delete Custom Object
 * [custom_objects_limit](docs/sdks/customobjects/README.md#custom_objects_limit) - Custom Objects Limit
 
-### [custom_roles](docs/sdks/customroles/README.md)
+### [CustomRoles](docs/sdks/customroles/README.md)
 
 * [list_custom_roles](docs/sdks/customroles/README.md#list_custom_roles) - List Custom Roles
 * [create_custom_role](docs/sdks/customroles/README.md#create_custom_role) - Create Custom Role
@@ -333,7 +342,7 @@ with Zendesk(
 * [update_custom_role_by_id](docs/sdks/customroles/README.md#update_custom_role_by_id) - Update Custom Role
 * [delete_custom_role_by_id](docs/sdks/customroles/README.md#delete_custom_role_by_id) - Delete Custom Role
 
-### [custom_ticket_statuses](docs/sdks/customticketstatuses/README.md)
+### [CustomTicketStatuses](docs/sdks/customticketstatuses/README.md)
 
 * [bulk_update_default_custom_status](docs/sdks/customticketstatuses/README.md#bulk_update_default_custom_status) - Bulk Update Default Custom Ticket Status
 * [list_custom_statuses](docs/sdks/customticketstatuses/README.md#list_custom_statuses) - List Custom Ticket Statuses
@@ -342,7 +351,7 @@ with Zendesk(
 * [update_custom_status](docs/sdks/customticketstatuses/README.md#update_custom_status) - Update Custom Ticket Status
 * [create_ticket_form_statuses_for_custom_status](docs/sdks/customticketstatuses/README.md#create_ticket_form_statuses_for_custom_status) - Create Ticket Form Statuses for a Custom Status
 
-### [deletion_schedules](docs/sdks/deletionschedules/README.md)
+### [DeletionSchedules](docs/sdks/deletionschedules/README.md)
 
 * [list_deletion_schedules](docs/sdks/deletionschedules/README.md#list_deletion_schedules) - List Deletion Schedules
 * [create_deletion_schedule](docs/sdks/deletionschedules/README.md#create_deletion_schedule) - Create Deletion Schedule
@@ -350,7 +359,7 @@ with Zendesk(
 * [update_deletion_schedule](docs/sdks/deletionschedules/README.md#update_deletion_schedule) - Update Deletion Schedule
 * [delete_deletion_schedule](docs/sdks/deletionschedules/README.md#delete_deletion_schedule) - Delete Deletion Schedule
 
-### [dynamic_content](docs/sdks/dynamiccontent/README.md)
+### [DynamicContent](docs/sdks/dynamiccontent/README.md)
 
 * [list_dynamic_contents](docs/sdks/dynamiccontent/README.md#list_dynamic_contents) - List Items
 * [create_dynamic_content](docs/sdks/dynamiccontent/README.md#create_dynamic_content) - Create Item
@@ -359,7 +368,7 @@ with Zendesk(
 * [delete_dynamic_content_item](docs/sdks/dynamiccontent/README.md#delete_dynamic_content_item) - Delete Item
 * [show_many_dynamic_contents](docs/sdks/dynamiccontent/README.md#show_many_dynamic_contents) - Show Many Items
 
-### [dynamic_content_item_variants](docs/sdks/dynamiccontentitemvariants/README.md)
+### [DynamicContentItemVariants](docs/sdks/dynamiccontentitemvariants/README.md)
 
 * [dynamic_content_list_variants](docs/sdks/dynamiccontentitemvariants/README.md#dynamic_content_list_variants) - List Variants
 * [create_dynamic_content_variant](docs/sdks/dynamiccontentitemvariants/README.md#create_dynamic_content_variant) - Create Variant
@@ -369,28 +378,28 @@ with Zendesk(
 * [create_many_dynamic_content_variants](docs/sdks/dynamiccontentitemvariants/README.md#create_many_dynamic_content_variants) - Create Many Variants
 * [update_many_dynamic_content_variants](docs/sdks/dynamiccontentitemvariants/README.md#update_many_dynamic_content_variants) - Update Many Variants
 
-### [email_notifications](docs/sdks/emailnotifications/README.md)
+### [EmailNotifications](docs/sdks/emailnotifications/README.md)
 
 * [list_email_notifications](docs/sdks/emailnotifications/README.md#list_email_notifications) - List Email Notifications
 * [show_email_notification](docs/sdks/emailnotifications/README.md#show_email_notification) - Show Email Notification
 * [show_many_email_notifications](docs/sdks/emailnotifications/README.md#show_many_email_notifications) - Show Many Email Notifications
 
-### [essentials_card](docs/sdks/essentialscard/README.md)
+### [EssentialsCard](docs/sdks/essentialscard/README.md)
 
 * [show_essentials_card](docs/sdks/essentialscard/README.md#show_essentials_card) - Show Essentials Card
 * [update_essentials_card](docs/sdks/essentialscard/README.md#update_essentials_card) - Update Essentials Card
 * [delete_essentials_card](docs/sdks/essentialscard/README.md#delete_essentials_card) - Delete Essentials Card
 * [show_essentials_cards](docs/sdks/essentialscard/README.md#show_essentials_cards) - List of Essentials Cards
 
-### [global_clients](docs/sdks/globalclients/README.md)
+### [GlobalClients](docs/sdks/globalclients/README.md)
 
 * [list_global_o_auth_clients](docs/sdks/globalclients/README.md#list_global_o_auth_clients) - List Global OAuth Clients
 
-### [grant_type_tokens](docs/sdks/granttypetokens/README.md)
+### [GrantTypeTokens](docs/sdks/granttypetokens/README.md)
 
 * [create_token_for_grant_type](docs/sdks/granttypetokens/README.md#create_token_for_grant_type) - Create Token for Grant Type
 
-### [group_memberships](docs/sdks/groupmemberships/README.md)
+### [GroupMemberships](docs/sdks/groupmemberships/README.md)
 
 * [list_group_memberships](docs/sdks/groupmemberships/README.md#list_group_memberships) - List Memberships
 * [create_group_membership](docs/sdks/groupmemberships/README.md#create_group_membership) - Create Membership
@@ -401,7 +410,7 @@ with Zendesk(
 * [group_membership_bulk_delete](docs/sdks/groupmemberships/README.md#group_membership_bulk_delete) - Bulk Delete Memberships
 * [group_membership_set_default](docs/sdks/groupmemberships/README.md#group_membership_set_default) - Set Membership as Default
 
-### [group_sla_policies](docs/sdks/groupslapolicies/README.md)
+### [GroupSLAPolicies](docs/sdks/groupslapolicies/README.md)
 
 * [list_group_sla_policies](docs/sdks/groupslapolicies/README.md#list_group_sla_policies) - List Group SLA Policies
 * [create_group_sla_policy](docs/sdks/groupslapolicies/README.md#create_group_sla_policy) - Create Group SLA Policy
@@ -411,7 +420,7 @@ with Zendesk(
 * [retrieve_group_sla_policy_filter_definition_items](docs/sdks/groupslapolicies/README.md#retrieve_group_sla_policy_filter_definition_items) - Retrieve Supported Filter Definition Items
 * [reorder_group_sla_policies](docs/sdks/groupslapolicies/README.md#reorder_group_sla_policies) - Reorder Group SLA Policies
 
-### [groups](docs/sdks/groups/README.md)
+### [Groups](docs/sdks/groups/README.md)
 
 * [list_groups](docs/sdks/groups/README.md#list_groups) - List Groups
 * [create_group](docs/sdks/groups/README.md#create_group) - Create Group
@@ -421,7 +430,7 @@ with Zendesk(
 * [list_assignable_groups](docs/sdks/groups/README.md#list_assignable_groups) - List Assignable Groups
 * [count_groups](docs/sdks/groups/README.md#count_groups) - Count Groups
 
-### [incremental_export](docs/sdks/incrementalexport/README.md)
+### [IncrementalExport](docs/sdks/incrementalexport/README.md)
 
 * [incremental_sample_export](docs/sdks/incrementalexport/README.md#incremental_sample_export) - Incremental Sample Export
 * [incremental_organization_export](docs/sdks/incrementalexport/README.md#incremental_organization_export) - Incremental Organization Export
@@ -431,20 +440,20 @@ with Zendesk(
 * [incremental_user_export_time](docs/sdks/incrementalexport/README.md#incremental_user_export_time) - Incremental User Export, Time Based
 * [incremental_user_export_cursor](docs/sdks/incrementalexport/README.md#incremental_user_export_cursor) - Incremental User Export, Cursor Based
 
-### [incremental_skill_based_routing](docs/sdks/incrementalskillbasedroutingsdk/README.md)
+### [IncrementalSkillBasedRouting](docs/sdks/incrementalskillbasedroutingsdk/README.md)
 
 * [incremental_skil_based_routing_attribute_values_export](docs/sdks/incrementalskillbasedroutingsdk/README.md#incremental_skil_based_routing_attribute_values_export) - Incremental Attributes Values Export
 * [incremental_skil_based_routing_attributes_export](docs/sdks/incrementalskillbasedroutingsdk/README.md#incremental_skil_based_routing_attributes_export) - Incremental Attributes Export
 * [incremental_skil_based_routing_instance_values_export](docs/sdks/incrementalskillbasedroutingsdk/README.md#incremental_skil_based_routing_instance_values_export) - Incremental Instance Values Export
 
-### [job_statuses](docs/sdks/jobstatuses/README.md)
+### [JobStatuses](docs/sdks/jobstatuses/README.md)
 
 * [list_job_statuses](docs/sdks/jobstatuses/README.md#list_job_statuses) - List Job Statuses
 * [show_job_status](docs/sdks/jobstatuses/README.md#show_job_status) - Show Job Status
 * [show_many_job_statuses](docs/sdks/jobstatuses/README.md#show_many_job_statuses) - Show Many Job Statuses
 * [bulk_set_agent_attribute_values_job](docs/sdks/jobstatuses/README.md#bulk_set_agent_attribute_values_job) - Bulk Set Agent Attribute Values Job
 
-### [locales](docs/sdks/locales/README.md)
+### [Locales](docs/sdks/locales/README.md)
 
 * [list_locales](docs/sdks/locales/README.md#list_locales) - List Locales
 * [show_locale_by_id](docs/sdks/locales/README.md#show_locale_by_id) - Show Locale
@@ -453,12 +462,12 @@ with Zendesk(
 * [detect_best_locale](docs/sdks/locales/README.md#detect_best_locale) - Detect Best Language for User
 * [list_available_public_locales](docs/sdks/locales/README.md#list_available_public_locales) - List Available Public Locales
 
-### [lookup_relationships](docs/sdks/lookuprelationships/README.md)
+### [LookupRelationships](docs/sdks/lookuprelationships/README.md)
 
 * [get_sources_by_target](docs/sdks/lookuprelationships/README.md#get_sources_by_target) - Get sources by target
 * [get_relationship_filter_definitions](docs/sdks/lookuprelationships/README.md#get_relationship_filter_definitions) - Filter Definitions
 
-### [macros](docs/sdks/macros/README.md)
+### [Macros](docs/sdks/macros/README.md)
 
 * [list_macros](docs/sdks/macros/README.md#list_macros) - List Macros
 * [create_macro](docs/sdks/macros/README.md#create_macro) - Create Macro
@@ -480,7 +489,7 @@ with Zendesk(
 * [update_many_macros](docs/sdks/macros/README.md#update_many_macros) - Update Many Macros
 * [show_ticket_after_changes](docs/sdks/macros/README.md#show_ticket_after_changes) - Show Ticket After Changes
 
-### [o_auth_clients](docs/sdks/oauthclients/README.md)
+### [OAuthClients](docs/sdks/oauthclients/README.md)
 
 * [list_o_auth_clients](docs/sdks/oauthclients/README.md#list_o_auth_clients) - List Clients
 * [create_o_auth_client](docs/sdks/oauthclients/README.md#create_o_auth_client) - Create Client
@@ -489,14 +498,14 @@ with Zendesk(
 * [delete_client](docs/sdks/oauthclients/README.md#delete_client) - Delete Client
 * [client_generate_secret](docs/sdks/oauthclients/README.md#client_generate_secret) - Generate Secret
 
-### [o_auth_tokens](docs/sdks/oauthtokens/README.md)
+### [OAuthTokens](docs/sdks/oauthtokens/README.md)
 
 * [list_o_auth_tokens](docs/sdks/oauthtokens/README.md#list_o_auth_tokens) - List Tokens
 * [create_o_auth_token](docs/sdks/oauthtokens/README.md#create_o_auth_token) - Create Token
 * [show_token](docs/sdks/oauthtokens/README.md#show_token) - Show Token
 * [revoke_o_auth_token](docs/sdks/oauthtokens/README.md#revoke_o_auth_token) - Revoke Token
 
-### [object_triggers](docs/sdks/objecttriggers/README.md)
+### [ObjectTriggers](docs/sdks/objecttriggers/README.md)
 
 * [list_object_triggers](docs/sdks/objecttriggers/README.md#list_object_triggers) - List Object Triggers
 * [create_object_trigger](docs/sdks/objecttriggers/README.md#create_object_trigger) - Create Object Trigger
@@ -509,7 +518,7 @@ with Zendesk(
 * [search_object_triggers](docs/sdks/objecttriggers/README.md#search_object_triggers) - Search Object Triggers
 * [update_many_object_triggers](docs/sdks/objecttriggers/README.md#update_many_object_triggers) - Update Many Object Triggers
 
-### [omnichannel_routing_queues](docs/sdks/omnichannelroutingqueues/README.md)
+### [OmnichannelRoutingQueues](docs/sdks/omnichannelroutingqueues/README.md)
 
 * [list_queues](docs/sdks/omnichannelroutingqueues/README.md#list_queues) - List queues
 * [create_queue](docs/sdks/omnichannelroutingqueues/README.md#create_queue) - Create Queue
@@ -519,13 +528,13 @@ with Zendesk(
 * [list_queue_definitions](docs/sdks/omnichannelroutingqueues/README.md#list_queue_definitions) - List Queue Definitions
 * [reorder_queues](docs/sdks/omnichannelroutingqueues/README.md#reorder_queues) - Reorder Queues
 
-### [organization_fields](docs/sdks/organizationfieldssdk/README.md)
+### [OrganizationFields](docs/sdks/organizationfieldssdk/README.md)
 
 * [list_organization_fields](docs/sdks/organizationfieldssdk/README.md#list_organization_fields) - List Organization Fields
 * [create_organization_field](docs/sdks/organizationfieldssdk/README.md#create_organization_field) - Create Organization Field
 * [reorder_organization_field](docs/sdks/organizationfieldssdk/README.md#reorder_organization_field) - Reorder Organization Field
 
-### [organization_memberships](docs/sdks/organizationmemberships/README.md)
+### [OrganizationMemberships](docs/sdks/organizationmemberships/README.md)
 
 * [list_organization_memberships](docs/sdks/organizationmemberships/README.md#list_organization_memberships) - List Memberships
 * [create_organization_membership](docs/sdks/organizationmemberships/README.md#create_organization_membership) - Create Membership
@@ -537,14 +546,14 @@ with Zendesk(
 * [unassign_organization](docs/sdks/organizationmemberships/README.md#unassign_organization) - Unassign Organization
 * [set_organization_as_default](docs/sdks/organizationmemberships/README.md#set_organization_as_default) - Set Organization as Default
 
-### [organization_subscriptions](docs/sdks/organizationsubscriptions/README.md)
+### [OrganizationSubscriptions](docs/sdks/organizationsubscriptions/README.md)
 
 * [list_organization_subscriptions](docs/sdks/organizationsubscriptions/README.md#list_organization_subscriptions) - List Organization Subscriptions
 * [create_organization_subscription](docs/sdks/organizationsubscriptions/README.md#create_organization_subscription) - Create Organization Subscription
 * [show_organization_subscription](docs/sdks/organizationsubscriptions/README.md#show_organization_subscription) - Show Organization Subscription
 * [delete_organization_subscription](docs/sdks/organizationsubscriptions/README.md#delete_organization_subscription) - Delete Organization Subscription
 
-### [organizations](docs/sdks/organizations/README.md)
+### [Organizations](docs/sdks/organizations/README.md)
 
 * [show_organization_merge](docs/sdks/organizations/README.md#show_organization_merge) - Show Organization Merge
 * [list_organizations](docs/sdks/organizations/README.md#list_organizations) - List Organizations
@@ -564,11 +573,11 @@ with Zendesk(
 * [show_many_organizations](docs/sdks/organizations/README.md#show_many_organizations) - Show Many Organizations
 * [update_many_organizations](docs/sdks/organizations/README.md#update_many_organizations) - Update Many Organizations
 
-### [push_notification_devices](docs/sdks/pushnotificationdevices/README.md)
+### [PushNotificationDevices](docs/sdks/pushnotificationdevices/README.md)
 
 * [push_notification_devices](docs/sdks/pushnotificationdevices/README.md#push_notification_devices) - Bulk Unregister Push Notification Devices
 
-### [requests](docs/sdks/requests/README.md)
+### [Requests](docs/sdks/requests/README.md)
 
 * [list_requests](docs/sdks/requests/README.md#list_requests) - List Requests
 * [create_request](docs/sdks/requests/README.md#create_request) - Create Request
@@ -578,12 +587,12 @@ with Zendesk(
 * [show_comment](docs/sdks/requests/README.md#show_comment) - Getting Comments
 * [search_requests](docs/sdks/requests/README.md#search_requests) - Search Requests
 
-### [reseller](docs/sdks/reseller/README.md)
+### [Reseller](docs/sdks/reseller/README.md)
 
 * [create_trial_account](docs/sdks/reseller/README.md#create_trial_account) - Create Trial Account
 * [verify_subdomain_availability](docs/sdks/reseller/README.md#verify_subdomain_availability) - Verify Subdomain Availability
 
-### [resource_collections](docs/sdks/resourcecollections/README.md)
+### [ResourceCollections](docs/sdks/resourcecollections/README.md)
 
 * [list_resource_collections](docs/sdks/resourcecollections/README.md#list_resource_collections) - List Resource Collections
 * [create_resource_collection](docs/sdks/resourcecollections/README.md#create_resource_collection) - Create Resource Collection
@@ -591,25 +600,25 @@ with Zendesk(
 * [update_resource_collection](docs/sdks/resourcecollections/README.md#update_resource_collection) - Update Resource Collection
 * [delete_resource_collection](docs/sdks/resourcecollections/README.md#delete_resource_collection) - Delete Resource Collection
 
-### [satisfaction_ratings](docs/sdks/satisfactionratings/README.md)
+### [SatisfactionRatings](docs/sdks/satisfactionratings/README.md)
 
 * [list_satisfaction_ratings](docs/sdks/satisfactionratings/README.md#list_satisfaction_ratings) - List Satisfaction Ratings
 * [show_satisfaction_rating](docs/sdks/satisfactionratings/README.md#show_satisfaction_rating) - Show Satisfaction Rating
 * [count_satisfaction_ratings](docs/sdks/satisfactionratings/README.md#count_satisfaction_ratings) - Count Satisfaction Ratings
 * [create_ticket_satisfaction_rating](docs/sdks/satisfactionratings/README.md#create_ticket_satisfaction_rating) - Create a Satisfaction Rating
 
-### [satisfaction_reasons](docs/sdks/satisfactionreasons/README.md)
+### [SatisfactionReasons](docs/sdks/satisfactionreasons/README.md)
 
 * [list_satisfaction_rating_reasons](docs/sdks/satisfactionreasons/README.md#list_satisfaction_rating_reasons) - List Reasons for Satisfaction Rating
 * [show_satisfaction_ratings](docs/sdks/satisfactionreasons/README.md#show_satisfaction_ratings) - Show Reason for Satisfaction Rating
 
-### [search](docs/sdks/search/README.md)
+### [Search](docs/sdks/search/README.md)
 
 * [list_search_results](docs/sdks/search/README.md#list_search_results) - List Search Results
 * [count_search_results](docs/sdks/search/README.md#count_search_results) - Show Results Count
 * [export_search_results](docs/sdks/search/README.md#export_search_results) - Export Search Results
 
-### [sessions](docs/sdks/sessions/README.md)
+### [Sessions](docs/sdks/sessions/README.md)
 
 * [list_sessions](docs/sdks/sessions/README.md#list_sessions) - List Sessions
 * [bulk_delete_sessions_by_user_id](docs/sdks/sessions/README.md#bulk_delete_sessions_by_user_id) - Bulk Delete Sessions
@@ -619,7 +628,7 @@ with Zendesk(
 * [show_currently_authenticated_session](docs/sdks/sessions/README.md#show_currently_authenticated_session) - Show the Currently Authenticated Session
 * [renew_current_session](docs/sdks/sessions/README.md#renew_current_session) - Renew the current session
 
-### [sharing_agreements](docs/sdks/sharingagreements/README.md)
+### [SharingAgreements](docs/sdks/sharingagreements/README.md)
 
 * [list_sharing_agreements](docs/sdks/sharingagreements/README.md#list_sharing_agreements) - List Sharing Agreements
 * [create_sharing_agreement](docs/sdks/sharingagreements/README.md#create_sharing_agreement) - Create Sharing Agreement
@@ -627,7 +636,7 @@ with Zendesk(
 * [update_sharing_agreement](docs/sdks/sharingagreements/README.md#update_sharing_agreement) - Update a Sharing Agreement
 * [delete_sharing_agreement](docs/sdks/sharingagreements/README.md#delete_sharing_agreement) - Delete a Sharing Agreement
 
-### [skill_based_routing](docs/sdks/skillbasedrouting/README.md)
+### [SkillBasedRouting](docs/sdks/skillbasedrouting/README.md)
 
 * [list_a_gent_attribute_values](docs/sdks/skillbasedrouting/README.md#list_a_gent_attribute_values) - List Agent Attribute Values
 * [set_agent_attribute_values](docs/sdks/skillbasedrouting/README.md#set_agent_attribute_values) - Set Agent Attribute Values
@@ -648,7 +657,7 @@ with Zendesk(
 * [list_ticket_attribute_values](docs/sdks/skillbasedrouting/README.md#list_ticket_attribute_values) - List Ticket Attribute Values
 * [set_ticket_attribute_values](docs/sdks/skillbasedrouting/README.md#set_ticket_attribute_values) - Set Ticket Attribute Values
 
-### [sla_policies](docs/sdks/slapolicies/README.md)
+### [SLAPolicies](docs/sdks/slapolicies/README.md)
 
 * [list_sla_policies](docs/sdks/slapolicies/README.md#list_sla_policies) - List SLA Policies
 * [create_sla_policy](docs/sdks/slapolicies/README.md#create_sla_policy) - Create SLA Policy
@@ -658,7 +667,7 @@ with Zendesk(
 * [retrieve_sla_policy_filter_definition_items](docs/sdks/slapolicies/README.md#retrieve_sla_policy_filter_definition_items) - Retrieve Supported Filter Definition Items
 * [reorder_sla_policies](docs/sdks/slapolicies/README.md#reorder_sla_policies) - Reorder SLA Policies
 
-### [support_addresses](docs/sdks/supportaddresses/README.md)
+### [SupportAddresses](docs/sdks/supportaddresses/README.md)
 
 * [list_support_addresses](docs/sdks/supportaddresses/README.md#list_support_addresses) - List Support Addresses
 * [create_support_address](docs/sdks/supportaddresses/README.md#create_support_address) - Create Support Address
@@ -667,7 +676,7 @@ with Zendesk(
 * [delete_recipient_address](docs/sdks/supportaddresses/README.md#delete_recipient_address) - Delete Support Address
 * [verify_support_address_forwarding](docs/sdks/supportaddresses/README.md#verify_support_address_forwarding) - Verify Support Address Forwarding
 
-### [suspended_tickets](docs/sdks/suspendedtickets/README.md)
+### [SuspendedTickets](docs/sdks/suspendedtickets/README.md)
 
 * [list_suspended_tickets](docs/sdks/suspendedtickets/README.md#list_suspended_tickets) - List Suspended Tickets
 * [show_suspended_tickets](docs/sdks/suspendedtickets/README.md#show_suspended_tickets) - Show Suspended Ticket
@@ -678,7 +687,7 @@ with Zendesk(
 * [export_suspended_tickets](docs/sdks/suspendedtickets/README.md#export_suspended_tickets) - Export Suspended Tickets
 * [recover_suspended_tickets](docs/sdks/suspendedtickets/README.md#recover_suspended_tickets) - Recover Multiple Suspended Tickets
 
-### [tags](docs/sdks/tags/README.md)
+### [Tags](docs/sdks/tags/README.md)
 
 * [autocomplete_tags](docs/sdks/tags/README.md#autocomplete_tags) - Search Tags
 * [list_tags](docs/sdks/tags/README.md#list_tags) - List Tags
@@ -696,12 +705,12 @@ with Zendesk(
 * [add_user_tags](docs/sdks/tags/README.md#add_user_tags) - Add User Tags
 * [remove_user_tags](docs/sdks/tags/README.md#remove_user_tags) - Remove User Tags
 
-### [target_failures](docs/sdks/targetfailures/README.md)
+### [TargetFailures](docs/sdks/targetfailures/README.md)
 
 * [list_target_failures](docs/sdks/targetfailures/README.md#list_target_failures) - List Target Failures
 * [show_target_failure](docs/sdks/targetfailures/README.md#show_target_failure) - Show Target Failure
 
-### [targets](docs/sdks/targets/README.md)
+### [Targets](docs/sdks/targets/README.md)
 
 * [list_targets](docs/sdks/targets/README.md#list_targets) - List Targets
 * [create_target](docs/sdks/targets/README.md#create_target) - Create Target
@@ -709,7 +718,7 @@ with Zendesk(
 * [update_target](docs/sdks/targets/README.md#update_target) - Update Target
 * [delete_target](docs/sdks/targets/README.md#delete_target) - Delete Target
 
-### [ticket_audits](docs/sdks/ticketaudits/README.md)
+### [TicketAudits](docs/sdks/ticketaudits/README.md)
 
 * [list_ticket_audits](docs/sdks/ticketaudits/README.md#list_ticket_audits) - List All Ticket Audits
 * [list_audits_for_ticket](docs/sdks/ticketaudits/README.md#list_audits_for_ticket) - List Audits for a Ticket
@@ -717,7 +726,7 @@ with Zendesk(
 * [make_ticket_comment_private_from_audits](docs/sdks/ticketaudits/README.md#make_ticket_comment_private_from_audits) - Change a Comment From Public To Private
 * [count_audits_for_ticket](docs/sdks/ticketaudits/README.md#count_audits_for_ticket) - Count Audits for a Ticket
 
-### [ticket_comments](docs/sdks/ticketcomments/README.md)
+### [TicketComments](docs/sdks/ticketcomments/README.md)
 
 * [redact_chat_comment_attachment](docs/sdks/ticketcomments/README.md#redact_chat_comment_attachment) - Redact Chat Comment Attachment
 * [redact_chat_comment](docs/sdks/ticketcomments/README.md#redact_chat_comment) - Redact Chat Comment
@@ -727,7 +736,7 @@ with Zendesk(
 * [redact_string_in_comment](docs/sdks/ticketcomments/README.md#redact_string_in_comment) - Redact String in Comment
 * [count_ticket_comments](docs/sdks/ticketcomments/README.md#count_ticket_comments) - Count Ticket Comments
 
-### [ticket_fields](docs/sdks/ticketfields/README.md)
+### [TicketFields](docs/sdks/ticketfields/README.md)
 
 * [list_ticket_fields](docs/sdks/ticketfields/README.md#list_ticket_fields) - List Ticket Fields
 * [create_ticket_field](docs/sdks/ticketfields/README.md#create_ticket_field) - Create Ticket Field
@@ -741,7 +750,7 @@ with Zendesk(
 * [count_ticket_fields](docs/sdks/ticketfields/README.md#count_ticket_fields) - Count Ticket Fields
 * [reorder_ticket_fields](docs/sdks/ticketfields/README.md#reorder_ticket_fields) - Reorder Ticket Fields
 
-### [ticket_form_statuses](docs/sdks/ticketformstatuses/README.md)
+### [TicketFormStatuses](docs/sdks/ticketformstatuses/README.md)
 
 * [create_ticket_form_statuses_for_custom_status](docs/sdks/ticketformstatuses/README.md#create_ticket_form_statuses_for_custom_status) - Create Ticket Form Statuses for a Custom Status
 * [list_ticket_form_statuses](docs/sdks/ticketformstatuses/README.md#list_ticket_form_statuses) - List Ticket Form Statuses
@@ -753,7 +762,7 @@ with Zendesk(
 * [update_ticket_form_status_by_id](docs/sdks/ticketformstatuses/README.md#update_ticket_form_status_by_id) - Update Ticket Form Status By Id
 * [delete_ticket_form_status_by_id](docs/sdks/ticketformstatuses/README.md#delete_ticket_form_status_by_id) - Delete Ticket Form Status By Id
 
-### [ticket_forms](docs/sdks/ticketforms/README.md)
+### [TicketForms](docs/sdks/ticketforms/README.md)
 
 * [list_ticket_forms](docs/sdks/ticketforms/README.md#list_ticket_forms) - List Ticket Forms
 * [create_ticket_form](docs/sdks/ticketforms/README.md#create_ticket_form) - Create Ticket Form
@@ -768,26 +777,26 @@ with Zendesk(
 * [reorder_ticket_forms](docs/sdks/ticketforms/README.md#reorder_ticket_forms) - Reorder Ticket Forms
 * [show_many_ticket_forms](docs/sdks/ticketforms/README.md#show_many_ticket_forms) - Show Many Ticket Forms
 
-### [ticket_import](docs/sdks/ticketimport/README.md)
+### [TicketImport](docs/sdks/ticketimport/README.md)
 
 * [ticket_import](docs/sdks/ticketimport/README.md#ticket_import) - Ticket Import
 * [ticket_bulk_import](docs/sdks/ticketimport/README.md#ticket_bulk_import) - Ticket Bulk Import
 
-### [ticket_metric_events](docs/sdks/ticketmetricevents/README.md)
+### [TicketMetricEvents](docs/sdks/ticketmetricevents/README.md)
 
 * [list_ticket_metric_events](docs/sdks/ticketmetricevents/README.md#list_ticket_metric_events) - List Ticket Metric Events
 
-### [ticket_metrics](docs/sdks/ticketmetrics/README.md)
+### [TicketMetrics](docs/sdks/ticketmetrics/README.md)
 
 * [list_ticket_metrics](docs/sdks/ticketmetrics/README.md#list_ticket_metrics) - List Ticket Metrics
 * [show_ticket_metrics](docs/sdks/ticketmetrics/README.md#show_ticket_metrics) - Show Ticket Metrics
 
-### [ticket_skips](docs/sdks/ticketskips/README.md)
+### [TicketSkips](docs/sdks/ticketskips/README.md)
 
 * [record_new_skip](docs/sdks/ticketskips/README.md#record_new_skip) - Record a New Skip for the Current User
 * [list_ticket_skips](docs/sdks/ticketskips/README.md#list_ticket_skips) - List Ticket Skips
 
-### [tickets](docs/sdks/tickets/README.md)
+### [Tickets](docs/sdks/tickets/README.md)
 
 * [list_deleted_tickets](docs/sdks/tickets/README.md#list_deleted_tickets) - List Deleted Tickets
 * [delete_ticket_permanently](docs/sdks/tickets/README.md#delete_ticket_permanently) - Delete Ticket Permanently
@@ -815,7 +824,7 @@ with Zendesk(
 * [tickets_show_many](docs/sdks/tickets/README.md#tickets_show_many) - Show Multiple Tickets
 * [tickets_update_many](docs/sdks/tickets/README.md#tickets_update_many) - Update Many Tickets
 
-### [trigger_categories](docs/sdks/triggercategories/README.md)
+### [TriggerCategories](docs/sdks/triggercategories/README.md)
 
 * [list_trigger_categories](docs/sdks/triggercategories/README.md#list_trigger_categories) - List Ticket Trigger Categories
 * [create_trigger_category](docs/sdks/triggercategories/README.md#create_trigger_category) - Create Ticket Trigger Category
@@ -824,7 +833,7 @@ with Zendesk(
 * [delete_trigger_category](docs/sdks/triggercategories/README.md#delete_trigger_category) - Delete Ticket Trigger Category
 * [batch_operate_trigger_categories](docs/sdks/triggercategories/README.md#batch_operate_trigger_categories) - Create Batch Job for Ticket Trigger Categories
 
-### [triggers](docs/sdks/triggers/README.md)
+### [Triggers](docs/sdks/triggers/README.md)
 
 * [list_triggers](docs/sdks/triggers/README.md#list_triggers) - List Ticket Triggers
 * [create_trigger](docs/sdks/triggers/README.md#create_trigger) - Create Trigger
@@ -840,13 +849,13 @@ with Zendesk(
 * [search_triggers](docs/sdks/triggers/README.md#search_triggers) - Search Ticket Triggers
 * [update_many_triggers](docs/sdks/triggers/README.md#update_many_triggers) - Update Many Ticket Triggers
 
-### [user_fields](docs/sdks/userfields/README.md)
+### [UserFields](docs/sdks/userfields/README.md)
 
 * [list_user_fields](docs/sdks/userfields/README.md#list_user_fields) - List User Fields
 * [create_user_field](docs/sdks/userfields/README.md#create_user_field) - Create User Field
 * [reorder_user_field](docs/sdks/userfields/README.md#reorder_user_field) - Reorder User Field
 
-### [user_identities](docs/sdks/useridentities/README.md)
+### [UserIdentities](docs/sdks/useridentities/README.md)
 
 * [list_user_identities](docs/sdks/useridentities/README.md#list_user_identities) - List Identities
 * [create_user_identity](docs/sdks/useridentities/README.md#create_user_identity) - Create Identity
@@ -857,13 +866,13 @@ with Zendesk(
 * [request_user_verfication](docs/sdks/useridentities/README.md#request_user_verfication) - Request User Verification
 * [verify_user_identity](docs/sdks/useridentities/README.md#verify_user_identity) - Verify Identity
 
-### [user_passwords](docs/sdks/userpasswords/README.md)
+### [UserPasswords](docs/sdks/userpasswords/README.md)
 
 * [set_user_password](docs/sdks/userpasswords/README.md#set_user_password) - Set a User's Password
 * [change_own_password](docs/sdks/userpasswords/README.md#change_own_password) - Change Your Password
 * [get_user_password_requirements](docs/sdks/userpasswords/README.md#get_user_password_requirements) - List password requirements
 
-### [users](docs/sdks/userssdk/README.md)
+### [Users](docs/sdks/userssdk/README.md)
 
 * [list_deleted_users](docs/sdks/userssdk/README.md#list_deleted_users) - List Deleted Users
 * [show_deleted_user](docs/sdks/userssdk/README.md#show_deleted_user) - Show Deleted User
@@ -890,7 +899,7 @@ with Zendesk(
 * [show_many_users](docs/sdks/userssdk/README.md#show_many_users) - Show Many Users
 * [update_many_users](docs/sdks/userssdk/README.md#update_many_users) - Update Many Users
 
-### [views](docs/sdks/views/README.md)
+### [Views](docs/sdks/views/README.md)
 
 * [list_views](docs/sdks/views/README.md#list_views) - List Views
 * [create_view](docs/sdks/views/README.md#create_view) - Create View
@@ -912,12 +921,12 @@ with Zendesk(
 * [list_views_by_id](docs/sdks/views/README.md#list_views_by_id) - List Views By ID
 * [update_many_views](docs/sdks/views/README.md#update_many_views) - Update Many Views
 
-### [webhook_invocations](docs/sdks/webhookinvocations/README.md)
+### [WebhookInvocations](docs/sdks/webhookinvocations/README.md)
 
 * [list_webhook_invocations](docs/sdks/webhookinvocations/README.md#list_webhook_invocations) - List Webhook Invocations
 * [list_webhook_invocation_attempts](docs/sdks/webhookinvocations/README.md#list_webhook_invocation_attempts) - List Webhook Invocation Attempts
 
-### [webhooks](docs/sdks/webhooks/README.md)
+### [Webhooks](docs/sdks/webhooks/README.md)
 
 * [list_webhooks](docs/sdks/webhooks/README.md#list_webhooks) - List Webhooks
 * [create_or_clone_webhook](docs/sdks/webhooks/README.md#create_or_clone_webhook) - Create or Clone Webhook
@@ -929,7 +938,7 @@ with Zendesk(
 * [show_webhook_signing_secret](docs/sdks/webhooks/README.md#show_webhook_signing_secret) - Show Webhook Signing Secret
 * [reset_webhook_signing_secret](docs/sdks/webhooks/README.md#reset_webhook_signing_secret) - Reset Webhook Signing Secret
 
-### [workspaces](docs/sdks/workspaces/README.md)
+### [Workspaces](docs/sdks/workspaces/README.md)
 
 * [list_workspaces](docs/sdks/workspaces/README.md#list_workspaces) - List Workspaces
 * [create_workspace](docs/sdks/workspaces/README.md#create_workspace) - Create Workspace
@@ -939,13 +948,12 @@ with Zendesk(
 * [destroy_many_workspaces](docs/sdks/workspaces/README.md#destroy_many_workspaces) - Bulk Delete Workspaces
 * [reorder_workspaces](docs/sdks/workspaces/README.md#reorder_workspaces) - Reorder Workspaces
 
-### [x_channel](docs/sdks/xchannel/README.md)
+### [XChannel](docs/sdks/xchannel/README.md)
 
 * [list_monitored_twitter_handles](docs/sdks/xchannel/README.md#list_monitored_twitter_handles) - List Monitored X Handles
 * [show_monitored_twitter_handle](docs/sdks/xchannel/README.md#show_monitored_twitter_handle) - Show Monitored X Handle
 * [create_ticket_from_tweet](docs/sdks/xchannel/README.md#create_ticket_from_tweet) - Create Ticket from Tweet
 * [getting_twicket_status](docs/sdks/xchannel/README.md#getting_twicket_status) - List Ticket statuses
-
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -1125,8 +1133,9 @@ from zendesk import Zendesk, models
 
 
 with Zendesk(
-    domain="unwelcome-bidet.info"
-    subdomain="<value>"
+    server_idx=0,
+    domain="zendesk",
+    subdomain="example",
     security=models.Security(
         username="",
         password="",

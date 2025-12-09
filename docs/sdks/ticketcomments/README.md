@@ -1,5 +1,4 @@
 # TicketComments
-(*ticket_comments*)
 
 ## Overview
 

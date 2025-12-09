@@ -1,5 +1,4 @@
 # AssigneeFieldAssignableGroups
-(*assignee_field_assignable_groups*)
 
 ## Overview
 

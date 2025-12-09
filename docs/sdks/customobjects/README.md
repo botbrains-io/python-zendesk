@@ -1,5 +1,4 @@
 # CustomObjects
-(*custom_objects*)
 
 ## Overview
 

@@ -1,5 +1,4 @@
 # OrganizationSubscriptions
-(*organization_subscriptions*)
 
 ## Overview
 
