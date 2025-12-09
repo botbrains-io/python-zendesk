@@ -1,17 +1,17 @@
 lockVersion: 2.0.0
 id: 37ac03f7-3b34-47b7-8334-e362604f87cd
 management:
-  docChecksum: f07291b4e88ddc03a2de8622f3a4c14a
+  docChecksum: 091ebe4445e1222d5fa79da4d9864092
   docVersion: 2.0.0
   speakeasyVersion: 1.673.1
   generationVersion: 2.776.3
-  releaseVersion: 0.2.1
-  configChecksum: 3b5a3ffd78ab83f548413e178ccbffc0
+  releaseVersion: 0.2.2
+  configChecksum: fd413f5259600b7722c15bf3e34ad415
   published: true
 persistentEdits:
-  generation_id: 80ea615b-2a06-4bb6-b7b8-2e70fec435dc
-  pristine_commit_hash: f015172ec3f60f4680140cf9b58c90ce07235cbb
-  pristine_tree_hash: 7dc0b997379496272771ccd4bfec7bd75ea3b474
+  generation_id: f22d1424-b7ac-44e6-ab7c-285903da5f51
+  pristine_commit_hash: f96f37528110c95e564d04a5a3936fee7102cec6
+  pristine_tree_hash: 831e8b9d76d945fc3e9ef3f081a72043fb3a2c1e
 features:
   python:
     additionalDependencies: 1.0.0
@@ -569,8 +569,8 @@ trackedFiles:
     pristine_git_object: b663802c3f42a301e6a7915a6fb0e34ece7b743e
   docs/models/bookmarkobjectvalue.md:
     id: 2728bedb1b0a
-    last_write_checksum: sha1:1bd1ef166bd27a49e3ef05847601ae4c53a0276d
-    pristine_git_object: 120f0a1174eab996c3fd66cbc858686613c9196b
+    last_write_checksum: sha1:32a99553f3d514221485f2f8b758698fdb9e6040
+    pristine_git_object: cebe4946c88a5aad123524849ab0f901b35aa863
   docs/models/bookmarkobjectvia.md:
     id: 063bb554907b
     last_write_checksum: sha1:f4fd00d3511021df7d687805e7fdd3c8267bc896
@@ -4029,8 +4029,8 @@ trackedFiles:
     pristine_git_object: fbddfd3596f968d8ecb949744243a8f048675d59
   docs/models/ticketcreateinputvalue.md:
     id: f56dbb1c449d
-    last_write_checksum: sha1:f84b04416fe79a24b4d2e303350b375c50872de3
-    pristine_git_object: c08f41b12cec7361328689cf19635f337025119d
+    last_write_checksum: sha1:e2e0af7722ea4b84a6dceb444c87ffff79d8813d
+    pristine_git_object: bb8d3da8554ed70472dfe00439d097b12565ad84
   docs/models/ticketcreaterequest.md:
     id: 48a947060373
     last_write_checksum: sha1:2e9f9a2ccb4ca83c0f3e3a3c46462208a49c4f7e
@@ -4185,8 +4185,8 @@ trackedFiles:
     pristine_git_object: a8fb6ff3402a428eb4a2f5b273a20170686daf5a
   docs/models/ticketobjectvalue.md:
     id: 1bb08fe32252
-    last_write_checksum: sha1:74633c9f42f95f661e4a06f84b8843fe9e2e6e6b
-    pristine_git_object: 98d62be288887b2b056ecd3d9fc5cb174925dc2c
+    last_write_checksum: sha1:80f1f5c0ef09a929da34e1779ba84b1d51453aec
+    pristine_git_object: 9cb040e8ce0e93f375e8a0e02643c6ceddd3a5f7
   docs/models/ticketobjectvia.md:
     id: 7ef5fcd35da7
     last_write_checksum: sha1:ff1776607c2ea7356e8dce48a69dd89497137e3a
@@ -4241,8 +4241,8 @@ trackedFiles:
     pristine_git_object: 21fde826c8b2b484dc857495adcd3f36839f1b27
   docs/models/ticketskipobjectvalue.md:
     id: 1361a90164db
-    last_write_checksum: sha1:13a00abaca1c9f3ed856928d98105ab10404407b
-    pristine_git_object: 12307d5a524ad9314d438971b998ce9a307b9380
+    last_write_checksum: sha1:8a5e7bfbf5e370a3bef920afc17bfc7e5684bfb2
+    pristine_git_object: a42b893fe4f56f8bb3b0f95c16f3a17f0e918697
   docs/models/ticketskipobjectvia.md:
     id: 1ad02d5ef23e
     last_write_checksum: sha1:0acc62dbddadcb7e6352f9547804eef1fb32e8f6
@@ -4293,8 +4293,8 @@ trackedFiles:
     pristine_git_object: 2b539a383f54c0b722a3009723cd3b54c2560cad
   docs/models/ticketupdateinputvalue.md:
     id: 6435d1e7d780
-    last_write_checksum: sha1:c86e6e95c2b7069fdeb89589f309ba6585358925
-    pristine_git_object: a1ac0dfd9bccc96624247add66d946fa804b8fa7
+    last_write_checksum: sha1:4a20048bae4e3c51170dd9116caa3bad3e49b366
+    pristine_git_object: 36af5b2c53fb3cf04c97570a99b5be09076b6c37
   docs/models/ticketupdaterequest.md:
     id: f55c2208aabe
     last_write_checksum: sha1:c1b41a358895772370a1bcd1f725788fc297d140
@@ -5605,8 +5605,8 @@ trackedFiles:
     pristine_git_object: 5993ca3da7978fb6070462f640a0d5c86c8f7c38
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:2497d4045e9ae5501b375b692654ecf3dd6f6d81
-    pristine_git_object: a22c7eff2fb12f646bb27fd1fc983d29a8154f09
+    last_write_checksum: sha1:5426265dce45c212524f334b498f4277c60644bf
+    pristine_git_object: a9244ba8eac56626df46cd5fbb26b62f32e8047f
   scripts/publish.sh:
     id: fe273b08f514
     last_write_checksum: sha1:11c8a74f613fdb29f432e3feafb84072eeba6428
@@ -5617,20 +5617,20 @@ trackedFiles:
     pristine_git_object: 833c68cd526fe34aab2b7e7c45f974f7f4b9e120
   src/zendesk/_hooks/__init__.py:
     id: 4125f96a75dd
-    last_write_checksum: sha1:45a380490e968d8d95994dd97554ac60eeb6ae60
-    pristine_git_object: e763be4b171bbcf9c16caeaf381f8c92ce8d8e6e
+    last_write_checksum: sha1:e3111289afd28ad557c21d9e2f918caabfb7037d
+    pristine_git_object: 2ee66cdd592fe41731c24ddd407c8ca31c50aec1
   src/zendesk/_hooks/sdkhooks.py:
     id: de0e034b9076
-    last_write_checksum: sha1:c35f2823a7ea690a27f164c816292e5919ad1dc5
-    pristine_git_object: fdb345eaf552df51a719aa6ff42fcc324c271808
+    last_write_checksum: sha1:b425cf46b38d924c299cbd0be5cd9891f9cef9c6
+    pristine_git_object: 96016f5ebee906d1e8261c64efcf6016da53183b
   src/zendesk/_hooks/types.py:
     id: dad84c2672ca
     last_write_checksum: sha1:2d5daf39876a0375b63a8d8b98f42c035564a049
     pristine_git_object: 5810790afbb7d170888d18ef516b741907f322e3
   src/zendesk/_version.py:
     id: 8bb59eeccdd9
-    last_write_checksum: sha1:0348a44fbd18110d7be408120cfd85ac42ad5e53
-    pristine_git_object: 8f74eac6d4ec3313baf97418baa7def37bc3ade2
+    last_write_checksum: sha1:f73c838c1c75b8c1a74aee0caa48b4d1188654a6
+    pristine_git_object: 646c0aabb9eb98dcb696e1e5575c310dee1ded0f
   src/zendesk/account_settings.py:
     id: 7923bc5be537
     last_write_checksum: sha1:29fb46e49bb221c91dd10f7042e9d166fe6eec5f
@@ -6153,8 +6153,8 @@ trackedFiles:
     pristine_git_object: aef2c2d5105e83f92b21b93c4b40e33b8c6a008e
   src/zendesk/models/bookmarkobject.py:
     id: ef7885427204
-    last_write_checksum: sha1:8acd1379975036b9623bf348558fec8fbda46c27
-    pristine_git_object: 35b09fa020e595d40c526cef196ada22d069ed2a
+    last_write_checksum: sha1:d1071d90c9044cc4bbe9dabec700cf69e4ddff34
+    pristine_git_object: e9f0bcee9f73032d595341d3d9e5334d496251c1
   src/zendesk/models/bookmarkresponse.py:
     id: 0ee2a373ca4d
     last_write_checksum: sha1:f8807684863feed0930c1f3145d87daa1eeb9bfe
@@ -8505,8 +8505,8 @@ trackedFiles:
     pristine_git_object: 1f0f3da17a1c2dc8ce0af8d96a7b15b042d77b5d
   src/zendesk/models/ticketcreateinput.py:
     id: a922c72b0b39
-    last_write_checksum: sha1:275951aeb5eca0b6e7af46a079b65c195409a6e2
-    pristine_git_object: 407bff6f5d185dbf6bf338c7428f54a44617228b
+    last_write_checksum: sha1:f2390622696fa94bcd6965a444b5c0ab5a844534
+    pristine_git_object: d1f6610838529bfec872fc94caf152f3a25d28b6
   src/zendesk/models/ticketcreaterequest.py:
     id: b328b47b745e
     last_write_checksum: sha1:642e7d289777c27422287add99391f128727c7ef
@@ -8609,8 +8609,8 @@ trackedFiles:
     pristine_git_object: 24e30c39a66c1b941f4952eb89a7725cf9158282
   src/zendesk/models/ticketobject.py:
     id: b094a4f4e438
-    last_write_checksum: sha1:3fe23ee432a5265573c4acd1d8eb2472b522512d
-    pristine_git_object: 54711fdfd3a3a5a2c92958c911a7748a4ebd6ad5
+    last_write_checksum: sha1:d1f44a0488c95061b0d9d7171ba9ba03e6b90df7
+    pristine_git_object: e7893a4f4797fb650bcb65b09306d407b53b9d23
   src/zendesk/models/ticketrelatedinformation.py:
     id: 1a8d62bcf71c
     last_write_checksum: sha1:483b4f0fb3c83871c18f90d43dd5703330bee51d
@@ -8633,8 +8633,8 @@ trackedFiles:
     pristine_git_object: e641f494ee472d9562e0fbcb736338f7eaa6d566
   src/zendesk/models/ticketskipobject.py:
     id: 84efff81e7c5
-    last_write_checksum: sha1:a17c4a4f6393246e56da1184779faeebb1cae710
-    pristine_git_object: a9e8a2ad59fb4265ba6497cd46d3a1c993ca2aaa
+    last_write_checksum: sha1:e5d0593a9160488da153396e06bddf712ec53361
+    pristine_git_object: 56c155bfb9521f4021e6ebdeade6d101780970ae
   src/zendesk/models/ticketskipsresponse.py:
     id: 2cf3e54d68ce
     last_write_checksum: sha1:0dd956257cc87f7293e1839eb7cfd0d5de715436
@@ -8661,8 +8661,8 @@ trackedFiles:
     pristine_git_object: 7d17f12a87614ee05d97ae5eb9dc9eaae5f12542
   src/zendesk/models/ticketupdateinput.py:
     id: ec244220e805
-    last_write_checksum: sha1:b6f6d016d993dfc5c20382533c2e7e061d9fddd1
-    pristine_git_object: f4824633e38636a1e98b307662e03018ca3dc369
+    last_write_checksum: sha1:ce9f78f170cda4ccaabc6d05f4743a2e37743885
+    pristine_git_object: 266ec6ae2e6c6435cc37b3846faa82522e8eb3c8
   src/zendesk/models/ticketupdaterequest.py:
     id: cd062c252b04
     last_write_checksum: sha1:5e30ab1807e2235671123bf1202100ec080b17d1

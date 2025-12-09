@@ -23917,6 +23917,9 @@ components:
                   - type: string
                   - type: integer
                   - type: boolean
+                  - type: array
+                    items:
+                      type: string
         custom_status_id:
           type: integer
           description:
@@ -24314,6 +24317,9 @@ components:
                   - type: string
                   - type: integer
                   - type: boolean
+                  - type: array
+                    items:
+                      type: string
                 description: The value of the custom field
         custom_status_id:
           type: integer

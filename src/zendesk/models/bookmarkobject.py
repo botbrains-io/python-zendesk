@@ -10,12 +10,14 @@ from zendesk.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SE
 
 
 BookmarkObjectValueTypedDict = TypeAliasType(
-    "BookmarkObjectValueTypedDict", Union[str, int, bool]
+    "BookmarkObjectValueTypedDict", Union[str, int, bool, List[str]]
 )
 r"""The value of the custom field"""
 
 
-BookmarkObjectValue = TypeAliasType("BookmarkObjectValue", Union[str, int, bool])
+BookmarkObjectValue = TypeAliasType(
+    "BookmarkObjectValue", Union[str, int, bool, List[str]]
+)
 r"""The value of the custom field"""
 
 
