@@ -24310,7 +24310,10 @@ components:
                 type: integer
                 description: The id of the custom field
               value:
-                type: string
+                oneOf:
+                  - type: string
+                  - type: integer
+                  - type: boolean
                 description: The value of the custom field
         custom_status_id:
           type: integer

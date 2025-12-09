@@ -2868,6 +2868,8 @@ if TYPE_CHECKING:
         TicketCreateInputStatus,
         TicketCreateInputType,
         TicketCreateInputTypedDict,
+        TicketCreateInputValue,
+        TicketCreateInputValueTypedDict,
     )
     from .ticketcreaterequest import TicketCreateRequest, TicketCreateRequestTypedDict
     from .ticketcreatevoicemailticketrequest import (
@@ -3039,6 +3041,8 @@ if TYPE_CHECKING:
         TicketUpdateInputStatus,
         TicketUpdateInputType,
         TicketUpdateInputTypedDict,
+        TicketUpdateInputValue,
+        TicketUpdateInputValueTypedDict,
     )
     from .ticketupdaterequest import TicketUpdateRequest, TicketUpdateRequestTypedDict
     from .ticketupdateresponse import (
@@ -5498,6 +5502,8 @@ __all__ = [
     "TicketCreateInputStatus",
     "TicketCreateInputType",
     "TicketCreateInputTypedDict",
+    "TicketCreateInputValue",
+    "TicketCreateInputValueTypedDict",
     "TicketCreateRequest",
     "TicketCreateRequestTypedDict",
     "TicketCreateVoicemailTicketRequest",
@@ -5606,6 +5612,8 @@ __all__ = [
     "TicketUpdateInputStatus",
     "TicketUpdateInputType",
     "TicketUpdateInputTypedDict",
+    "TicketUpdateInputValue",
+    "TicketUpdateInputValueTypedDict",
     "TicketUpdateRequest",
     "TicketUpdateRequestTypedDict",
     "TicketUpdateResponse",
@@ -7992,6 +8000,8 @@ _dynamic_imports: dict[str, str] = {
     "TicketCreateInputStatus": ".ticketcreateinput",
     "TicketCreateInputType": ".ticketcreateinput",
     "TicketCreateInputTypedDict": ".ticketcreateinput",
+    "TicketCreateInputValue": ".ticketcreateinput",
+    "TicketCreateInputValueTypedDict": ".ticketcreateinput",
     "TicketCreateRequest": ".ticketcreaterequest",
     "TicketCreateRequestTypedDict": ".ticketcreaterequest",
     "TicketCreateVoicemailTicketRequest": ".ticketcreatevoicemailticketrequest",
@@ -8122,6 +8132,8 @@ _dynamic_imports: dict[str, str] = {
     "TicketUpdateInputStatus": ".ticketupdateinput",
     "TicketUpdateInputType": ".ticketupdateinput",
     "TicketUpdateInputTypedDict": ".ticketupdateinput",
+    "TicketUpdateInputValue": ".ticketupdateinput",
+    "TicketUpdateInputValueTypedDict": ".ticketupdateinput",
     "TicketUpdateRequest": ".ticketupdaterequest",
     "TicketUpdateRequestTypedDict": ".ticketupdaterequest",
     "TicketUpdateResponse": ".ticketupdateresponse",

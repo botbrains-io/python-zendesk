@@ -10,15 +10,25 @@ from .ticketcommentobject_input import (
 )
 from datetime import datetime
 from pydantic import model_serializer
-from typing import List, Literal, Optional
-from typing_extensions import NotRequired, TypedDict
+from typing import List, Literal, Optional, Union
+from typing_extensions import NotRequired, TypeAliasType, TypedDict
 from zendesk.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
+
+
+TicketCreateInputValueTypedDict = TypeAliasType(
+    "TicketCreateInputValueTypedDict", Union[str, int, bool]
+)
+r"""The value of the custom field"""
+
+
+TicketCreateInputValue = TypeAliasType("TicketCreateInputValue", Union[str, int, bool])
+r"""The value of the custom field"""
 
 
 class TicketCreateInputCustomFieldTypedDict(TypedDict):
     id: NotRequired[int]
     r"""The id of the custom field"""
-    value: NotRequired[str]
+    value: NotRequired[TicketCreateInputValueTypedDict]
     r"""The value of the custom field"""
 
 
@@ -26,7 +36,7 @@ class TicketCreateInputCustomField(BaseModel):
     id: Optional[int] = None
     r"""The id of the custom field"""
 
-    value: Optional[str] = None
+    value: Optional[TicketCreateInputValue] = None
     r"""The value of the custom field"""
 
 

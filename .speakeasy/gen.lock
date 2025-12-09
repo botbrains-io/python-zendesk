@@ -1,17 +1,17 @@
 lockVersion: 2.0.0
 id: 37ac03f7-3b34-47b7-8334-e362604f87cd
 management:
-  docChecksum: 3ba53c461d0ff62cb3242b93cfe47ba1
+  docChecksum: f07291b4e88ddc03a2de8622f3a4c14a
   docVersion: 2.0.0
   speakeasyVersion: 1.673.1
   generationVersion: 2.776.3
-  releaseVersion: 0.2.0
-  configChecksum: 2be915ff439caadd86be4426160a9849
+  releaseVersion: 0.2.1
+  configChecksum: 3b5a3ffd78ab83f548413e178ccbffc0
   published: true
 persistentEdits:
-  generation_id: 5b477ba9-e6b6-4dba-bee8-787916f810c5
-  pristine_commit_hash: d41db99d72ff2983c9ad98295bb63099c42446b1
-  pristine_tree_hash: 10cb43f344f903f040ee08de005fea125c48c83c
+  generation_id: 80ea615b-2a06-4bb6-b7b8-2e70fec435dc
+  pristine_commit_hash: f015172ec3f60f4680140cf9b58c90ce07235cbb
+  pristine_tree_hash: 7dc0b997379496272771ccd4bfec7bd75ea3b474
 features:
   python:
     additionalDependencies: 1.0.0
@@ -4013,8 +4013,8 @@ trackedFiles:
     pristine_git_object: c40079d5ebc7c716b4f6fed05f31eb6726c7ed1b
   docs/models/ticketcreateinputcustomfield.md:
     id: 749d76f0a85e
-    last_write_checksum: sha1:a5e82e6be6855d20ebd389c3840f722171668d6b
-    pristine_git_object: 2d085f064668a7f1f54aac7974d063f8eb090c96
+    last_write_checksum: sha1:d61fac2c4029001144407d0a02b5a2ea0b073782
+    pristine_git_object: 949f2e83a0bae43108a8ab6f7680562b4f3080ee
   docs/models/ticketcreateinputpriority.md:
     id: 3ce1af943c73
     last_write_checksum: sha1:8134d36ff836af731f9c78daa8119b855122f2a9
@@ -4027,6 +4027,10 @@ trackedFiles:
     id: afd764b87545
     last_write_checksum: sha1:86328598911996a6aa6327dcdf0b0b5cc0258e3e
     pristine_git_object: fbddfd3596f968d8ecb949744243a8f048675d59
+  docs/models/ticketcreateinputvalue.md:
+    id: f56dbb1c449d
+    last_write_checksum: sha1:f84b04416fe79a24b4d2e303350b375c50872de3
+    pristine_git_object: c08f41b12cec7361328689cf19635f337025119d
   docs/models/ticketcreaterequest.md:
     id: 48a947060373
     last_write_checksum: sha1:2e9f9a2ccb4ca83c0f3e3a3c46462208a49c4f7e
@@ -4273,8 +4277,8 @@ trackedFiles:
     pristine_git_object: 1a4c7fda0d150c850938d3d40c8f0b808d25ed29
   docs/models/ticketupdateinputcustomfield.md:
     id: fec00d19606e
-    last_write_checksum: sha1:8cbaac5678e1524dcd73a57924de68d33cccc169
-    pristine_git_object: 7851da6b3473c09627e3ecb10df26530292c92f5
+    last_write_checksum: sha1:2bb56305977a36d59ea00a79511912959668d49b
+    pristine_git_object: 3b289712b7fae5f3de1b0f7ddae231490eeaed1a
   docs/models/ticketupdateinputpriority.md:
     id: 4397e2196f0b
     last_write_checksum: sha1:339c99ef7fa451c4dbe6a8a79a9fadc37563fe14
@@ -4287,6 +4291,10 @@ trackedFiles:
     id: 8f734b1273b9
     last_write_checksum: sha1:2f688d9ff0cdaf0a5343dafeac217dfcafa0d997
     pristine_git_object: 2b539a383f54c0b722a3009723cd3b54c2560cad
+  docs/models/ticketupdateinputvalue.md:
+    id: 6435d1e7d780
+    last_write_checksum: sha1:c86e6e95c2b7069fdeb89589f309ba6585358925
+    pristine_git_object: a1ac0dfd9bccc96624247add66d946fa804b8fa7
   docs/models/ticketupdaterequest.md:
     id: f55c2208aabe
     last_write_checksum: sha1:c1b41a358895772370a1bcd1f725788fc297d140
@@ -5597,8 +5605,8 @@ trackedFiles:
     pristine_git_object: 5993ca3da7978fb6070462f640a0d5c86c8f7c38
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:93ae83d2b3266684449b2824f516b646dd4bca0a
-    pristine_git_object: e93dabb36b8a2dc459ee1c71d58d345abee0a5a7
+    last_write_checksum: sha1:2497d4045e9ae5501b375b692654ecf3dd6f6d81
+    pristine_git_object: a22c7eff2fb12f646bb27fd1fc983d29a8154f09
   scripts/publish.sh:
     id: fe273b08f514
     last_write_checksum: sha1:11c8a74f613fdb29f432e3feafb84072eeba6428
@@ -5621,8 +5629,8 @@ trackedFiles:
     pristine_git_object: 5810790afbb7d170888d18ef516b741907f322e3
   src/zendesk/_version.py:
     id: 8bb59eeccdd9
-    last_write_checksum: sha1:6f348dd72181a5fdad4f4232bddbdcc055ee6706
-    pristine_git_object: bf62b2945fa995d9632ba7b9cb604b828e2d7008
+    last_write_checksum: sha1:0348a44fbd18110d7be408120cfd85ac42ad5e53
+    pristine_git_object: 8f74eac6d4ec3313baf97418baa7def37bc3ade2
   src/zendesk/account_settings.py:
     id: 7923bc5be537
     last_write_checksum: sha1:29fb46e49bb221c91dd10f7042e9d166fe6eec5f
@@ -5821,8 +5829,8 @@ trackedFiles:
     pristine_git_object: bd7e3856b68934661506bca2b58e05c886bf620a
   src/zendesk/models/__init__.py:
     id: 823a715ea7bb
-    last_write_checksum: sha1:10ccb1dfcb39f31c1d8c6b5b3398076f63b2e847
-    pristine_git_object: 1d04b4cf9b63a889e1b3099fa41991867b16830c
+    last_write_checksum: sha1:bab61782661e637bd5433107f241a8e2811ee8f3
+    pristine_git_object: bb84b127efe6f7cc45c5bad203602685876bed3f
   src/zendesk/models/accountsettingsactivefeaturesobject.py:
     id: 9723cc39646d
     last_write_checksum: sha1:2690ca526d65cc714cf5305d4b42d88ae4e7722c
@@ -8497,8 +8505,8 @@ trackedFiles:
     pristine_git_object: 1f0f3da17a1c2dc8ce0af8d96a7b15b042d77b5d
   src/zendesk/models/ticketcreateinput.py:
     id: a922c72b0b39
-    last_write_checksum: sha1:e1cc49e262e0a9870739efa820e94ed53763aeed
-    pristine_git_object: 54ef3d407f54572a5658bad14a48d95afb0fb8b0
+    last_write_checksum: sha1:275951aeb5eca0b6e7af46a079b65c195409a6e2
+    pristine_git_object: 407bff6f5d185dbf6bf338c7428f54a44617228b
   src/zendesk/models/ticketcreaterequest.py:
     id: b328b47b745e
     last_write_checksum: sha1:642e7d289777c27422287add99391f128727c7ef
@@ -8653,8 +8661,8 @@ trackedFiles:
     pristine_git_object: 7d17f12a87614ee05d97ae5eb9dc9eaae5f12542
   src/zendesk/models/ticketupdateinput.py:
     id: ec244220e805
-    last_write_checksum: sha1:37895eb143cf9ebe6fba590b2c831ac992db43a8
-    pristine_git_object: 30dbb7a05aa97354243ec0231e8524b3ef14eed8
+    last_write_checksum: sha1:b6f6d016d993dfc5c20382533c2e7e061d9fddd1
+    pristine_git_object: f4824633e38636a1e98b307662e03018ca3dc369
   src/zendesk/models/ticketupdaterequest.py:
     id: cd062c252b04
     last_write_checksum: sha1:5e30ab1807e2235671123bf1202100ec080b17d1
