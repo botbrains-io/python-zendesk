@@ -16,13 +16,13 @@ from zendesk.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SE
 
 
 TicketUpdateInputValueTypedDict = TypeAliasType(
-    "TicketUpdateInputValueTypedDict", Union[str, int, bool, List[str]]
+    "TicketUpdateInputValueTypedDict", Union[str, int, bool, List[str], float]
 )
 r"""The value of the custom field"""
 
 
 TicketUpdateInputValue = TypeAliasType(
-    "TicketUpdateInputValue", Union[str, int, bool, List[str]]
+    "TicketUpdateInputValue", Union[str, int, bool, List[str], float]
 )
 r"""The value of the custom field"""
 

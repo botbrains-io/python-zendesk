@@ -29,3 +29,9 @@ value: bool = /* values here */
 value: List[str] = /* values here */
 ```
 
+### `float`
+
+```python
+value: float = /* values here */
+```
+

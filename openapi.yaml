@@ -23920,6 +23920,7 @@ components:
                   - type: array
                     items:
                       type: string
+                  - type: number
         custom_status_id:
           type: integer
           description:
@@ -24320,6 +24321,7 @@ components:
                   - type: array
                     items:
                       type: string
+                  - type: number
                 description: The value of the custom field
         custom_status_id:
           type: integer

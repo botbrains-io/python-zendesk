@@ -10,13 +10,13 @@ from zendesk.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SE
 
 
 TicketSkipObjectValueTypedDict = TypeAliasType(
-    "TicketSkipObjectValueTypedDict", Union[str, int, bool, List[str]]
+    "TicketSkipObjectValueTypedDict", Union[str, int, bool, List[str], float]
 )
 r"""The value of the custom field"""
 
 
 TicketSkipObjectValue = TypeAliasType(
-    "TicketSkipObjectValue", Union[str, int, bool, List[str]]
+    "TicketSkipObjectValue", Union[str, int, bool, List[str], float]
 )
 r"""The value of the custom field"""
 
