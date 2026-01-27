@@ -3,9 +3,10 @@
 from __future__ import annotations
 from .attachmentobject import AttachmentObject, AttachmentObjectTypedDict
 from datetime import datetime
+from pydantic import model_serializer
 from typing import List, Literal, Optional
 from typing_extensions import NotRequired, TypedDict
-from zendesk.types import BaseModel
+from zendesk.types import BaseModel, UNSET_SENTINEL
 
 
 HelpCenterState = Literal[
@@ -99,3 +100,36 @@ class BrandObject(BaseModel):
 
     url: Optional[str] = None
     r"""The API url of this brand"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "active",
+                "brand_url",
+                "created_at",
+                "default",
+                "has_help_center",
+                "help_center_state",
+                "host_mapping",
+                "id",
+                "is_deleted",
+                "logo",
+                "signature_template",
+                "ticket_form_ids",
+                "updated_at",
+                "url",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 from .useridentityobject import UserIdentityObject, UserIdentityObjectTypedDict
+from pydantic import model_serializer
 from typing import Optional
 from typing_extensions import NotRequired, TypedDict
-from zendesk.types import BaseModel
+from zendesk.types import BaseModel, UNSET_SENTINEL
 
 
 class UserIdentityResponseTypedDict(TypedDict):
@@ -13,3 +14,19 @@ class UserIdentityResponseTypedDict(TypedDict):
 
 class UserIdentityResponse(BaseModel):
     identity: Optional[UserIdentityObject] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["identity"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

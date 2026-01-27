@@ -7,9 +7,10 @@ from .ticketcommentobject_input import (
 )
 from datetime import datetime
 import pydantic
+from pydantic import model_serializer
 from typing import Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
-from zendesk.types import BaseModel
+from zendesk.types import BaseModel, UNSET_SENTINEL
 
 
 TicketCreateVoicemailTicketRequestPriority = Literal[
@@ -77,6 +78,33 @@ class VoiceComment(BaseModel):
     transcription_text: Optional[str] = None
     r"""Transcription of the call (optional)"""
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "answered_by_id",
+                "call_duration",
+                "from",
+                "location",
+                "recording_url",
+                "started_at",
+                "to",
+                "transcription_text",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 class TicketCreateVoicemailTicketRequestTicketTypedDict(TypedDict):
     r"""Ticket object that lists the values to set when the ticket is created"""
@@ -104,6 +132,22 @@ class TicketCreateVoicemailTicketRequestTicket(BaseModel):
     voice_comment: Optional[VoiceComment] = None
     r"""Required if creating voicemail ticket"""
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["comment", "priority", "via_id", "voice_comment"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 class TicketCreateVoicemailTicketRequestTypedDict(TypedDict):
     display_to_agent: NotRequired[int]
@@ -118,3 +162,19 @@ class TicketCreateVoicemailTicketRequest(BaseModel):
 
     ticket: Optional[TicketCreateVoicemailTicketRequestTicket] = None
     r"""Ticket object that lists the values to set when the ticket is created"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["display_to_agent", "ticket"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

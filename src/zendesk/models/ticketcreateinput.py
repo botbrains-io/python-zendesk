@@ -41,6 +41,22 @@ class TicketCreateInputCustomField(BaseModel):
     value: Optional[TicketCreateInputValue] = None
     r"""The value of the custom field"""
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["id", "value"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 TicketCreateInputPriority = Literal[
     "urgent",
@@ -264,64 +280,61 @@ class TicketCreateInput(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = [
-            "additional_collaborators",
-            "assignee_email",
-            "assignee_id",
-            "attribute_value_ids",
-            "collaborator_ids",
-            "custom_fields",
-            "custom_status_id",
-            "due_at",
-            "email_ccs",
-            "external_id",
-            "followers",
-            "group_id",
-            "organization_id",
-            "priority",
-            "problem_id",
-            "requester_id",
-            "safe_update",
-            "sharing_agreement_ids",
-            "status",
-            "subject",
-            "tags",
-            "type",
-            "updated_stamp",
-            "brand_id",
-            "collaborators",
-            "email_cc_ids",
-            "follower_ids",
-            "macro_ids",
-            "raw_subject",
-            "recipient",
-            "submitter_id",
-            "ticket_form_id",
-            "via_followup_source_id",
-        ]
-        nullable_fields = ["due_at"]
-        null_default_fields = []
-
+        optional_fields = set(
+            [
+                "additional_collaborators",
+                "assignee_email",
+                "assignee_id",
+                "attribute_value_ids",
+                "collaborator_ids",
+                "custom_fields",
+                "custom_status_id",
+                "due_at",
+                "email_ccs",
+                "external_id",
+                "followers",
+                "group_id",
+                "organization_id",
+                "priority",
+                "problem_id",
+                "requester_id",
+                "safe_update",
+                "sharing_agreement_ids",
+                "status",
+                "subject",
+                "tags",
+                "type",
+                "updated_stamp",
+                "brand_id",
+                "collaborators",
+                "email_cc_ids",
+                "follower_ids",
+                "macro_ids",
+                "raw_subject",
+                "recipient",
+                "submitter_id",
+                "ticket_form_id",
+                "via_followup_source_id",
+            ]
+        )
+        nullable_fields = set(["due_at"])
         serialized = handler(self)
-
         m = {}
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
             val = serialized.get(k)
-            serialized.pop(k, None)
+            is_nullable_and_explicitly_set = (
+                k in nullable_fields
+                and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member
+            )
 
-            optional_nullable = k in optional_fields and k in nullable_fields
-            is_set = (
-                self.__pydantic_fields_set__.intersection({n})
-                or k in null_default_fields
-            )  # pylint: disable=no-member
-
-            if val is not None and val != UNSET_SENTINEL:
-                m[k] = val
-            elif val != UNSET_SENTINEL and (
-                not k in optional_fields or (optional_nullable and is_set)
-            ):
-                m[k] = val
+            if val != UNSET_SENTINEL:
+                if (
+                    val is not None
+                    or k not in optional_fields
+                    or is_nullable_and_explicitly_set
+                ):
+                    m[k] = val
 
         return m

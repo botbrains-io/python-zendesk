@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 from datetime import datetime
+from pydantic import model_serializer
 from typing import List, Literal, Optional
 from typing_extensions import NotRequired, TypedDict
-from zendesk.types import BaseModel
+from zendesk.types import BaseModel, UNSET_SENTINEL
 
 
 SafeUpdate = Literal[
@@ -38,3 +39,19 @@ class SafeTagsRequest(BaseModel):
 
     safe_update: Optional[SafeUpdate] = None
     r"""Enable safe update mode to prevent collisions"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["updated_stamp", "safe_update"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

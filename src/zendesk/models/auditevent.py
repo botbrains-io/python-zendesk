@@ -46,6 +46,22 @@ class RoutingChannelEvent(BaseModel):
     current: Optional[str] = None
     r"""The current routing channel"""
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["via", "previous", "current"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 TypeOfferedToEvent = Literal["OfferedToEvent",]
 
@@ -80,6 +96,22 @@ class OfferedToEvent(BaseModel):
 
     skills: Optional[List[AttributeValueObject]] = None
     r"""Skills used to route the ticket to an agent"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["via", "assignee", "skills"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 TypeSurveyResponseSubmitted = Literal["SurveyResponseSubmitted",]
@@ -128,37 +160,34 @@ class SurveyResponseSubmittedEvent(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = [
-            "via",
-            "assigned_user_id",
-            "assigned_group_id",
-            "survey_response_id",
-            "survey_type",
-        ]
-        nullable_fields = ["assigned_user_id", "assigned_group_id"]
-        null_default_fields = []
-
+        optional_fields = set(
+            [
+                "via",
+                "assigned_user_id",
+                "assigned_group_id",
+                "survey_response_id",
+                "survey_type",
+            ]
+        )
+        nullable_fields = set(["assigned_user_id", "assigned_group_id"])
         serialized = handler(self)
-
         m = {}
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
             val = serialized.get(k)
-            serialized.pop(k, None)
+            is_nullable_and_explicitly_set = (
+                k in nullable_fields
+                and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member
+            )
 
-            optional_nullable = k in optional_fields and k in nullable_fields
-            is_set = (
-                self.__pydantic_fields_set__.intersection({n})
-                or k in null_default_fields
-            )  # pylint: disable=no-member
-
-            if val is not None and val != UNSET_SENTINEL:
-                m[k] = val
-            elif val != UNSET_SENTINEL and (
-                not k in optional_fields or (optional_nullable and is_set)
-            ):
-                m[k] = val
+            if val != UNSET_SENTINEL:
+                if (
+                    val is not None
+                    or k not in optional_fields
+                    or is_nullable_and_explicitly_set
+                ):
+                    m[k] = val
 
         return m
 
@@ -209,37 +238,28 @@ class SurveyOfferedEvent(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = [
-            "via",
-            "assigned_user_id",
-            "assigned_group_id",
-            "survey_id",
-            "survey_type",
-        ]
-        nullable_fields = ["assigned_user_id", "assigned_group_id"]
-        null_default_fields = []
-
+        optional_fields = set(
+            ["via", "assigned_user_id", "assigned_group_id", "survey_id", "survey_type"]
+        )
+        nullable_fields = set(["assigned_user_id", "assigned_group_id"])
         serialized = handler(self)
-
         m = {}
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
             val = serialized.get(k)
-            serialized.pop(k, None)
+            is_nullable_and_explicitly_set = (
+                k in nullable_fields
+                and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member
+            )
 
-            optional_nullable = k in optional_fields and k in nullable_fields
-            is_set = (
-                self.__pydantic_fields_set__.intersection({n})
-                or k in null_default_fields
-            )  # pylint: disable=no-member
-
-            if val is not None and val != UNSET_SENTINEL:
-                m[k] = val
-            elif val != UNSET_SENTINEL and (
-                not k in optional_fields or (optional_nullable and is_set)
-            ):
-                m[k] = val
+            if val != UNSET_SENTINEL:
+                if (
+                    val is not None
+                    or k not in optional_fields
+                    or is_nullable_and_explicitly_set
+                ):
+                    m[k] = val
 
         return m
 
@@ -273,6 +293,22 @@ class SkillAssignedEvent(BaseModel):
     attribute_values: Optional[List[AttributeValueObject]] = None
     r"""Skills assigned to the ticket"""
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["via", "attribute_values"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 TypeChatEndedEvent = Literal["ChatEndedEvent",]
 
@@ -305,6 +341,22 @@ class ChatEndedEvent(BaseModel):
     r"""Properties of the messaging conversation"""
 
     attachments: Optional[List[AttachmentObject]] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["via", "value", "attachments"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 TypeChatStartedEvent = Literal["ChatStartedEvent",]
@@ -349,6 +401,22 @@ class ChatStartedEvent(BaseModel):
 
     attachments: Optional[List[AttachmentObject]] = None
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["via", "value", "history", "webpath", "attachments"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 TypePush = Literal["Push",]
 
@@ -384,6 +452,22 @@ class PushEvent(BaseModel):
     value_reference: Optional[str] = None
     r"""A reference to the destination of the data"""
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["via", "value", "value_reference"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 TypeLogMeInTranscript = Literal["LogMeInTranscript",]
 
@@ -413,6 +497,22 @@ class LogMeInTranscriptEvent(BaseModel):
 
     body: Optional[str] = None
     r"""An audit of the transcript"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["via", "body"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 TypeExternal = Literal["External",]
@@ -448,6 +548,22 @@ class ExternalEvent(BaseModel):
 
     body: Optional[str] = None
     r"""Trigger message for this target event"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["via", "resource", "body"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 TypeFacebookComment = Literal["FacebookComment",]
@@ -517,6 +633,33 @@ class FacebookCommentEvent(BaseModel):
     graph_object_id: Optional[str] = None
     r"""The graph object id of the associated Facebook Wall post or message"""
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "via",
+                "data",
+                "body",
+                "html_body",
+                "public",
+                "trusted",
+                "author_id",
+                "graph_object_id",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 TypeFacebookEvent = Literal["FacebookEvent",]
 
@@ -577,6 +720,22 @@ class FacebookEvent(BaseModel):
     body: Optional[str] = None
     r"""The value of the message posted to Facebook"""
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["via", "page", "communication", "ticket_via", "body"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 TypeTweet = Literal["Tweet",]
 
@@ -617,6 +776,22 @@ class TweetEvent(BaseModel):
     recipients: Optional[List[int]] = None
     r"""An array of recipient IDs"""
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["via", "direct_message", "body", "recipients"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 TypeErrorT = Literal["Error",]
 
@@ -646,6 +821,22 @@ class ErrorEvent(BaseModel):
 
     message: Optional[str] = None
     r"""The error message"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["via", "message"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 TypeOrganizationActivity = Literal["OrganizationActivity",]
@@ -686,6 +877,22 @@ class OrganizationSubscriptionNotificationEvent(BaseModel):
 
     recipients: Optional[List[int]] = None
     r"""An array of recipient IDs"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["via", "subject", "body", "recipients"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 TypeTicketSharingEvent = Literal["TicketSharingEvent",]
@@ -728,6 +935,22 @@ class TicketSharingEvent(BaseModel):
 
     action: Optional[AuditEventAction] = None
     r"""The sharing action"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["via", "agreement_id", "action"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 TypeSatisfactionRating = Literal["SatisfactionRating",]
@@ -778,6 +1001,22 @@ class SatisfactionRatingEvent(BaseModel):
     body: Optional[str] = None
     r"""The users comment posted during rating"""
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["via", "score", "assignee_id", "body"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 TypeMacroReference = Literal["MacroReference",]
 
@@ -818,6 +1057,22 @@ class MacroReferenceEvent(BaseModel):
     macro_deleted: Optional[bool] = None
     r"""Whether or not the macro this event refers to is deleted"""
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["via", "macro_id", "macro_title", "macro_deleted"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 TypeEmailCcChange = Literal["EmailCcChange",]
 
@@ -853,6 +1108,22 @@ class EmailCcChangeEvent(BaseModel):
     current_email_ccs: Optional[List[str]] = None
     r"""The current email CCs on the ticket"""
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["via", "previous_email_ccs", "current_email_ccs"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 TypeFollowersChange = Literal["FollowersChange",]
 
@@ -887,6 +1158,22 @@ class FollowerChangeEvent(BaseModel):
 
     current_followers: Optional[List[int]] = None
     r"""The current followers on the ticket"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["via", "previous_followers", "current_followers"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 TypeFollowerNotificationEvent = Literal["FollowerNotificationEvent",]
@@ -928,6 +1215,22 @@ class FollowerNotificationEvent(BaseModel):
     recipients: Optional[List[int]] = None
     r"""An array of recipient IDs"""
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["via", "subject", "body", "recipients"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 TypeCc = Literal["Cc",]
 
@@ -963,6 +1266,22 @@ class CcEvent(BaseModel):
     recipients: Optional[List[int]] = None
     r"""An array of recipient IDs"""
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["via", "body", "recipients"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 TypeSmsNotification = Literal["SmsNotification",]
 
@@ -997,6 +1316,22 @@ class SmsNotificationEvent(BaseModel):
 
     recipients: Optional[List[int]] = None
     r"""An array of recipient IDs"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["via", "body", "recipients"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 TypeNotificationWithCcs = Literal["NotificationWithCcs",]
@@ -1038,6 +1373,22 @@ class NotificationWithCcsEvent(BaseModel):
     recipients: Optional[List[int]] = None
     r"""An array of recipient IDs"""
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["via", "subject", "body", "recipients"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 TypeNotification = Literal["Notification",]
 
@@ -1077,6 +1428,22 @@ class NotificationEvent(BaseModel):
 
     recipients: Optional[List[int]] = None
     r"""An array of recipient IDs"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["via", "subject", "body", "recipients"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 TypeSuspendedTicketRecovery = Literal["SuspendedTicketRecovery",]
@@ -1145,6 +1512,33 @@ class SuspendedTicketRecoveryEvent(BaseModel):
     recovered_by: Optional[int] = None
     r"""The user who performed the recovery"""
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "via",
+                "cause",
+                "cause_name",
+                "cause_id",
+                "recovery_details",
+                "recovery_type",
+                "recovered_at",
+                "recovered_by",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 TypeCommentPrivacyChange = Literal["CommentPrivacyChange",]
 
@@ -1179,6 +1573,22 @@ class CommentPrivacyChangeEvent(BaseModel):
 
     public: Optional[bool] = None
     r"""Tells if the comment was made public or private"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["via", "comment_id", "public"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 TypeVoiceComment = Literal["VoiceComment",]
@@ -1261,6 +1671,36 @@ class VoiceCommentEvent(BaseModel):
 
     attachments: Optional[List[AttachmentObject]] = None
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "via",
+                "data",
+                "formatted_from",
+                "formatted_to",
+                "body",
+                "html_body",
+                "public",
+                "trusted",
+                "author_id",
+                "transcription_visible",
+                "attachments",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 TypeAttachmentRedactionEvent = Literal["AttachmentRedactionEvent",]
 
@@ -1296,6 +1736,22 @@ class AttachmentRedactionEvent(BaseModel):
     comment_id: Optional[int] = None
     r"""The comment with the redacted attachment"""
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["via", "attachment_id", "comment_id"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 TypeCommentRedactionEvent = Literal["CommentRedactionEvent",]
 
@@ -1325,6 +1781,22 @@ class CommentRedactionEvent(BaseModel):
 
     comment_id: Optional[int] = None
     r"""The comment with the redacted text"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["via", "comment_id"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 TypeComment = Literal["Comment",]
@@ -1379,6 +1851,32 @@ class CommentEvent(BaseModel):
 
     attachments: Optional[List[AttachmentObject]] = None
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "via",
+                "body",
+                "html_body",
+                "public",
+                "trusted",
+                "author_id",
+                "attachments",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 TypeChange = Literal["Change",]
 
@@ -1391,6 +1889,14 @@ class ValueChange(BaseModel):
     pass
 
 
+class PreviousValueTypedDict(TypedDict):
+    pass
+
+
+class PreviousValue(BaseModel):
+    pass
+
+
 ValueChangeUnionTypedDict = TypeAliasType(
     "ValueChangeUnionTypedDict", Union[ValueChangeTypedDict, str, List[Any]]
 )
@@ -1399,14 +1905,6 @@ r"""The value of the field that was changed"""
 
 ValueChangeUnion = TypeAliasType("ValueChangeUnion", Union[ValueChange, str, List[Any]])
 r"""The value of the field that was changed"""
-
-
-class PreviousValueTypedDict(TypedDict):
-    pass
-
-
-class PreviousValue(BaseModel):
-    pass
 
 
 PreviousValueUnionTypedDict = TypeAliasType(
@@ -1456,6 +1954,22 @@ class ChangeEvent(BaseModel):
 
     previous_value: Optional[PreviousValueUnion] = None
     r"""The previous value of the field that was changed"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["via", "field_name", "value", "previous_value"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 TypeCreate = Literal["Create",]
@@ -1509,6 +2023,22 @@ class CreateEvent(BaseModel):
 
     value: Optional[ValueCreateUnion] = None
     r"""The value of the field that was set"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["via", "field_name", "value"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 AuditEventTypedDict = TypeAliasType(

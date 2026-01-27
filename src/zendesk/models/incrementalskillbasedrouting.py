@@ -13,9 +13,10 @@ from .incrementalskillbasedroutinginstancevalue import (
     IncrementalSkillBasedRoutingInstanceValue,
     IncrementalSkillBasedRoutingInstanceValueTypedDict,
 )
+from pydantic import model_serializer
 from typing import List, Optional
 from typing_extensions import NotRequired, TypedDict
-from zendesk.types import BaseModel
+from zendesk.types import BaseModel, UNSET_SENTINEL
 
 
 class IncrementalSkillBasedRoutingTypedDict(TypedDict):
@@ -55,3 +56,28 @@ class IncrementalSkillBasedRouting(BaseModel):
 
     next_page: Optional[str] = None
     r"""The URL that should be called to get the next set of results"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "attribute_values",
+                "attributes",
+                "count",
+                "end_time",
+                "instance_values",
+                "next_page",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

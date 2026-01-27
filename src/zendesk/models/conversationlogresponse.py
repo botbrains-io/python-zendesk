@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 from .conversationlogobject import ConversationLogObject, ConversationLogObjectTypedDict
+from pydantic import model_serializer
 from typing import List, Optional
 from typing_extensions import NotRequired, TypedDict
-from zendesk.types import BaseModel
+from zendesk.types import BaseModel, UNSET_SENTINEL
 
 
 class ConversationLogResponseLinksTypedDict(TypedDict):
@@ -16,6 +17,22 @@ class ConversationLogResponseLinks(BaseModel):
     next: Optional[str] = None
 
     prev: Optional[str] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["next", "prev"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class ConversationLogResponseMetaTypedDict(TypedDict):
@@ -31,6 +48,22 @@ class ConversationLogResponseMeta(BaseModel):
 
     has_more: Optional[bool] = None
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["after_cursor", "before_cursor", "has_more"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 class ConversationLogResponseTypedDict(TypedDict):
     events: NotRequired[List[ConversationLogObjectTypedDict]]
@@ -44,3 +77,19 @@ class ConversationLogResponse(BaseModel):
     links: Optional[ConversationLogResponseLinks] = None
 
     meta: Optional[ConversationLogResponseMeta] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["events", "links", "meta"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

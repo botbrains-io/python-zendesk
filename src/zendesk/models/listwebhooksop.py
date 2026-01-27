@@ -3,9 +3,10 @@
 from __future__ import annotations
 from .webhooklistresponse import WebhookListResponse, WebhookListResponseTypedDict
 import pydantic
+from pydantic import model_serializer
 from typing import Callable, Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
-from zendesk.types import BaseModel
+from zendesk.types import BaseModel, UNSET_SENTINEL
 from zendesk.utils import FieldMetadata, QueryParamMetadata
 
 
@@ -91,6 +92,31 @@ class ListWebhooksRequest(BaseModel):
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = None
     r"""Defines the sorting criteria. Only supports name and status"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "page[before]",
+                "page[after]",
+                "page[size]",
+                "filter[name_contains]",
+                "filter[status]",
+                "sort",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class ListWebhooksResponseTypedDict(TypedDict):

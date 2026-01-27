@@ -3,9 +3,10 @@
 from __future__ import annotations
 from .macroinput import MacroInput, MacroInputTypedDict
 from .macroobject import MacroObject, MacroObjectTypedDict
+from pydantic import model_serializer
 from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
-from zendesk.types import BaseModel
+from zendesk.types import BaseModel, UNSET_SENTINEL
 from zendesk.utils import FieldMetadata, PathParamMetadata, RequestMetadata
 
 
@@ -15,6 +16,22 @@ class UpdateMacroRequestBodyTypedDict(TypedDict):
 
 class UpdateMacroRequestBody(BaseModel):
     macro: Optional[MacroInput] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["macro"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class UpdateMacroRequestTypedDict(TypedDict):
@@ -34,6 +51,22 @@ class UpdateMacroRequest(BaseModel):
         FieldMetadata(request=RequestMetadata(media_type="application/json")),
     ] = None
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["RequestBody"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 class UpdateMacroResponseTypedDict(TypedDict):
     r"""OK"""
@@ -45,3 +78,19 @@ class UpdateMacroResponse(BaseModel):
     r"""OK"""
 
     macro: Optional[MacroObject] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["macro"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

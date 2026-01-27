@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 from datetime import datetime
+from pydantic import model_serializer
 from typing import Literal, Optional
 from typing_extensions import NotRequired, TypedDict
-from zendesk.types import BaseModel
+from zendesk.types import BaseModel, UNSET_SENTINEL
 
 
 TicketFieldCustomStatusObjectStatusCategory = Literal[
@@ -70,3 +71,32 @@ class TicketFieldCustomStatusObject(BaseModel):
 
     updated_at: Optional[datetime] = None
     r"""The date and time at which the custom ticket status was last updated"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "active",
+                "agent_label",
+                "created_at",
+                "default",
+                "description",
+                "end_user_description",
+                "end_user_label",
+                "id",
+                "status_category",
+                "updated_at",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

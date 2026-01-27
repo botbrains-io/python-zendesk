@@ -189,60 +189,57 @@ class TicketFieldObject(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = [
-            "active",
-            "agent_can_edit",
-            "agent_description",
-            "collapsed_for_agents",
-            "created_at",
-            "creator_app_name",
-            "creator_user_id",
-            "custom_field_options",
-            "custom_statuses",
-            "description",
-            "editable_in_portal",
-            "id",
-            "position",
-            "raw_description",
-            "raw_title",
-            "raw_title_in_portal",
-            "regexp_for_validation",
-            "relationship_filter",
-            "relationship_target_type",
-            "removable",
-            "required",
-            "required_in_portal",
-            "sub_type_id",
-            "system_field_options",
-            "tag",
-            "title_in_portal",
-            "updated_at",
-            "url",
-            "visible_in_portal",
-        ]
-        nullable_fields = ["regexp_for_validation", "tag"]
-        null_default_fields = []
-
+        optional_fields = set(
+            [
+                "active",
+                "agent_can_edit",
+                "agent_description",
+                "collapsed_for_agents",
+                "created_at",
+                "creator_app_name",
+                "creator_user_id",
+                "custom_field_options",
+                "custom_statuses",
+                "description",
+                "editable_in_portal",
+                "id",
+                "position",
+                "raw_description",
+                "raw_title",
+                "raw_title_in_portal",
+                "regexp_for_validation",
+                "relationship_filter",
+                "relationship_target_type",
+                "removable",
+                "required",
+                "required_in_portal",
+                "sub_type_id",
+                "system_field_options",
+                "tag",
+                "title_in_portal",
+                "updated_at",
+                "url",
+                "visible_in_portal",
+            ]
+        )
+        nullable_fields = set(["regexp_for_validation", "tag"])
         serialized = handler(self)
-
         m = {}
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
             val = serialized.get(k)
-            serialized.pop(k, None)
+            is_nullable_and_explicitly_set = (
+                k in nullable_fields
+                and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member
+            )
 
-            optional_nullable = k in optional_fields and k in nullable_fields
-            is_set = (
-                self.__pydantic_fields_set__.intersection({n})
-                or k in null_default_fields
-            )  # pylint: disable=no-member
-
-            if val is not None and val != UNSET_SENTINEL:
-                m[k] = val
-            elif val != UNSET_SENTINEL and (
-                not k in optional_fields or (optional_nullable and is_set)
-            ):
-                m[k] = val
+            if val != UNSET_SENTINEL:
+                if (
+                    val is not None
+                    or k not in optional_fields
+                    or is_nullable_and_explicitly_set
+                ):
+                    m[k] = val
 
         return m

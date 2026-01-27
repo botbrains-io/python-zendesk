@@ -3,9 +3,10 @@
 from __future__ import annotations
 from datetime import datetime
 import pydantic
+from pydantic import model_serializer
 from typing import List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
-from zendesk.types import BaseModel
+from zendesk.types import BaseModel, UNSET_SENTINEL
 
 
 class OAuthClientObjectTypedDict(TypedDict):
@@ -81,3 +82,33 @@ class OAuthClientObject(BaseModel):
 
     url: Optional[str] = None
     r"""The API url of this record"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "company",
+                "created_at",
+                "description",
+                "global",
+                "id",
+                "kind",
+                "logo_url",
+                "redirect_uri",
+                "secret",
+                "updated_at",
+                "url",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

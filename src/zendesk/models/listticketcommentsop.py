@@ -6,9 +6,10 @@ from .ticketcommentsresponse import (
     TicketCommentsResponseTypedDict,
 )
 import pydantic
+from pydantic import model_serializer
 from typing import Callable, Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
-from zendesk.types import BaseModel
+from zendesk.types import BaseModel, UNSET_SENTINEL
 from zendesk.utils import FieldMetadata, PathParamMetadata, QueryParamMetadata
 
 
@@ -92,6 +93,31 @@ class ListTicketCommentsRequest(BaseModel):
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = None
     r"""Accepts \"users\". Use this parameter to list email CCs by side-loading users. Example: `?include=users`. **Note**: If the comment source is email, a deleted user will be represented as the CCd email address. If the comment source is anything else, a deleted user will be represented as the user name."""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "page[before]",
+                "page[after]",
+                "page[size]",
+                "sort",
+                "include_inline_images",
+                "include",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class ListTicketCommentsResponseTypedDict(TypedDict):

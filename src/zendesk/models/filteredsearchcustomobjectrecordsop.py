@@ -14,9 +14,10 @@ from .customobjectrecordsresponse import (
     CustomObjectRecordsResponseTypedDict,
 )
 import pydantic
+from pydantic import model_serializer
 from typing import Callable, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
-from zendesk.types import BaseModel
+from zendesk.types import BaseModel, UNSET_SENTINEL
 from zendesk.utils import (
     FieldMetadata,
     PathParamMetadata,
@@ -136,6 +137,31 @@ class FilteredSearchCustomObjectRecordsRequest(BaseModel):
         Optional[FilteredSearchCustomObjectRecordsRequestBody],
         FieldMetadata(request=RequestMetadata(media_type="application/json")),
     ] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "page[before]",
+                "page[after]",
+                "page[size]",
+                "query",
+                "sort",
+                "RequestBody",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class FilteredSearchCustomObjectRecordsResponseTypedDict(TypedDict):

@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 from datetime import datetime
+from pydantic import model_serializer
 from typing import Literal, Optional
 from typing_extensions import NotRequired, TypedDict
-from zendesk.types import BaseModel
+from zendesk.types import BaseModel, UNSET_SENTINEL
 
 
 CnameStatus = Literal[
@@ -115,3 +116,34 @@ class SupportAddressObject(BaseModel):
 
     updated_at: Optional[datetime] = None
     r"""When the address was updated"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "brand_id",
+                "cname_status",
+                "created_at",
+                "default",
+                "dns_results",
+                "domain_verification_code",
+                "domain_verification_status",
+                "forwarding_status",
+                "id",
+                "name",
+                "spf_status",
+                "updated_at",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

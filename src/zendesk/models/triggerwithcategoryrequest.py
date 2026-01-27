@@ -6,9 +6,10 @@ from .triggerconditionsobject import (
     TriggerConditionsObject,
     TriggerConditionsObjectTypedDict,
 )
+from pydantic import model_serializer
 from typing import List, Optional, Union
 from typing_extensions import NotRequired, TypeAliasType, TypedDict
-from zendesk.types import BaseModel
+from zendesk.types import BaseModel, UNSET_SENTINEL
 
 
 class TriggerCategoryIDTypedDict(TypedDict):
@@ -54,6 +55,24 @@ class TriggerCategoryID(BaseModel):
 
     raw_title: Optional[str] = None
     r"""The raw format of the title of the ticket trigger"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            ["active", "category_id", "description", "position", "raw_title"]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 TriggerCategoryIDUnionTypedDict = TypeAliasType(
@@ -113,6 +132,24 @@ class TriggerWithCategoryRequestTriggerCategory(BaseModel):
     raw_title: Optional[str] = None
     r"""The raw format of the title of the ticket trigger"""
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            ["name", "position", "active", "category_id", "description", "raw_title"]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 TriggerTypedDict = TypeAliasType(
     "TriggerTypedDict",
@@ -134,3 +171,19 @@ class TriggerWithCategoryRequestTypedDict(TypedDict):
 
 class TriggerWithCategoryRequest(BaseModel):
     trigger: Optional[Trigger] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["trigger"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

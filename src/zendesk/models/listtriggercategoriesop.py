@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 import pydantic
+from pydantic import model_serializer
 from typing import Callable, List, Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
-from zendesk.types import BaseModel
+from zendesk.types import BaseModel, UNSET_SENTINEL
 from zendesk.utils import FieldMetadata, QueryParamMetadata
 
 
@@ -24,6 +25,22 @@ class ListTriggerCategoriesPage(BaseModel):
     before: Annotated[Optional[str], FieldMetadata(query=True)] = None
 
     size: Annotated[Optional[int], FieldMetadata(query=True)] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["after", "before", "size"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 ListTriggerCategoriesSort = Literal[
@@ -110,6 +127,24 @@ class ListTriggerCategoriesRequest(BaseModel):
     ] = None
     r"""Allowed sideloads"""
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            ["page[before]", "page[after]", "page[size]", "page", "sort", "include"]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 class TriggerCategoryRuleCountsTypedDict(TypedDict):
     active_count: NotRequired[int]
@@ -136,6 +171,32 @@ class TriggerCategoryRuleCounts(BaseModel):
 
     updated_at: Optional[str] = None
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "active_count",
+                "inactive_count",
+                "created_at",
+                "id",
+                "name",
+                "position",
+                "updated_at",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 ListTriggerCategoriesTriggerCategoryTypedDict = TriggerCategoryRuleCountsTypedDict
 
@@ -153,6 +214,22 @@ class ListTriggerCategoriesLinks(BaseModel):
 
     prev: Optional[str] = None
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["next", "prev"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 class ListTriggerCategoriesMetaTypedDict(TypedDict):
     after_cursor: NotRequired[str]
@@ -166,6 +243,22 @@ class ListTriggerCategoriesMeta(BaseModel):
     before_cursor: Optional[str] = None
 
     has_more: Optional[bool] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["after_cursor", "before_cursor", "has_more"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class ListTriggerCategoriesResponseBodyTypedDict(TypedDict):
@@ -184,6 +277,22 @@ class ListTriggerCategoriesResponseBody(BaseModel):
     links: Optional[ListTriggerCategoriesLinks] = None
 
     meta: Optional[ListTriggerCategoriesMeta] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["trigger_categories", "links", "meta"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class ListTriggerCategoriesResponseTypedDict(TypedDict):

@@ -6,9 +6,10 @@ from .customobjectrecordsresponse import (
     CustomObjectRecordsResponseTypedDict,
 )
 import pydantic
+from pydantic import model_serializer
 from typing import Callable, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
-from zendesk.types import BaseModel
+from zendesk.types import BaseModel, UNSET_SENTINEL
 from zendesk.utils import FieldMetadata, PathParamMetadata, QueryParamMetadata
 
 
@@ -99,6 +100,24 @@ class SearchCustomObjectRecordsRequest(BaseModel):
     r"""One of `name`, `created_at`, `updated_at`, `-name`, `-created_at`, or `-updated_at`. The `-` denotes the sort will be descending. Defaults to sorting by relevance.
 
     """
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            ["page[before]", "page[after]", "page[size]", "query", "sort"]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class SearchCustomObjectRecordsResponseTypedDict(TypedDict):

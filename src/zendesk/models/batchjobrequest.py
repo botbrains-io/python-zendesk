@@ -6,9 +6,10 @@ from .triggercategorybatchrequest import (
     TriggerCategoryBatchRequest,
     TriggerCategoryBatchRequestTypedDict,
 )
+from pydantic import model_serializer
 from typing import List, Literal, Optional
 from typing_extensions import NotRequired, TypedDict
-from zendesk.types import BaseModel
+from zendesk.types import BaseModel, UNSET_SENTINEL
 
 
 BatchJobRequestAction = Literal["patch",]
@@ -24,6 +25,22 @@ class Items(BaseModel):
 
     triggers: Optional[List[TriggerBatchRequest]] = None
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["trigger_categories", "triggers"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 class BatchJobRequestJobTypedDict(TypedDict):
     action: NotRequired[BatchJobRequestAction]
@@ -35,6 +52,22 @@ class BatchJobRequestJob(BaseModel):
 
     items: Optional[Items] = None
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["action", "items"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 class BatchJobRequestTypedDict(TypedDict):
     job: NotRequired[BatchJobRequestJobTypedDict]
@@ -42,3 +75,19 @@ class BatchJobRequestTypedDict(TypedDict):
 
 class BatchJobRequest(BaseModel):
     job: Optional[BatchJobRequestJob] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["job"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

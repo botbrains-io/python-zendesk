@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 from .conditionsobject import ConditionsObject, ConditionsObjectTypedDict
+from pydantic import model_serializer
 from typing import Optional
 from typing_extensions import NotRequired, TypedDict
-from zendesk.types import BaseModel
+from zendesk.types import BaseModel, UNSET_SENTINEL
 
 
 class DeletionScheduleInputTypedDict(TypedDict):
@@ -30,3 +31,19 @@ class DeletionScheduleInput(BaseModel):
 
     title: Optional[str] = None
     r"""The title of the deletion schedule"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["active", "conditions", "description", "title"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

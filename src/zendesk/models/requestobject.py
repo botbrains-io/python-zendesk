@@ -3,9 +3,10 @@
 from __future__ import annotations
 from .ticketauditviaobject import TicketAuditViaObject, TicketAuditViaObjectTypedDict
 from datetime import datetime
+from pydantic import model_serializer
 from typing import List, Optional
 from typing_extensions import NotRequired, TypedDict
-from zendesk.types import BaseModel
+from zendesk.types import BaseModel, UNSET_SENTINEL
 
 
 class RequestObjectCustomFieldTypedDict(TypedDict):
@@ -17,6 +18,22 @@ class RequestObjectCustomField(BaseModel):
     id: Optional[int] = None
 
     value: Optional[str] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["id", "value"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class RequestObjectTypedDict(TypedDict):
@@ -147,3 +164,46 @@ class RequestObject(BaseModel):
 
     via: Optional[TicketAuditViaObject] = None
     r"""Describes how the object was created. See the [Via object reference](/documentation/ticketing/reference-guides/via-object-reference)"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "assignee_id",
+                "can_be_solved_by_me",
+                "collaborator_ids",
+                "created_at",
+                "custom_fields",
+                "custom_status_id",
+                "description",
+                "due_at",
+                "email_cc_ids",
+                "followup_source_id",
+                "group_id",
+                "id",
+                "is_public",
+                "organization_id",
+                "priority",
+                "recipient",
+                "requester_id",
+                "solved",
+                "status",
+                "ticket_form_id",
+                "type",
+                "updated_at",
+                "url",
+                "via",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

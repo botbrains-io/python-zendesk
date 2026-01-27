@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 import pydantic
+from pydantic import model_serializer
 from typing import List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
-from zendesk.types import BaseModel
+from zendesk.types import BaseModel, UNSET_SENTINEL
 
 
 class ObjectTriggerConditionDefinitionObjectAllOperatorTypedDict(TypedDict):
@@ -23,6 +24,22 @@ class ObjectTriggerConditionDefinitionObjectAllOperator(BaseModel):
 
     value: Optional[str] = None
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["format", "terminal", "title", "value"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 class ObjectTriggerConditionDefinitionObjectAllValueTypedDict(TypedDict):
     enabled: NotRequired[bool]
@@ -36,6 +53,22 @@ class ObjectTriggerConditionDefinitionObjectAllValue(BaseModel):
     title: Optional[str] = None
 
     value: Optional[str] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["enabled", "title", "value"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class ObjectTriggerConditionDefinitionObjectAllTypedDict(TypedDict):
@@ -67,3 +100,30 @@ class ObjectTriggerConditionDefinitionObjectAll(BaseModel):
     type: Optional[str] = None
 
     values: Optional[List[ObjectTriggerConditionDefinitionObjectAllValue]] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "group",
+                "nullable",
+                "operators",
+                "repeatable",
+                "subject",
+                "title",
+                "type",
+                "values",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

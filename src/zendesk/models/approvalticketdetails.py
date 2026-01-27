@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 from .approvalrequestuser import ApprovalRequestUser, ApprovalRequestUserTypedDict
+from pydantic import model_serializer
 from typing import List, Optional
 from typing_extensions import NotRequired, TypedDict
-from zendesk.types import BaseModel
+from zendesk.types import BaseModel, UNSET_SENTINEL
 
 
 class ApprovalTicketDetailsCustomFieldTypedDict(TypedDict):
@@ -20,6 +21,22 @@ class ApprovalTicketDetailsCustomField(BaseModel):
 
     value: Optional[str] = None
     r"""The value of the custom field"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["id", "value"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class ApprovalTicketDetailsTypedDict(TypedDict):
@@ -48,3 +65,21 @@ class ApprovalTicketDetails(BaseModel):
 
     status: Optional[str] = None
     r"""Status of the ticket"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            ["custom_fields", "id", "priority", "requester", "status"]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

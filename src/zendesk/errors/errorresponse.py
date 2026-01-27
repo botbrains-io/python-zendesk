@@ -11,7 +11,6 @@ from zendesk.types import BaseModel
 
 class ErrorResponseData(BaseModel):
     error: Optional[models_errorresponse.ErrorResponseError1] = None
-
     errors: Optional[List[models_errorresponse.ErrorResponseError2]] = None
     r"""Field-specific validation errors"""
 

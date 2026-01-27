@@ -6,9 +6,10 @@ from .deletionschedule_input import (
     DeletionScheduleInput,
     DeletionScheduleInputTypedDict,
 )
+from pydantic import model_serializer
 from typing import Optional
 from typing_extensions import NotRequired, TypedDict
-from zendesk.types import BaseModel
+from zendesk.types import BaseModel, UNSET_SENTINEL
 
 
 class CreateDeletionScheduleRequestTypedDict(TypedDict):
@@ -17,6 +18,22 @@ class CreateDeletionScheduleRequestTypedDict(TypedDict):
 
 class CreateDeletionScheduleRequest(BaseModel):
     deletion_schedule: Optional[DeletionScheduleInput] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["deletion_schedule"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class CreateDeletionScheduleResponseTypedDict(TypedDict):
@@ -29,3 +46,19 @@ class CreateDeletionScheduleResponse(BaseModel):
     r"""Success Response"""
 
     deletion_schedule: Optional[DeletionSchedule] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["deletion_schedule"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

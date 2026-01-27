@@ -3,9 +3,10 @@
 from __future__ import annotations
 from .macroinput import MacroInput, MacroInputTypedDict
 from .macroobject import MacroObject, MacroObjectTypedDict
+from pydantic import model_serializer
 from typing import Optional
 from typing_extensions import NotRequired, TypedDict
-from zendesk.types import BaseModel
+from zendesk.types import BaseModel, UNSET_SENTINEL
 
 
 class CreateMacroRequestTypedDict(TypedDict):
@@ -14,6 +15,22 @@ class CreateMacroRequestTypedDict(TypedDict):
 
 class CreateMacroRequest(BaseModel):
     macro: Optional[MacroInput] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["macro"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class CreateMacroResponseTypedDict(TypedDict):
@@ -26,3 +43,19 @@ class CreateMacroResponse(BaseModel):
     r"""OK"""
 
     macro: Optional[MacroObject] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["macro"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

@@ -109,9 +109,10 @@ from .accountsettingsvoiceobject import (
     AccountSettingsVoiceObject,
     AccountSettingsVoiceObjectTypedDict,
 )
+from pydantic import model_serializer
 from typing import Optional
 from typing_extensions import NotRequired, TypedDict
-from zendesk.types import BaseModel
+from zendesk.types import BaseModel, UNSET_SENTINEL
 
 
 class AccountSettingsObjectTypedDict(TypedDict):
@@ -252,3 +253,49 @@ class AccountSettingsObject(BaseModel):
 
     voice: Optional[AccountSettingsVoiceObject] = None
     r"""Zendesk Talk settings. See [Voice](#voice)"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "active_features",
+                "agents",
+                "api",
+                "apps",
+                "billing",
+                "branding",
+                "brands",
+                "cdn",
+                "chat",
+                "cross_sell",
+                "email",
+                "google_apps",
+                "groups",
+                "limits",
+                "localization",
+                "lotus",
+                "metrics",
+                "onboarding",
+                "routing",
+                "rule",
+                "side_conversations",
+                "statistics",
+                "ticket_form",
+                "tickets",
+                "twitter",
+                "user",
+                "voice",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

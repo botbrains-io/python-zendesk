@@ -6,9 +6,10 @@ from .useridentitiesresponse import (
     UserIdentitiesResponseTypedDict,
 )
 import pydantic
+from pydantic import model_serializer
 from typing import Callable, Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
-from zendesk.types import BaseModel
+from zendesk.types import BaseModel, UNSET_SENTINEL
 from zendesk.utils import FieldMetadata, PathParamMetadata, QueryParamMetadata
 
 
@@ -82,6 +83,22 @@ class ListUserIdentitiesRequest(BaseModel):
     r"""Specifies how many records should be returned in the response. You can specify up to 100 records per page.
 
     """
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["type[]", "page[before]", "page[after]", "page[size]"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class ListUserIdentitiesResponseTypedDict(TypedDict):

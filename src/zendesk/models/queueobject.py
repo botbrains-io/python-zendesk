@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 from datetime import datetime
+from pydantic import model_serializer
 from typing import List, Optional
 from typing_extensions import NotRequired, TypedDict
-from zendesk.types import BaseModel
+from zendesk.types import BaseModel, UNSET_SENTINEL
 
 
 class QueueObjectAllTypedDict(TypedDict):
@@ -20,6 +21,22 @@ class QueueObjectAll(BaseModel):
 
     value: Optional[str] = None
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["field", "operator", "value"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 class QueueObjectAnyTypedDict(TypedDict):
     field: NotRequired[str]
@@ -33,6 +50,22 @@ class QueueObjectAny(BaseModel):
     operator: Optional[str] = None
 
     value: Optional[str] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["field", "operator", "value"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class DefinitionTypedDict(TypedDict):
@@ -49,6 +82,22 @@ class Definition(BaseModel):
 
     any: Optional[List[QueueObjectAny]] = None
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["all", "any"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 class PrimaryGroupsGroupTypedDict(TypedDict):
     id: NotRequired[int]
@@ -59,6 +108,22 @@ class PrimaryGroupsGroup(BaseModel):
     id: Optional[int] = None
 
     name: Optional[str] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["id", "name"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class PrimaryGroupsTypedDict(TypedDict):
@@ -75,6 +140,22 @@ class PrimaryGroups(BaseModel):
 
     groups: Optional[List[PrimaryGroupsGroup]] = None
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["count", "groups"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 class SecondaryGroupsGroupTypedDict(TypedDict):
     id: NotRequired[int]
@@ -85,6 +166,22 @@ class SecondaryGroupsGroup(BaseModel):
     id: Optional[int] = None
 
     name: Optional[str] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["id", "name"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class SecondaryGroupsTypedDict(TypedDict):
@@ -100,6 +197,22 @@ class SecondaryGroups(BaseModel):
     count: Optional[int] = None
 
     groups: Optional[List[SecondaryGroupsGroup]] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["count", "groups"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class QueueObjectTypedDict(TypedDict):
@@ -160,3 +273,33 @@ class QueueObject(BaseModel):
 
     url: Optional[str] = None
     r"""The API URL of the queue"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "created_at",
+                "definition",
+                "description",
+                "id",
+                "name",
+                "order",
+                "primary_groups",
+                "priority",
+                "secondary_groups",
+                "updated_at",
+                "url",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

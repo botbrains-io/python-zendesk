@@ -4,9 +4,10 @@ from __future__ import annotations
 from .userrolefilter import UserRoleFilter
 from .usersresponse import UsersResponse, UsersResponseTypedDict
 import pydantic
+from pydantic import model_serializer
 from typing import Callable, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
-from zendesk.types import BaseModel
+from zendesk.types import BaseModel, UNSET_SENTINEL
 from zendesk.utils import FieldMetadata, QueryParamMetadata
 
 
@@ -94,6 +95,32 @@ class ListUsersRequest(BaseModel):
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = None
     r"""List users by external id. External id has to be unique for each user under the same account."""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "page[before]",
+                "page[after]",
+                "page[size]",
+                "roleQueryParameter",
+                "role[]QueryParameter1",
+                "permission_set",
+                "external_id",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class ListUsersResponseTypedDict(TypedDict):

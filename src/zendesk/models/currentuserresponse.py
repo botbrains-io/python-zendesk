@@ -110,6 +110,44 @@ class CurrentUserResponseUserForEndUser(BaseModel):
     def additional_properties(self, value):
         self.__pydantic_extra__ = value  # pyright: ignore[reportIncompatibleVariableOverride]
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "created_at",
+                "email",
+                "iana_time_zone",
+                "id",
+                "locale",
+                "locale_id",
+                "organization_id",
+                "phone",
+                "photo",
+                "role",
+                "shared_phone_number",
+                "time_zone",
+                "updated_at",
+                "url",
+                "verified",
+                "authenticity_token",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+            serialized.pop(k, None)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+        for k, v in serialized.items():
+            m[k] = v
+
+        return m
+
 
 class CurrentUserResponseUsersTypedDict(TypedDict):
     name: str
@@ -352,82 +390,81 @@ class CurrentUserResponseUsers(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = [
-            "active",
-            "alias",
-            "chat_only",
-            "created_at",
-            "custom_role_id",
-            "default_group_id",
-            "details",
-            "email",
-            "external_id",
-            "iana_time_zone",
-            "id",
-            "last_login_at",
-            "locale",
-            "locale_id",
-            "moderator",
-            "notes",
-            "only_private_comments",
-            "organization_id",
-            "phone",
-            "photo",
-            "remote_photo_url",
-            "report_csv",
-            "restricted_agent",
-            "role",
-            "role_type",
-            "shared",
-            "shared_agent",
-            "shared_phone_number",
-            "signature",
-            "suspended",
-            "tags",
-            "ticket_restriction",
-            "time_zone",
-            "two_factor_auth_enabled",
-            "updated_at",
-            "url",
-            "user_fields",
-            "verified",
-            "authenticity_token",
-        ]
-        nullable_fields = [
-            "custom_role_id",
-            "external_id",
-            "organization_id",
-            "phone",
-            "photo",
-            "role_type",
-            "shared_phone_number",
-            "ticket_restriction",
-            "two_factor_auth_enabled",
-        ]
-        null_default_fields = []
-
+        optional_fields = set(
+            [
+                "active",
+                "alias",
+                "chat_only",
+                "created_at",
+                "custom_role_id",
+                "default_group_id",
+                "details",
+                "email",
+                "external_id",
+                "iana_time_zone",
+                "id",
+                "last_login_at",
+                "locale",
+                "locale_id",
+                "moderator",
+                "notes",
+                "only_private_comments",
+                "organization_id",
+                "phone",
+                "photo",
+                "remote_photo_url",
+                "report_csv",
+                "restricted_agent",
+                "role",
+                "role_type",
+                "shared",
+                "shared_agent",
+                "shared_phone_number",
+                "signature",
+                "suspended",
+                "tags",
+                "ticket_restriction",
+                "time_zone",
+                "two_factor_auth_enabled",
+                "updated_at",
+                "url",
+                "user_fields",
+                "verified",
+                "authenticity_token",
+            ]
+        )
+        nullable_fields = set(
+            [
+                "custom_role_id",
+                "external_id",
+                "organization_id",
+                "phone",
+                "photo",
+                "role_type",
+                "shared_phone_number",
+                "ticket_restriction",
+                "two_factor_auth_enabled",
+            ]
+        )
         serialized = handler(self)
-
         m = {}
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
             val = serialized.get(k)
             serialized.pop(k, None)
+            is_nullable_and_explicitly_set = (
+                k in nullable_fields
+                and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member
+            )
 
-            optional_nullable = k in optional_fields and k in nullable_fields
-            is_set = (
-                self.__pydantic_fields_set__.intersection({n})
-                or k in null_default_fields
-            )  # pylint: disable=no-member
-
-            if val is not None and val != UNSET_SENTINEL:
-                m[k] = val
-            elif val != UNSET_SENTINEL and (
-                not k in optional_fields or (optional_nullable and is_set)
-            ):
-                m[k] = val
-
+            if val != UNSET_SENTINEL:
+                if (
+                    val is not None
+                    or k not in optional_fields
+                    or is_nullable_and_explicitly_set
+                ):
+                    m[k] = val
         for k, v in serialized.items():
             m[k] = v
 
@@ -454,3 +491,19 @@ class CurrentUserResponseTypedDict(TypedDict):
 
 class CurrentUserResponse(BaseModel):
     user: Optional[CurrentUserResponseUser] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["user"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

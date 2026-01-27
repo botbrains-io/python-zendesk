@@ -14,9 +14,7 @@ from zendesk.types import BaseModel
 
 class BatchJobResponseErrorData(BaseModel):
     errors: Optional[List[models_batcherroritem.BatchErrorItem]] = None
-
     results: Optional[models_batchjobresponse.BatchJobResponseResults] = None
-
     status: Optional[models_batchjobresponse.BatchJobResponseStatus] = None
 
 

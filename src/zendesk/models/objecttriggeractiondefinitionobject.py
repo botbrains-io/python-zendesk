@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 import pydantic
+from pydantic import model_serializer
 from typing import List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
-from zendesk.types import BaseModel
+from zendesk.types import BaseModel, UNSET_SENTINEL
 
 
 class ObjectTriggerActionDefinitionObjectValueTypedDict(TypedDict):
@@ -22,6 +23,22 @@ class ObjectTriggerActionDefinitionObjectValue(BaseModel):
     title: Optional[str] = None
 
     value: Optional[str] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["enabled", "format", "title", "value"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class ObjectTriggerActionDefinitionObjectTypedDict(TypedDict):
@@ -48,3 +65,21 @@ class ObjectTriggerActionDefinitionObject(BaseModel):
     type: Optional[str] = None
 
     values: Optional[List[ObjectTriggerActionDefinitionObjectValue]] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            ["group", "nullable", "repeatable", "subject", "title", "type", "values"]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 from datetime import datetime
+from pydantic import model_serializer
 from typing import Optional
 from typing_extensions import NotRequired, TypedDict
-from zendesk.types import BaseModel
+from zendesk.types import BaseModel, UNSET_SENTINEL
 
 
 class AuditLogObjectTypedDict(TypedDict):
@@ -94,3 +95,34 @@ class AuditLogObject(BaseModel):
 
     url: Optional[str] = None
     r"""The URL to access the audit log"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "action",
+                "action_label",
+                "actor_id",
+                "actor_name",
+                "change_description",
+                "created_at",
+                "id",
+                "ip_address",
+                "source_id",
+                "source_label",
+                "source_type",
+                "url",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 from datetime import datetime
+from pydantic import model_serializer
 from typing import Optional
 from typing_extensions import NotRequired, TypedDict
-from zendesk.types import BaseModel
+from zendesk.types import BaseModel, UNSET_SENTINEL
 
 
 class AgentWaitTimeInMinutesTypedDict(TypedDict):
@@ -25,6 +26,22 @@ class AgentWaitTimeInMinutes(BaseModel):
     calendar: Optional[int] = None
     r"""Time in calendar hours"""
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["business", "calendar"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 class FirstResolutionTimeInMinutesTypedDict(TypedDict):
     r"""Number of minutes to the first resolution time during calendar and business hours"""
@@ -43,6 +60,22 @@ class FirstResolutionTimeInMinutes(BaseModel):
 
     calendar: Optional[int] = None
     r"""Time in calendar hours"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["business", "calendar"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class FullResolutionTimeInMinutesTypedDict(TypedDict):
@@ -63,6 +96,22 @@ class FullResolutionTimeInMinutes(BaseModel):
     calendar: Optional[int] = None
     r"""Time in calendar hours"""
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["business", "calendar"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 class OnHoldTimeInMinutesTypedDict(TypedDict):
     r"""Number of minutes on hold"""
@@ -81,6 +130,22 @@ class OnHoldTimeInMinutes(BaseModel):
 
     calendar: Optional[int] = None
     r"""Time in calendar hours"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["business", "calendar"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class ReplyTimeInMinutesTypedDict(TypedDict):
@@ -101,6 +166,22 @@ class ReplyTimeInMinutes(BaseModel):
     calendar: Optional[int] = None
     r"""Time in calendar hours"""
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["business", "calendar"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 class ReplyTimeInSecondsTypedDict(TypedDict):
     r"""Number of seconds to the first reply during calendar hours, only available for Messaging tickets"""
@@ -120,6 +201,22 @@ class ReplyTimeInSeconds(BaseModel):
     calendar: Optional[int] = None
     r"""Time in calendar hours"""
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["business", "calendar"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 class RequesterWaitTimeInMinutesTypedDict(TypedDict):
     r"""Number of minutes the requester spent waiting during calendar and business hours"""
@@ -138,6 +235,22 @@ class RequesterWaitTimeInMinutes(BaseModel):
 
     calendar: Optional[int] = None
     r"""Time in calendar hours"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["business", "calendar"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class TicketMetricObjectTypedDict(TypedDict):
@@ -263,3 +376,46 @@ class TicketMetricObject(BaseModel):
 
     url: Optional[str] = None
     r"""The API url of the ticket metric"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "agent_wait_time_in_minutes",
+                "assigned_at",
+                "assignee_stations",
+                "assignee_updated_at",
+                "created_at",
+                "custom_status_updated_at",
+                "first_resolution_time_in_minutes",
+                "full_resolution_time_in_minutes",
+                "group_stations",
+                "id",
+                "initially_assigned_at",
+                "latest_comment_added_at",
+                "on_hold_time_in_minutes",
+                "reopens",
+                "replies",
+                "reply_time_in_minutes",
+                "reply_time_in_seconds",
+                "requester_updated_at",
+                "requester_wait_time_in_minutes",
+                "solved_at",
+                "status_updated_at",
+                "ticket_id",
+                "updated_at",
+                "url",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

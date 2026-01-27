@@ -6,9 +6,10 @@ from .triggerconditionsobject import (
     TriggerConditionsObject,
     TriggerConditionsObjectTypedDict,
 )
+from pydantic import model_serializer
 from typing import List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
-from zendesk.types import BaseModel
+from zendesk.types import BaseModel, UNSET_SENTINEL
 from zendesk.utils import FieldMetadata
 
 
@@ -55,3 +56,21 @@ class TriggerObjectInput(BaseModel):
 
     raw_title: Annotated[Optional[str], FieldMetadata(query=True)] = None
     r"""The raw format of the title of the ticket trigger"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            ["active", "category_id", "description", "position", "raw_title"]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

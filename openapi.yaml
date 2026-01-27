@@ -17372,13 +17372,15 @@ components:
       type: object
       properties:
         id:
-          type: integer
+          type: string
+          format: uuid
           description: Attribute value ID
         name:
           type: string
           description: Attribute value name
         attribute_id:
-          type: integer
+          type: string
+          format: uuid
           description: The ID of the attribute (skill type)
     AuthorObject:
       type: object

@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 from datetime import datetime
+from pydantic import model_serializer
 from typing import Optional
 from typing_extensions import NotRequired, TypedDict
-from zendesk.types import BaseModel
+from zendesk.types import BaseModel, UNSET_SENTINEL
 
 
 class CustomObjectTypedDict(TypedDict):
@@ -80,3 +81,32 @@ class CustomObject(BaseModel):
 
     url: Optional[str] = None
     r"""Direct link to the specific custom object"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "allows_photos",
+                "created_at",
+                "created_by_user_id",
+                "description",
+                "raw_description",
+                "raw_title",
+                "raw_title_pluralized",
+                "updated_at",
+                "updated_by_user_id",
+                "url",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

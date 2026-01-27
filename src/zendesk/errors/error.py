@@ -11,17 +11,11 @@ from zendesk.types import BaseModel
 
 class ErrorData(BaseModel):
     code: str
-
     title: str
-
     detail: Optional[str] = None
-
     id: Optional[str] = None
-
     links: Optional[models_error.ErrorLinks] = None
-
     source: Optional[models_error.ErrorSource] = None
-
     status: Optional[str] = None
 
 

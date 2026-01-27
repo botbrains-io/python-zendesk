@@ -6,9 +6,10 @@ from .customobjectrecordfilteredsearchcondition import (
     CustomObjectRecordFilteredSearchConditionTypedDict,
 )
 import pydantic
+from pydantic import model_serializer
 from typing import List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
-from zendesk.types import BaseModel
+from zendesk.types import BaseModel, UNSET_SENTINEL
 
 
 class FilterTypedDict(TypedDict):
@@ -27,6 +28,22 @@ class Filter(BaseModel):
         pydantic.Field(alias="$or"),
     ] = None
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["$and", "$or"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 class CustomObjectRecordsFilteredSearchRequestComplexTypedDict(TypedDict):
     filter_: NotRequired[FilterTypedDict]
@@ -34,3 +51,19 @@ class CustomObjectRecordsFilteredSearchRequestComplexTypedDict(TypedDict):
 
 class CustomObjectRecordsFilteredSearchRequestComplex(BaseModel):
     filter_: Annotated[Optional[Filter], pydantic.Field(alias="filter")] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["filter"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

@@ -10,10 +10,10 @@ from .bearertokenauthentication import (
     BearerTokenAuthentication,
     BearerTokenAuthenticationTypedDict,
 )
-from pydantic import Discriminator, Tag
+from pydantic import Discriminator, Tag, model_serializer
 from typing import Dict, List, Literal, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
-from zendesk.types import BaseModel
+from zendesk.types import BaseModel, UNSET_SENTINEL
 from zendesk.utils import get_discriminator
 
 
@@ -94,6 +94,34 @@ class WebhookPatchRequestWebhook(BaseModel):
 
     custom_headers: Optional[Dict[str, str]] = None
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "name",
+                "description",
+                "endpoint",
+                "http_method",
+                "request_format",
+                "status",
+                "subscriptions",
+                "authentication",
+                "custom_headers",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 class WebhookPatchRequestTypedDict(TypedDict):
     webhook: NotRequired[WebhookPatchRequestWebhookTypedDict]
@@ -103,3 +131,19 @@ class WebhookPatchRequestTypedDict(TypedDict):
 class WebhookPatchRequest(BaseModel):
     webhook: Optional[WebhookPatchRequestWebhook] = None
     r"""Partial webhook object with fields to update"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["webhook"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
