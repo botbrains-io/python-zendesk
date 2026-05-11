@@ -611,7 +611,6 @@ components:
             - password
       required:
         - type
-        - data
 
     BearerTokenAuthentication:
       type: object
@@ -630,7 +629,6 @@ components:
             - token
       required:
         - type
-        - data
 
     ApiKeyAuthentication:
       type: object
@@ -658,7 +656,6 @@ components:
           default: header
       required:
         - type
-        - data
         - add_position
 
     WebhookSigningSecret:

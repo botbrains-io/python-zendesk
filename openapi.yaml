@@ -26107,7 +26107,6 @@ components:
             - username
       required:
         - type
-        - data
     BearerTokenAuthentication:
       type: object
       description: Bearer token authentication configuration
@@ -26124,7 +26123,6 @@ components:
               description: Bearer token for authentication
       required:
         - type
-        - data
     ApiKeyAuthentication:
       type: object
       description: API key authentication configuration
@@ -26153,7 +26151,6 @@ components:
           default: header
       required:
         - type
-        - data
         - add_position
     WebhookSigningSecret:
       type: object

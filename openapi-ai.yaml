@@ -28854,7 +28854,6 @@ components:
           readOnly: false # Input
       required:
         - type
-        - data
     BearerTokenAuthentication:
       type: object
       description: Bearer token authentication configuration
@@ -28876,7 +28875,6 @@ components:
           readOnly: false # Input
       required:
         - type
-        - data
     ApiKeyAuthentication:
       type: object
       description: API key authentication configuration
@@ -28911,7 +28909,6 @@ components:
           readOnly: false # Input
       required:
         - type
-        - data
         - add_position
     WebhookSigningSecret:
       type: object
