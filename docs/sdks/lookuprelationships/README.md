@@ -28,7 +28,7 @@ See [Pagination](/api-reference/introduction/pagination/).
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="GetSourcesByTarget" method="get" path="/api/v2/{target_type}/{target_id}/relationship_fields/{field_id}/{source_type}" -->
+<!-- UsageSnippet language="python" operationID="GetSourcesByTarget" method="get" path="/api/v2/{target_type}/{target_id}/relationship_fields/{field_id}/{source_type}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -82,7 +82,7 @@ The returned filter definitions are the options that you can use to build a cust
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="GetRelationshipFilterDefinitions" method="get" path="/api/v2/relationships/definitions/{target_type}" -->
+<!-- UsageSnippet language="python" operationID="GetRelationshipFilterDefinitions" method="get" path="/api/v2/relationships/definitions/{target_type}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

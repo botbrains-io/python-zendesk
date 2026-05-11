@@ -23,7 +23,7 @@
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListCustomRoles" method="get" path="/api/v2/custom_roles" -->
+<!-- UsageSnippet language="python" operationID="ListCustomRoles" method="get" path="/api/v2/custom_roles" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -72,7 +72,7 @@ with Zendesk(
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CreateCustomRole" method="post" path="/api/v2/custom_roles" -->
+<!-- UsageSnippet language="python" operationID="CreateCustomRole" method="post" path="/api/v2/custom_roles" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -121,7 +121,7 @@ with Zendesk(
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowCustomRoleById" method="get" path="/api/v2/custom_roles/{custom_role_id}" -->
+<!-- UsageSnippet language="python" operationID="ShowCustomRoleById" method="get" path="/api/v2/custom_roles/{custom_role_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -171,7 +171,7 @@ Agents with the `manage_roles` permission
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="UpdateCustomRoleById" method="put" path="/api/v2/custom_roles/{custom_role_id}" -->
+<!-- UsageSnippet language="python" operationID="UpdateCustomRoleById" method="put" path="/api/v2/custom_roles/{custom_role_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

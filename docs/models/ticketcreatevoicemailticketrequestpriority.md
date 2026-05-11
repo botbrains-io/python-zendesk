@@ -2,12 +2,17 @@
 
 The urgency with which the ticket should be addressed.
 
+## Example Usage
+
+```python
+from zendesk.models import TicketCreateVoicemailTicketRequestPriority
+value: TicketCreateVoicemailTicketRequestPriority = "urgent"
+```
+
 
 ## Values
 
-| Name     | Value    |
-| -------- | -------- |
-| `URGENT` | urgent   |
-| `HIGH`   | high     |
-| `NORMAL` | normal   |
-| `LOW`    | low      |
+- `"urgent"`
+- `"high"`
+- `"normal"`
+- `"low"`

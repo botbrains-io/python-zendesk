@@ -27,7 +27,7 @@ class BearerTokenAuthenticationData(BaseModel):
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
-            val = serialized.get(k)
+            val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
                 if val is not None or k not in optional_fields:
@@ -40,7 +40,7 @@ class BearerTokenAuthenticationTypedDict(TypedDict):
     r"""Bearer token authentication configuration"""
 
     type: BearerTokenAuthenticationType
-    data: BearerTokenAuthenticationDataTypedDict
+    data: NotRequired[BearerTokenAuthenticationDataTypedDict]
 
 
 class BearerTokenAuthentication(BaseModel):
@@ -48,4 +48,20 @@ class BearerTokenAuthentication(BaseModel):
 
     type: BearerTokenAuthenticationType
 
-    data: BearerTokenAuthenticationData
+    data: Optional[BearerTokenAuthenticationData] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["data"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

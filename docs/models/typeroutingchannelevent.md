@@ -1,8 +1,13 @@
 # TypeRoutingChannelEvent
 
+## Example Usage
+
+```python
+from zendesk.models import TypeRoutingChannelEvent
+value: TypeRoutingChannelEvent = "RoutingChannelEvent"
+```
+
 
 ## Values
 
-| Name                    | Value                   |
-| ----------------------- | ----------------------- |
-| `ROUTING_CHANNEL_EVENT` | RoutingChannelEvent     |
+- `"RoutingChannelEvent"`

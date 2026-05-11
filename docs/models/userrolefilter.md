@@ -1,10 +1,15 @@
 # UserRoleFilter
 
+## Example Usage
+
+```python
+from zendesk.models import UserRoleFilter
+value: UserRoleFilter = "end-user"
+```
+
 
 ## Values
 
-| Name       | Value      |
-| ---------- | ---------- |
-| `END_USER` | end-user   |
-| `AGENT`    | agent      |
-| `ADMIN`    | admin      |
+- `"end-user"`
+- `"agent"`
+- `"admin"`

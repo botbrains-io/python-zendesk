@@ -2,9 +2,14 @@
 
 Allowed sideloads
 
+## Example Usage
+
+```python
+from zendesk.models import Include
+value: Include = "rule_counts"
+```
+
 
 ## Values
 
-| Name          | Value         |
-| ------------- | ------------- |
-| `RULE_COUNTS` | rule_counts   |
+- `"rule_counts"`

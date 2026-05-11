@@ -25,7 +25,7 @@ Lists all triggers for the specified custom object.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListObjectTriggers" method="get" path="/api/v2/custom_objects/{custom_object_key}/triggers" -->
+<!-- UsageSnippet language="python" operationID="ListObjectTriggers" method="get" path="/api/v2/custom_objects/{custom_object_key}/triggers" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -76,7 +76,7 @@ Creates a new object trigger for a specified object.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CreateObjectTrigger" method="post" path="/api/v2/custom_objects/{custom_object_key}/triggers" -->
+<!-- UsageSnippet language="python" operationID="CreateObjectTrigger" method="post" path="/api/v2/custom_objects/{custom_object_key}/triggers" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -140,7 +140,7 @@ Returns details of a specific object trigger.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="GetObjectTrigger" method="get" path="/api/v2/custom_objects/{custom_object_key}/triggers/{trigger_id}" -->
+<!-- UsageSnippet language="python" operationID="GetObjectTrigger" method="get" path="/api/v2/custom_objects/{custom_object_key}/triggers/{trigger_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -193,7 +193,7 @@ and actions when updating any condition or action.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="UpdateObjectTrigger" method="put" path="/api/v2/custom_objects/{custom_object_key}/triggers/{trigger_id}" -->
+<!-- UsageSnippet language="python" operationID="UpdateObjectTrigger" method="put" path="/api/v2/custom_objects/{custom_object_key}/triggers/{trigger_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -313,7 +313,7 @@ Returns a maximum of 100 records per page.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListActiveObjectTriggers" method="get" path="/api/v2/custom_objects/{custom_object_key}/triggers/active" -->
+<!-- UsageSnippet language="python" operationID="ListActiveObjectTriggers" method="get" path="/api/v2/custom_objects/{custom_object_key}/triggers/active" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -366,7 +366,7 @@ Lists the conditions and actions of all triggers for the specified custom object
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListObjectTriggersDefinitions" method="get" path="/api/v2/custom_objects/{custom_object_key}/triggers/definitions" -->
+<!-- UsageSnippet language="python" operationID="ListObjectTriggersDefinitions" method="get" path="/api/v2/custom_objects/{custom_object_key}/triggers/definitions" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -494,7 +494,7 @@ Use the `filter` query parameter to filter an object trigger search by one or mo
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="SearchObjectTriggers" method="get" path="/api/v2/custom_objects/{custom_object_key}/triggers/search" -->
+<!-- UsageSnippet language="python" operationID="SearchObjectTriggers" method="get" path="/api/v2/custom_objects/{custom_object_key}/triggers/search" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -589,7 +589,7 @@ You can specify the following properties for each object trigger you're updating
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="UpdateManyObjectTriggers" method="put" path="/api/v2/custom_objects/{custom_object_key}/triggers/update_many" -->
+<!-- UsageSnippet language="python" operationID="UpdateManyObjectTriggers" method="put" path="/api/v2/custom_objects/{custom_object_key}/triggers/update_many" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

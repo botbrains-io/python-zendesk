@@ -2,10 +2,15 @@
 
 Filters the webhooks by webhook status
 
+## Example Usage
+
+```python
+from zendesk.models import ListWebhooksFilterStatus
+value: ListWebhooksFilterStatus = "active"
+```
+
 
 ## Values
 
-| Name       | Value      |
-| ---------- | ---------- |
-| `ACTIVE`   | active     |
-| `INACTIVE` | inactive   |
+- `"active"`
+- `"inactive"`

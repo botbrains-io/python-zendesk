@@ -1,9 +1,14 @@
 # BatchJobResponseStatus
 
+## Example Usage
+
+```python
+from zendesk.models import BatchJobResponseStatus
+value: BatchJobResponseStatus = "complete"
+```
+
 
 ## Values
 
-| Name       | Value      |
-| ---------- | ---------- |
-| `COMPLETE` | complete   |
-| `FAILED`   | failed     |
+- `"complete"`
+- `"failed"`

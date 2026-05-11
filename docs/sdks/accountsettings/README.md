@@ -18,7 +18,7 @@ Shows the settings that are available for the account.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowAccountSettings" method="get" path="/api/v2/account/settings" -->
+<!-- UsageSnippet language="python" operationID="ShowAccountSettings" method="get" path="/api/v2/account/settings" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -64,7 +64,7 @@ Updates settings for the account. See [JSON Format](#json-format) above for the 
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="UpdateAccountSettings" method="put" path="/api/v2/account/settings" -->
+<!-- UsageSnippet language="python" operationID="UpdateAccountSettings" method="put" path="/api/v2/account/settings" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

@@ -51,7 +51,7 @@ The following sideloads are supported. The usage sideloads are only supported on
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListTriggers" method="get" path="/api/v2/triggers" -->
+<!-- UsageSnippet language="python" operationID="ListTriggers" method="get" path="/api/v2/triggers" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -105,7 +105,7 @@ with Zendesk(
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CreateTrigger" method="post" path="/api/v2/triggers" -->
+<!-- UsageSnippet language="python" operationID="CreateTrigger" method="post" path="/api/v2/triggers" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -175,7 +175,7 @@ The Via Type value is a number instead of a text string. See [Via types referenc
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="GetTrigger" method="get" path="/api/v2/triggers/{trigger_id}" -->
+<!-- UsageSnippet language="python" operationID="GetTrigger" method="get" path="/api/v2/triggers/{trigger_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -226,7 +226,7 @@ and actions when updating any condition or action.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="UpdateTrigger" method="put" path="/api/v2/triggers/{trigger_id}" -->
+<!-- UsageSnippet language="python" operationID="UpdateTrigger" method="put" path="/api/v2/triggers/{trigger_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -367,7 +367,7 @@ no `limit` parameter is supplied, it will default to 1,000.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListTriggerRevisions" method="get" path="/api/v2/triggers/{trigger_id}/revisions" -->
+<!-- UsageSnippet language="python" operationID="ListTriggerRevisions" method="get" path="/api/v2/triggers/{trigger_id}/revisions" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -422,7 +422,7 @@ The following sideloads are supported:
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="TriggerRevision" method="get" path="/api/v2/triggers/{trigger_id}/revisions/{trigger_revision_id}" -->
+<!-- UsageSnippet language="python" operationID="TriggerRevision" method="get" path="/api/v2/triggers/{trigger_id}/revisions/{trigger_revision_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -491,7 +491,7 @@ The following sideloads are supported:
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListActiveTriggers" method="get" path="/api/v2/triggers/active" -->
+<!-- UsageSnippet language="python" operationID="ListActiveTriggers" method="get" path="/api/v2/triggers/active" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -548,7 +548,7 @@ For a list of supported conditions, see the [Conditions reference](/documentatio
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListTriggerActionConditionDefinitions" method="get" path="/api/v2/triggers/definitions" -->
+<!-- UsageSnippet language="python" operationID="ListTriggerActionConditionDefinitions" method="get" path="/api/v2/triggers/definitions" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -660,7 +660,7 @@ ticket trigger category, the endpoint will return a `LimitOneCategory` error.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ReorderTriggers" method="put" path="/api/v2/triggers/reorder" -->
+<!-- UsageSnippet language="python" operationID="ReorderTriggers" method="put" path="/api/v2/triggers/reorder" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -735,7 +735,7 @@ Use the `filter` query parameter to filter a ticket trigger search by one or mor
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="SearchTriggers" method="get" path="/api/v2/triggers/search" -->
+<!-- UsageSnippet language="python" operationID="SearchTriggers" method="get" path="/api/v2/triggers/search" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -827,7 +827,7 @@ Each ticket trigger may have the following properties:
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="UpdateManyTriggers" method="put" path="/api/v2/triggers/update_many" -->
+<!-- UsageSnippet language="python" operationID="UpdateManyTriggers" method="put" path="/api/v2/triggers/update_many" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

@@ -2,17 +2,22 @@
 
 The type of this identity
 
+## Example Usage
+
+```python
+from zendesk.models import UserIdentityObjectType
+value: UserIdentityObjectType = "email"
+```
+
 
 ## Values
 
-| Name               | Value              |
-| ------------------ | ------------------ |
-| `EMAIL`            | email              |
-| `TWITTER`          | twitter            |
-| `FACEBOOK`         | facebook           |
-| `GOOGLE`           | google             |
-| `PHONE_NUMBER`     | phone_number       |
-| `AGENT_FORWARDING` | agent_forwarding   |
-| `ANY_CHANNEL`      | any_channel        |
-| `FOREIGN`          | foreign            |
-| `SDK`              | sdk                |
+- `"email"`
+- `"twitter"`
+- `"facebook"`
+- `"google"`
+- `"phone_number"`
+- `"agent_forwarding"`
+- `"any_channel"`
+- `"foreign"`
+- `"sdk"`

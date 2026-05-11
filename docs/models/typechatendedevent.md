@@ -1,8 +1,13 @@
 # TypeChatEndedEvent
 
+## Example Usage
+
+```python
+from zendesk.models import TypeChatEndedEvent
+value: TypeChatEndedEvent = "ChatEndedEvent"
+```
+
 
 ## Values
 
-| Name               | Value              |
-| ------------------ | ------------------ |
-| `CHAT_ENDED_EVENT` | ChatEndedEvent     |
+- `"ChatEndedEvent"`

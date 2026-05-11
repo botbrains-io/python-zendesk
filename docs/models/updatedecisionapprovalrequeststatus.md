@@ -2,12 +2,17 @@
 
 The status of the approval request
 
+## Example Usage
+
+```python
+from zendesk.models import UpdateDecisionApprovalRequestStatus
+value: UpdateDecisionApprovalRequestStatus = "approved"
+```
+
 
 ## Values
 
-| Name        | Value       |
-| ----------- | ----------- |
-| `APPROVED`  | approved    |
-| `REJECTED`  | rejected    |
-| `PENDING`   | pending     |
-| `WITHDRAWN` | withdrawn   |
+- `"approved"`
+- `"rejected"`
+- `"pending"`
+- `"withdrawn"`

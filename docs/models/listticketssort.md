@@ -2,14 +2,19 @@
 
 Sort tickets by field (for cursor pagination use "field" for ascending or "-field" for descending)
 
+## Example Usage
+
+```python
+from zendesk.models import ListTicketsSort
+value: ListTicketsSort = "updated_at"
+```
+
 
 ## Values
 
-| Name               | Value              |
-| ------------------ | ------------------ |
-| `UPDATED_AT`       | updated_at         |
-| `ID`               | id                 |
-| `STATUS`           | status             |
-| `MINUS_UPDATED_AT` | -updated_at        |
-| `MINUS_ID`         | -id                |
-| `MINUS_STATUS`     | -status            |
+- `"updated_at"`
+- `"id"`
+- `"status"`
+- `"-updated_at"`
+- `"-id"`
+- `"-status"`

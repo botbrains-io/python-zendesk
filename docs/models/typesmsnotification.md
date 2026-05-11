@@ -1,8 +1,13 @@
 # TypeSmsNotification
 
+## Example Usage
+
+```python
+from zendesk.models import TypeSmsNotification
+value: TypeSmsNotification = "SmsNotification"
+```
+
 
 ## Values
 
-| Name               | Value              |
-| ------------------ | ------------------ |
-| `SMS_NOTIFICATION` | SmsNotification    |
+- `"SmsNotification"`

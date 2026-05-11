@@ -1,12 +1,17 @@
 # WebhookPatchRequestHTTPMethod
 
+## Example Usage
+
+```python
+from zendesk.models import WebhookPatchRequestHTTPMethod
+value: WebhookPatchRequestHTTPMethod = "GET"
+```
+
 
 ## Values
 
-| Name     | Value    |
-| -------- | -------- |
-| `GET`    | GET      |
-| `POST`   | POST     |
-| `PUT`    | PUT      |
-| `PATCH`  | PATCH    |
-| `DELETE` | DELETE   |
+- `"GET"`
+- `"POST"`
+- `"PUT"`
+- `"PATCH"`
+- `"DELETE"`

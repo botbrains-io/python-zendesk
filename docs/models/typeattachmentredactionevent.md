@@ -1,8 +1,13 @@
 # TypeAttachmentRedactionEvent
 
+## Example Usage
+
+```python
+from zendesk.models import TypeAttachmentRedactionEvent
+value: TypeAttachmentRedactionEvent = "AttachmentRedactionEvent"
+```
+
 
 ## Values
 
-| Name                         | Value                        |
-| ---------------------------- | ---------------------------- |
-| `ATTACHMENT_REDACTION_EVENT` | AttachmentRedactionEvent     |
+- `"AttachmentRedactionEvent"`

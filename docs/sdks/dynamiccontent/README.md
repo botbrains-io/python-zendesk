@@ -29,7 +29,7 @@ See [Pagination](/api-reference/introduction/pagination/).
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListDynamicContents" method="get" path="/api/v2/dynamic_content/items" -->
+<!-- UsageSnippet language="python" operationID="ListDynamicContents" method="get" path="/api/v2/dynamic_content/items" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -82,7 +82,7 @@ The `default_locale_id` and variant `locale_id` values must be one of the locale
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CreateDynamicContent" method="post" path="/api/v2/dynamic_content/items" -->
+<!-- UsageSnippet language="python" operationID="CreateDynamicContent" method="post" path="/api/v2/dynamic_content/items" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -126,7 +126,7 @@ with Zendesk(
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowDynamicContentItem" method="get" path="/api/v2/dynamic_content/items/{dynamic_content_item_id}" -->
+<!-- UsageSnippet language="python" operationID="ShowDynamicContentItem" method="get" path="/api/v2/dynamic_content/items/{dynamic_content_item_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -175,7 +175,7 @@ To add a variant to the item, or to update or delete the variants of the item, u
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="UpdateDynamicContentItem" method="put" path="/api/v2/dynamic_content/items/{dynamic_content_item_id}" -->
+<!-- UsageSnippet language="python" operationID="UpdateDynamicContentItem" method="put" path="/api/v2/dynamic_content/items/{dynamic_content_item_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -264,7 +264,7 @@ with Zendesk(
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowManyDynamicContents" method="get" path="/api/v2/dynamic_content/items/show_many" -->
+<!-- UsageSnippet language="python" operationID="ShowManyDynamicContents" method="get" path="/api/v2/dynamic_content/items/show_many" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

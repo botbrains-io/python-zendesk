@@ -2,10 +2,15 @@
 
 Defines the sorting criteria. Only supports name and status
 
+## Example Usage
+
+```python
+from zendesk.models import ListWebhooksSort
+value: ListWebhooksSort = "name"
+```
+
 
 ## Values
 
-| Name     | Value    |
-| -------- | -------- |
-| `NAME`   | name     |
-| `STATUS` | status   |
+- `"name"`
+- `"status"`

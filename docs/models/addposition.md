@@ -2,10 +2,15 @@
 
 Where to add the API key (header or query string)
 
+## Example Usage
+
+```python
+from zendesk.models import AddPosition
+value: AddPosition = "header"
+```
+
 
 ## Values
 
-| Name           | Value          |
-| -------------- | -------------- |
-| `HEADER`       | header         |
-| `QUERY_STRING` | query_string   |
+- `"header"`
+- `"query_string"`

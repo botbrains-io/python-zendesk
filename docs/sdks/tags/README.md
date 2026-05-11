@@ -38,7 +38,7 @@ See [Using Offset Pagination](/api-reference/ticketing/introduction/#using-offse
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="AutocompleteTags" method="get" path="/api/v2/autocomplete/tags" -->
+<!-- UsageSnippet language="python" operationID="AutocompleteTags" method="get" path="/api/v2/autocomplete/tags" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -94,7 +94,7 @@ Returns a maximum of 100 records per page.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListTags" method="get" path="/api/v2/tags" -->
+<!-- UsageSnippet language="python" operationID="ListTags" method="get" path="/api/v2/tags" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -154,7 +154,7 @@ updated in the background and the `value` property in the `count` object is limi
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CountTags" method="get" path="/api/v2/tags/count" -->
+<!-- UsageSnippet language="python" operationID="CountTags" method="get" path="/api/v2/tags/count" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

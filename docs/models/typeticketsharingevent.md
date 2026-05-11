@@ -1,8 +1,13 @@
 # TypeTicketSharingEvent
 
+## Example Usage
+
+```python
+from zendesk.models import TypeTicketSharingEvent
+value: TypeTicketSharingEvent = "TicketSharingEvent"
+```
+
 
 ## Values
 
-| Name                   | Value                  |
-| ---------------------- | ---------------------- |
-| `TICKET_SHARING_EVENT` | TicketSharingEvent     |
+- `"TicketSharingEvent"`

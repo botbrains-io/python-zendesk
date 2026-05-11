@@ -2,12 +2,17 @@
 
 Status of email forwarding. Possible values: "unknown", "waiting", "verified", or "failed"
 
+## Example Usage
+
+```python
+from zendesk.models import ForwardingStatus
+value: ForwardingStatus = "unknown"
+```
+
 
 ## Values
 
-| Name       | Value      |
-| ---------- | ---------- |
-| `UNKNOWN`  | unknown    |
-| `WAITING`  | waiting    |
-| `VERIFIED` | verified   |
-| `FAILED`   | failed     |
+- `"unknown"`
+- `"waiting"`
+- `"verified"`
+- `"failed"`

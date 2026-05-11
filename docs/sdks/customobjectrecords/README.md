@@ -48,7 +48,7 @@ This endpoint returns a `job_status` [JSON object](/api-reference/ticketing/tick
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CustomObjectRecordBulkJobs" method="post" path="/api/v2/custom_objects/{custom_object_key}/jobs" -->
+<!-- UsageSnippet language="python" operationID="CustomObjectRecordBulkJobs" method="post" path="/api/v2/custom_objects/{custom_object_key}/jobs" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -119,9 +119,31 @@ Lists all undeleted custom object records for the specified object
 #### Allowed For
 * Agents
 
-### Example Usage
+### Example Usage: default
 
-<!-- UsageSnippet language="python" operationID="ListCustomObjectRecords" method="get" path="/api/v2/custom_objects/{custom_object_key}/records" -->
+<!-- UsageSnippet language="python" operationID="ListCustomObjectRecords" method="get" path="/api/v2/custom_objects/{custom_object_key}/records" example="default" -->
+```python
+from zendesk import Zendesk, models
+
+
+with Zendesk(
+    security=models.Security(
+        username="",
+        password="",
+    ),
+) as z_client:
+
+    res = z_client.custom_object_records.list_custom_object_records(custom_object_key="car", page_size=100)
+
+    while res is not None:
+        # Handle items
+
+        res = res.next()
+
+```
+### Example Usage: multipleIds
+
+<!-- UsageSnippet language="python" operationID="ListCustomObjectRecords" method="get" path="/api/v2/custom_objects/{custom_object_key}/records" example="multipleIds" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -134,6 +156,28 @@ with Zendesk(
 ) as z_client:
 
     res = z_client.custom_object_records.list_custom_object_records(custom_object_key="car", filter_ids="id_1,id_2,id_3", filter_external_ids="ex_id_1,ex_id_2,ex_id_3", page_size=100)
+
+    while res is not None:
+        # Handle items
+
+        res = res.next()
+
+```
+### Example Usage: oneId
+
+<!-- UsageSnippet language="python" operationID="ListCustomObjectRecords" method="get" path="/api/v2/custom_objects/{custom_object_key}/records" example="oneId" -->
+```python
+from zendesk import Zendesk, models
+
+
+with Zendesk(
+    security=models.Security(
+        username="",
+        password="",
+    ),
+) as z_client:
+
+    res = z_client.custom_object_records.list_custom_object_records(custom_object_key="car", filter_ids="id_1", filter_external_ids="ex_id_1", page_size=100)
 
     while res is not None:
         # Handle items
@@ -174,7 +218,7 @@ Creates a custom object record according to all the properties described by a cu
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CreateCustomObjectRecord" method="post" path="/api/v2/custom_objects/{custom_object_key}/records" -->
+<!-- UsageSnippet language="python" operationID="CreateCustomObjectRecord" method="post" path="/api/v2/custom_objects/{custom_object_key}/records" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -225,7 +269,7 @@ If a record exists for the given external id or name, updates it. Only the speci
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="UpsertCustomObjectRecordByExternalIdOrName" method="patch" path="/api/v2/custom_objects/{custom_object_key}/records" -->
+<!-- UsageSnippet language="python" operationID="UpsertCustomObjectRecordByExternalIdOrName" method="patch" path="/api/v2/custom_objects/{custom_object_key}/records" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -320,7 +364,7 @@ Returns a custom record for a specific object using a provided id.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowCustomObjectRecord" method="get" path="/api/v2/custom_objects/{custom_object_key}/records/{custom_object_record_id}" -->
+<!-- UsageSnippet language="python" operationID="ShowCustomObjectRecord" method="get" path="/api/v2/custom_objects/{custom_object_key}/records/{custom_object_record_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -367,7 +411,7 @@ Updates an individual custom object record. The updating rules are as follows:
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="UpdateCustomObjectRecord" method="patch" path="/api/v2/custom_objects/{custom_object_key}/records/{custom_object_record_id}" -->
+<!-- UsageSnippet language="python" operationID="UpdateCustomObjectRecord" method="patch" path="/api/v2/custom_objects/{custom_object_key}/records/{custom_object_record_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -457,7 +501,7 @@ Retrieves an array of custom object records that have a field value that matches
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="AutocompleteCustomObjectRecordSearch" method="get" path="/api/v2/custom_objects/{custom_object_key}/records/autocomplete" -->
+<!-- UsageSnippet language="python" operationID="AutocompleteCustomObjectRecordSearch" method="get" path="/api/v2/custom_objects/{custom_object_key}/records/autocomplete" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -512,7 +556,7 @@ Returns a total count of records for a specific custom object as well as the tim
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CountCustomObjectRecords" method="get" path="/api/v2/custom_objects/{custom_object_key}/records/count" -->
+<!-- UsageSnippet language="python" operationID="CountCustomObjectRecords" method="get" path="/api/v2/custom_objects/{custom_object_key}/records/count" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -561,7 +605,7 @@ Returns an array of custom object records that meet the search criteria
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="SearchCustomObjectRecords" method="get" path="/api/v2/custom_objects/{custom_object_key}/records/search" -->
+<!-- UsageSnippet language="python" operationID="SearchCustomObjectRecords" method="get" path="/api/v2/custom_objects/{custom_object_key}/records/search" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -665,7 +709,7 @@ A comparison object is a JSON object that has the following properties:
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="FilteredSearchCustomObjectRecords" method="post" path="/api/v2/custom_objects/{custom_object_key}/records/search" -->
+<!-- UsageSnippet language="python" operationID="FilteredSearchCustomObjectRecords" method="post" path="/api/v2/custom_objects/{custom_object_key}/records/search" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -746,7 +790,7 @@ List the current count and the limit for custom object records
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CustomObjectRecordsLimit" method="get" path="/api/v2/custom_objects/limits/record_limit" -->
+<!-- UsageSnippet language="python" operationID="CustomObjectRecordsLimit" method="get" path="/api/v2/custom_objects/limits/record_limit" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

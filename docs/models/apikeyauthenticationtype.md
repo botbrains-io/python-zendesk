@@ -1,8 +1,13 @@
 # APIKeyAuthenticationType
 
+## Example Usage
+
+```python
+from zendesk.models import APIKeyAuthenticationType
+value: APIKeyAuthenticationType = "api_key"
+```
+
 
 ## Values
 
-| Name      | Value     |
-| --------- | --------- |
-| `API_KEY` | api_key   |
+- `"api_key"`

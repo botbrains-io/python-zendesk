@@ -32,7 +32,7 @@ Returns a maximum of 100 records per page.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListSupportAddresses" method="get" path="/api/v2/recipient_addresses" -->
+<!-- UsageSnippet language="python" operationID="ListSupportAddresses" method="get" path="/api/v2/recipient_addresses" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -89,7 +89,7 @@ To add an external email address such as help@omniwearshop.com, the email must a
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CreateSupportAddress" method="post" path="/api/v2/recipient_addresses" -->
+<!-- UsageSnippet language="python" operationID="CreateSupportAddress" method="post" path="/api/v2/recipient_addresses" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -134,7 +134,7 @@ with Zendesk(
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowSupportAddress" method="get" path="/api/v2/recipient_addresses/{support_address_id}" -->
+<!-- UsageSnippet language="python" operationID="ShowSupportAddress" method="get" path="/api/v2/recipient_addresses/{support_address_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -186,7 +186,7 @@ Address](#create-support-address) endpoint.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="UpdateSupportAddress" method="put" path="/api/v2/recipient_addresses/{support_address_id}" -->
+<!-- UsageSnippet language="python" operationID="UpdateSupportAddress" method="put" path="/api/v2/recipient_addresses/{support_address_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

@@ -31,7 +31,7 @@ Returns a maximum of 100 records per page.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListGroupMemberships" method="get" path="/api/v2/group_memberships" -->
+<!-- UsageSnippet language="python" operationID="ListGroupMemberships" method="get" path="/api/v2/group_memberships" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -83,7 +83,7 @@ Assigns an agent to a given group.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CreateGroupMembership" method="post" path="/api/v2/group_memberships" -->
+<!-- UsageSnippet language="python" operationID="CreateGroupMembership" method="post" path="/api/v2/group_memberships" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -133,7 +133,7 @@ The 'id' is the group membership id, not a group id.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowGroupMembershipById" method="get" path="/api/v2/group_memberships/{group_membership_id}" -->
+<!-- UsageSnippet language="python" operationID="ShowGroupMembershipById" method="get" path="/api/v2/group_memberships/{group_membership_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -232,7 +232,7 @@ Returns a maximum of 100 records per page.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListAssignableGroupMemberships" method="get" path="/api/v2/group_memberships/assignable" -->
+<!-- UsageSnippet language="python" operationID="ListAssignableGroupMemberships" method="get" path="/api/v2/group_memberships/assignable" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -288,7 +288,7 @@ This endpoint returns a `job_status` [JSON object](/api-reference/ticketing/tick
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="GroupMembershipBulkCreate" method="post" path="/api/v2/group_memberships/create_many" -->
+<!-- UsageSnippet language="python" operationID="GroupMembershipBulkCreate" method="post" path="/api/v2/group_memberships/create_many" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -335,7 +335,7 @@ Immediately removes users from groups and schedules a job to unassign all workin
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="GroupMembershipBulkDelete" method="delete" path="/api/v2/group_memberships/destroy_many" -->
+<!-- UsageSnippet language="python" operationID="GroupMembershipBulkDelete" method="delete" path="/api/v2/group_memberships/destroy_many" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -380,7 +380,7 @@ with Zendesk(
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="GroupMembershipSetDefault" method="put" path="/api/v2/users/{user_id}/group_memberships/{group_membership_id}/make_default" -->
+<!-- UsageSnippet language="python" operationID="GroupMembershipSetDefault" method="put" path="/api/v2/users/{user_id}/group_memberships/{group_membership_id}/make_default" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

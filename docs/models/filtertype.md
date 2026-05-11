@@ -2,12 +2,17 @@
 
 The object type returned by the export query. Can be `ticket`, `organization`, `user`, or `group`.
 
+## Example Usage
+
+```python
+from zendesk.models import FilterType
+value: FilterType = "ticket"
+```
+
 
 ## Values
 
-| Name           | Value          |
-| -------------- | -------------- |
-| `TICKET`       | ticket         |
-| `ORGANIZATION` | organization   |
-| `USER`         | user           |
-| `GROUP`        | group          |
+- `"ticket"`
+- `"organization"`
+- `"user"`
+- `"group"`

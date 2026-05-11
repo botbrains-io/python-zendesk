@@ -24,7 +24,7 @@ Lists the translation locales available for the account.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListLocales" method="get" path="/api/v2/locales" -->
+<!-- UsageSnippet language="python" operationID="ListLocales" method="get" path="/api/v2/locales" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -68,7 +68,7 @@ with Zendesk(
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowLocaleById" method="get" path="/api/v2/locales/{locale_id}" -->
+<!-- UsageSnippet language="python" operationID="ShowLocaleById" method="get" path="/api/v2/locales/{locale_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -115,7 +115,7 @@ Lists the translation locales that have been localized for agents on a specific 
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListLocalesForAgent" method="get" path="/api/v2/locales/agent" -->
+<!-- UsageSnippet language="python" operationID="ListLocalesForAgent" method="get" path="/api/v2/locales/agent" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -161,7 +161,7 @@ This works like [Show Locale](#show-locale), but instead of taking a locale id a
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowCurrentLocale" method="get" path="/api/v2/locales/current" -->
+<!-- UsageSnippet language="python" operationID="ShowCurrentLocale" method="get" path="/api/v2/locales/current" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -205,7 +205,7 @@ with Zendesk(
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="DetectBestLocale" method="get" path="/api/v2/locales/detect_best_locale" -->
+<!-- UsageSnippet language="python" operationID="DetectBestLocale" method="get" path="/api/v2/locales/detect_best_locale" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -251,7 +251,7 @@ Lists the translation locales that are available to all accounts.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListAvailablePublicLocales" method="get" path="/api/v2/locales/public" -->
+<!-- UsageSnippet language="python" operationID="ListAvailablePublicLocales" method="get" path="/api/v2/locales/public" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

@@ -21,7 +21,7 @@ Lists all deletion schedules for the account. Deletion schedules are used to aut
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListDeletionSchedules" method="get" path="/api/v2/deletion_schedules" -->
+<!-- UsageSnippet language="python" operationID="ListDeletionSchedules" method="get" path="/api/v2/deletion_schedules" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -67,7 +67,7 @@ Creates a new deletion schedule.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CreateDeletionSchedule" method="post" path="/api/v2/deletion_schedules" -->
+<!-- UsageSnippet language="python" operationID="CreateDeletionSchedule" method="post" path="/api/v2/deletion_schedules" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -128,7 +128,7 @@ Gets a deletion schedule by its id.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="GetDeletionSchedule" method="get" path="/api/v2/deletion_schedules/{deletion_schedule_id}" -->
+<!-- UsageSnippet language="python" operationID="GetDeletionSchedule" method="get" path="/api/v2/deletion_schedules/{deletion_schedule_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -177,7 +177,7 @@ Updates a deletion schedule by its id.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="UpdateDeletionSchedule" method="put" path="/api/v2/deletion_schedules/{deletion_schedule_id}" -->
+<!-- UsageSnippet language="python" operationID="UpdateDeletionSchedule" method="put" path="/api/v2/deletion_schedules/{deletion_schedule_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

@@ -1,8 +1,13 @@
 # TypeCc
 
+## Example Usage
+
+```python
+from zendesk.models import TypeCc
+value: TypeCc = "Cc"
+```
+
 
 ## Values
 
-| Name  | Value |
-| ----- | ----- |
-| `CC`  | Cc    |
+- `"Cc"`

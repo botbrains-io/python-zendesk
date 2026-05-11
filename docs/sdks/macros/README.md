@@ -43,7 +43,7 @@ Returns a maximum of 100 records per page.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListMacros" method="get" path="/api/v2/macros" -->
+<!-- UsageSnippet language="python" operationID="ListMacros" method="get" path="/api/v2/macros" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -99,7 +99,7 @@ with Zendesk(
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CreateMacro" method="post" path="/api/v2/macros" -->
+<!-- UsageSnippet language="python" operationID="CreateMacro" method="post" path="/api/v2/macros" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -153,7 +153,7 @@ with Zendesk(
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowMacro" method="get" path="/api/v2/macros/{macro_id}" -->
+<!-- UsageSnippet language="python" operationID="ShowMacro" method="get" path="/api/v2/macros/{macro_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -197,7 +197,7 @@ with Zendesk(
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="UpdateMacro" method="put" path="/api/v2/macros/{macro_id}" -->
+<!-- UsageSnippet language="python" operationID="UpdateMacro" method="put" path="/api/v2/macros/{macro_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -297,7 +297,7 @@ see [Show Ticket After Changes](#show-ticket-after-changes).
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowChangesToTicket" method="get" path="/api/v2/macros/{macro_id}/apply" -->
+<!-- UsageSnippet language="python" operationID="ShowChangesToTicket" method="get" path="/api/v2/macros/{macro_id}/apply" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -343,7 +343,7 @@ Lists the attachments associated with a macro.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListMacroAttachments" method="get" path="/api/v2/macros/{macro_id}/attachments" -->
+<!-- UsageSnippet language="python" operationID="ListMacroAttachments" method="get" path="/api/v2/macros/{macro_id}/attachments" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -392,7 +392,7 @@ Allows an attachment to be uploaded and associated with a macro at the same time
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CreateAssociatedMacroAttachment" method="post" path="/api/v2/macros/{macro_id}/attachments" -->
+<!-- UsageSnippet language="python" operationID="CreateAssociatedMacroAttachment" method="post" path="/api/v2/macros/{macro_id}/attachments" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -436,7 +436,7 @@ with Zendesk(
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListMacrosActions" method="get" path="/api/v2/macros/actions" -->
+<!-- UsageSnippet language="python" operationID="ListMacrosActions" method="get" path="/api/v2/macros/actions" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -481,7 +481,7 @@ Lists all active shared and personal macros available to the current user.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListActiveMacros" method="get" path="/api/v2/macros/active" -->
+<!-- UsageSnippet language="python" operationID="ListActiveMacros" method="get" path="/api/v2/macros/active" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -535,7 +535,7 @@ Allows an attachment to be uploaded that can be associated with a macro at a lat
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CreateMacroAttachment" method="post" path="/api/v2/macros/attachments" -->
+<!-- UsageSnippet language="python" operationID="CreateMacroAttachment" method="post" path="/api/v2/macros/attachments" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -580,7 +580,7 @@ Shows the properties of the specified macro attachment.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowMacroAttachment" method="get" path="/api/v2/macros/attachments/{attachment_id}" -->
+<!-- UsageSnippet language="python" operationID="ShowMacroAttachment" method="get" path="/api/v2/macros/attachments/{attachment_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -626,7 +626,7 @@ Lists all macro categories available to the current user.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListMacroCategories" method="get" path="/api/v2/macros/categories" -->
+<!-- UsageSnippet language="python" operationID="ListMacroCategories" method="get" path="/api/v2/macros/categories" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -675,7 +675,7 @@ list of support actions, see [Actions reference](/documentation/ticketing/refere
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListMacroActionDefinitions" method="get" path="/api/v2/macros/definitions" -->
+<!-- UsageSnippet language="python" operationID="ListMacroActionDefinitions" method="get" path="/api/v2/macros/definitions" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -767,7 +767,7 @@ The endpoint takes one of the following query parameters: `macro_id` or `ticket_
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowDerivedMacro" method="get" path="/api/v2/macros/new" -->
+<!-- UsageSnippet language="python" operationID="ShowDerivedMacro" method="get" path="/api/v2/macros/new" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -818,7 +818,7 @@ See [Using Offset Pagination](/api-reference/ticketing/introduction/#using-offse
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="SearchMacro" method="get" path="/api/v2/macros/search" -->
+<!-- UsageSnippet language="python" operationID="SearchMacro" method="get" path="/api/v2/macros/search" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -872,7 +872,7 @@ Updates the provided macros with the specified changes.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="UpdateManyMacros" method="put" path="/api/v2/macros/update_many" -->
+<!-- UsageSnippet language="python" operationID="UpdateManyMacros" method="put" path="/api/v2/macros/update_many" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -934,7 +934,7 @@ see [Show Changes to Ticket](#show-changes-to-ticket).
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowTicketAfterChanges" method="get" path="/api/v2/tickets/{ticket_id}/macros/{macro_id}/apply" -->
+<!-- UsageSnippet language="python" operationID="ShowTicketAfterChanges" method="get" path="/api/v2/tickets/{ticket_id}/macros/{macro_id}/apply" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

@@ -33,7 +33,7 @@ See [Pagination](/api-reference/introduction/pagination/).
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListSuspendedTickets" method="get" path="/api/v2/suspended_tickets" -->
+<!-- UsageSnippet language="python" operationID="ListSuspendedTickets" method="get" path="/api/v2/suspended_tickets" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -85,7 +85,7 @@ with Zendesk(
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowSuspendedTickets" method="get" path="/api/v2/suspended_tickets/{id}" -->
+<!-- UsageSnippet language="python" operationID="ShowSuspendedTickets" method="get" path="/api/v2/suspended_tickets/{id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -178,7 +178,7 @@ This endpoint does not queue an asynchronous job that can be tracked from [Job S
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="RecoverSuspendedTicket" method="put" path="/api/v2/suspended_tickets/{id}/recover" -->
+<!-- UsageSnippet language="python" operationID="RecoverSuspendedTicket" method="put" path="/api/v2/suspended_tickets/{id}/recover" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -227,7 +227,7 @@ Makes copies of any attachments on a suspended ticket and returns them as [attac
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="SuspendedTicketsAttachments" method="post" path="/api/v2/suspended_tickets/attachments" -->
+<!-- UsageSnippet language="python" operationID="SuspendedTicketsAttachments" method="post" path="/api/v2/suspended_tickets/attachments" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -322,7 +322,7 @@ Exports a list of suspended tickets for the Zendesk Support instance. To export 
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ExportSuspendedTickets" method="post" path="/api/v2/suspended_tickets/export" -->
+<!-- UsageSnippet language="python" operationID="ExportSuspendedTickets" method="post" path="/api/v2/suspended_tickets/export" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -369,7 +369,7 @@ Accepts up to 100 ids (the auto-generated id, not the ticket id.) Note that susp
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="RecoverSuspendedTickets" method="put" path="/api/v2/suspended_tickets/recover_many" -->
+<!-- UsageSnippet language="python" operationID="RecoverSuspendedTickets" method="put" path="/api/v2/suspended_tickets/recover_many" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

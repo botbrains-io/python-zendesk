@@ -25,7 +25,7 @@ Creates one or many tickets form status associations for a custom status.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CreateTicketFormStatusesForCustomStatus" method="post" path="/api/v2/custom_statuses/{custom_status_id}/ticket_form_statuses" -->
+<!-- UsageSnippet language="python" operationID="CreateTicketFormStatusesForCustomStatus" method="post" path="/api/v2/custom_statuses/{custom_status_id}/ticket_form_statuses" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -40,12 +40,6 @@ with Zendesk(
     res = z_client.ticket_form_statuses.create_ticket_form_statuses_for_custom_status(custom_status_id=1234567, ticket_form_status=[
         {
             "ticket_form_id": 1,
-        },
-        {
-            "ticket_form_id": 2,
-        },
-        {
-            "ticket_form_id": 3,
         },
     ])
 
@@ -84,7 +78,7 @@ Fetches all of the ticket form statuses for the account.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListTicketFormStatuses" method="get" path="/api/v2/ticket_form_statuses" -->
+<!-- UsageSnippet language="python" operationID="ListTicketFormStatuses" method="get" path="/api/v2/ticket_form_statuses" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -129,7 +123,7 @@ Fetches all of the ticket form statuses specified by a comma separated list of i
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowManyTicketFormStatuses" method="get" path="/api/v2/ticket_form_statuses/show_many" -->
+<!-- UsageSnippet language="python" operationID="ShowManyTicketFormStatuses" method="get" path="/api/v2/ticket_form_statuses/show_many" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -177,7 +171,7 @@ Fetches all of the associated ticket form statuses of a ticket form.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="TicketFormTicketFormStatuses" method="get" path="/api/v2/ticket_forms/{ticket_form_id}/ticket_form_statuses" -->
+<!-- UsageSnippet language="python" operationID="TicketFormTicketFormStatuses" method="get" path="/api/v2/ticket_forms/{ticket_form_id}/ticket_form_statuses" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -224,7 +218,7 @@ Creates one or many ticket form status associations
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CreateTicketFormStatuses" method="post" path="/api/v2/ticket_forms/{ticket_form_id}/ticket_form_statuses" -->
+<!-- UsageSnippet language="python" operationID="CreateTicketFormStatuses" method="post" path="/api/v2/ticket_forms/{ticket_form_id}/ticket_form_statuses" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -238,10 +232,7 @@ with Zendesk(
 
     res = z_client.ticket_form_statuses.create_ticket_form_statuses(ticket_form_id=47, ticket_form_status=[
         {
-            "custom_status_id": 1234,
-        },
-        {
-            "custom_status_id": 1235,
+            "custom_status_id": 12345,
         },
     ])
 
@@ -279,7 +270,7 @@ Updates or deletes ticket form status associations. This is a bulk operation tha
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="UpdateTicketFormStatuses" method="put" path="/api/v2/ticket_forms/{ticket_form_id}/ticket_form_statuses" -->
+<!-- UsageSnippet language="python" operationID="UpdateTicketFormStatuses" method="put" path="/api/v2/ticket_forms/{ticket_form_id}/ticket_form_statuses" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -294,10 +285,8 @@ with Zendesk(
     res = z_client.ticket_form_statuses.update_ticket_form_statuses(ticket_form_id=47, ticket_form_status=[
         {
             "destroy": "1",
+            "custom_status_id": 12345,
             "id": "abcdef",
-        },
-        {
-            "custom_status_id": 1,
         },
     ])
 
@@ -378,7 +367,7 @@ Updates or deletes ticket form status association by id.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="UpdateTicketFormStatusById" method="put" path="/api/v2/ticket_forms/{ticket_form_id}/ticket_form_statuses/{ticket_form_status_id}" -->
+<!-- UsageSnippet language="python" operationID="UpdateTicketFormStatusById" method="put" path="/api/v2/ticket_forms/{ticket_form_id}/ticket_form_statuses/{ticket_form_status_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -392,13 +381,9 @@ with Zendesk(
 
     res = z_client.ticket_form_statuses.update_ticket_form_status_by_id(ticket_form_id=47, ticket_form_status_id="abcdef", ticket_form_status=[
         {
-            "custom_status_id": 1,
-        },
-        {
-            "custom_status_id": 2,
-        },
-        {
-            "custom_status_id": 3,
+            "destroy": "1",
+            "custom_status_id": 12345,
+            "id": "abcdef",
         },
     ])
 

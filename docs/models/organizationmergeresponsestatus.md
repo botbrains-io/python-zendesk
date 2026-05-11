@@ -1,11 +1,16 @@
 # OrganizationMergeResponseStatus
 
+## Example Usage
+
+```python
+from zendesk.models import OrganizationMergeResponseStatus
+value: OrganizationMergeResponseStatus = "new"
+```
+
 
 ## Values
 
-| Name          | Value         |
-| ------------- | ------------- |
-| `NEW`         | new           |
-| `IN_PROGRESS` | in_progress   |
-| `ERROR`       | error         |
-| `COMPLETE`    | complete      |
+- `"new"`
+- `"in_progress"`
+- `"error"`
+- `"complete"`

@@ -1,10 +1,15 @@
 # TicketSortBy
 
+## Example Usage
+
+```python
+from zendesk.models import TicketSortBy
+value: TicketSortBy = "id"
+```
+
 
 ## Values
 
-| Name         | Value        |
-| ------------ | ------------ |
-| `ID`         | id           |
-| `SUBJECT`    | subject      |
-| `DELETED_AT` | deleted_at   |
+- `"id"`
+- `"subject"`
+- `"deleted_at"`

@@ -1,8 +1,13 @@
 # TypeFacebookEvent
 
+## Example Usage
+
+```python
+from zendesk.models import TypeFacebookEvent
+value: TypeFacebookEvent = "FacebookEvent"
+```
+
 
 ## Values
 
-| Name             | Value            |
-| ---------------- | ---------------- |
-| `FACEBOOK_EVENT` | FacebookEvent    |
+- `"FacebookEvent"`

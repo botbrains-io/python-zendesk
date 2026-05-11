@@ -2,11 +2,16 @@
 
 The format of the data that the webhook will send. To subscribe the webhook to Zendesk events, this must be "json"
 
+## Example Usage
+
+```python
+from zendesk.models import WebhookRequestFormat
+value: WebhookRequestFormat = "json"
+```
+
 
 ## Values
 
-| Name           | Value          |
-| -------------- | -------------- |
-| `JSON`         | json           |
-| `XML`          | xml            |
-| `FORM_ENCODED` | form_encoded   |
+- `"json"`
+- `"xml"`
+- `"form_encoded"`

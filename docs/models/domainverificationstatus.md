@@ -2,11 +2,16 @@
 
 Whether the domain verification record is valid. Possible values: "unknown", "verified", "failed"
 
+## Example Usage
+
+```python
+from zendesk.models import DomainVerificationStatus
+value: DomainVerificationStatus = "unknown"
+```
+
 
 ## Values
 
-| Name       | Value      |
-| ---------- | ---------- |
-| `UNKNOWN`  | unknown    |
-| `VERIFIED` | verified   |
-| `FAILED`   | failed     |
+- `"unknown"`
+- `"verified"`
+- `"failed"`

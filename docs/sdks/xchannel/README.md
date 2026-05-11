@@ -19,7 +19,7 @@
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListMonitoredTwitterHandles" method="get" path="/api/v2/channels/twitter/monitored_twitter_handles" -->
+<!-- UsageSnippet language="python" operationID="ListMonitoredTwitterHandles" method="get" path="/api/v2/channels/twitter/monitored_twitter_handles" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -64,7 +64,7 @@ with Zendesk(
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowMonitoredTwitterHandle" method="get" path="/api/v2/channels/twitter/monitored_twitter_handles/{monitored_twitter_handle_id}" -->
+<!-- UsageSnippet language="python" operationID="ShowMonitoredTwitterHandle" method="get" path="/api/v2/channels/twitter/monitored_twitter_handles/{monitored_twitter_handle_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -157,7 +157,7 @@ with Zendesk(
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="GettingTwicketStatus" method="get" path="/api/v2/channels/twitter/tickets/{comment_id}/statuses" -->
+<!-- UsageSnippet language="python" operationID="GettingTwicketStatus" method="get" path="/api/v2/channels/twitter/tickets/{comment_id}/statuses" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

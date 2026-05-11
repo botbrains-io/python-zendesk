@@ -1,9 +1,14 @@
 # TicketSortOrder
 
+## Example Usage
+
+```python
+from zendesk.models import TicketSortOrder
+value: TicketSortOrder = "asc"
+```
+
 
 ## Values
 
-| Name   | Value  |
-| ------ | ------ |
-| `ASC`  | asc    |
-| `DESC` | desc   |
+- `"asc"`
+- `"desc"`

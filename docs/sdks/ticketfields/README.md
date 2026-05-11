@@ -58,7 +58,7 @@ The following sideloads are supported:
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListTicketFields" method="get" path="/api/v2/ticket_fields" -->
+<!-- UsageSnippet language="python" operationID="ListTicketFields" method="get" path="/api/v2/ticket_fields" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -135,7 +135,7 @@ We recommend the following best practices for ticket fields limits. Creating mor
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CreateTicketField" method="post" path="/api/v2/ticket_fields" -->
+<!-- UsageSnippet language="python" operationID="CreateTicketField" method="post" path="/api/v2/ticket_fields" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -187,7 +187,7 @@ The following sideloads are supported:
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowTicketfield" method="get" path="/api/v2/ticket_fields/{ticket_field_id}" -->
+<!-- UsageSnippet language="python" operationID="ShowTicketfield" method="get" path="/api/v2/ticket_fields/{ticket_field_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -285,7 +285,7 @@ Status: 200 OK
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="UpdateTicketField" method="put" path="/api/v2/ticket_fields/{ticket_field_id}" -->
+<!-- UsageSnippet language="python" operationID="UpdateTicketField" method="put" path="/api/v2/ticket_fields/{ticket_field_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -381,7 +381,7 @@ See [Pagination](/api-reference/introduction/pagination/).
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListTicketFieldOptions" method="get" path="/api/v2/ticket_fields/{ticket_field_id}/options" -->
+<!-- UsageSnippet language="python" operationID="ListTicketFieldOptions" method="get" path="/api/v2/ticket_fields/{ticket_field_id}/options" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -455,7 +455,7 @@ The rate limiting mechanism behaves as described in
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CreateOrUpdateTicketFieldOption" method="post" path="/api/v2/ticket_fields/{ticket_field_id}/options" -->
+<!-- UsageSnippet language="python" operationID="CreateOrUpdateTicketFieldOption" method="post" path="/api/v2/ticket_fields/{ticket_field_id}/options" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -499,7 +499,7 @@ with Zendesk(
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowTicketFieldOption" method="get" path="/api/v2/ticket_fields/{ticket_field_id}/options/{ticket_field_option_id}" -->
+<!-- UsageSnippet language="python" operationID="ShowTicketFieldOption" method="get" path="/api/v2/ticket_fields/{ticket_field_id}/options/{ticket_field_option_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -590,7 +590,7 @@ This indicates that the count is being updated in the background, and `count[val
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CountTicketFields" method="get" path="/api/v2/ticket_fields/count" -->
+<!-- UsageSnippet language="python" operationID="CountTicketFields" method="get" path="/api/v2/ticket_fields/count" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

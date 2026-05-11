@@ -32,7 +32,7 @@ class APIKeyAuthenticationData(BaseModel):
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
-            val = serialized.get(k)
+            val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
                 if val is not None or k not in optional_fields:
@@ -52,7 +52,7 @@ class APIKeyAuthenticationTypedDict(TypedDict):
     r"""API key authentication configuration"""
 
     type: APIKeyAuthenticationType
-    data: APIKeyAuthenticationDataTypedDict
+    data: NotRequired[APIKeyAuthenticationDataTypedDict]
     add_position: NotRequired[AddPosition]
     r"""Where to add the API key (header or query string)"""
 
@@ -62,20 +62,20 @@ class APIKeyAuthentication(BaseModel):
 
     type: APIKeyAuthenticationType
 
-    data: APIKeyAuthenticationData
+    data: Optional[APIKeyAuthenticationData] = None
 
     add_position: Optional[AddPosition] = "header"
     r"""Where to add the API key (header or query string)"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["add_position"])
+        optional_fields = set(["data", "add_position"])
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
-            val = serialized.get(k)
+            val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
                 if val is not None or k not in optional_fields:

@@ -113,7 +113,7 @@ with Zendesk(
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="GetUserPasswordRequirements" method="get" path="/api/v2/users/{user_id}/password/requirements" -->
+<!-- UsageSnippet language="python" operationID="GetUserPasswordRequirements" method="get" path="/api/v2/users/{user_id}/password/requirements" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

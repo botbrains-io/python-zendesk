@@ -1,8 +1,13 @@
 # TypeOrganizationActivity
 
+## Example Usage
+
+```python
+from zendesk.models import TypeOrganizationActivity
+value: TypeOrganizationActivity = "OrganizationActivity"
+```
+
 
 ## Values
 
-| Name                    | Value                   |
-| ----------------------- | ----------------------- |
-| `ORGANIZATION_ACTIVITY` | OrganizationActivity    |
+- `"OrganizationActivity"`

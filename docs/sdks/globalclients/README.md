@@ -26,7 +26,7 @@ Returns a maximum of 100 records per page.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListGlobalOAuthClients" method="get" path="/api/v2/oauth/global_clients" -->
+<!-- UsageSnippet language="python" operationID="ListGlobalOAuthClients" method="get" path="/api/v2/oauth/global_clients" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

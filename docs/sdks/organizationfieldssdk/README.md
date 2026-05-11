@@ -28,7 +28,7 @@ Returns a maximum of 100 records per page.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListOrganizationFields" method="get" path="/api/v2/organization_fields" -->
+<!-- UsageSnippet language="python" operationID="ListOrganizationFields" method="get" path="/api/v2/organization_fields" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -92,7 +92,7 @@ See [About custom field types](https://support.zendesk.com/hc/en-us/articles/203
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CreateOrganizationField" method="post" path="/api/v2/organization_fields" -->
+<!-- UsageSnippet language="python" operationID="CreateOrganizationField" method="post" path="/api/v2/organization_fields" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

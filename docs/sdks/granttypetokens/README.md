@@ -123,7 +123,7 @@ The implicit grant flow has been deprecated. It's considered insecure and its us
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CreateTokenForGrantType" method="post" path="/oauth/tokens" -->
+<!-- UsageSnippet language="python" operationID="CreateTokenForGrantType" method="post" path="/oauth/tokens" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

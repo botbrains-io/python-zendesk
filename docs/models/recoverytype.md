@@ -2,10 +2,15 @@
 
 The type of recovery
 
+## Example Usage
+
+```python
+from zendesk.models import RecoveryType
+value: RecoveryType = "manual"
+```
+
 
 ## Values
 
-| Name        | Value       |
-| ----------- | ----------- |
-| `MANUAL`    | manual      |
-| `AUTOMATIC` | automatic   |
+- `"manual"`
+- `"automatic"`

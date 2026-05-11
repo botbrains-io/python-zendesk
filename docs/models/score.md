@@ -2,12 +2,17 @@
 
 The rating state
 
+## Example Usage
+
+```python
+from zendesk.models import Score
+value: Score = "offered"
+```
+
 
 ## Values
 
-| Name        | Value       |
-| ----------- | ----------- |
-| `OFFERED`   | offered     |
-| `UNOFFERED` | unoffered   |
-| `GOOD`      | good        |
-| `BAD`       | bad         |
+- `"offered"`
+- `"unoffered"`
+- `"good"`
+- `"bad"`

@@ -15,7 +15,7 @@
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListBookmarks" method="get" path="/api/v2/bookmarks" -->
+<!-- UsageSnippet language="python" operationID="ListBookmarks" method="get" path="/api/v2/bookmarks" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -57,7 +57,7 @@ with Zendesk(
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CreateBookmark" method="post" path="/api/v2/bookmarks" -->
+<!-- UsageSnippet language="python" operationID="CreateBookmark" method="post" path="/api/v2/bookmarks" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

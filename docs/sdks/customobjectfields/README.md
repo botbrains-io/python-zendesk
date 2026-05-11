@@ -27,7 +27,7 @@ See [Pagination](/api-reference/introduction/pagination/).
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListCustomObjectFields" method="get" path="/api/v2/custom_objects/{custom_object_key}/fields" -->
+<!-- UsageSnippet language="python" operationID="ListCustomObjectFields" method="get" path="/api/v2/custom_objects/{custom_object_key}/fields" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -93,7 +93,7 @@ See [About custom field types](https://support.zendesk.com/hc/en-us/articles/203
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CreateCustomObjectField" method="post" path="/api/v2/custom_objects/{custom_object_key}/fields" -->
+<!-- UsageSnippet language="python" operationID="CreateCustomObjectField" method="post" path="/api/v2/custom_objects/{custom_object_key}/fields" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -143,7 +143,7 @@ Returns a custom field for a specific object using a provided key or id of the f
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowCustomObjectField" method="get" path="/api/v2/custom_objects/{custom_object_key}/fields/{custom_object_field_key_or_id}" -->
+<!-- UsageSnippet language="python" operationID="ShowCustomObjectField" method="get" path="/api/v2/custom_objects/{custom_object_key}/fields/{custom_object_field_key_or_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -197,7 +197,7 @@ Updates individual custom object fields. The updating rules are as follows:
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="UpdateCustomObjectField" method="patch" path="/api/v2/custom_objects/{custom_object_key}/fields/{custom_object_field_key_or_id}" -->
+<!-- UsageSnippet language="python" operationID="UpdateCustomObjectField" method="patch" path="/api/v2/custom_objects/{custom_object_key}/fields/{custom_object_field_key_or_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -328,7 +328,7 @@ List the current count and the limit for a custom object's fields
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CustomObjectFieldsLimit" method="get" path="/api/v2/custom_objects/{custom_object_key}/limits/field_limit" -->
+<!-- UsageSnippet language="python" operationID="CustomObjectFieldsLimit" method="get" path="/api/v2/custom_objects/{custom_object_key}/limits/field_limit" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

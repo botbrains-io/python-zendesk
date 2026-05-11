@@ -36,7 +36,7 @@ Returns a maximum of 100 records per page for cursor pagination.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListUserIdentities" method="get" path="/api/v2/users/{user_id}/identities" -->
+<!-- UsageSnippet language="python" operationID="ListUserIdentities" method="get" path="/api/v2/users/{user_id}/identities" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -102,7 +102,7 @@ To create an identity without sending out a verification email, include a `"skip
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CreateUserIdentity" method="post" path="/api/v2/users/{user_id}/identities" -->
+<!-- UsageSnippet language="python" operationID="CreateUserIdentity" method="post" path="/api/v2/users/{user_id}/identities" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -153,7 +153,7 @@ Use the first endpoint if authenticating as an agent. Use the second if authenti
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowUserIdentity" method="get" path="/api/v2/users/{user_id}/identities/{user_identity_id}" -->
+<!-- UsageSnippet language="python" operationID="ShowUserIdentity" method="get" path="/api/v2/users/{user_id}/identities/{user_identity_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -207,7 +207,7 @@ You can't change an identity's `primary` attribute with this endpoint. You must 
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="UpdateUserIdentity" method="put" path="/api/v2/users/{user_id}/identities/{user_identity_id}" -->
+<!-- UsageSnippet language="python" operationID="UpdateUserIdentity" method="put" path="/api/v2/users/{user_id}/identities/{user_identity_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -303,7 +303,7 @@ The first endpoint is the preferred option if authenticating as an agent. If aut
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="MakeUserIdentityPrimary" method="put" path="/api/v2/users/{user_id}/identities/{user_identity_id}/make_primary" -->
+<!-- UsageSnippet language="python" operationID="MakeUserIdentityPrimary" method="put" path="/api/v2/users/{user_id}/identities/{user_identity_id}/make_primary" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -403,7 +403,7 @@ If [automatic mapping of users to organizations using the email domain](https://
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="VerifyUserIdentity" method="put" path="/api/v2/users/{user_id}/identities/{user_identity_id}/verify" -->
+<!-- UsageSnippet language="python" operationID="VerifyUserIdentity" method="put" path="/api/v2/users/{user_id}/identities/{user_identity_id}/verify" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

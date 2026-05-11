@@ -22,7 +22,7 @@ Returns the 25 most recent target failures, per target.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListTargetFailures" method="get" path="/api/v2/target_failures" -->
+<!-- UsageSnippet language="python" operationID="ListTargetFailures" method="get" path="/api/v2/target_failures" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -70,7 +70,7 @@ with Zendesk(
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowTargetFailure" method="get" path="/api/v2/target_failures/{target_failure_id}" -->
+<!-- UsageSnippet language="python" operationID="ShowTargetFailure" method="get" path="/api/v2/target_failures/{target_failure_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

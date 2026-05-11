@@ -1,8 +1,13 @@
 # TypeVoiceComment
 
+## Example Usage
+
+```python
+from zendesk.models import TypeVoiceComment
+value: TypeVoiceComment = "VoiceComment"
+```
+
 
 ## Values
 
-| Name            | Value           |
-| --------------- | --------------- |
-| `VOICE_COMMENT` | VoiceComment    |
+- `"VoiceComment"`

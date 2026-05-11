@@ -31,7 +31,7 @@ See [Pagination](/api-reference/introduction/pagination/).
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListBrands" method="get" path="/api/v2/brands" -->
+<!-- UsageSnippet language="python" operationID="ListBrands" method="get" path="/api/v2/brands" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -78,7 +78,7 @@ with Zendesk(
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CreateBrand" method="post" path="/api/v2/brands" -->
+<!-- UsageSnippet language="python" operationID="CreateBrand" method="post" path="/api/v2/brands" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -129,7 +129,7 @@ Returns a brand for your account.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowBrand" method="get" path="/api/v2/brands/{brand_id}" -->
+<!-- UsageSnippet language="python" operationID="ShowBrand" method="get" path="/api/v2/brands/{brand_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -177,7 +177,7 @@ A brand image can be updated by uploading a local file using the update brand en
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="UpdateBrand" method="put" path="/api/v2/brands/{brand_id}" -->
+<!-- UsageSnippet language="python" operationID="UpdateBrand" method="put" path="/api/v2/brands/{brand_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -266,9 +266,49 @@ Returns a JSON object determining whether a host mapping is valid for the given 
 #### Allowed for
 - Admins
 
-### Example Usage
+### Example Usage: default
 
-<!-- UsageSnippet language="python" operationID="CheckHostMappingValidityForExistingBrand" method="get" path="/api/v2/brands/{brand_id}/check_host_mapping" -->
+<!-- UsageSnippet language="python" operationID="CheckHostMappingValidityForExistingBrand" method="get" path="/api/v2/brands/{brand_id}/check_host_mapping" example="default" -->
+```python
+from zendesk import Zendesk, models
+
+
+with Zendesk(
+    security=models.Security(
+        username="",
+        password="",
+    ),
+) as z_client:
+
+    res = z_client.brands.check_host_mapping_validity_for_existing_brand(brand_id=360002783572)
+
+    # Handle response
+    print(res)
+
+```
+### Example Usage: invalidCNAMEExample
+
+<!-- UsageSnippet language="python" operationID="CheckHostMappingValidityForExistingBrand" method="get" path="/api/v2/brands/{brand_id}/check_host_mapping" example="invalidCNAMEExample" -->
+```python
+from zendesk import Zendesk, models
+
+
+with Zendesk(
+    security=models.Security(
+        username="",
+        password="",
+    ),
+) as z_client:
+
+    res = z_client.brands.check_host_mapping_validity_for_existing_brand(brand_id=360002783572)
+
+    # Handle response
+    print(res)
+
+```
+### Example Usage: wrongCNAMEExample
+
+<!-- UsageSnippet language="python" operationID="CheckHostMappingValidityForExistingBrand" method="get" path="/api/v2/brands/{brand_id}/check_host_mapping" example="wrongCNAMEExample" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -312,9 +352,49 @@ Returns a JSON object determining whether a host mapping is valid for a given su
 
 * Admins
 
-### Example Usage
+### Example Usage: default
 
-<!-- UsageSnippet language="python" operationID="CheckHostMappingValidity" method="get" path="/api/v2/brands/check_host_mapping" -->
+<!-- UsageSnippet language="python" operationID="CheckHostMappingValidity" method="get" path="/api/v2/brands/check_host_mapping" example="default" -->
+```python
+from zendesk import Zendesk, models
+
+
+with Zendesk(
+    security=models.Security(
+        username="",
+        password="",
+    ),
+) as z_client:
+
+    res = z_client.brands.check_host_mapping_validity(host_mapping="brand1.com", subdomain="Brand1")
+
+    # Handle response
+    print(res)
+
+```
+### Example Usage: invalidCNAMEExample
+
+<!-- UsageSnippet language="python" operationID="CheckHostMappingValidity" method="get" path="/api/v2/brands/check_host_mapping" example="invalidCNAMEExample" -->
+```python
+from zendesk import Zendesk, models
+
+
+with Zendesk(
+    security=models.Security(
+        username="",
+        password="",
+    ),
+) as z_client:
+
+    res = z_client.brands.check_host_mapping_validity(host_mapping="brand1.com", subdomain="Brand1")
+
+    # Handle response
+    print(res)
+
+```
+### Example Usage: wrongCNAMEExample
+
+<!-- UsageSnippet language="python" operationID="CheckHostMappingValidity" method="get" path="/api/v2/brands/check_host_mapping" example="wrongCNAMEExample" -->
 ```python
 from zendesk import Zendesk, models
 

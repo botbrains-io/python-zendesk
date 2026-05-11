@@ -1,9 +1,14 @@
 # FollowerObjectAction
 
+## Example Usage
+
+```python
+from zendesk.models import FollowerObjectAction
+value: FollowerObjectAction = "put"
+```
+
 
 ## Values
 
-| Name     | Value    |
-| -------- | -------- |
-| `PUT`    | put      |
-| `DELETE` | delete   |
+- `"put"`
+- `"delete"`

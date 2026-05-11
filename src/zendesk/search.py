@@ -128,13 +128,13 @@ class Search(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
         def next_func() -> Optional[models.ListSearchResultsResponse]:
             body = utils.unmarshal_json(http_res.text, Union[Dict[Any, Any], List[Any]])
-            page = request.page if not request.page is None else 1
+            page = request.page if isinstance(request.page, int) else 1
             next_page = page + 1
 
             if not http_res.text:
@@ -142,8 +142,8 @@ class Search(BaseSDK):
             results = JSONPath("$.results").parse(body)
             if len(results) == 0 or len(results[0]) == 0:
                 return None
-            limit = request.per_page if not request.per_page is None else 100
-            if len(results[0]) < limit:
+            limit_ = request.per_page if isinstance(request.per_page, int) else 100
+            if len(results[0]) < limit_:
                 return None
 
             return self.list_search_results(
@@ -153,6 +153,9 @@ class Search(BaseSDK):
                 page=next_page,
                 per_page=per_page,
                 retries=retries,
+                server_url=server_url,
+                timeout_ms=timeout_ms,
+                http_headers=http_headers,
             )
 
         if utils.match_response(http_res, "200", "application/json"):
@@ -286,13 +289,13 @@ class Search(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
         def next_func() -> Optional[models.ListSearchResultsResponse]:
             body = utils.unmarshal_json(http_res.text, Union[Dict[Any, Any], List[Any]])
-            page = request.page if not request.page is None else 1
+            page = request.page if isinstance(request.page, int) else 1
             next_page = page + 1
 
             if not http_res.text:
@@ -300,8 +303,8 @@ class Search(BaseSDK):
             results = JSONPath("$.results").parse(body)
             if len(results) == 0 or len(results[0]) == 0:
                 return None
-            limit = request.per_page if not request.per_page is None else 100
-            if len(results[0]) < limit:
+            limit_ = request.per_page if isinstance(request.per_page, int) else 100
+            if len(results[0]) < limit_:
                 return None
 
             return self.list_search_results(
@@ -311,6 +314,9 @@ class Search(BaseSDK):
                 page=next_page,
                 per_page=per_page,
                 retries=retries,
+                server_url=server_url,
+                timeout_ms=timeout_ms,
+                http_headers=http_headers,
             )
 
         if utils.match_response(http_res, "200", "application/json"):
@@ -401,7 +407,7 @@ class Search(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -490,7 +496,7 @@ class Search(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -637,7 +643,7 @@ class Search(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -659,6 +665,9 @@ class Search(BaseSDK):
                 page_size=page_size,
                 filter_type=filter_type,
                 retries=retries,
+                server_url=server_url,
+                timeout_ms=timeout_ms,
+                http_headers=http_headers,
             )
 
         if utils.match_response(http_res, "200", "application/json"):
@@ -807,7 +816,7 @@ class Search(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -829,6 +838,9 @@ class Search(BaseSDK):
                 page_size=page_size,
                 filter_type=filter_type,
                 retries=retries,
+                server_url=server_url,
+                timeout_ms=timeout_ms,
+                http_headers=http_headers,
             )
 
         if utils.match_response(http_res, "200", "application/json"):

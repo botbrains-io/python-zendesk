@@ -1,8 +1,13 @@
 # BasicAuthAuthenticationType
 
+## Example Usage
+
+```python
+from zendesk.models import BasicAuthAuthenticationType
+value: BasicAuthAuthenticationType = "basic_auth"
+```
+
 
 ## Values
 
-| Name         | Value        |
-| ------------ | ------------ |
-| `BASIC_AUTH` | basic_auth   |
+- `"basic_auth"`

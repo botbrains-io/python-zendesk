@@ -2,13 +2,18 @@
 
 Status of the delivery attempt
 
+## Example Usage
+
+```python
+from zendesk.models import WebhookInvocationAttemptStatus
+value: WebhookInvocationAttemptStatus = "success"
+```
+
 
 ## Values
 
-| Name           | Value          |
-| -------------- | -------------- |
-| `SUCCESS`      | success        |
-| `FAILED`       | failed         |
-| `TIMEOUT`      | timeout        |
-| `CLIENT_ERROR` | client error   |
-| `SERVER_ERROR` | server error   |
+- `"success"`
+- `"failed"`
+- `"timeout"`
+- `"client error"`
+- `"server error"`

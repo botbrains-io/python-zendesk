@@ -2,10 +2,15 @@
 
 Enable safe update mode to prevent collisions
 
+## Example Usage
+
+```python
+from zendesk.models import SafeUpdate
+value: SafeUpdate = "true"
+```
+
 
 ## Values
 
-| Name    | Value   |
-| ------- | ------- |
-| `TRUE`  | true    |
-| `FALSE` | false   |
+- `"true"`
+- `"false"`

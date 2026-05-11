@@ -1,9 +1,14 @@
 # WebhookPatchRequestStatus
 
+## Example Usage
+
+```python
+from zendesk.models import WebhookPatchRequestStatus
+value: WebhookPatchRequestStatus = "active"
+```
+
 
 ## Values
 
-| Name       | Value      |
-| ---------- | ---------- |
-| `ACTIVE`   | active     |
-| `INACTIVE` | inactive   |
+- `"active"`
+- `"inactive"`

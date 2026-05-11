@@ -110,7 +110,7 @@ class TicketMetricEvents(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -132,6 +132,9 @@ class TicketMetricEvents(BaseSDK):
                 page_size=page_size,
                 include_changes=include_changes,
                 retries=retries,
+                server_url=server_url,
+                timeout_ms=timeout_ms,
+                http_headers=http_headers,
             )
 
         if utils.match_response(http_res, "200", "application/json"):
@@ -249,7 +252,7 @@ class TicketMetricEvents(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -271,6 +274,9 @@ class TicketMetricEvents(BaseSDK):
                 page_size=page_size,
                 include_changes=include_changes,
                 retries=retries,
+                server_url=server_url,
+                timeout_ms=timeout_ms,
+                http_headers=http_headers,
             )
 
         if utils.match_response(http_res, "200", "application/json"):

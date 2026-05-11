@@ -1,8 +1,13 @@
 # TypeCommentPrivacyChange
 
+## Example Usage
+
+```python
+from zendesk.models import TypeCommentPrivacyChange
+value: TypeCommentPrivacyChange = "CommentPrivacyChange"
+```
+
 
 ## Values
 
-| Name                     | Value                    |
-| ------------------------ | ------------------------ |
-| `COMMENT_PRIVACY_CHANGE` | CommentPrivacyChange     |
+- `"CommentPrivacyChange"`

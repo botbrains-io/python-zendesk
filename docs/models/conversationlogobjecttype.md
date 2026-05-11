@@ -2,11 +2,16 @@
 
 Either user, agent, or bot
 
+## Example Usage
+
+```python
+from zendesk.models import ConversationLogObjectType
+value: ConversationLogObjectType = "user"
+```
+
 
 ## Values
 
-| Name    | Value   |
-| ------- | ------- |
-| `USER`  | user    |
-| `AGENT` | agent   |
-| `BOT`   | bot     |
+- `"user"`
+- `"agent"`
+- `"bot"`

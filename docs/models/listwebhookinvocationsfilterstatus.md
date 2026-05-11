@@ -2,17 +2,22 @@
 
 Filters invocations by invocation status
 
+## Example Usage
+
+```python
+from zendesk.models import ListWebhookInvocationsFilterStatus
+value: ListWebhookInvocationsFilterStatus = "unknown"
+```
+
 
 ## Values
 
-| Name             | Value            |
-| ---------------- | ---------------- |
-| `UNKNOWN`        | unknown          |
-| `ACCEPTED`       | accepted         |
-| `SUCCESS`        | success          |
-| `FAILED`         | failed           |
-| `TIMEOUT`        | timeout          |
-| `CIRCUIT_BROKEN` | circuit broken   |
-| `THROTTLED`      | throttled        |
-| `CLIENT_ERROR`   | client error     |
-| `SERVER_ERROR`   | server error     |
+- `"unknown"`
+- `"accepted"`
+- `"success"`
+- `"failed"`
+- `"timeout"`
+- `"circuit broken"`
+- `"throttled"`
+- `"client error"`
+- `"server error"`

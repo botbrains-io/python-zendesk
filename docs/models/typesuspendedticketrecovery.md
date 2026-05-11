@@ -1,8 +1,13 @@
 # TypeSuspendedTicketRecovery
 
+## Example Usage
+
+```python
+from zendesk.models import TypeSuspendedTicketRecovery
+value: TypeSuspendedTicketRecovery = "SuspendedTicketRecovery"
+```
+
 
 ## Values
 
-| Name                        | Value                       |
-| --------------------------- | --------------------------- |
-| `SUSPENDED_TICKET_RECOVERY` | SuspendedTicketRecovery     |
+- `"SuspendedTicketRecovery"`

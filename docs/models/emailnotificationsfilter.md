@@ -1,10 +1,15 @@
 # EmailNotificationsFilter
 
+## Example Usage
+
+```python
+from zendesk.models import EmailNotificationsFilter
+value: EmailNotificationsFilter = "ticket_id"
+```
+
 
 ## Values
 
-| Name              | Value             |
-| ----------------- | ----------------- |
-| `TICKET_ID`       | ticket_id         |
-| `COMMENT_ID`      | comment_id        |
-| `NOTIFICATION_ID` | notification_id   |
+- `"ticket_id"`
+- `"comment_id"`
+- `"notification_id"`

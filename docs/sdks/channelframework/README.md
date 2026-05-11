@@ -167,7 +167,7 @@ same order.  For example, if you call `push` with 3 external resources, a succes
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="PushContentToSupport" method="post" path="/api/v2/any_channel/push" -->
+<!-- UsageSnippet language="python" operationID="PushContentToSupport" method="post" path="/api/v2/any_channel/push" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

@@ -1,8 +1,13 @@
 # TypeSurveyOffered
 
+## Example Usage
+
+```python
+from zendesk.models import TypeSurveyOffered
+value: TypeSurveyOffered = "SurveyOffered"
+```
+
 
 ## Values
 
-| Name             | Value            |
-| ---------------- | ---------------- |
-| `SURVEY_OFFERED` | SurveyOffered    |
+- `"SurveyOffered"`

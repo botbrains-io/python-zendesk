@@ -17,7 +17,7 @@ List assignable groups and agents based on query matched against name
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListAssigneeFieldAssignableGroupsAndAgentsSearch" method="get" path="/api/lotus/assignables/autocomplete.json" -->
+<!-- UsageSnippet language="python" operationID="ListAssigneeFieldAssignableGroupsAndAgentsSearch" method="get" path="/api/lotus/assignables/autocomplete.json" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

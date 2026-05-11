@@ -21,7 +21,7 @@
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListWorkspaces" method="get" path="/api/v2/workspaces" -->
+<!-- UsageSnippet language="python" operationID="ListWorkspaces" method="get" path="/api/v2/workspaces" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -65,7 +65,7 @@ with Zendesk(
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CreateWorkspace" method="post" path="/api/v2/workspaces" -->
+<!-- UsageSnippet language="python" operationID="CreateWorkspace" method="post" path="/api/v2/workspaces" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -128,7 +128,7 @@ with Zendesk(
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowWorkspace" method="get" path="/api/v2/workspaces/{workspace_id}" -->
+<!-- UsageSnippet language="python" operationID="ShowWorkspace" method="get" path="/api/v2/workspaces/{workspace_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -171,7 +171,7 @@ with Zendesk(
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="UpdateWorkspace" method="put" path="/api/v2/workspaces/{workspace_id}" -->
+<!-- UsageSnippet language="python" operationID="UpdateWorkspace" method="put" path="/api/v2/workspaces/{workspace_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -320,7 +320,7 @@ with Zendesk(
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ReorderWorkspaces" method="put" path="/api/v2/workspaces/reorder" -->
+<!-- UsageSnippet language="python" operationID="ReorderWorkspaces" method="put" path="/api/v2/workspaces/reorder" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

@@ -19,7 +19,7 @@ List assignable groups and agents based on query matched against name
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListAssigneeFieldAssignableGroupsAndAgentsSearch" method="get" path="/api/lotus/assignables/autocomplete.json" -->
+<!-- UsageSnippet language="python" operationID="ListAssigneeFieldAssignableGroupsAndAgentsSearch" method="get" path="/api/lotus/assignables/autocomplete.json" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -66,7 +66,7 @@ List assignable groups on the AssigneeField
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListAssigneeFieldAssignableGroups" method="get" path="/api/lotus/assignables/groups.json" -->
+<!-- UsageSnippet language="python" operationID="ListAssigneeFieldAssignableGroups" method="get" path="/api/lotus/assignables/groups.json" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -112,7 +112,7 @@ List assignable agents from a group on the AssigneeField
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListAssigneeFieldAssignableGroupAgents" method="get" path="/api/lotus/assignables/groups/{group_id}/agents.json" -->
+<!-- UsageSnippet language="python" operationID="ListAssigneeFieldAssignableGroupAgents" method="get" path="/api/lotus/assignables/groups/{group_id}/agents.json" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

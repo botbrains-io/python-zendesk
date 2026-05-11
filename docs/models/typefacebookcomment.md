@@ -1,8 +1,13 @@
 # TypeFacebookComment
 
+## Example Usage
+
+```python
+from zendesk.models import TypeFacebookComment
+value: TypeFacebookComment = "FacebookComment"
+```
+
 
 ## Values
 
-| Name               | Value              |
-| ------------------ | ------------------ |
-| `FACEBOOK_COMMENT` | FacebookComment    |
+- `"FacebookComment"`

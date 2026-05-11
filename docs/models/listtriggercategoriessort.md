@@ -2,16 +2,21 @@
 
 Sort parameters
 
+## Example Usage
+
+```python
+from zendesk.models import ListTriggerCategoriesSort
+value: ListTriggerCategoriesSort = "position"
+```
+
 
 ## Values
 
-| Name               | Value              |
-| ------------------ | ------------------ |
-| `POSITION`         | position           |
-| `MINUS_POSITION`   | -position          |
-| `NAME`             | name               |
-| `MINUS_NAME`       | -name              |
-| `CREATED_AT`       | created_at         |
-| `MINUS_CREATED_AT` | -created_at        |
-| `UPDATED_AT`       | updated_at         |
-| `MINUS_UPDATED_AT` | -updated_at        |
+- `"position"`
+- `"-position"`
+- `"name"`
+- `"-name"`
+- `"created_at"`
+- `"-created_at"`
+- `"updated_at"`
+- `"-updated_at"`

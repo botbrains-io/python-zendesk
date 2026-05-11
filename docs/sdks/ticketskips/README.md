@@ -18,7 +18,7 @@ Record a new ticket skip for the current user.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="RecordNewSkip" method="post" path="/api/v2/skips" -->
+<!-- UsageSnippet language="python" operationID="RecordNewSkip" method="post" path="/api/v2/skips" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -76,7 +76,7 @@ Returns a maximum of 100 records per page.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListTicketSkips" method="get" path="/api/v2/users/{user_id}/skips" -->
+<!-- UsageSnippet language="python" operationID="ListTicketSkips" method="get" path="/api/v2/users/{user_id}/skips" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

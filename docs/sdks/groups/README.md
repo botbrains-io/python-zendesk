@@ -31,7 +31,7 @@ Returns a maximum of 100 records per page.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListGroups" method="get" path="/api/v2/groups" -->
+<!-- UsageSnippet language="python" operationID="ListGroups" method="get" path="/api/v2/groups" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -82,7 +82,7 @@ with Zendesk(
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CreateGroup" method="post" path="/api/v2/groups" -->
+<!-- UsageSnippet language="python" operationID="CreateGroup" method="post" path="/api/v2/groups" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -130,7 +130,7 @@ with Zendesk(
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowGroupById" method="get" path="/api/v2/groups/{group_id}" -->
+<!-- UsageSnippet language="python" operationID="ShowGroupById" method="get" path="/api/v2/groups/{group_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -175,7 +175,7 @@ with Zendesk(
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="UpdateGroup" method="put" path="/api/v2/groups/{group_id}" -->
+<!-- UsageSnippet language="python" operationID="UpdateGroup" method="put" path="/api/v2/groups/{group_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -274,7 +274,7 @@ Returns a maximum of 100 records per page.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListAssignableGroups" method="get" path="/api/v2/groups/assignable" -->
+<!-- UsageSnippet language="python" operationID="ListAssignableGroups" method="get" path="/api/v2/groups/assignable" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -330,7 +330,7 @@ The `refreshed_at` property of the `count` object is a timestamp that indicates 
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CountGroups" method="get" path="/api/v2/groups/count" -->
+<!-- UsageSnippet language="python" operationID="CountGroups" method="get" path="/api/v2/groups/count" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

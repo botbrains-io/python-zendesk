@@ -23,7 +23,7 @@ Returns all active queues for an account.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListQueues" method="get" path="/api/v2/queues" -->
+<!-- UsageSnippet language="python" operationID="ListQueues" method="get" path="/api/v2/queues" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -69,7 +69,7 @@ Creates a queue. Accepts a JSON queue definition as the request body.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CreateQueue" method="post" path="/api/v2/queues" -->
+<!-- UsageSnippet language="python" operationID="CreateQueue" method="post" path="/api/v2/queues" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -114,7 +114,7 @@ Returns a queue for the given queue id.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowQueueById" method="get" path="/api/v2/queues/{queue_id}" -->
+<!-- UsageSnippet language="python" operationID="ShowQueueById" method="get" path="/api/v2/queues/{queue_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -160,7 +160,7 @@ Updates the queue definition for a given queue id.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="UpdateQueue" method="put" path="/api/v2/queues/{queue_id}" -->
+<!-- UsageSnippet language="python" operationID="UpdateQueue" method="put" path="/api/v2/queues/{queue_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -251,7 +251,7 @@ as well as the possible operators.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListQueueDefinitions" method="get" path="/api/v2/queues/definitions" -->
+<!-- UsageSnippet language="python" operationID="ListQueueDefinitions" method="get" path="/api/v2/queues/definitions" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

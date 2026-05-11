@@ -42,7 +42,7 @@ By default, email notifications are sorted by creation time (newest first). The 
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListEmailNotifications" method="get" path="/api/v2/email_notifications" -->
+<!-- UsageSnippet language="python" operationID="ListEmailNotifications" method="get" path="/api/v2/email_notifications" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -96,7 +96,7 @@ Shows details on an email notification. You can get the value of the `notificati
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowEmailNotification" method="get" path="/api/v2/email_notifications/{notification_id}" -->
+<!-- UsageSnippet language="python" operationID="ShowEmailNotification" method="get" path="/api/v2/email_notifications/{notification_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -149,7 +149,7 @@ Shows details of many email notifications. Allows you to query by providing a li
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowManyEmailNotifications" method="get" path="/api/v2/email_notifications/show_many" -->
+<!-- UsageSnippet language="python" operationID="ShowManyEmailNotifications" method="get" path="/api/v2/email_notifications/show_many" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

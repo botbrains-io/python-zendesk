@@ -36,7 +36,7 @@ Returns a maximum of 100 records per page.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListTicketMetrics" method="get" path="/api/v2/ticket_metrics" -->
+<!-- UsageSnippet language="python" operationID="ListTicketMetrics" method="get" path="/api/v2/ticket_metrics" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -96,7 +96,7 @@ Returns a maximum of 100 records per page.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowTicketMetrics" method="get" path="/api/v2/ticket_metrics/{ticket_metric_id}" -->
+<!-- UsageSnippet language="python" operationID="ShowTicketMetrics" method="get" path="/api/v2/ticket_metrics/{ticket_metric_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

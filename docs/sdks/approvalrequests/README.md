@@ -24,7 +24,7 @@ Creates an approval request that is attached to a ticket. The request must inclu
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CreateApprovalRequest" method="post" path="/api/v2/approval_workflow_instances/{approval_workflow_instance_id}/approval_requests" -->
+<!-- UsageSnippet language="python" operationID="CreateApprovalRequest" method="post" path="/api/v2/approval_workflow_instances/{approval_workflow_instance_id}/approval_requests" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -76,7 +76,7 @@ Shows an approval request.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowApprovalRequest" method="get" path="/api/v2/approval_workflow_instances/{approval_workflow_instance_id}/approval_requests/{approval_request_id}" -->
+<!-- UsageSnippet language="python" operationID="ShowApprovalRequest" method="get" path="/api/v2/approval_workflow_instances/{approval_workflow_instance_id}/approval_requests/{approval_request_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -124,7 +124,7 @@ Updates the  approver's decision about an approval request.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="UpdateDecisionApprovalRequest" method="patch" path="/api/v2/approval_workflow_instances/{approval_workflow_instance_id}/approval_requests/{approval_request_id}/decision" -->
+<!-- UsageSnippet language="python" operationID="UpdateDecisionApprovalRequest" method="patch" path="/api/v2/approval_workflow_instances/{approval_workflow_instance_id}/approval_requests/{approval_request_id}/decision" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -136,7 +136,7 @@ with Zendesk(
     ),
 ) as z_client:
 
-    res = z_client.approval_requests.update_decision_approval_request(approval_workflow_instance_id="360002783572", approval_request_id="360002783572", notes="Approved by manager", status="approved")
+    res = z_client.approval_requests.update_decision_approval_request(approval_workflow_instance_id="360002783572", approval_request_id="360002783572")
 
     # Handle response
     print(res)
@@ -174,7 +174,7 @@ Returns a list of approvals associated with a specific [workflow instance](/api-
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="SearchApprovals" method="post" path="/api/v2/approval_workflow_instances/{approval_workflow_instance_id}/approval_requests/search" -->
+<!-- UsageSnippet language="python" operationID="SearchApprovals" method="post" path="/api/v2/approval_workflow_instances/{approval_workflow_instance_id}/approval_requests/search" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

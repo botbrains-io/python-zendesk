@@ -2,12 +2,17 @@
 
 The type of this ticket
 
+## Example Usage
+
+```python
+from zendesk.models import TicketObjectType
+value: TicketObjectType = "problem"
+```
+
 
 ## Values
 
-| Name       | Value      |
-| ---------- | ---------- |
-| `PROBLEM`  | problem    |
-| `INCIDENT` | incident   |
-| `QUESTION` | question   |
-| `TASK`     | task       |
+- `"problem"`
+- `"incident"`
+- `"question"`
+- `"task"`

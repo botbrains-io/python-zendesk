@@ -2,11 +2,16 @@
 
 Required for Create Ticket operation
 
+## Example Usage
+
+```python
+from zendesk.models import ViaID
+value: ViaID = 44
+```
+
 
 ## Values
 
-| Name         | Value        |
-| ------------ | ------------ |
-| `FORTY_FOUR` | 44           |
-| `FORTY_FIVE` | 45           |
-| `FORTY_SIX`  | 46           |
+- `44`
+- `45`
+- `46`

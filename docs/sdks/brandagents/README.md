@@ -28,7 +28,7 @@ Returns a maximum of 100 records per page.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListBrandAgents" method="get" path="/api/v2/brand_agents" -->
+<!-- UsageSnippet language="python" operationID="ListBrandAgents" method="get" path="/api/v2/brand_agents" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -82,7 +82,7 @@ Returns a brand agent membership for your account.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowBrandAgentById" method="get" path="/api/v2/brand_agents/{brand_agent_id}" -->
+<!-- UsageSnippet language="python" operationID="ShowBrandAgentById" method="get" path="/api/v2/brand_agents/{brand_agent_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

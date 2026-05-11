@@ -1,10 +1,15 @@
 # WebhookPatchRequestRequestFormat
 
+## Example Usage
+
+```python
+from zendesk.models import WebhookPatchRequestRequestFormat
+value: WebhookPatchRequestRequestFormat = "json"
+```
+
 
 ## Values
 
-| Name           | Value          |
-| -------------- | -------------- |
-| `JSON`         | json           |
-| `XML`          | xml            |
-| `FORM_ENCODED` | form_encoded   |
+- `"json"`
+- `"xml"`
+- `"form_encoded"`

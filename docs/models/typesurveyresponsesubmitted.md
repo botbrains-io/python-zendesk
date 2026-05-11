@@ -1,8 +1,13 @@
 # TypeSurveyResponseSubmitted
 
+## Example Usage
+
+```python
+from zendesk.models import TypeSurveyResponseSubmitted
+value: TypeSurveyResponseSubmitted = "SurveyResponseSubmitted"
+```
+
 
 ## Values
 
-| Name                        | Value                       |
-| --------------------------- | --------------------------- |
-| `SURVEY_RESPONSE_SUBMITTED` | SurveyResponseSubmitted     |
+- `"SurveyResponseSubmitted"`

@@ -23,7 +23,7 @@ Use the `incremental_resource` parameter to specify the resource. Possible value
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="IncrementalSampleExport" method="get" path="/api/v2/incremental/{incremental_resource}/sample" -->
+<!-- UsageSnippet language="python" operationID="IncrementalSampleExport" method="get" path="/api/v2/incremental/{incremental_resource}/sample" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -73,7 +73,7 @@ See [Organizations sideloads](/documentation/ticketing/using-the-zendesk-api/sid
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="IncrementalOrganizationExport" method="get" path="/api/v2/incremental/organizations" -->
+<!-- UsageSnippet language="python" operationID="IncrementalOrganizationExport" method="get" path="/api/v2/incremental/organizations" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -160,7 +160,7 @@ update is listed as an object in the event's `child_events` array. Example:
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="IncrementalTicketEvents" method="get" path="/api/v2/incremental/ticket_events" -->
+<!-- UsageSnippet language="python" operationID="IncrementalTicketEvents" method="get" path="/api/v2/incremental/ticket_events" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -228,7 +228,7 @@ See [Tickets sideloads](/documentation/ticketing/using-the-zendesk-api/side_load
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="IncrementalTicketExportTime" method="get" path="/api/v2/incremental/tickets" -->
+<!-- UsageSnippet language="python" operationID="IncrementalTicketExportTime" method="get" path="/api/v2/incremental/tickets" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -287,7 +287,7 @@ See [Tickets sideloads](/documentation/ticketing/using-the-zendesk-api/side_load
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="IncrementalTicketExportCursor" method="get" path="/api/v2/incremental/tickets/cursor" -->
+<!-- UsageSnippet language="python" operationID="IncrementalTicketExportCursor" method="get" path="/api/v2/incremental/tickets/cursor" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -337,7 +337,7 @@ See [Users sideloads](/documentation/ticketing/using-the-zendesk-api/side_loadin
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="IncrementalUserExportTime" method="get" path="/api/v2/incremental/users" -->
+<!-- UsageSnippet language="python" operationID="IncrementalUserExportTime" method="get" path="/api/v2/incremental/users" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -387,7 +387,7 @@ See [Users sideloads](/documentation/ticketing/using-the-zendesk-api/side_loadin
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="IncrementalUserExportCursor" method="get" path="/api/v2/incremental/users/cursor" -->
+<!-- UsageSnippet language="python" operationID="IncrementalUserExportCursor" method="get" path="/api/v2/incremental/users/cursor" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

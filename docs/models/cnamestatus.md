@@ -2,11 +2,16 @@
 
 Whether all of the required CNAME records are set. Possible values: "unknown", "verified", "failed"
 
+## Example Usage
+
+```python
+from zendesk.models import CnameStatus
+value: CnameStatus = "unknown"
+```
+
 
 ## Values
 
-| Name       | Value      |
-| ---------- | ---------- |
-| `UNKNOWN`  | unknown    |
-| `VERIFIED` | verified   |
-| `FAILED`   | failed     |
+- `"unknown"`
+- `"verified"`
+- `"failed"`

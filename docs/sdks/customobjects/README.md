@@ -19,7 +19,7 @@ Lists all undeleted custom objects for the account
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListCustomObjects" method="get" path="/api/v2/custom_objects" -->
+<!-- UsageSnippet language="python" operationID="ListCustomObjects" method="get" path="/api/v2/custom_objects" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -63,7 +63,7 @@ Creates an object describing all the properties required to create a custom obje
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CreateCustomObject" method="post" path="/api/v2/custom_objects" -->
+<!-- UsageSnippet language="python" operationID="CreateCustomObject" method="post" path="/api/v2/custom_objects" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -114,7 +114,7 @@ Returns an object with the specified key
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowCustomObject" method="get" path="/api/v2/custom_objects/{custom_object_key}" -->
+<!-- UsageSnippet language="python" operationID="ShowCustomObject" method="get" path="/api/v2/custom_objects/{custom_object_key}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -160,7 +160,7 @@ Updates an individual custom object. The updating rules are as follows:
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="UpdateCustomObject" method="patch" path="/api/v2/custom_objects/{custom_object_key}" -->
+<!-- UsageSnippet language="python" operationID="UpdateCustomObject" method="patch" path="/api/v2/custom_objects/{custom_object_key}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -243,7 +243,7 @@ List the current count and the limit for custom objects
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CustomObjectsLimit" method="get" path="/api/v2/custom_objects/limits/object_limit" -->
+<!-- UsageSnippet language="python" operationID="CustomObjectsLimit" method="get" path="/api/v2/custom_objects/limits/object_limit" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

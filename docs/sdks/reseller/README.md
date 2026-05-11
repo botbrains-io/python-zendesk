@@ -13,7 +13,7 @@ Create Trial Account
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CreateTrialAccount" method="post" path="/api/v2/accounts" -->
+<!-- UsageSnippet language="python" operationID="CreateTrialAccount" method="post" path="/api/v2/accounts" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

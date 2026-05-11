@@ -2,13 +2,18 @@
 
 Indicates the state of user identity verification. See [Verification method](#verification-method).
 
+## Example Usage
+
+```python
+from zendesk.models import VerificationMethod
+value: VerificationMethod = "none"
+```
+
 
 ## Values
 
-| Name    | Value   |
-| ------- | ------- |
-| `NONE`  | none    |
-| `LOW`   | low     |
-| `SSO`   | sso     |
-| `EMBED` | embed   |
-| `FULL`  | full    |
+- `"none"`
+- `"low"`
+- `"sso"`
+- `"embed"`
+- `"full"`

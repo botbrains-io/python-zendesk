@@ -2,10 +2,15 @@
 
 The sharing action
 
+## Example Usage
+
+```python
+from zendesk.models import AuditEventAction
+value: AuditEventAction = "shared"
+```
+
 
 ## Values
 
-| Name       | Value      |
-| ---------- | ---------- |
-| `SHARED`   | shared     |
-| `UNSHARED` | unshared   |
+- `"shared"`
+- `"unshared"`

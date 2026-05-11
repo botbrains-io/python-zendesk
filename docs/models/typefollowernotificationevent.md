@@ -1,8 +1,13 @@
 # TypeFollowerNotificationEvent
 
+## Example Usage
+
+```python
+from zendesk.models import TypeFollowerNotificationEvent
+value: TypeFollowerNotificationEvent = "FollowerNotificationEvent"
+```
+
 
 ## Values
 
-| Name                          | Value                         |
-| ----------------------------- | ----------------------------- |
-| `FOLLOWER_NOTIFICATION_EVENT` | FollowerNotificationEvent     |
+- `"FollowerNotificationEvent"`

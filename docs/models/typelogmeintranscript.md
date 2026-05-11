@@ -1,8 +1,13 @@
 # TypeLogMeInTranscript
 
+## Example Usage
+
+```python
+from zendesk.models import TypeLogMeInTranscript
+value: TypeLogMeInTranscript = "LogMeInTranscript"
+```
+
 
 ## Values
 
-| Name                   | Value                  |
-| ---------------------- | ---------------------- |
-| `LOG_ME_IN_TRANSCRIPT` | LogMeInTranscript      |
+- `"LogMeInTranscript"`

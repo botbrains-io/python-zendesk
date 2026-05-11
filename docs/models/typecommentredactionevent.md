@@ -1,8 +1,13 @@
 # TypeCommentRedactionEvent
 
+## Example Usage
+
+```python
+from zendesk.models import TypeCommentRedactionEvent
+value: TypeCommentRedactionEvent = "CommentRedactionEvent"
+```
+
 
 ## Values
 
-| Name                      | Value                     |
-| ------------------------- | ------------------------- |
-| `COMMENT_REDACTION_EVENT` | CommentRedactionEvent     |
+- `"CommentRedactionEvent"`

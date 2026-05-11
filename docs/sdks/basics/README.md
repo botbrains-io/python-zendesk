@@ -29,7 +29,7 @@ Status: 404 Not Found
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="OpenTicketInAgentBrowser" method="post" path="/api/v2/channels/voice/agents/{agent_id}/tickets/{ticket_id}/display" -->
+<!-- UsageSnippet language="python" operationID="OpenTicketInAgentBrowser" method="post" path="/api/v2/channels/voice/agents/{agent_id}/tickets/{ticket_id}/display" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -87,7 +87,7 @@ Status: 404 Not Found
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="OpenUsersProfileInAgentBrowser" method="post" path="/api/v2/channels/voice/agents/{agent_id}/users/{user_id}/display" -->
+<!-- UsageSnippet language="python" operationID="OpenUsersProfileInAgentBrowser" method="post" path="/api/v2/channels/voice/agents/{agent_id}/users/{user_id}/display" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -173,7 +173,7 @@ The ticket must have a `voice_comment` with the following values:
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CreateTicketOrVoicemailTicket" method="post" path="/api/v2/channels/voice/tickets" -->
+<!-- UsageSnippet language="python" operationID="CreateTicketOrVoicemailTicket" method="post" path="/api/v2/channels/voice/tickets" example="default" -->
 ```python
 from zendesk import Zendesk, models
 from zendesk.utils import parse_datetime

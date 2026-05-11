@@ -57,7 +57,7 @@ Returns a maximum of 100 records per page.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListAutomations" method="get" path="/api/v2/automations" -->
+<!-- UsageSnippet language="python" operationID="ListAutomations" method="get" path="/api/v2/automations" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -115,7 +115,7 @@ The request must include the following conditions in the `all` array:
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CreateAutomation" method="post" path="/api/v2/automations" -->
+<!-- UsageSnippet language="python" operationID="CreateAutomation" method="post" path="/api/v2/automations" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -159,7 +159,7 @@ with Zendesk(
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowAutomation" method="get" path="/api/v2/automations/{automation_id}" -->
+<!-- UsageSnippet language="python" operationID="ShowAutomation" method="get" path="/api/v2/automations/{automation_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -215,7 +215,7 @@ The request must include the following conditions in the `all` array:
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="UpdateAutomation" method="put" path="/api/v2/automations/{automation_id}" -->
+<!-- UsageSnippet language="python" operationID="UpdateAutomation" method="put" path="/api/v2/automations/{automation_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -326,7 +326,7 @@ The following sideloads are supported:
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListActiveAutomations" method="get" path="/api/v2/automations/active" -->
+<!-- UsageSnippet language="python" operationID="ListActiveAutomations" method="get" path="/api/v2/automations/active" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -449,7 +449,7 @@ The following sideloads are supported. For more information, see [Side-loading](
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="SearchAutomations" method="get" path="/api/v2/automations/search" -->
+<!-- UsageSnippet language="python" operationID="SearchAutomations" method="get" path="/api/v2/automations/search" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -525,7 +525,7 @@ Each automation may have the following properties:
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="UpdateManyAutomations" method="put" path="/api/v2/automations/update_many" -->
+<!-- UsageSnippet language="python" operationID="UpdateManyAutomations" method="put" path="/api/v2/automations/update_many" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

@@ -1,9 +1,14 @@
 # EmailCCObjectAction
 
+## Example Usage
+
+```python
+from zendesk.models import EmailCCObjectAction
+value: EmailCCObjectAction = "put"
+```
+
 
 ## Values
 
-| Name     | Value    |
-| -------- | -------- |
-| `PUT`    | put      |
-| `DELETE` | delete   |
+- `"put"`
+- `"delete"`

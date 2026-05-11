@@ -28,7 +28,7 @@ See [Pagination](/api-reference/introduction/pagination/).
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListRequests" method="get" path="/api/v2/requests" -->
+<!-- UsageSnippet language="python" operationID="ListRequests" method="get" path="/api/v2/requests" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -96,7 +96,7 @@ Once a ticket is closed (as distinct from solved), it can't be reopened. However
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CreateRequest" method="post" path="/api/v2/requests" -->
+<!-- UsageSnippet language="python" operationID="CreateRequest" method="post" path="/api/v2/requests" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -148,7 +148,7 @@ The following sideloads are supported:
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowRequest" method="get" path="/api/v2/requests/{request_id}" -->
+<!-- UsageSnippet language="python" operationID="ShowRequest" method="get" path="/api/v2/requests/{request_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -204,7 +204,7 @@ This endpoint can only update the following properties in the request.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="UpdateRequest" method="put" path="/api/v2/requests/{request_id}" -->
+<!-- UsageSnippet language="python" operationID="UpdateRequest" method="put" path="/api/v2/requests/{request_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -273,7 +273,7 @@ When using offset pagination, use the following parameters to change the sort or
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListComments" method="get" path="/api/v2/requests/{request_id}/comments" -->
+<!-- UsageSnippet language="python" operationID="ListComments" method="get" path="/api/v2/requests/{request_id}/comments" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -326,7 +326,7 @@ with Zendesk(
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowComment" method="get" path="/api/v2/requests/{request_id}/comments/{ticket_comment_id}" -->
+<!-- UsageSnippet language="python" operationID="ShowComment" method="get" path="/api/v2/requests/{request_id}/comments/{ticket_comment_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -389,7 +389,7 @@ The Search Requests endpoint returns up to 1,000 results per query, with a maxim
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="SearchRequests" method="get" path="/api/v2/requests/search" -->
+<!-- UsageSnippet language="python" operationID="SearchRequests" method="get" path="/api/v2/requests/search" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

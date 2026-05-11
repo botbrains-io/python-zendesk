@@ -2,10 +2,15 @@
 
 Sort order - "created_at" (ascending) or "-created_at" (descending)
 
+## Example Usage
+
+```python
+from zendesk.models import ListTicketCommentsSort
+value: ListTicketCommentsSort = "created_at"
+```
+
 
 ## Values
 
-| Name               | Value              |
-| ------------------ | ------------------ |
-| `CREATED_AT`       | created_at         |
-| `MINUS_CREATED_AT` | -created_at        |
+- `"created_at"`
+- `"-created_at"`

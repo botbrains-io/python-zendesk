@@ -1,8 +1,13 @@
 # BearerTokenAuthenticationType
 
+## Example Usage
+
+```python
+from zendesk.models import BearerTokenAuthenticationType
+value: BearerTokenAuthenticationType = "bearer_token"
+```
+
 
 ## Values
 
-| Name           | Value          |
-| -------------- | -------------- |
-| `BEARER_TOKEN` | bearer_token   |
+- `"bearer_token"`

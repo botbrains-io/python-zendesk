@@ -1,8 +1,13 @@
 # TypeEmailCcChange
 
+## Example Usage
+
+```python
+from zendesk.models import TypeEmailCcChange
+value: TypeEmailCcChange = "EmailCcChange"
+```
+
 
 ## Values
 
-| Name              | Value             |
-| ----------------- | ----------------- |
-| `EMAIL_CC_CHANGE` | EmailCcChange     |
+- `"EmailCcChange"`

@@ -30,7 +30,7 @@ See [Pagination](/api-reference/introduction/pagination/).
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListSessions" method="get" path="/api/v2/sessions" -->
+<!-- UsageSnippet language="python" operationID="ListSessions" method="get" path="/api/v2/sessions" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -121,7 +121,7 @@ with Zendesk(
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowSession" method="get" path="/api/v2/users/{user_id}/sessions/{session_id}" -->
+<!-- UsageSnippet language="python" operationID="ShowSession" method="get" path="/api/v2/users/{user_id}/sessions/{session_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -250,7 +250,7 @@ with Zendesk(
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowCurrentlyAuthenticatedSession" method="get" path="/api/v2/users/me/session" -->
+<!-- UsageSnippet language="python" operationID="ShowCurrentlyAuthenticatedSession" method="get" path="/api/v2/users/me/session" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -294,7 +294,7 @@ with Zendesk(
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="RenewCurrentSession" method="get" path="/api/v2/users/me/session/renew" -->
+<!-- UsageSnippet language="python" operationID="RenewCurrentSession" method="get" path="/api/v2/users/me/session/renew" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

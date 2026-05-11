@@ -50,7 +50,7 @@ Errors are represented as JSON objects which have the following keys:
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListSearchResults" method="get" path="/api/v2/search" -->
+<!-- UsageSnippet language="python" operationID="ListSearchResults" method="get" path="/api/v2/search" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -103,7 +103,7 @@ Returns the number of items matching the query rather than the items. The search
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CountSearchResults" method="get" path="/api/v2/search/count" -->
+<!-- UsageSnippet language="python" operationID="CountSearchResults" method="get" path="/api/v2/search/count" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -193,7 +193,7 @@ There's no `count` property.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ExportSearchResults" method="get" path="/api/v2/search/export" -->
+<!-- UsageSnippet language="python" operationID="ExportSearchResults" method="get" path="/api/v2/search/export" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

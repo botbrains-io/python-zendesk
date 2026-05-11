@@ -26,7 +26,7 @@ Returns a maximum of 100 records per page.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListAuditLogs" method="get" path="/api/v2/audit_logs" -->
+<!-- UsageSnippet language="python" operationID="ListAuditLogs" method="get" path="/api/v2/audit_logs" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -82,7 +82,7 @@ with Zendesk(
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowAuditLog" method="get" path="/api/v2/audit_logs/{audit_log_id}" -->
+<!-- UsageSnippet language="python" operationID="ShowAuditLog" method="get" path="/api/v2/audit_logs/{audit_log_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 

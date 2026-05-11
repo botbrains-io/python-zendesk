@@ -40,7 +40,7 @@ Examples:
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ListSatisfactionRatings" method="get" path="/api/v2/satisfaction_ratings" -->
+<!-- UsageSnippet language="python" operationID="ListSatisfactionRatings" method="get" path="/api/v2/satisfaction_ratings" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -95,7 +95,7 @@ the [List Satisfaction Ratings](#list-satisfaction-ratings) endpoint.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="ShowSatisfactionRating" method="get" path="/api/v2/satisfaction_ratings/{satisfaction_rating_id}" -->
+<!-- UsageSnippet language="python" operationID="ShowSatisfactionRating" method="get" path="/api/v2/satisfaction_ratings/{satisfaction_rating_id}" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -145,7 +145,7 @@ This indicates that the count is being updated in the background, and `count[val
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CountSatisfactionRatings" method="get" path="/api/v2/satisfaction_ratings/count" -->
+<!-- UsageSnippet language="python" operationID="CountSatisfactionRatings" method="get" path="/api/v2/satisfaction_ratings/count" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
@@ -196,7 +196,7 @@ The end user must be a verified user.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="CreateTicketSatisfactionRating" method="post" path="/api/v2/tickets/{ticket_id}/satisfaction_rating" -->
+<!-- UsageSnippet language="python" operationID="CreateTicketSatisfactionRating" method="post" path="/api/v2/tickets/{ticket_id}/satisfaction_rating" example="default" -->
 ```python
 from zendesk import Zendesk, models
 
