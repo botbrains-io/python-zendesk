@@ -16500,6 +16500,7 @@ components:
           SurveyResponseSubmitted: "#/components/schemas/SurveyResponseSubmittedEvent"
           OfferedToEvent: "#/components/schemas/OfferedToEvent"
           RoutingChannelEvent: "#/components/schemas/RoutingChannelEvent"
+          WebhookEvent: "#/components/schemas/WebhookEvent"
       oneOf:
         - $ref: "#/components/schemas/CreateEvent"
         - $ref: "#/components/schemas/ChangeEvent"
@@ -16534,6 +16535,7 @@ components:
         - $ref: "#/components/schemas/SurveyResponseSubmittedEvent"
         - $ref: "#/components/schemas/OfferedToEvent"
         - $ref: "#/components/schemas/RoutingChannelEvent"
+        - $ref: "#/components/schemas/WebhookEvent"
     BaseEvent:
       type: object
       required:
@@ -17368,6 +17370,44 @@ components:
               type: string
               readOnly: true
               description: The current routing channel
+    WebhookEvent:
+      allOf:
+        - $ref: "#/components/schemas/BaseEvent"
+        - type: object
+          properties:
+            type:
+              type: string
+              enum:
+                - WebhookEvent
+              readOnly: true
+            via:
+              type: object
+              readOnly: true
+              description: How the webhook event was triggered
+              properties:
+                channel:
+                  type: string
+                  readOnly: true
+                source:
+                  type: object
+                  readOnly: true
+                  properties:
+                    from:
+                      type: object
+                      readOnly: true
+                      properties:
+                        deleted:
+                          type: boolean
+                          readOnly: true
+                        title:
+                          type: string
+                          readOnly: true
+                        id:
+                          type: integer
+                          readOnly: true
+                    rel:
+                      type: string
+                      readOnly: true
     AttributeValueObject:
       type: object
       properties:
