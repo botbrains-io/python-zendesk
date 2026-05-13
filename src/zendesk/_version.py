@@ -3,10 +3,10 @@
 import importlib.metadata
 
 __title__: str = "python-zendesk"
-__version__: str = "0.3.0"
+__version__: str = "0.3.1"
 __openapi_doc_version__: str = "2.0.0"
-__gen_version__: str = "2.882.0"
-__user_agent__: str = "speakeasy-sdk/python 0.3.0 2.882.0 2.0.0 python-zendesk"
+__gen_version__: str = "2.884.0"
+__user_agent__: str = "speakeasy-sdk/python 0.3.1 2.884.0 2.0.0 python-zendesk"
 
 try:
     if __package__ is not None:

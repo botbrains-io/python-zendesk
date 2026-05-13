@@ -8,14 +8,14 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 from zendesk.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 
 
-class FromTypedDict(TypedDict):
+class ViaObjectFromTypedDict(TypedDict):
     address: NotRequired[Nullable[str]]
     id: NotRequired[Nullable[int]]
     name: NotRequired[Nullable[str]]
     title: NotRequired[Nullable[str]]
 
 
-class From(BaseModel):
+class ViaObjectFrom(BaseModel):
     address: OptionalNullable[str] = UNSET
 
     id: OptionalNullable[int] = UNSET
@@ -80,7 +80,7 @@ class To(BaseModel):
 class ViaObjectSourceTypedDict(TypedDict):
     r"""For some channels a source object gives more information about how or why the ticket or event was created"""
 
-    from_: NotRequired[FromTypedDict]
+    from_: NotRequired[ViaObjectFromTypedDict]
     rel: NotRequired[Nullable[str]]
     to: NotRequired[ToTypedDict]
 
@@ -93,7 +93,7 @@ class ViaObjectSource(BaseModel):
     )
     __pydantic_extra__: Dict[str, Any] = pydantic.Field(init=False)
 
-    from_: Annotated[Optional[From], pydantic.Field(alias="from")] = None
+    from_: Annotated[Optional[ViaObjectFrom], pydantic.Field(alias="from")] = None
 
     rel: OptionalNullable[str] = UNSET
 

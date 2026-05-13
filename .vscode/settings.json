@@ -2,6 +2,5 @@
   "python.testing.pytestArgs": ["tests", "-vv"],
   "python.testing.unittestEnabled": false,
   "python.testing.pytestEnabled": true,
-  "pylint.args": ["--rcfile=pylintrc"],
-  "python-envs.pythonProjects": []
+  "pylint.args": ["--rcfile=pylintrc"]
 }

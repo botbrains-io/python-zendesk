@@ -5,11 +5,137 @@ from .attachmentobject import AttachmentObject, AttachmentObjectTypedDict
 from .attributevalueobject import AttributeValueObject, AttributeValueObjectTypedDict
 from .viaobject import ViaObject, ViaObjectTypedDict
 from datetime import datetime
+import pydantic
 from pydantic import Discriminator, Tag, model_serializer
 from typing import Any, List, Literal, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 from zendesk.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 from zendesk.utils import get_discriminator
+
+
+TypeWebhookEvent = Literal["WebhookEvent",]
+
+
+class AuditEventFromTypedDict(TypedDict):
+    deleted: NotRequired[bool]
+    title: NotRequired[str]
+    id: NotRequired[int]
+
+
+class AuditEventFrom(BaseModel):
+    deleted: Optional[bool] = None
+
+    title: Optional[str] = None
+
+    id: Optional[int] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["deleted", "title", "id"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
+
+class AuditEventSourceTypedDict(TypedDict):
+    from_: NotRequired[AuditEventFromTypedDict]
+    rel: NotRequired[str]
+
+
+class AuditEventSource(BaseModel):
+    from_: Annotated[Optional[AuditEventFrom], pydantic.Field(alias="from")] = None
+
+    rel: Optional[str] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["from", "rel"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
+
+class AuditEventViaTypedDict(TypedDict):
+    r"""How the webhook event was triggered"""
+
+    channel: NotRequired[str]
+    source: NotRequired[AuditEventSourceTypedDict]
+
+
+class AuditEventVia(BaseModel):
+    r"""How the webhook event was triggered"""
+
+    channel: Optional[str] = None
+
+    source: Optional[AuditEventSource] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["channel", "source"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
+
+class WebhookEventTypedDict(TypedDict):
+    id: int
+    r"""Automatically assigned when the event is created"""
+    type: TypeWebhookEvent
+    via: NotRequired[AuditEventViaTypedDict]
+    r"""How the webhook event was triggered"""
+
+
+class WebhookEvent(BaseModel):
+    id: int
+    r"""Automatically assigned when the event is created"""
+
+    type: TypeWebhookEvent
+
+    via: Optional[AuditEventVia] = None
+    r"""How the webhook event was triggered"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["via"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 TypeRoutingChannelEvent = Literal["RoutingChannelEvent",]
@@ -2044,38 +2170,39 @@ class CreateEvent(BaseModel):
 AuditEventTypedDict = TypeAliasType(
     "AuditEventTypedDict",
     Union[
+        WebhookEventTypedDict,
         SkillAssignedEventTypedDict,
-        ErrorEventTypedDict,
         LogMeInTranscriptEventTypedDict,
         CommentRedactionEventTypedDict,
-        AttachmentRedactionEventTypedDict,
-        TicketSharingEventTypedDict,
-        CommentPrivacyChangeEventTypedDict,
-        ChatEndedEventTypedDict,
+        ErrorEventTypedDict,
         CreateEventTypedDict,
-        PushEventTypedDict,
+        CommentPrivacyChangeEventTypedDict,
+        OfferedToEventTypedDict,
+        AttachmentRedactionEventTypedDict,
+        ChatEndedEventTypedDict,
         SmsNotificationEventTypedDict,
         CcEventTypedDict,
-        OfferedToEventTypedDict,
+        PushEventTypedDict,
         FollowerChangeEventTypedDict,
         EmailCcChangeEventTypedDict,
-        ExternalEventTypedDict,
         RoutingChannelEventTypedDict,
+        ExternalEventTypedDict,
+        TicketSharingEventTypedDict,
         NotificationEventTypedDict,
-        NotificationWithCcsEventTypedDict,
-        SatisfactionRatingEventTypedDict,
         TweetEventTypedDict,
         OrganizationSubscriptionNotificationEventTypedDict,
-        ChangeEventTypedDict,
+        SatisfactionRatingEventTypedDict,
         MacroReferenceEventTypedDict,
         FollowerNotificationEventTypedDict,
+        NotificationWithCcsEventTypedDict,
+        ChangeEventTypedDict,
         FacebookEventTypedDict,
         ChatStartedEventTypedDict,
         SurveyOfferedEventTypedDict,
         SurveyResponseSubmittedEventTypedDict,
         CommentEventTypedDict,
-        SuspendedTicketRecoveryEventTypedDict,
         FacebookCommentEventTypedDict,
+        SuspendedTicketRecoveryEventTypedDict,
         VoiceCommentEventTypedDict,
     ],
 )
@@ -2118,6 +2245,13 @@ AuditEvent = Annotated[
         Annotated[SurveyResponseSubmittedEvent, Tag("SurveyResponseSubmitted")],
         Annotated[OfferedToEvent, Tag("OfferedToEvent")],
         Annotated[RoutingChannelEvent, Tag("RoutingChannelEvent")],
+        Annotated[WebhookEvent, Tag("WebhookEvent")],
     ],
     Discriminator(lambda m: get_discriminator(m, "type", "type")),
 ]
+
+
+try:
+    AuditEventSource.model_rebuild()
+except NameError:
+    pass

@@ -201,3 +201,9 @@ value: models.OfferedToEvent = /* values here */
 value: models.RoutingChannelEvent = /* values here */
 ```
 
+### `models.WebhookEvent`
+
+```python
+value: models.WebhookEvent = /* values here */
+```
+
